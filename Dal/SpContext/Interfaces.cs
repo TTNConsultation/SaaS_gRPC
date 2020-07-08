@@ -17,6 +17,12 @@ namespace Dal.Sp
 
   public interface IRonly<T> : IDisposable where T : new()
   {
+    T Read(int id);
+
+    IEnumerable<T> Read(string value);
+
+    IEnumerable<T> Read(string key, object id);
+
     Task<T> ReadAsync(int id);
 
     Task<IEnumerable<T>> ReadAsync();
@@ -36,7 +42,7 @@ namespace Dal.Sp
 
     bool Update(T obj);
 
-    bool UpdateState(int id, int stateId);
+    Task<bool> UpdateState(int id, int stateId);
 
     bool Delete(int id);
   }
@@ -48,14 +54,14 @@ namespace Dal.Sp
 
   public interface ICollectionMapToEntity
   {
-    public IMapToEntity FirstOrDefault(string typename);
+    public IMapToEntity FirstOrDefault(string type);
 
     T Add<T>(SqlDataReader reader, out IMapToEntity mapper) where T : new();
   }
 
   public interface IMapToEntity
   {
-    bool Type(string typename);
+    bool IsType(string type);
 
     T Build<T>(SqlDataReader reader) where T : new();
 

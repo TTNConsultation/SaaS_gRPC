@@ -7,11 +7,11 @@ using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
 {
-  public class CollectionMapToEntity : ICollectionMapToEntity
+  public sealed class CollectionMapToEntity : ICollectionMapToEntity
   {
     private readonly HashSet<IMapToEntity> mappers = new HashSet<IMapToEntity>();
 
-    public IMapToEntity FirstOrDefault(string typename) => mappers.FirstOrDefault(sp => sp.Type(typename));
+    public IMapToEntity FirstOrDefault(string typename) => mappers.FirstOrDefault(sp => sp.IsType(typename));
 
     public T Add<T>(SqlDataReader reader, out IMapToEntity map) where T : new()
     {
@@ -61,7 +61,7 @@ namespace Dal.Sp
       return ret;
     }
 
-    public bool Type(string typename)
+    public bool IsType(string typename)
     {
       return Name.IsEqual(typename);
     }

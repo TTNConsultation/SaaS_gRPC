@@ -72,14 +72,14 @@ namespace Saas.Services
     }
 
     [Authorize(Policy = "admin")]
-    public override Task<MsgBool> Delete(MsgInt id, ServerCallContext context)
+    public async override Task<MsgBool> Delete(MsgInt id, ServerCallContext context)
     {
       if (id is null || id.Value <= 0)
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpCrud<Restaurant>(appData, context.GetHttpContext().User, OperationType.D);
       return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : Task.FromResult(new MsgBool(db.UpdateState(id.Value, appData.States.DeleteId)));
+                          : new MsgBool(await db.UpdateState(id.Value, appData.States.DeleteId));
     }
   }
 }

@@ -37,7 +37,7 @@ namespace Dal.Sp
       var spInfo = GetSpInfo<T>(user.Role, OperationType.R);
       var conStr = ConStrManager.GetAppConnectionString();
 
-      return (spInfo == null && user.IdVerified) ? null : new Ronly<T>(user, spInfo, Mappers, conStr);
+      return (spInfo == null) ? null : new Ronly<T>(user, spInfo, Mappers, conStr);
     }
 
     public IRonly<T> SpROnly<T>(IAppData appdata, ClaimsPrincipal uc, OperationType op) where T : new()
@@ -46,7 +46,7 @@ namespace Dal.Sp
       var spInfo = GetSpInfo<T>(user.Role, op);
       var conStr = ConStrManager.GetConnectionString(user.Role.ToString());
 
-      return (spInfo == null && user.IdVerified) ? null : new Ronly<T>(user, spInfo, Mappers, conStr);
+      return (spInfo == null || !user.IdVerified) ? null : new Ronly<T>(user, spInfo, Mappers, conStr);
     }
 
     public ICrud<T> SpCrud<T>(IAppData appdata, ClaimsPrincipal uc, OperationType op) where T : new()
@@ -56,7 +56,7 @@ namespace Dal.Sp
       var spInfo = GetSpInfo<T>(user.Role, op);
       var conStr = ConStrManager.GetConnectionString(user.Role.ToString());
 
-      return (spInfo?.IsReadOnly ?? false && user.IdVerified) ? null : new Crud<T>(user, spInfo, spInfoR, Mappers, conStr);
+      return (spInfo?.IsReadOnly ?? !user.IdVerified) ? null : new Crud<T>(user, spInfo, spInfoR, Mappers, conStr);
     }
   }
 

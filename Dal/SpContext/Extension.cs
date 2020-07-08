@@ -1,10 +1,11 @@
-﻿using Dal.Sp;
-using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Threading.Tasks;
+
+using Dal.Sp;
+using Microsoft.Data.SqlClient;
 
 namespace Dal
 {
@@ -66,6 +67,19 @@ namespace Dal
         "char" => SqlDbType.Char,
         _ => throw new InvalidCastException()
       };
+    }
+
+    public static IEnumerable<T> Parse<T>(this SqlDataReader reader, ICollectionMapToEntity mappers) where T : new()
+    {
+      var ret = new HashSet<T>();
+      var map = mappers.FirstOrDefault(typeof(T).Name);
+
+      while (reader.Read())
+      {
+        ret.Add((map == null) ? mappers.Add<T>(reader, out map) : map.Parse<T>(reader));
+      }
+
+      return ret;
     }
 
     public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, ICollectionMapToEntity mappers) where T : new()

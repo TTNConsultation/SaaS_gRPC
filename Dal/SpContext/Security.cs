@@ -84,9 +84,6 @@ namespace Dal
       }
     }
 
-    internal static User GetAppUser()
-    {
-      return new User(RolePolicy.GetAppRole());
-    }
+    internal static User GetAppUser() => new User(RolePolicy.GetAppRole());
   }
 }

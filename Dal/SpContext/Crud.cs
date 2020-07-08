@@ -10,30 +10,25 @@ namespace Dal.Sp
 
     public Crud(User user, Info sp, Info spReadOnly, ICollectionMapToEntity mappers, string conStr) : base(user, sp, mappers, conStr)
     {
-      if (spReadOnly != null)
-        SpRonly = new Ronly<T>(user, spReadOnly, mappers, conStr);
+      SpRonly = (spReadOnly == null) ? null : new Ronly<T>(user, spReadOnly, mappers, conStr);
     }
 
-    public int Create(T obj)
+    public int Create(T obj) => AddParameters(obj) ? Create() : -1;
+
+    public bool Update(T obj) => AddParameters(obj) && Update();
+
+    public async Task<bool> UpdateState(int id, int stateId)
     {
-      return AddParameters(obj) ? Create() : -1;
+      return AddParameters(await ReadAsync(id).ConfigureAwait(false)) && SetParameter(Constant.STATE.Id(), stateId) && Update();
     }
 
-    public bool Update(T obj)
-    {
-      return AddParameters(obj) && UpdateDelete();
-    }
+    public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
 
-    public bool UpdateState(int id, int stateId)
-    {
-      var obj = ReadAsync(id).Result;
-      return AddParameters(obj) && SetParameter(Constant.STATE.Id(), stateId) && UpdateDelete();
-    }
+    public T Read(int id) => (SpRonly == null) ? throw new NullReferenceException() : SpRonly.Read(id);
 
-    public bool Delete(int id)
-    {
-      return AddParameter(Constant.ID, id) && UpdateDelete();
-    }
+    public IEnumerable<T> Read(string value) => (SpRonly == null) ? throw new NullReferenceException() : SpRonly.Read(value);
+
+    public IEnumerable<T> Read(string key, object value) => (SpRonly == null) ? throw new NullReferenceException() : SpRonly.Read(key, value);
 
     public async Task<T> ReadAsync(int id) => (SpRonly == null) ? throw new NullReferenceException() : await SpRonly.ReadAsync(id).ConfigureAwait(false);
 
@@ -43,29 +38,13 @@ namespace Dal.Sp
                                : await SpRonly.ReadAsync().ConfigureAwait(false);
     }
 
-    public async Task<IEnumerable<T>> ReadAsync(string value)
-    {
-      return (SpRonly == null) ? throw new NullReferenceException()
-                               : await SpRonly.ReadAsync(value).ConfigureAwait(false);
-    }
+    public async Task<IEnumerable<T>> ReadAsync(string value) => await SpRonly.ReadAsync(value).ConfigureAwait(false) ?? throw new NullReferenceException();
 
-    public async Task<IEnumerable<T>> ReadAsync(string key, object id)
-    {
-      return (SpRonly == null) ? throw new NullReferenceException()
-                               : await SpRonly.ReadAsync(key, id).ConfigureAwait(false);
-    }
+    public async Task<IEnumerable<T>> ReadAsync(string key, object id) => await SpRonly.ReadAsync(key, id).ConfigureAwait(false) ?? throw new NullReferenceException();
 
-    public async Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> ids)
-    {
-      return (SpRonly == null) ? throw new NullReferenceException()
-                               : await SpRonly.ReadAsync(ids).ConfigureAwait(false);
-    }
+    public async Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> ids) => await SpRonly.ReadAsync(ids).ConfigureAwait(false) ?? throw new NullReferenceException();
 
-    public async Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator)
-    {
-      return (SpRonly == null) ? throw new NullReferenceException()
-                               : await SpRonly.ReadRangeAsync(key, values, separator).ConfigureAwait(false);
-    }
+    public async Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator) => await SpRonly.ReadRangeAsync(key, values, separator).ConfigureAwait(false) ?? throw new NullReferenceException();
 
     public override void Dispose()
     {

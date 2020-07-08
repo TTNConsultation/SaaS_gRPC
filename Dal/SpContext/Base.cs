@@ -13,23 +13,26 @@ namespace Dal.Sp
   {
     private readonly SqlCommand SqlCmd;
     private readonly User UserInfo;
-    private readonly Info SpInformation;
-    private readonly ICollectionMapToEntity Mappers;
+    private readonly Info SpInfo;
+    private readonly ICollectionMapToEntity MapToEntities;
 
     protected Base(User user, Info spinfo, ICollectionMapToEntity mappers, string conStr)
     {
       UserInfo = user;
-      SpInformation = spinfo;
-      Mappers = mappers;
-      SqlCmd = new SqlCommand(SpInformation.FullName, new SqlConnection(conStr))
+      SpInfo = spinfo;
+      MapToEntities = mappers;
+
+      SqlCmd = new SqlCommand(SpInfo.FullName, new SqlConnection(conStr))
       {
         CommandType = CommandType.StoredProcedure
       };
+
+      AddParameter(Constant.ROOT.Id(), UserInfo.RootId);
     }
 
-    protected bool AddParameter(string name, object value)
+    protected bool AddParameter(string key, object value)
     {
-      var spParam = SpInformation.Parameter(name);
+      var spParam = SpInfo.Parameter(key);
 
       return (spParam != null) && SqlCmd.Parameters.Add(new SqlParameter(spParam.Name, spParam.Type.ToSqlDbType())
       {
@@ -52,7 +55,7 @@ namespace Dal.Sp
         if (AddParameter(propInfos[i].Name, propInfos[i].GetValue(obj)))
           nb++;
       }
-      return nb == SpInformation.ParameterCount - 1;  //rootid
+      return nb == SpInfo.ParameterCount - 1;  //rootid
     }
 
     protected bool AddParameters(IDictionary<string, object> parameters)
@@ -65,9 +68,9 @@ namespace Dal.Sp
       return ret;
     }
 
-    protected bool SetParameter(string name, object value)
+    protected bool SetParameter(string key, object value)
     {
-      var par = SpInformation.Parameter(name);
+      var par = SpInfo.Parameter(key);
       if (par == null)
         return false;
 
@@ -75,9 +78,8 @@ namespace Dal.Sp
       return true;
     }
 
-    protected bool UpdateDelete()
+    protected bool Update()
     {
-      AddParameter(Constant.ROOT.Id(), UserInfo.RootId);
       SqlCmd.Connection.Open();
 
       return SqlCmd.ExecuteNonQuery() == 1;
@@ -85,7 +87,6 @@ namespace Dal.Sp
 
     protected int Create()
     {
-      AddParameter(Constant.ROOT.Id(), UserInfo.RootId);
       SqlCmd.Connection.Open();
 
       return (SqlCmd.ExecuteNonQuery() == 1) ?
@@ -93,14 +94,20 @@ namespace Dal.Sp
         -1;
     }
 
+    public IEnumerable<T> Read()
+    {
+      SqlCmd.Connection.Open();
+
+      using var reader = SqlCmd.ExecuteReader();
+      return reader.Parse<T>(MapToEntities);
+    }
+
     public async virtual Task<IEnumerable<T>> ReadAsync()
     {
-      AddParameter(Constant.ROOT.Id(), UserInfo.RootId);
-
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
-      using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(Mappers).ConfigureAwait(false);
+      using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
+      return await reader.ParseAsync<T>(MapToEntities).ConfigureAwait(false);
     }
 
     public virtual void Dispose()

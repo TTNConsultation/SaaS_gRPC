@@ -10,29 +10,20 @@ namespace Dal.Sp
     {
     }
 
-    public async Task<T> ReadAsync(int id)
-    {
-      return await Task.FromResult(ReadAsync(Constant.ID, id).Result.First()).ConfigureAwait(false);
-    }
+    public T Read(int id) => Read(Constant.ID, id).First();
 
-    public async Task<IEnumerable<T>> ReadAsync(string value)
-    {
-      return await ReadAsync(Constant.VALUE, value).ConfigureAwait(false);
-    }
+    public IEnumerable<T> Read(string value) => Read(Constant.VALUE, value);
 
-    public async Task<IEnumerable<T>> ReadAsync(string parameterName, object parameterValue)
-    {
-      return AddParameter(parameterName, parameterValue) ? await ReadAsync().ConfigureAwait(false) : null;
-    }
+    public IEnumerable<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
 
-    public async Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> parameters)
-    {
-      return AddParameters(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
-    }
+    public async Task<T> ReadAsync(int id) => await Task.FromResult(Read(Constant.ID, id).First()).ConfigureAwait(false);
 
-    public async Task<IEnumerable<T>> ReadRangeAsync(string parameterName, string values, char separator)
-    {
-      return AddParameter(parameterName, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
-    }
+    public async Task<IEnumerable<T>> ReadAsync(string value) => await ReadAsync(Constant.VALUE, value).ConfigureAwait(false);
+
+    public async Task<IEnumerable<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
+
+    public async Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameters(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
+
+    public async Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
   }
 }

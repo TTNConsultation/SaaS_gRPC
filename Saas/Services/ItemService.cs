@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
@@ -35,7 +34,7 @@ namespace Saas.Services
     public async override Task<Item> Get(MsgInt id, ServerCallContext context)
     {
       if (id == null || id.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, "id is null"));
+        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Item>(appData, context.GetHttpContext().User, OperationType.R);
       return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
@@ -45,7 +44,7 @@ namespace Saas.Services
     public async override Task<Items> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       if (restaurantId == null || restaurantId.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, "restaurantId is null"));
+        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Item>(appData, context.GetHttpContext().User, OperationType.R);
       return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
@@ -55,7 +54,7 @@ namespace Saas.Services
     public async override Task<Items> GetByRestaurantMenu(MsgInt restaurantMenuId, ServerCallContext context)
     {
       if (restaurantMenuId == null || restaurantMenuId.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, "restaurantMenuId is null"));
+        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var dbMenu = spContext.SpROnly<Menu>(appData, context.GetHttpContext().User, OperationType.R);
       var menuIds = dbMenu?.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value)?.Result.Select(m => m.Id).Distinct();
@@ -77,7 +76,7 @@ namespace Saas.Services
     public override Task<MsgBool> Update(Item obj, ServerCallContext context)
     {
       if (obj == null)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, "obj is null"));
+        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpCrud<Item>(appData, context.GetHttpContext().User, OperationType.C);
       return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
