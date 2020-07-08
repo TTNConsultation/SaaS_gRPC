@@ -230,6 +230,7 @@ namespace Saas.gRPC {
     static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Items.Types.Item> __Marshaller_Administrator_Items_Item = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Items.Types.Item.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Items.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgBool.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items.Types.Item> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items.Types.Item>(
         grpc::MethodType.Unary,
@@ -259,12 +260,12 @@ namespace Saas.gRPC {
         __Marshaller_Administrator_Items_Item,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgBool>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
         __Marshaller_Administrator_Items_Item,
-        __Marshaller_Common_MsgInt);
+        __Marshaller_Common_MsgBool);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -296,7 +297,7 @@ namespace Saas.gRPC {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Update(global::Saas.Entity.Administrator.Items.Types.Item request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgBool> Update(global::Saas.Entity.Administrator.Items.Types.Item request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -325,7 +326,7 @@ namespace Saas.gRPC {
       serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items>(serviceImpl.GetByRestaurant));
       serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items>(serviceImpl.GetByRestaurantMenu));
       serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgBool>(serviceImpl.Update));
     }
 
   }

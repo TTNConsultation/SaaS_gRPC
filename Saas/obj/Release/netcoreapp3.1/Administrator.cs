@@ -24,56 +24,49 @@ namespace Saas.Entity.Administrator {
     static AdministratorReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpQcm90b3MvYWRtaW5pc3RyYXRvci5wcm90bxINQWRtaW5pc3RyYXRvchoQ",
-            "UHJvdG9zL2Vyci5wcm90byL0AQoLUmVzdGF1cmFudHMSNQoGdmFsdWVzGAEg",
-            "AygLMiUuQWRtaW5pc3RyYXRvci5SZXN0YXVyYW50cy5SZXN0YXVyYW50Gq0B",
-            "CgpSZXN0YXVyYW50EgoKAmlkGAEgASgFEgwKBG5hbWUYAiABKAkSDQoFcGhv",
-            "bmUYAyABKAkSDwoHYWRkcmVzcxgEIAEoCRIMCgRjaXR5GAUgASgJEg0KBXN0",
-            "YXRlGAYgASgJEgsKA3ppcBgHIAEoCRIPCgdjb3VudHJ5GAggASgJEgsKA2xh",
-            "dBgJIAEoCRIMCgRsb25nGAogASgJEg8KB3N0YXRlSWQYCyABKAUijQEKBUl0",
-            "ZW1zEikKBnZhbHVlcxgBIAMoCzIZLkFkbWluaXN0cmF0b3IuSXRlbXMuSXRl",
-            "bRpZCgRJdGVtEgoKAmlkGAEgASgFEhQKDHJlc3RhdXJhbnRJZBgCIAEoBRIN",
-            "CgVwcmljZRgDIAEoAhIPCgdpc0V4dHJhGAQgASgIEg8KB3N0YXRlSWQYBSAB",
-            "KAUilQEKD1Jlc3RhdXJhbnRNZW51cxI9CgZ2YWx1ZXMYASADKAsyLS5BZG1p",
-            "bmlzdHJhdG9yLlJlc3RhdXJhbnRNZW51cy5SZXN0YXVyYW50TWVudRpDCg5S",
-            "ZXN0YXVyYW50TWVudRIKCgJpZBgBIAEoBRIUCgxyZXN0YXVyYW50SWQYAiAB",
-            "KAUSDwoHc3RhdGVJZBgDIAEoBSKcAQoFTWVudXMSKQoGdmFsdWVzGAEgAygL",
-            "MhkuQWRtaW5pc3RyYXRvci5NZW51cy5NZW51GmgKBE1lbnUSCgoCaWQYASAB",
-            "KAUSGAoQcmVzdGF1cmFudG1lbnVJZBgCIAEoBRINCgVwcmljZRgDIAEoAhIa",
-            "ChJ1c2VJdGVtRGVzY3JpcHRpb24YBCABKAgSDwoHc3RhdGVJZBgFIAEoBSKI",
-            "AQoJTWVudUl0ZW1zEjEKBnZhbHVlcxgBIAMoCzIhLkFkbWluaXN0cmF0b3Iu",
-            "TWVudUl0ZW1zLk1lbnVJdGVtGkgKCE1lbnVJdGVtEgoKAmlkGAEgASgFEg4K",
-            "Bm1lbnVJZBgCIAEoBRIOCgZpdGVtSWQYAyABKAUSEAoIcXVhbnRpdHkYBCAB",
-            "KAUiLQoLTWVudUl0ZW1JZHMSDgoGbWVudUlkGAEgASgFEg4KBml0ZW1JZBgC",
-            "IAEoBSKHAQoGVGFibGVzEisKBnZhbHVlcxgBIAMoCzIbLkFkbWluaXN0cmF0",
-            "b3IuVGFibGVzLlRhYmxlGlAKBVRhYmxlEgoKAmlkGAEgASgFEhQKDHJlc3Rh",
-            "dXJhbnRJZBgCIAEoBRIUCgxudW1iZXJPZlNlYXQYAyABKAUSDwoHc3RhdGVJ",
-            "ZBgEIAEoBSJKChJSZXN0YXVyYW50TGFuZ3VhZ2USCgoCaWQYASABKAUSFAoM",
-            "cmVzdGF1cmFudElkGAIgASgFEhIKCmxhbmd1YWdlSWQYAyABKAUi4wIKCU9r",
-            "TWVzc2FnZRIRCglpZE1lc3NhZ2UYASABKAUSCgoCb3AYAiABKAkSHQoVZnVs",
-            "bE5hbWVSZXR1cm5PYmplY3RzGAMgASgJEjIKDnJlc3RhdXJhbnRPYmpzGAQg",
-            "ASgLMhouQWRtaW5pc3RyYXRvci5SZXN0YXVyYW50cxImCghpdGVtT2JqcxgF",
-            "IAEoCzIULkFkbWluaXN0cmF0b3IuSXRlbXMSOgoScmVzdGF1cmFudE1lbnVP",
-            "YmpzGAYgASgLMh4uQWRtaW5pc3RyYXRvci5SZXN0YXVyYW50TWVudXMSJgoI",
-            "bWVudU9ianMYByABKAsyFC5BZG1pbmlzdHJhdG9yLk1lbnVzEi4KDG1lbnVJ",
-            "dGVtT2JqcxgIIAEoCzIYLkFkbWluaXN0cmF0b3IuTWVudUl0ZW1zEigKCXRh",
-            "YmxlT2JqcxgJIAEoCzIVLkFkbWluaXN0cmF0b3IuVGFibGVzIlIKDVJldHVy",
-            "bkNhcnJpZXISGwoFZXJyb3IYASABKAsyDC5FcnIuTWVzc2FnZRIkCgJvaxgC",
-            "IAEoCzIYLkFkbWluaXN0cmF0b3IuT2tNZXNzYWdlQhyqAhlTYWFzLkVudGl0",
-            "eS5BZG1pbmlzdHJhdG9yYgZwcm90bzM="));
+            "ChpQcm90b3MvYWRtaW5pc3RyYXRvci5wcm90bxINQWRtaW5pc3RyYXRvciL4",
+            "AgoLUmVzdGF1cmFudHMSNQoGdmFsdWVzGAEgAygLMiUuQWRtaW5pc3RyYXRv",
+            "ci5SZXN0YXVyYW50cy5SZXN0YXVyYW50GrECCgpSZXN0YXVyYW50EgoKAklk",
+            "GAEgASgFEgwKBE5hbWUYAiABKAkSHAoUUmVzdGF1cmFudExvY2F0aW9uSWQY",
+            "AyABKAUSHgoWUmVzdGF1cmFudExvY2F0aW9uTmFtZRgEIAEoCRIlCh1SZXN0",
+            "YXVyYW50TG9jYXRpb25QaG9uZU51bWJlchgFIAEoCRISCgpMb2NhdGlvbklk",
+            "GAYgASgFEhQKDExvY2F0aW9uVW5pdBgHIAEoBRIaChJMb2NhdGlvblBvc3Rh",
+            "bENvZGUYCCABKAkSGgoSTG9jYXRpb25TdHJlZXROYW1lGAkgASgJEhQKDExv",
+            "Y2F0aW9uTGluaxgKIAEoCRITCgtMb2NhdGlvbk1hcBgLIAEoCRIXCg9Mb2Nh",
+            "dGlvbkxhdExvbmcYDCABKAkitwEKBUl0ZW1zEikKBnZhbHVlcxgBIAMoCzIZ",
+            "LkFkbWluaXN0cmF0b3IuSXRlbXMuSXRlbRqCAQoESXRlbRIKCgJpZBgBIAEo",
+            "BRIUCgxyZXN0YXVyYW50SWQYAiABKAUSDQoFcHJpY2UYAyABKAISDwoHaXNF",
+            "eHRyYRgEIAEoCBIPCgdzdGF0ZUlkGAUgASgFEg8KB25hbWVLZXkYBiABKAUS",
+            "FgoOZGVzY3JpcHRpb25LZXkYByABKAUilQEKD1Jlc3RhdXJhbnRNZW51cxI9",
+            "CgZ2YWx1ZXMYASADKAsyLS5BZG1pbmlzdHJhdG9yLlJlc3RhdXJhbnRNZW51",
+            "cy5SZXN0YXVyYW50TWVudRpDCg5SZXN0YXVyYW50TWVudRIKCgJpZBgBIAEo",
+            "BRIUCgxyZXN0YXVyYW50SWQYAiABKAUSDwoHc3RhdGVJZBgDIAEoBSLGAQoF",
+            "TWVudXMSKQoGdmFsdWVzGAEgAygLMhkuQWRtaW5pc3RyYXRvci5NZW51cy5N",
+            "ZW51GpEBCgRNZW51EgoKAmlkGAEgASgFEhgKEHJlc3RhdXJhbnRtZW51SWQY",
+            "AiABKAUSDQoFcHJpY2UYAyABKAISGgoSdXNlSXRlbURlc2NyaXB0aW9uGAQg",
+            "ASgIEg8KB3N0YXRlSWQYBSABKAUSDwoHbmFtZUtleRgGIAEoBRIWCg5kZXNj",
+            "cmlwdGlvbktleRgHIAEoBSKIAQoJTWVudUl0ZW1zEjEKBnZhbHVlcxgBIAMo",
+            "CzIhLkFkbWluaXN0cmF0b3IuTWVudUl0ZW1zLk1lbnVJdGVtGkgKCE1lbnVJ",
+            "dGVtEgoKAmlkGAEgASgFEg4KBm1lbnVJZBgCIAEoBRIOCgZpdGVtSWQYAyAB",
+            "KAUSEAoIcXVhbnRpdHkYBCABKAUiLQoLTWVudUl0ZW1JZHMSDgoGbWVudUlk",
+            "GAEgASgFEg4KBml0ZW1JZBgCIAEoBSKHAQoGVGFibGVzEisKBnZhbHVlcxgB",
+            "IAMoCzIbLkFkbWluaXN0cmF0b3IuVGFibGVzLlRhYmxlGlAKBVRhYmxlEgoK",
+            "AmlkGAEgASgFEhQKDHJlc3RhdXJhbnRJZBgCIAEoBRIUCgxudW1iZXJPZlNl",
+            "YXQYAyABKAUSDwoHc3RhdGVJZBgEIAEoBSJKChJSZXN0YXVyYW50TGFuZ3Vh",
+            "Z2USCgoCaWQYASABKAUSFAoMcmVzdGF1cmFudElkGAIgASgFEhIKCmxhbmd1",
+            "YWdlSWQYAyABKAVCHKoCGVNhYXMuRW50aXR5LkFkbWluaXN0cmF0b3JiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Saas.Err.ErrReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants), global::Saas.Entity.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "Phone", "Address", "City", "State", "Zip", "Country", "Lat", "Long", "StateId" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items), global::Saas.Entity.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items.Types.Item), global::Saas.Entity.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants), global::Saas.Entity.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items), global::Saas.Entity.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items.Types.Item), global::Saas.Entity.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus), global::Saas.Entity.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "StateId" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantmenuId", "Price", "UseItemDescription", "StateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantmenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems), global::Saas.Entity.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems.Types.MenuItem), global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItemIds), global::Saas.Entity.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables), global::Saas.Entity.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables.Types.Table), global::Saas.Entity.Administrator.Tables.Types.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantLanguage), global::Saas.Entity.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.OkMessage), global::Saas.Entity.Administrator.OkMessage.Parser, new[]{ "IdMessage", "Op", "FullNameReturnObjects", "RestaurantObjs", "ItemObjs", "RestaurantMenuObjs", "MenuObjs", "MenuItemObjs", "TableObjs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.ReturnCarrier), global::Saas.Entity.Administrator.ReturnCarrier.Parser, new[]{ "Error", "Ok" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantLanguage), global::Saas.Entity.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -230,15 +223,16 @@ namespace Saas.Entity.Administrator {
         public Restaurant(Restaurant other) : this() {
           id_ = other.id_;
           name_ = other.name_;
-          phone_ = other.phone_;
-          address_ = other.address_;
-          city_ = other.city_;
-          state_ = other.state_;
-          zip_ = other.zip_;
-          country_ = other.country_;
-          lat_ = other.lat_;
-          long_ = other.long_;
-          stateId_ = other.stateId_;
+          restaurantLocationId_ = other.restaurantLocationId_;
+          restaurantLocationName_ = other.restaurantLocationName_;
+          restaurantLocationPhoneNumber_ = other.restaurantLocationPhoneNumber_;
+          locationId_ = other.locationId_;
+          locationUnit_ = other.locationUnit_;
+          locationPostalCode_ = other.locationPostalCode_;
+          locationStreetName_ = other.locationStreetName_;
+          locationLink_ = other.locationLink_;
+          locationMap_ = other.locationMap_;
+          locationLatLong_ = other.locationLatLong_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -247,7 +241,7 @@ namespace Saas.Entity.Administrator {
           return new Restaurant(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -258,7 +252,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "name" field.</summary>
+        /// <summary>Field number for the "Name" field.</summary>
         public const int NameFieldNumber = 2;
         private string name_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -269,102 +263,113 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "phone" field.</summary>
-        public const int PhoneFieldNumber = 3;
-        private string phone_ = "";
+        /// <summary>Field number for the "RestaurantLocationId" field.</summary>
+        public const int RestaurantLocationIdFieldNumber = 3;
+        private int restaurantLocationId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Phone {
-          get { return phone_; }
+        public int RestaurantLocationId {
+          get { return restaurantLocationId_; }
           set {
-            phone_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            restaurantLocationId_ = value;
           }
         }
 
-        /// <summary>Field number for the "address" field.</summary>
-        public const int AddressFieldNumber = 4;
-        private string address_ = "";
+        /// <summary>Field number for the "RestaurantLocationName" field.</summary>
+        public const int RestaurantLocationNameFieldNumber = 4;
+        private string restaurantLocationName_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Address {
-          get { return address_; }
+        public string RestaurantLocationName {
+          get { return restaurantLocationName_; }
           set {
-            address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            restaurantLocationName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
-        /// <summary>Field number for the "city" field.</summary>
-        public const int CityFieldNumber = 5;
-        private string city_ = "";
+        /// <summary>Field number for the "RestaurantLocationPhoneNumber" field.</summary>
+        public const int RestaurantLocationPhoneNumberFieldNumber = 5;
+        private string restaurantLocationPhoneNumber_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string City {
-          get { return city_; }
+        public string RestaurantLocationPhoneNumber {
+          get { return restaurantLocationPhoneNumber_; }
           set {
-            city_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            restaurantLocationPhoneNumber_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
-        /// <summary>Field number for the "state" field.</summary>
-        public const int StateFieldNumber = 6;
-        private string state_ = "";
+        /// <summary>Field number for the "LocationId" field.</summary>
+        public const int LocationIdFieldNumber = 6;
+        private int locationId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string State {
-          get { return state_; }
+        public int LocationId {
+          get { return locationId_; }
           set {
-            state_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            locationId_ = value;
           }
         }
 
-        /// <summary>Field number for the "zip" field.</summary>
-        public const int ZipFieldNumber = 7;
-        private string zip_ = "";
+        /// <summary>Field number for the "LocationUnit" field.</summary>
+        public const int LocationUnitFieldNumber = 7;
+        private int locationUnit_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Zip {
-          get { return zip_; }
+        public int LocationUnit {
+          get { return locationUnit_; }
           set {
-            zip_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            locationUnit_ = value;
           }
         }
 
-        /// <summary>Field number for the "country" field.</summary>
-        public const int CountryFieldNumber = 8;
-        private string country_ = "";
+        /// <summary>Field number for the "LocationPostalCode" field.</summary>
+        public const int LocationPostalCodeFieldNumber = 8;
+        private string locationPostalCode_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Country {
-          get { return country_; }
+        public string LocationPostalCode {
+          get { return locationPostalCode_; }
           set {
-            country_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            locationPostalCode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
-        /// <summary>Field number for the "lat" field.</summary>
-        public const int LatFieldNumber = 9;
-        private string lat_ = "";
+        /// <summary>Field number for the "LocationStreetName" field.</summary>
+        public const int LocationStreetNameFieldNumber = 9;
+        private string locationStreetName_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Lat {
-          get { return lat_; }
+        public string LocationStreetName {
+          get { return locationStreetName_; }
           set {
-            lat_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            locationStreetName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
-        /// <summary>Field number for the "long" field.</summary>
-        public const int LongFieldNumber = 10;
-        private string long_ = "";
+        /// <summary>Field number for the "LocationLink" field.</summary>
+        public const int LocationLinkFieldNumber = 10;
+        private string locationLink_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Long {
-          get { return long_; }
+        public string LocationLink {
+          get { return locationLink_; }
           set {
-            long_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            locationLink_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
-        /// <summary>Field number for the "stateId" field.</summary>
-        public const int StateIdFieldNumber = 11;
-        private int stateId_;
+        /// <summary>Field number for the "LocationMap" field.</summary>
+        public const int LocationMapFieldNumber = 11;
+        private string locationMap_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int StateId {
-          get { return stateId_; }
+        public string LocationMap {
+          get { return locationMap_; }
           set {
-            stateId_ = value;
+            locationMap_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "LocationLatLong" field.</summary>
+        public const int LocationLatLongFieldNumber = 12;
+        private string locationLatLong_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string LocationLatLong {
+          get { return locationLatLong_; }
+          set {
+            locationLatLong_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
@@ -383,15 +388,16 @@ namespace Saas.Entity.Administrator {
           }
           if (Id != other.Id) return false;
           if (Name != other.Name) return false;
-          if (Phone != other.Phone) return false;
-          if (Address != other.Address) return false;
-          if (City != other.City) return false;
-          if (State != other.State) return false;
-          if (Zip != other.Zip) return false;
-          if (Country != other.Country) return false;
-          if (Lat != other.Lat) return false;
-          if (Long != other.Long) return false;
-          if (StateId != other.StateId) return false;
+          if (RestaurantLocationId != other.RestaurantLocationId) return false;
+          if (RestaurantLocationName != other.RestaurantLocationName) return false;
+          if (RestaurantLocationPhoneNumber != other.RestaurantLocationPhoneNumber) return false;
+          if (LocationId != other.LocationId) return false;
+          if (LocationUnit != other.LocationUnit) return false;
+          if (LocationPostalCode != other.LocationPostalCode) return false;
+          if (LocationStreetName != other.LocationStreetName) return false;
+          if (LocationLink != other.LocationLink) return false;
+          if (LocationMap != other.LocationMap) return false;
+          if (LocationLatLong != other.LocationLatLong) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -400,15 +406,16 @@ namespace Saas.Entity.Administrator {
           int hash = 1;
           if (Id != 0) hash ^= Id.GetHashCode();
           if (Name.Length != 0) hash ^= Name.GetHashCode();
-          if (Phone.Length != 0) hash ^= Phone.GetHashCode();
-          if (Address.Length != 0) hash ^= Address.GetHashCode();
-          if (City.Length != 0) hash ^= City.GetHashCode();
-          if (State.Length != 0) hash ^= State.GetHashCode();
-          if (Zip.Length != 0) hash ^= Zip.GetHashCode();
-          if (Country.Length != 0) hash ^= Country.GetHashCode();
-          if (Lat.Length != 0) hash ^= Lat.GetHashCode();
-          if (Long.Length != 0) hash ^= Long.GetHashCode();
-          if (StateId != 0) hash ^= StateId.GetHashCode();
+          if (RestaurantLocationId != 0) hash ^= RestaurantLocationId.GetHashCode();
+          if (RestaurantLocationName.Length != 0) hash ^= RestaurantLocationName.GetHashCode();
+          if (RestaurantLocationPhoneNumber.Length != 0) hash ^= RestaurantLocationPhoneNumber.GetHashCode();
+          if (LocationId != 0) hash ^= LocationId.GetHashCode();
+          if (LocationUnit != 0) hash ^= LocationUnit.GetHashCode();
+          if (LocationPostalCode.Length != 0) hash ^= LocationPostalCode.GetHashCode();
+          if (LocationStreetName.Length != 0) hash ^= LocationStreetName.GetHashCode();
+          if (LocationLink.Length != 0) hash ^= LocationLink.GetHashCode();
+          if (LocationMap.Length != 0) hash ^= LocationMap.GetHashCode();
+          if (LocationLatLong.Length != 0) hash ^= LocationLatLong.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -430,41 +437,45 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(18);
             output.WriteString(Name);
           }
-          if (Phone.Length != 0) {
-            output.WriteRawTag(26);
-            output.WriteString(Phone);
+          if (RestaurantLocationId != 0) {
+            output.WriteRawTag(24);
+            output.WriteInt32(RestaurantLocationId);
           }
-          if (Address.Length != 0) {
+          if (RestaurantLocationName.Length != 0) {
             output.WriteRawTag(34);
-            output.WriteString(Address);
+            output.WriteString(RestaurantLocationName);
           }
-          if (City.Length != 0) {
+          if (RestaurantLocationPhoneNumber.Length != 0) {
             output.WriteRawTag(42);
-            output.WriteString(City);
+            output.WriteString(RestaurantLocationPhoneNumber);
           }
-          if (State.Length != 0) {
-            output.WriteRawTag(50);
-            output.WriteString(State);
+          if (LocationId != 0) {
+            output.WriteRawTag(48);
+            output.WriteInt32(LocationId);
           }
-          if (Zip.Length != 0) {
-            output.WriteRawTag(58);
-            output.WriteString(Zip);
+          if (LocationUnit != 0) {
+            output.WriteRawTag(56);
+            output.WriteInt32(LocationUnit);
           }
-          if (Country.Length != 0) {
+          if (LocationPostalCode.Length != 0) {
             output.WriteRawTag(66);
-            output.WriteString(Country);
+            output.WriteString(LocationPostalCode);
           }
-          if (Lat.Length != 0) {
+          if (LocationStreetName.Length != 0) {
             output.WriteRawTag(74);
-            output.WriteString(Lat);
+            output.WriteString(LocationStreetName);
           }
-          if (Long.Length != 0) {
+          if (LocationLink.Length != 0) {
             output.WriteRawTag(82);
-            output.WriteString(Long);
+            output.WriteString(LocationLink);
           }
-          if (StateId != 0) {
-            output.WriteRawTag(88);
-            output.WriteInt32(StateId);
+          if (LocationMap.Length != 0) {
+            output.WriteRawTag(90);
+            output.WriteString(LocationMap);
+          }
+          if (LocationLatLong.Length != 0) {
+            output.WriteRawTag(98);
+            output.WriteString(LocationLatLong);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -480,32 +491,35 @@ namespace Saas.Entity.Administrator {
           if (Name.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
           }
-          if (Phone.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Phone);
+          if (RestaurantLocationId != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(RestaurantLocationId);
           }
-          if (Address.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
+          if (RestaurantLocationName.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(RestaurantLocationName);
           }
-          if (City.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(City);
+          if (RestaurantLocationPhoneNumber.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(RestaurantLocationPhoneNumber);
           }
-          if (State.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(State);
+          if (LocationId != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(LocationId);
           }
-          if (Zip.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Zip);
+          if (LocationUnit != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(LocationUnit);
           }
-          if (Country.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Country);
+          if (LocationPostalCode.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationPostalCode);
           }
-          if (Lat.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Lat);
+          if (LocationStreetName.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationStreetName);
           }
-          if (Long.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Long);
+          if (LocationLink.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationLink);
           }
-          if (StateId != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(StateId);
+          if (LocationMap.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationMap);
+          }
+          if (LocationLatLong.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationLatLong);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -524,32 +538,35 @@ namespace Saas.Entity.Administrator {
           if (other.Name.Length != 0) {
             Name = other.Name;
           }
-          if (other.Phone.Length != 0) {
-            Phone = other.Phone;
+          if (other.RestaurantLocationId != 0) {
+            RestaurantLocationId = other.RestaurantLocationId;
           }
-          if (other.Address.Length != 0) {
-            Address = other.Address;
+          if (other.RestaurantLocationName.Length != 0) {
+            RestaurantLocationName = other.RestaurantLocationName;
           }
-          if (other.City.Length != 0) {
-            City = other.City;
+          if (other.RestaurantLocationPhoneNumber.Length != 0) {
+            RestaurantLocationPhoneNumber = other.RestaurantLocationPhoneNumber;
           }
-          if (other.State.Length != 0) {
-            State = other.State;
+          if (other.LocationId != 0) {
+            LocationId = other.LocationId;
           }
-          if (other.Zip.Length != 0) {
-            Zip = other.Zip;
+          if (other.LocationUnit != 0) {
+            LocationUnit = other.LocationUnit;
           }
-          if (other.Country.Length != 0) {
-            Country = other.Country;
+          if (other.LocationPostalCode.Length != 0) {
+            LocationPostalCode = other.LocationPostalCode;
           }
-          if (other.Lat.Length != 0) {
-            Lat = other.Lat;
+          if (other.LocationStreetName.Length != 0) {
+            LocationStreetName = other.LocationStreetName;
           }
-          if (other.Long.Length != 0) {
-            Long = other.Long;
+          if (other.LocationLink.Length != 0) {
+            LocationLink = other.LocationLink;
           }
-          if (other.StateId != 0) {
-            StateId = other.StateId;
+          if (other.LocationMap.Length != 0) {
+            LocationMap = other.LocationMap;
+          }
+          if (other.LocationLatLong.Length != 0) {
+            LocationLatLong = other.LocationLatLong;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -570,40 +587,44 @@ namespace Saas.Entity.Administrator {
                 Name = input.ReadString();
                 break;
               }
-              case 26: {
-                Phone = input.ReadString();
+              case 24: {
+                RestaurantLocationId = input.ReadInt32();
                 break;
               }
               case 34: {
-                Address = input.ReadString();
+                RestaurantLocationName = input.ReadString();
                 break;
               }
               case 42: {
-                City = input.ReadString();
+                RestaurantLocationPhoneNumber = input.ReadString();
                 break;
               }
-              case 50: {
-                State = input.ReadString();
+              case 48: {
+                LocationId = input.ReadInt32();
                 break;
               }
-              case 58: {
-                Zip = input.ReadString();
+              case 56: {
+                LocationUnit = input.ReadInt32();
                 break;
               }
               case 66: {
-                Country = input.ReadString();
+                LocationPostalCode = input.ReadString();
                 break;
               }
               case 74: {
-                Lat = input.ReadString();
+                LocationStreetName = input.ReadString();
                 break;
               }
               case 82: {
-                Long = input.ReadString();
+                LocationLink = input.ReadString();
                 break;
               }
-              case 88: {
-                StateId = input.ReadInt32();
+              case 90: {
+                LocationMap = input.ReadString();
+                break;
+              }
+              case 98: {
+                LocationLatLong = input.ReadString();
                 break;
               }
             }
@@ -770,6 +791,8 @@ namespace Saas.Entity.Administrator {
           price_ = other.price_;
           isExtra_ = other.isExtra_;
           stateId_ = other.stateId_;
+          nameKey_ = other.nameKey_;
+          descriptionKey_ = other.descriptionKey_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -833,6 +856,28 @@ namespace Saas.Entity.Administrator {
           }
         }
 
+        /// <summary>Field number for the "nameKey" field.</summary>
+        public const int NameKeyFieldNumber = 6;
+        private int nameKey_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int NameKey {
+          get { return nameKey_; }
+          set {
+            nameKey_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "descriptionKey" field.</summary>
+        public const int DescriptionKeyFieldNumber = 7;
+        private int descriptionKey_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int DescriptionKey {
+          get { return descriptionKey_; }
+          set {
+            descriptionKey_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Item);
@@ -851,6 +896,8 @@ namespace Saas.Entity.Administrator {
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Price, other.Price)) return false;
           if (IsExtra != other.IsExtra) return false;
           if (StateId != other.StateId) return false;
+          if (NameKey != other.NameKey) return false;
+          if (DescriptionKey != other.DescriptionKey) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -862,6 +909,8 @@ namespace Saas.Entity.Administrator {
           if (Price != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Price);
           if (IsExtra != false) hash ^= IsExtra.GetHashCode();
           if (StateId != 0) hash ^= StateId.GetHashCode();
+          if (NameKey != 0) hash ^= NameKey.GetHashCode();
+          if (DescriptionKey != 0) hash ^= DescriptionKey.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -895,6 +944,14 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(40);
             output.WriteInt32(StateId);
           }
+          if (NameKey != 0) {
+            output.WriteRawTag(48);
+            output.WriteInt32(NameKey);
+          }
+          if (DescriptionKey != 0) {
+            output.WriteRawTag(56);
+            output.WriteInt32(DescriptionKey);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -917,6 +974,12 @@ namespace Saas.Entity.Administrator {
           }
           if (StateId != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(StateId);
+          }
+          if (NameKey != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(NameKey);
+          }
+          if (DescriptionKey != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(DescriptionKey);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -943,6 +1006,12 @@ namespace Saas.Entity.Administrator {
           }
           if (other.StateId != 0) {
             StateId = other.StateId;
+          }
+          if (other.NameKey != 0) {
+            NameKey = other.NameKey;
+          }
+          if (other.DescriptionKey != 0) {
+            DescriptionKey = other.DescriptionKey;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -973,6 +1042,14 @@ namespace Saas.Entity.Administrator {
               }
               case 40: {
                 StateId = input.ReadInt32();
+                break;
+              }
+              case 48: {
+                NameKey = input.ReadInt32();
+                break;
+              }
+              case 56: {
+                DescriptionKey = input.ReadInt32();
                 break;
               }
             }
@@ -1452,6 +1529,8 @@ namespace Saas.Entity.Administrator {
           price_ = other.price_;
           useItemDescription_ = other.useItemDescription_;
           stateId_ = other.stateId_;
+          nameKey_ = other.nameKey_;
+          descriptionKey_ = other.descriptionKey_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1515,6 +1594,28 @@ namespace Saas.Entity.Administrator {
           }
         }
 
+        /// <summary>Field number for the "nameKey" field.</summary>
+        public const int NameKeyFieldNumber = 6;
+        private int nameKey_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int NameKey {
+          get { return nameKey_; }
+          set {
+            nameKey_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "descriptionKey" field.</summary>
+        public const int DescriptionKeyFieldNumber = 7;
+        private int descriptionKey_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int DescriptionKey {
+          get { return descriptionKey_; }
+          set {
+            descriptionKey_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Menu);
@@ -1533,6 +1634,8 @@ namespace Saas.Entity.Administrator {
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Price, other.Price)) return false;
           if (UseItemDescription != other.UseItemDescription) return false;
           if (StateId != other.StateId) return false;
+          if (NameKey != other.NameKey) return false;
+          if (DescriptionKey != other.DescriptionKey) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1544,6 +1647,8 @@ namespace Saas.Entity.Administrator {
           if (Price != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Price);
           if (UseItemDescription != false) hash ^= UseItemDescription.GetHashCode();
           if (StateId != 0) hash ^= StateId.GetHashCode();
+          if (NameKey != 0) hash ^= NameKey.GetHashCode();
+          if (DescriptionKey != 0) hash ^= DescriptionKey.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1577,6 +1682,14 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(40);
             output.WriteInt32(StateId);
           }
+          if (NameKey != 0) {
+            output.WriteRawTag(48);
+            output.WriteInt32(NameKey);
+          }
+          if (DescriptionKey != 0) {
+            output.WriteRawTag(56);
+            output.WriteInt32(DescriptionKey);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1599,6 +1712,12 @@ namespace Saas.Entity.Administrator {
           }
           if (StateId != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(StateId);
+          }
+          if (NameKey != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(NameKey);
+          }
+          if (DescriptionKey != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(DescriptionKey);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1625,6 +1744,12 @@ namespace Saas.Entity.Administrator {
           }
           if (other.StateId != 0) {
             StateId = other.StateId;
+          }
+          if (other.NameKey != 0) {
+            NameKey = other.NameKey;
+          }
+          if (other.DescriptionKey != 0) {
+            DescriptionKey = other.DescriptionKey;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1655,6 +1780,14 @@ namespace Saas.Entity.Administrator {
               }
               case 40: {
                 StateId = input.ReadInt32();
+                break;
+              }
+              case 48: {
+                NameKey = input.ReadInt32();
+                break;
+              }
+              case 56: {
+                DescriptionKey = input.ReadInt32();
                 break;
               }
             }
@@ -2684,564 +2817,6 @@ namespace Saas.Entity.Administrator {
           }
           case 24: {
             LanguageId = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class OkMessage : pb::IMessage<OkMessage> {
-    private static readonly pb::MessageParser<OkMessage> _parser = new pb::MessageParser<OkMessage>(() => new OkMessage());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<OkMessage> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public OkMessage() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public OkMessage(OkMessage other) : this() {
-      idMessage_ = other.idMessage_;
-      op_ = other.op_;
-      fullNameReturnObjects_ = other.fullNameReturnObjects_;
-      restaurantObjs_ = other.restaurantObjs_ != null ? other.restaurantObjs_.Clone() : null;
-      itemObjs_ = other.itemObjs_ != null ? other.itemObjs_.Clone() : null;
-      restaurantMenuObjs_ = other.restaurantMenuObjs_ != null ? other.restaurantMenuObjs_.Clone() : null;
-      menuObjs_ = other.menuObjs_ != null ? other.menuObjs_.Clone() : null;
-      menuItemObjs_ = other.menuItemObjs_ != null ? other.menuItemObjs_.Clone() : null;
-      tableObjs_ = other.tableObjs_ != null ? other.tableObjs_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public OkMessage Clone() {
-      return new OkMessage(this);
-    }
-
-    /// <summary>Field number for the "idMessage" field.</summary>
-    public const int IdMessageFieldNumber = 1;
-    private int idMessage_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int IdMessage {
-      get { return idMessage_; }
-      set {
-        idMessage_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "op" field.</summary>
-    public const int OpFieldNumber = 2;
-    private string op_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Op {
-      get { return op_; }
-      set {
-        op_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "fullNameReturnObjects" field.</summary>
-    public const int FullNameReturnObjectsFieldNumber = 3;
-    private string fullNameReturnObjects_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string FullNameReturnObjects {
-      get { return fullNameReturnObjects_; }
-      set {
-        fullNameReturnObjects_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "restaurantObjs" field.</summary>
-    public const int RestaurantObjsFieldNumber = 4;
-    private global::Saas.Entity.Administrator.Restaurants restaurantObjs_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.Restaurants RestaurantObjs {
-      get { return restaurantObjs_; }
-      set {
-        restaurantObjs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "itemObjs" field.</summary>
-    public const int ItemObjsFieldNumber = 5;
-    private global::Saas.Entity.Administrator.Items itemObjs_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.Items ItemObjs {
-      get { return itemObjs_; }
-      set {
-        itemObjs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "restaurantMenuObjs" field.</summary>
-    public const int RestaurantMenuObjsFieldNumber = 6;
-    private global::Saas.Entity.Administrator.RestaurantMenus restaurantMenuObjs_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.RestaurantMenus RestaurantMenuObjs {
-      get { return restaurantMenuObjs_; }
-      set {
-        restaurantMenuObjs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "menuObjs" field.</summary>
-    public const int MenuObjsFieldNumber = 7;
-    private global::Saas.Entity.Administrator.Menus menuObjs_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.Menus MenuObjs {
-      get { return menuObjs_; }
-      set {
-        menuObjs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "menuItemObjs" field.</summary>
-    public const int MenuItemObjsFieldNumber = 8;
-    private global::Saas.Entity.Administrator.MenuItems menuItemObjs_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.MenuItems MenuItemObjs {
-      get { return menuItemObjs_; }
-      set {
-        menuItemObjs_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "tableObjs" field.</summary>
-    public const int TableObjsFieldNumber = 9;
-    private global::Saas.Entity.Administrator.Tables tableObjs_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.Tables TableObjs {
-      get { return tableObjs_; }
-      set {
-        tableObjs_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as OkMessage);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(OkMessage other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (IdMessage != other.IdMessage) return false;
-      if (Op != other.Op) return false;
-      if (FullNameReturnObjects != other.FullNameReturnObjects) return false;
-      if (!object.Equals(RestaurantObjs, other.RestaurantObjs)) return false;
-      if (!object.Equals(ItemObjs, other.ItemObjs)) return false;
-      if (!object.Equals(RestaurantMenuObjs, other.RestaurantMenuObjs)) return false;
-      if (!object.Equals(MenuObjs, other.MenuObjs)) return false;
-      if (!object.Equals(MenuItemObjs, other.MenuItemObjs)) return false;
-      if (!object.Equals(TableObjs, other.TableObjs)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (IdMessage != 0) hash ^= IdMessage.GetHashCode();
-      if (Op.Length != 0) hash ^= Op.GetHashCode();
-      if (FullNameReturnObjects.Length != 0) hash ^= FullNameReturnObjects.GetHashCode();
-      if (restaurantObjs_ != null) hash ^= RestaurantObjs.GetHashCode();
-      if (itemObjs_ != null) hash ^= ItemObjs.GetHashCode();
-      if (restaurantMenuObjs_ != null) hash ^= RestaurantMenuObjs.GetHashCode();
-      if (menuObjs_ != null) hash ^= MenuObjs.GetHashCode();
-      if (menuItemObjs_ != null) hash ^= MenuItemObjs.GetHashCode();
-      if (tableObjs_ != null) hash ^= TableObjs.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (IdMessage != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(IdMessage);
-      }
-      if (Op.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Op);
-      }
-      if (FullNameReturnObjects.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(FullNameReturnObjects);
-      }
-      if (restaurantObjs_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(RestaurantObjs);
-      }
-      if (itemObjs_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(ItemObjs);
-      }
-      if (restaurantMenuObjs_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(RestaurantMenuObjs);
-      }
-      if (menuObjs_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(MenuObjs);
-      }
-      if (menuItemObjs_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(MenuItemObjs);
-      }
-      if (tableObjs_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(TableObjs);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (IdMessage != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IdMessage);
-      }
-      if (Op.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Op);
-      }
-      if (FullNameReturnObjects.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(FullNameReturnObjects);
-      }
-      if (restaurantObjs_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RestaurantObjs);
-      }
-      if (itemObjs_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ItemObjs);
-      }
-      if (restaurantMenuObjs_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RestaurantMenuObjs);
-      }
-      if (menuObjs_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MenuObjs);
-      }
-      if (menuItemObjs_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MenuItemObjs);
-      }
-      if (tableObjs_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TableObjs);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(OkMessage other) {
-      if (other == null) {
-        return;
-      }
-      if (other.IdMessage != 0) {
-        IdMessage = other.IdMessage;
-      }
-      if (other.Op.Length != 0) {
-        Op = other.Op;
-      }
-      if (other.FullNameReturnObjects.Length != 0) {
-        FullNameReturnObjects = other.FullNameReturnObjects;
-      }
-      if (other.restaurantObjs_ != null) {
-        if (restaurantObjs_ == null) {
-          RestaurantObjs = new global::Saas.Entity.Administrator.Restaurants();
-        }
-        RestaurantObjs.MergeFrom(other.RestaurantObjs);
-      }
-      if (other.itemObjs_ != null) {
-        if (itemObjs_ == null) {
-          ItemObjs = new global::Saas.Entity.Administrator.Items();
-        }
-        ItemObjs.MergeFrom(other.ItemObjs);
-      }
-      if (other.restaurantMenuObjs_ != null) {
-        if (restaurantMenuObjs_ == null) {
-          RestaurantMenuObjs = new global::Saas.Entity.Administrator.RestaurantMenus();
-        }
-        RestaurantMenuObjs.MergeFrom(other.RestaurantMenuObjs);
-      }
-      if (other.menuObjs_ != null) {
-        if (menuObjs_ == null) {
-          MenuObjs = new global::Saas.Entity.Administrator.Menus();
-        }
-        MenuObjs.MergeFrom(other.MenuObjs);
-      }
-      if (other.menuItemObjs_ != null) {
-        if (menuItemObjs_ == null) {
-          MenuItemObjs = new global::Saas.Entity.Administrator.MenuItems();
-        }
-        MenuItemObjs.MergeFrom(other.MenuItemObjs);
-      }
-      if (other.tableObjs_ != null) {
-        if (tableObjs_ == null) {
-          TableObjs = new global::Saas.Entity.Administrator.Tables();
-        }
-        TableObjs.MergeFrom(other.TableObjs);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            IdMessage = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            Op = input.ReadString();
-            break;
-          }
-          case 26: {
-            FullNameReturnObjects = input.ReadString();
-            break;
-          }
-          case 34: {
-            if (restaurantObjs_ == null) {
-              RestaurantObjs = new global::Saas.Entity.Administrator.Restaurants();
-            }
-            input.ReadMessage(RestaurantObjs);
-            break;
-          }
-          case 42: {
-            if (itemObjs_ == null) {
-              ItemObjs = new global::Saas.Entity.Administrator.Items();
-            }
-            input.ReadMessage(ItemObjs);
-            break;
-          }
-          case 50: {
-            if (restaurantMenuObjs_ == null) {
-              RestaurantMenuObjs = new global::Saas.Entity.Administrator.RestaurantMenus();
-            }
-            input.ReadMessage(RestaurantMenuObjs);
-            break;
-          }
-          case 58: {
-            if (menuObjs_ == null) {
-              MenuObjs = new global::Saas.Entity.Administrator.Menus();
-            }
-            input.ReadMessage(MenuObjs);
-            break;
-          }
-          case 66: {
-            if (menuItemObjs_ == null) {
-              MenuItemObjs = new global::Saas.Entity.Administrator.MenuItems();
-            }
-            input.ReadMessage(MenuItemObjs);
-            break;
-          }
-          case 74: {
-            if (tableObjs_ == null) {
-              TableObjs = new global::Saas.Entity.Administrator.Tables();
-            }
-            input.ReadMessage(TableObjs);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class ReturnCarrier : pb::IMessage<ReturnCarrier> {
-    private static readonly pb::MessageParser<ReturnCarrier> _parser = new pb::MessageParser<ReturnCarrier>(() => new ReturnCarrier());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ReturnCarrier> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ReturnCarrier() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ReturnCarrier(ReturnCarrier other) : this() {
-      error_ = other.error_ != null ? other.error_.Clone() : null;
-      ok_ = other.ok_ != null ? other.ok_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ReturnCarrier Clone() {
-      return new ReturnCarrier(this);
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private global::Saas.Err.Message error_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Err.Message Error {
-      get { return error_; }
-      set {
-        error_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "ok" field.</summary>
-    public const int OkFieldNumber = 2;
-    private global::Saas.Entity.Administrator.OkMessage ok_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Administrator.OkMessage Ok {
-      get { return ok_; }
-      set {
-        ok_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ReturnCarrier);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ReturnCarrier other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Error, other.Error)) return false;
-      if (!object.Equals(Ok, other.Ok)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (error_ != null) hash ^= Error.GetHashCode();
-      if (ok_ != null) hash ^= Ok.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (error_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Error);
-      }
-      if (ok_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Ok);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (error_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
-      }
-      if (ok_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ok);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ReturnCarrier other) {
-      if (other == null) {
-        return;
-      }
-      if (other.error_ != null) {
-        if (error_ == null) {
-          Error = new global::Saas.Err.Message();
-        }
-        Error.MergeFrom(other.Error);
-      }
-      if (other.ok_ != null) {
-        if (ok_ == null) {
-          Ok = new global::Saas.Entity.Administrator.OkMessage();
-        }
-        Ok.MergeFrom(other.Ok);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (error_ == null) {
-              Error = new global::Saas.Err.Message();
-            }
-            input.ReadMessage(Error);
-            break;
-          }
-          case 18: {
-            if (ok_ == null) {
-              Ok = new global::Saas.Entity.Administrator.OkMessage();
-            }
-            input.ReadMessage(Ok);
             break;
           }
         }

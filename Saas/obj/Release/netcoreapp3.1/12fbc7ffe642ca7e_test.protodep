@@ -1,0 +1,3 @@
+obj\Release\netcoreapp3.1/Test.cs \
+obj\Release\netcoreapp3.1/TestGrpc.cs: Protos/common.proto\
+ Protos/test.proto

@@ -40,7 +40,9 @@ namespace Saas.Entity.App {
             "IQoFU3RhdGUSCgoCaWQYASABKAUSDAoEbmFtZRgCIAEoCSJpCglMYW5ndWFn",
             "ZXMSJwoGdmFsdWVzGAEgAygLMhcuQXBwLkxhbmd1YWdlcy5MYW5ndWFnZRoz",
             "CghMYW5ndWFnZRIKCgJpZBgBIAEoBRIMCgRjb2RlGAIgASgJEg0KBXZhbHVl",
-            "GAMgASgJQhKqAg9TYWFzLkVudGl0eS5BcHBiBnByb3RvMw=="));
+            "GAMgASgJIkEKCkFwcFNldHRpbmcSCgoCSWQYASABKAUSDwoHTmFtZUtleRgC",
+            "IAEoBRIWCg5EZXNjcmlwdGlvbktleRgDIAEoBUISqgIPU2Fhcy5FbnRpdHku",
+            "QXBwYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -50,7 +52,8 @@ namespace Saas.Entity.App {
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Vietnamese), global::Saas.Entity.App.Vietnamese.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Vietnamese.Types.Value), global::Saas.Entity.App.Vietnamese.Types.Value.Parser, new[]{ "Key", "Type", "Val" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.KeyTypes), global::Saas.Entity.App.KeyTypes.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.KeyTypes.Types.KeyType), global::Saas.Entity.App.KeyTypes.Types.KeyType.Parser, new[]{ "Id", "Name", "Maxlen" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.States), global::Saas.Entity.App.States.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.States.Types.State), global::Saas.Entity.App.States.Types.State.Parser, new[]{ "Id", "Name" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Languages), global::Saas.Entity.App.Languages.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Languages.Types.Language), global::Saas.Entity.App.Languages.Types.Language.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Languages), global::Saas.Entity.App.Languages.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Languages.Types.Language), global::Saas.Entity.App.Languages.Types.Language.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.AppSetting), global::Saas.Entity.App.AppSetting.Parser, new[]{ "Id", "NameKey", "DescriptionKey" }, null, null, null, null)
           }));
     }
     #endregion
@@ -2273,6 +2276,191 @@ namespace Saas.Entity.App {
 
     }
     #endregion
+
+  }
+
+  public sealed partial class AppSetting : pb::IMessage<AppSetting> {
+    private static readonly pb::MessageParser<AppSetting> _parser = new pb::MessageParser<AppSetting>(() => new AppSetting());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<AppSetting> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Saas.Entity.App.AppReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AppSetting() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AppSetting(AppSetting other) : this() {
+      id_ = other.id_;
+      nameKey_ = other.nameKey_;
+      descriptionKey_ = other.descriptionKey_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public AppSetting Clone() {
+      return new AppSetting(this);
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NameKey" field.</summary>
+    public const int NameKeyFieldNumber = 2;
+    private int nameKey_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NameKey {
+      get { return nameKey_; }
+      set {
+        nameKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DescriptionKey" field.</summary>
+    public const int DescriptionKeyFieldNumber = 3;
+    private int descriptionKey_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int DescriptionKey {
+      get { return descriptionKey_; }
+      set {
+        descriptionKey_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as AppSetting);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(AppSetting other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (NameKey != other.NameKey) return false;
+      if (DescriptionKey != other.DescriptionKey) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (NameKey != 0) hash ^= NameKey.GetHashCode();
+      if (DescriptionKey != 0) hash ^= DescriptionKey.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (NameKey != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(NameKey);
+      }
+      if (DescriptionKey != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(DescriptionKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (NameKey != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NameKey);
+      }
+      if (DescriptionKey != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(DescriptionKey);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(AppSetting other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.NameKey != 0) {
+        NameKey = other.NameKey;
+      }
+      if (other.DescriptionKey != 0) {
+        DescriptionKey = other.DescriptionKey;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            NameKey = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            DescriptionKey = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
 
   }
 
