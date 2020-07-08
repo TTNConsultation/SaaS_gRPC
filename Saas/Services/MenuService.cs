@@ -36,8 +36,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Menu>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : await db.ReadAsync(id.Value).ConfigureAwait(false);
+      return await db.ReadAsync(id.Value).ConfigureAwait(false) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     public async override Task<Menus> GetByRestaurantMenu(MsgInt restaurantMenuId, ServerCallContext context)
@@ -46,8 +45,8 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Menu>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : await Task.FromResult(new Menus(db.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value).Result)).ConfigureAwait(false);
+      return await Task.FromResult(new Menus(db.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value).Result)).ConfigureAwait(false) ??
+             throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     public async override Task<Menus> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
@@ -56,8 +55,8 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Menu>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : await Task.FromResult(new Menus(db.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false);
+      return await Task.FromResult(new Menus(db.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false) ??
+             throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     public override Task<MsgInt> Create(Menu obj, ServerCallContext context)
@@ -66,8 +65,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpCrud<Menu>(appData, context.GetHttpContext().User, OperationType.C);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : Task.FromResult(new MsgInt(db.Create(obj)));
+      return Task.FromResult(new MsgInt(db.Create(obj))) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
   }
 }

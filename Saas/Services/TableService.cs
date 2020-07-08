@@ -35,8 +35,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Table>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : await db.ReadAsync(id.Value).ConfigureAwait(false);
+      return await db.ReadAsync(id.Value).ConfigureAwait(false) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     public async override Task<Tables> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
@@ -45,8 +44,8 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Table>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : await Task.FromResult(new Tables(db.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false);
+      return await Task.FromResult(new Tables(db.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false) ??
+             throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
   }
 }

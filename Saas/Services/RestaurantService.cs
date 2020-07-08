@@ -35,8 +35,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Restaurant>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : await db.ReadAsync(id.Value).ConfigureAwait(false);
+      return await db.ReadAsync(id.Value).ConfigureAwait(false) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     public async override Task<Restaurants> Lookup(MsgString lookupStr, ServerCallContext context)
@@ -45,8 +44,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpROnly<Restaurant>(appData, context.GetHttpContext().User, OperationType.R);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : new Restaurants(await db.ReadAsync(lookupStr.Value).ConfigureAwait(false));
+      return new Restaurants(await db.ReadAsync(lookupStr.Value).ConfigureAwait(false)) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     [Authorize(Policy = "admin")]
@@ -56,8 +54,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpCrud<Restaurant>(appData, context.GetHttpContext().User, OperationType.C);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : Task.FromResult(new MsgInt(db.Create(obj)));
+      return Task.FromResult(new MsgInt(db.Create(obj))) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     [Authorize(Policy = "admin")]
@@ -67,8 +64,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpCrud<Restaurant>(appData, context.GetHttpContext().User, OperationType.U);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                         : Task.FromResult(new MsgBool(db.Update(obj)));
+      return Task.FromResult(new MsgBool(db.Update(obj))) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
     [Authorize(Policy = "admin")]
@@ -78,8 +74,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var db = spContext.SpCrud<Restaurant>(appData, context.GetHttpContext().User, OperationType.D);
-      return (db == null) ? throw new RpcException(new Status(StatusCode.PermissionDenied, ""))
-                          : new MsgBool(await db.UpdateState(id.Value, appData.States.DeleteId));
+      return new MsgBool(await db.UpdateState(id.Value, appData.States.DeleteId)) ?? throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
   }
 }
