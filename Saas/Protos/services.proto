@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option csharp_namespace = "Saas.gRPC";
+
+package Services;
+
+import "Protos/common.proto";
+import "Protos/app.proto";
+import "Protos/administrator.proto";
+
+service RestaurantSvc {
+  rpc Get (Common.MsgInt) returns (Administrator.Restaurants.Restaurant);
+  rpc Lookup (Common.MsgString) returns (Administrator.Restaurants);
+  rpc Create (Administrator.Restaurants.Restaurant) returns (Common.MsgInt);
+  rpc Update (Administrator.Restaurants.Restaurant) returns (Common.MsgBool);
+  rpc Delete (Common.MsgInt) returns (Common.MsgBool);
+}
+service TableSvc {
+  rpc Get (Common.MsgInt) returns (Administrator.Tables.Table);
+  rpc GetByRestaurant (Common.MsgInt) returns (Administrator.Tables);
+  rpc Create (Administrator.Tables.Table) returns (Common.MsgInt);
+  rpc Update (Administrator.Tables.Table) returns (Common.MsgBool);
+  rpc Delete (Common.MsgInt) returns (Common.MsgBool);  
+}
+service ItemSvc {
+  rpc Get (Common.MsgInt) returns (Administrator.Items.Item);
+  rpc GetByRestaurant (Common.MsgInt) returns (Administrator.Items);
+  rpc GetByRestaurantMenu (Common.MsgInt) returns (Administrator.Items);
+  rpc Create (Administrator.Items.Item) returns (Common.MsgInt);
+  rpc Update (Administrator.Items.Item) returns (Common.MsgBool);
+}
+service RestaurantMenuSvc {
+  rpc Get (Common.MsgInt) returns (Administrator.RestaurantMenus.RestaurantMenu);
+  rpc GetByRestaurant (Common.MsgInt) returns (Administrator.RestaurantMenus);
+  rpc Create (Administrator.RestaurantMenus.RestaurantMenu) returns (Common.MsgInt);
+  rpc Update (Administrator.RestaurantMenus.RestaurantMenu) returns (Common.MsgInt);
+  rpc Delete (Common.MsgInt) returns (Common.MsgInt);
+}
+service MenuSvc {
+  rpc Get (Common.MsgInt) returns (Administrator.Menus.Menu);
+  rpc GetByRestaurantMenu (Common.MsgInt) returns (Administrator.Menus);
+  rpc GetByRestaurant (Common.MsgInt) returns (Administrator.Menus);
+  rpc Create (Administrator.Menus.Menu) returns (Common.MsgInt);
+  rpc Update (Administrator.Menus.Menu) returns (Common.MsgInt);
+  rpc Delete (Common.MsgInt) returns (Common.MsgInt);
+}
+service MenuItemSvc {
+  rpc Get (Common.MsgInt) returns (Administrator.MenuItems.MenuItem);  
+  rpc GetByMenu (Common.MsgInt) returns (Administrator.MenuItems);
+  rpc GetByItem (Common.MsgInt) returns (Administrator.MenuItems);
+  rpc GetByMenuAndItem (Administrator.MenuItemIds) returns (Administrator.MenuItems.MenuItem);
+  rpc Create (Administrator.MenuItems.MenuItem) returns (Common.MsgInt);
+  rpc Delete (Common.MsgInt) returns (Common.MsgInt);
+}
+service AppDataSvc {
+	rpc Languages (Common.MsgEmpty) returns (App.Languages);
+  rpc States (Common.MsgEmpty) returns (App.States);
+  rpc KeyTypes (Common.MsgEmpty) returns (App.KeyTypes);
+}

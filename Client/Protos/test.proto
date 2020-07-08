@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option csharp_namespace = "Saas.gRPC.Test";
+
+package Services;
+
+import "Protos/common.proto";
+
+service TestSvc {
+  rpc Get (Common.MsgEmpty) returns (Common.MsgString);  
+}

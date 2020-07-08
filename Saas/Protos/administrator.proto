@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+option csharp_namespace = "Saas.Entity.Administrator";
+
+package Administrator;
+
+message Restaurants{
+  message Restaurant{
+    int32 Id = 1;
+    string Name = 2;
+    int32 RestaurantLocationId = 3;
+    string RestaurantLocationName = 4;
+    string RestaurantLocationPhoneNumber = 5;
+    int32 LocationId = 6;
+    int32 LocationUnit = 7;
+    string LocationPostalCode = 8;
+    string LocationStreetName = 9;
+    string LocationLink = 10;
+    string LocationMap = 11;
+    string LocationLatLong = 12;
+  }
+  repeated Restaurant values = 1;
+}
+message Items{
+  message Item{
+    int32 id = 1;
+    int32 restaurantId = 2;
+    float price = 3;
+    bool isExtra = 4;
+    int32 stateId = 5;
+    int32 nameKey = 6;
+    int32 descriptionKey = 7;
+  }
+  repeated Item values = 1;
+}
+message RestaurantMenus{
+  message RestaurantMenu{
+    int32 id = 1;
+    int32 restaurantId = 2;
+    int32 stateId = 3;
+  }
+  repeated RestaurantMenu values = 1;
+}
+message Menus{
+  message Menu{
+    int32 id = 1;
+    int32 restaurantmenuId = 2;
+    float price = 3;
+    bool useItemDescription = 4;
+    int32 stateId = 5;
+    int32 nameKey = 6;
+    int32 descriptionKey = 7;
+  }
+  repeated Menu values = 1;
+}
+message MenuItems{
+  message MenuItem{
+    int32 id = 1;
+    int32 menuId = 2;
+    int32 itemId = 3;
+    int32 quantity = 4;    
+  }
+  repeated MenuItem values = 1;
+}
+message MenuItemIds{
+  int32 menuId = 1;
+  int32 itemId = 2;
+}
+message Tables{
+  message Table{
+    int32 id = 1;
+    int32 restaurantId = 2;    
+    int32 numberOfSeat = 3;
+    int32 stateId = 4;
+  }
+  repeated Table values = 1;
+}
+message RestaurantLanguage{
+  int32 id = 1;
+  int32 restaurantId = 2;
+  int32 languageId = 3;
+}

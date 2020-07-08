@@ -1,0 +1,2 @@
+obj\Release\netcoreapp3.1/Administrator.cs: Protos/err.proto\
+ Protos/administrator.proto

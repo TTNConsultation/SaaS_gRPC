@@ -1,0 +1,3 @@
+obj\Debug\netcoreapp5.0/Test.cs \
+obj\Debug\netcoreapp5.0/TestGrpc.cs: Protos/common.proto\
+ Protos/test.proto

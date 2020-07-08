@@ -1,0 +1,6 @@
+obj\Release\netcoreapp3.1/Services.cs \
+obj\Release\netcoreapp3.1/ServicesGrpc.cs: Protos/common.proto\
+ Protos/app.proto\
+ Protos/err.proto\
+ Protos/administrator.proto\
+ Protos/services.proto

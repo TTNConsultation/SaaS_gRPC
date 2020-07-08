@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "Saas.Entity.Common";
+
+package Common;
+
+message MsgInt{
+	int32 value = 1;
+}
+message MsgBool{
+	bool value = 1;
+}
+message MsgString{
+	string value = 1; 
+}
+message MsgEmpty{}

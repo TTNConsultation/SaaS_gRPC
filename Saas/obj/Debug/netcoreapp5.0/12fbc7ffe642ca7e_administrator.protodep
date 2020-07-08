@@ -1,0 +1,2 @@
+obj\Debug\netcoreapp5.0/Administrator.cs: Protos/err.proto\
+ Protos/administrator.proto

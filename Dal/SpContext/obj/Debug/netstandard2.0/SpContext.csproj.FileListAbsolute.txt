@@ -1,0 +1,5 @@
+G:\Dev\SaaS\Dal\SpContext\bin\Debug\netstandard2.0\SpContext.deps.json
+G:\Dev\SaaS\Dal\SpContext\bin\Debug\netstandard2.0\SpContext.dll
+G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.0\SpContext.csprojAssemblyReference.cache
+G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.0\SpContext.AssemblyInfoInputs.cache
+G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.0\SpContext.AssemblyInfo.cs
