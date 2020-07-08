@@ -138,6 +138,9 @@ G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\SpContext.dll
+G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\SpContext.pdb
+G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csprojAssemblyReference.cache
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.AssemblyInfoInputs.cache
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.AssemblyInfo.cs
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csproj.CoreCompileInputs.cache
@@ -149,6 +152,3 @@ G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\staticwebassets\Saas.StaticWebAssets.xm
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.dll
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.pdb
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.genruntimeconfig.cache
-G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csprojAssemblyReference.cache
-G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\SpContext.dll
-G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\SpContext.pdb

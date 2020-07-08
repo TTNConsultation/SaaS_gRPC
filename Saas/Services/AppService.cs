@@ -8,30 +8,30 @@ using Saas.Entity.App;
 
 namespace Saas.Services
 {
-  internal class AppDataService : AppDataSvc.AppDataSvcBase
+  internal class AppService : AppDataSvc.AppDataSvcBase
   {
     private readonly ILogger<RestaurantService> logger;
-    private readonly IAppData appData;
+    private readonly ReferenceData refData;
 
-    public AppDataService(ILogger<RestaurantService> log, IAppData app)
+    public AppService(ILogger<RestaurantService> log, ReferenceData refdata)
     {
       logger = log;
-      appData = app;
+      refData = refdata;
     }
 
     public override Task<Languages> Languages(MsgEmpty request, ServerCallContext context)
     {
-      return Task.FromResult(appData.Languages);
+      return Task.FromResult(refData.Languages);
     }
 
     public override Task<States> States(MsgEmpty request, ServerCallContext context)
     {
-      return Task.FromResult(appData.States);
+      return Task.FromResult(refData.States);
     }
 
     public override Task<KeyTypes> KeyTypes(MsgEmpty request, ServerCallContext context)
     {
-      return Task.FromResult(appData.KeyTypes);
+      return Task.FromResult(refData.KeyTypes);
     }
   }
 }

@@ -1,8 +1,9 @@
 G:\Dev\SaaS\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.deps.json
 G:\Dev\SaaS\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.dll
+G:\Dev\SaaS\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.pdb
 G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.AssemblyInfoInputs.cache
 G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.AssemblyInfo.cs
-G:\Dev\SaaS\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.pdb
 G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.csproj.CoreCompileInputs.cache
 G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.dll
 G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.pdb
+G:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.csprojAssemblyReference.cache

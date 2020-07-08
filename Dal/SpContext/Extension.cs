@@ -69,7 +69,7 @@ namespace Dal
       };
     }
 
-    public static IEnumerable<T> Parse<T>(this SqlDataReader reader, ICollectionMapToEntity mappers) where T : new()
+    public static IEnumerable<T> Parse<T>(this SqlDataReader reader, ISpMappers mappers) where T : new()
     {
       var ret = new HashSet<T>();
       var map = mappers.FirstOrDefault(typeof(T).Name);
@@ -82,7 +82,7 @@ namespace Dal
       return ret;
     }
 
-    public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, ICollectionMapToEntity mappers) where T : new()
+    public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, ISpMappers mappers) where T : new()
     {
       var ret = new HashSet<T>();
       var map = mappers.FirstOrDefault(typeof(T).Name);

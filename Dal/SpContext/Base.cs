@@ -12,25 +12,25 @@ namespace Dal.Sp
   internal abstract class Base<T> : IDisposable where T : new()
   {
     private readonly SqlCommand SqlCmd;
-    private readonly User UserInfo;
-    private readonly Info SpInfo;
-    private readonly ICollectionMapToEntity MapToEntities;
+    private readonly SpInfo SpInfo;
+    private readonly ISpMappers MapToEntities;
 
-    protected Base(User user, Info spinfo, ICollectionMapToEntity mappers, string conStr)
+    public bool IsValid() => !string.IsNullOrEmpty(SqlCmd.CommandText) && !String.IsNullOrEmpty(SqlCmd.Connection.ConnectionString);
+
+    protected Base(ConnectionStringManager.User user, SpInfo spinfo, ISpMappers mappers)
     {
-      UserInfo = user;
       SpInfo = spinfo;
       MapToEntities = mappers;
 
-      SqlCmd = new SqlCommand(SpInfo.FullName, new SqlConnection(conStr))
+      SqlCmd = new SqlCommand(SpInfo.FullName ?? string.Empty, new SqlConnection((user.IsValid) ? user.ConnectionString : string.Empty))
       {
         CommandType = CommandType.StoredProcedure
       };
 
-      AddParameter(Constant.ROOT.Id(), UserInfo.RootId);
+      SetParameter(Constant.ROOT.Id(), user.RootId);
     }
 
-    protected bool AddParameter(string key, object value)
+    protected bool SetParameter(string key, object value)
     {
       var spParam = SpInfo.Parameter(key);
 
@@ -42,39 +42,35 @@ namespace Dal.Sp
       }).Size > 0;
     }
 
-    protected bool AddParameters(T obj)
+    protected bool SetParameter(T obj)
     {
-      if (obj == null)
-        return false;
-
       var propInfos = obj.GetType().GetProperties();
-      int nb = 0;
-
-      for (int i = 0; i < propInfos.Length; i++)
+      foreach (var prop in propInfos)
       {
-        if (AddParameter(propInfos[i].Name, propInfos[i].GetValue(obj)))
-          nb++;
+        SetParameter(prop.Name, prop.GetValue(obj));
       }
-      return nb == SpInfo.ParameterCount - 1;  //rootid
+
+      return propInfos.Length == SpInfo.ParameterCount - 1;  //rootid
     }
 
-    protected bool AddParameters(IDictionary<string, object> parameters)
+    protected bool SetParameter(IDictionary<string, object> parameters)
     {
       bool ret = true;
       foreach (var p in parameters)
       {
-        ret = ret && AddParameter(p.Key, p.Value);
+        ret = ret && SetParameter(p.Key, p.Value);
       }
       return ret;
     }
 
-    protected bool SetParameter(string key, object value)
+    protected bool SetParameterValue(string key, object value)
     {
       var par = SpInfo.Parameter(key);
       if (par == null)
         return false;
 
       SqlCmd.Parameters[par.Order - 1].Value = value;
+
       return true;
     }
 

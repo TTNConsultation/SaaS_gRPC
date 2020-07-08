@@ -4,26 +4,30 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+using static Dal.Sp.ConnectionStringManager;
+
 namespace Dal.Sp
 {
   public interface IContext
   {
-    IRonly<T> SpAppData<T>() where T : new();
+    IRead<T> ReferenceData<T>() where T : new();
 
-    IRonly<T> SpROnly<T>(IAppData appData, ClaimsPrincipal uc, OperationType op) where T : new();
+    IRead<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
 
-    ICrud<T> SpCrud<T>(IAppData appData, ClaimsPrincipal uc, OperationType op) where T : new();
+    IWrite<T> ReadWrite<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
   }
 
-  public interface IRonly<T> : IDisposable where T : new()
+  public interface IRead<T> : IDisposable where T : new()
   {
+    bool IsValid();
+
     T Read(int id);
+
+    IEnumerable<T> Read();
 
     IEnumerable<T> Read(string value);
 
     IEnumerable<T> Read(string key, object id);
-
-    Task<T> ReadAsync(int id);
 
     Task<IEnumerable<T>> ReadAsync();
 
@@ -36,30 +40,25 @@ namespace Dal.Sp
     Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator);
   }
 
-  public interface ICrud<T> : IRonly<T> where T : new()
+  public interface IWrite<T> : IRead<T> where T : new()
   {
     int Create(T obj);
 
     bool Update(T obj);
 
-    Task<bool> UpdateState(int id, int stateId);
+    bool UpdateState(int id, int stateId);
 
     bool Delete(int id);
   }
 
-  public interface IAppData
+  public interface ISpMappers
   {
-    int AppId();
+    public ISpMapper FirstOrDefault(string type);
+
+    T Add<T>(SqlDataReader reader, out ISpMapper mapper) where T : new();
   }
 
-  public interface ICollectionMapToEntity
-  {
-    public IMapToEntity FirstOrDefault(string type);
-
-    T Add<T>(SqlDataReader reader, out IMapToEntity mapper) where T : new();
-  }
-
-  public interface IMapToEntity
+  public interface ISpMapper
   {
     bool IsType(string type);
 
@@ -68,12 +67,14 @@ namespace Dal.Sp
     T Parse<T>(SqlDataReader reader) where T : new();
   }
 
-  public interface IConnectionStringManager
+  internal interface IConnectionStringManager
   {
-    string GetConnectionString(string role);
+    string Get(string schema);
 
-    string GetConnectionString(int order);
+    string App();
 
-    string GetAppConnectionString();
+    ConnectionStringManager.User GetUser(ClaimsPrincipal uc, int appId);
+
+    ConnectionStringManager.User GetAppUser();
   }
 }

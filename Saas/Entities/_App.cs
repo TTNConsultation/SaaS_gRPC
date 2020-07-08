@@ -4,6 +4,11 @@ using System.Globalization;
 using System.Linq;
 
 using Dal;
+using Dal.Sp;
+
+using static Saas.Entity.App.KeyTypes.Types;
+using static Saas.Entity.App.Languages.Types;
+using static Saas.Entity.App.States.Types;
 
 namespace Saas.Entity.App
 {
@@ -64,6 +69,23 @@ namespace Saas.Entity.App
     public KeyTypes(IEnumerable<Types.KeyType> values)
     {
       Values.AddRange(values);
+    }
+  }
+
+  internal class ReferenceData
+  {
+    public int AppId => AppSettings.Id;
+    public readonly States States;
+    public readonly Languages Languages;
+    public readonly KeyTypes KeyTypes;
+    public readonly AppSetting AppSettings;
+
+    public ReferenceData(IContext context)
+    {
+      States = new States(context.ReferenceData<State>().Read());
+      Languages = new Languages(context.ReferenceData<Language>().Read());
+      KeyTypes = new KeyTypes(context.ReferenceData<KeyType>().Read());
+      AppSettings = context.ReferenceData<AppSetting>().Read().First();
     }
   }
 }

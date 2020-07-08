@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Saas.Entity.App;
+
+using Dal.Security;
 using Dal.Sp;
 
 using static Saas.Entity.App.Languages.Types;
@@ -9,24 +11,22 @@ using static Saas.Entity.App.States.Types;
 
 namespace Saas
 {
-  public sealed class IAppData : Dal.Sp.IAppData
+  internal sealed class AppData
   {
     public readonly States States;
     public readonly Languages Languages;
     public readonly KeyTypes KeyTypes;
-    public readonly AppSetting AppInfo;
+    public readonly AppSetting AppSetting;
+    public int AppId => AppSetting.Id;
 
-    public IAppData(IContext spContext)
+    public AppData(RoleManager roles, IContext context)
     {
-      if (spContext == null)
-        throw new NotSupportedException();
+      var user = User.AppUser(roles);
 
-      States = new States(spContext.SpAppData<State>().ReadAsync().Result);
-      Languages = new Languages(spContext.SpAppData<Language>().ReadAsync().Result);
-      KeyTypes = new KeyTypes(spContext.SpAppData<KeyType>().ReadAsync().Result);
-      AppInfo = spContext.SpAppData<AppSetting>()?.ReadAsync()?.Result?.First() ?? new AppSetting();
+      States = new States(context.ReadOnly<State>(user).Read());
+      Languages = new Languages(context.ReadOnly<Language>(user).Read());
+      KeyTypes = new KeyTypes(context.ReadOnly<KeyType>(user).Read());
+      AppSetting = context.ReadOnly<AppSetting>(user).Read().First();
     }
-
-    public int AppId() => AppInfo.Id;
   }
 }

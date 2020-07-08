@@ -7,27 +7,27 @@ using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
 {
-  public sealed class CollectionMapToEntity : ICollectionMapToEntity
+  public sealed class SpMappers : ISpMappers
   {
-    private readonly HashSet<IMapToEntity> mappers = new HashSet<IMapToEntity>();
+    private readonly HashSet<ISpMapper> mappers = new HashSet<ISpMapper>();
 
-    public IMapToEntity FirstOrDefault(string typename) => mappers.FirstOrDefault(sp => sp.IsType(typename));
+    public ISpMapper FirstOrDefault(string typename) => mappers.FirstOrDefault(sp => sp.IsType(typename));
 
-    public T Add<T>(SqlDataReader reader, out IMapToEntity map) where T : new()
+    public T Add<T>(SqlDataReader reader, out ISpMapper map) where T : new()
     {
-      map = new MapToEntity(typeof(T).Name);
+      map = new SpMapper(typeof(T).Name);
       mappers.Add(map);
 
       return map.Build<T>(reader);
     }
   }
 
-  public sealed class MapToEntity : IMapToEntity
+  public sealed class SpMapper : ISpMapper
   {
     private readonly string Name;
     private IDictionary<int, PropertyInfo> Map;
 
-    internal MapToEntity(string name)
+    internal SpMapper(string name)
     {
       Name = name;
     }

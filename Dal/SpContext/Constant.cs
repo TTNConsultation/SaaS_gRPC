@@ -43,9 +43,8 @@
     public const string CorsAllowedPolicy = "CorsAllowed";
 
     //Config section
-    public const string DAL = "Dal";
+    public const string SPCONTEXT = "SpContext";
 
-    public const string DAL_CONNECTIONSTRINGS = "ConnectionStrings";
-    public const string DAL_APPID = "AppId";
+    public const string CONNECTIONSTRINGS = "ConnectionStrings";
   }
 }

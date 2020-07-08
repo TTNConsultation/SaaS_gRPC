@@ -6,8 +6,10 @@ using Microsoft.Extensions.Configuration;
 
 //using Saas.Dal;
 using Saas.Services;
+using Saas.Entity.App;
 using Microsoft.AspNetCore.Http;
 using IdentityServer4.AccessTokenValidation;
+
 using Dal;
 using Dal.Sp;
 
@@ -58,9 +60,9 @@ namespace Saas
                .WithExposedHeaders("Grpc-Status", "Grpc-Message");
       }));
 
-      services.AddSingleton<ICollectionMapToEntity, CollectionMapToEntity>();
+      services.AddSingleton<ISpMappers, SpMappers>();
       services.AddSingleton<IContext, Context>();
-      services.AddSingleton<IAppData, IAppData>();
+      services.AddSingleton<ReferenceData>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,7 +89,7 @@ namespace Saas
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapGrpcService<AppDataService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
+        endpoints.MapGrpcService<AppService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<TableService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();

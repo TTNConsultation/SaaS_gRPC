@@ -22,6 +22,7 @@
     <None Remove="Dal\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="AppData.cs" />
     <Compile Remove="Constant.cs" />
     <Compile Remove="Extension.cs" />
     <Compile Remove="Security.cs" />
