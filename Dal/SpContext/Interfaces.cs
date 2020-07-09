@@ -69,12 +69,10 @@ namespace Dal.Sp
 
   internal interface IConnectionStringManager
   {
-    string Get(string schema);
-
-    string App();
-
-    ConnectionStringManager.User GetUser(ClaimsPrincipal uc, int appId);
+    string Get(ConnectionStringManager.User user);
 
     ConnectionStringManager.User GetAppUser();
+
+    ConnectionStringManager.User GetUser(ClaimsPrincipal uc, int appId);
   }
 }

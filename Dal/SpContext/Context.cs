@@ -17,7 +17,7 @@ namespace Dal.Sp
     {
       ConStrManager = new ConnectionStringManager(config);
       SpMappers = mappers;
-      SpInfos = SpInfo.Read(SpMappers, ConStrManager.App());
+      SpInfos = SpInfo.Read(SpMappers, ConStrManager.Get(ConnectionStringManager.User.AppUser()));
     }
 
     private SpInfo GetSpInfo(OperationType op, string name) => SpInfos.FirstOrDefault(sp => sp.Op == op && sp.Name.IsEqual(name));
@@ -54,18 +54,16 @@ namespace Dal.Sp
 
     public ConnectionStringManager(IConfiguration config)
     {
-      var cfg = config.GetSection(Constant.CONNECTIONSTRINGS);
-      ConnectionStrings = (cfg == null) ? throw new NullReferenceException() : cfg.GetChildren().ToDictionary(s => s.Key, s => s.Value);
+      var cfgs = config.GetSection(Constant.CONNECTIONSTRINGS)?.GetChildren();
+      ConnectionStrings = (cfgs == null) ? throw new NullReferenceException() : cfgs.ToDictionary(s => s.Key, s => s.Value);
     }
 
-    public string Get(string schema) => ConnectionStrings.First(s => s.Key.IsEqual(schema)).Value;
-
-    public string App() => Get(Constant.APP);
+    public string Get(User user) => (user.IdVerified) ? ConnectionStrings.First(s => s.Key.IsEqual(user.Role)).Value : string.Empty;
 
     public User GetUser(ClaimsPrincipal uc, int appId)
     {
       var user = new User(uc, appId);
-      user.ConnectionString = Get(user.Role);
+      user.ConnectionString = Get(user);
 
       return user;
     }
@@ -73,7 +71,7 @@ namespace Dal.Sp
     public User GetAppUser()
     {
       var user = User.AppUser();
-      user.ConnectionString = App();
+      user.ConnectionString = Get(user);
 
       return user;
     }
@@ -82,11 +80,11 @@ namespace Dal.Sp
     {
       public readonly int RootId;
       public readonly int AppId;
-      private readonly bool IdVerified;
+      public string ConnectionString { get; internal set; }
 
       internal readonly string Role;
-      public string ConnectionString { get; internal set; }
-      internal bool IsValid => IdVerified && !string.IsNullOrEmpty(ConnectionString);
+
+      public readonly bool IdVerified;
 
       private User(string role)
       {

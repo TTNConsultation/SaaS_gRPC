@@ -22,9 +22,11 @@ namespace Dal.Sp
       SpInfo = spinfo;
       MapToEntities = mappers;
 
-      SqlCmd = new SqlCommand(SpInfo.FullName ?? string.Empty, new SqlConnection((user.IsValid) ? user.ConnectionString : string.Empty))
+      SqlCmd = new SqlCommand()
       {
-        CommandType = CommandType.StoredProcedure
+        CommandText = spinfo?.FullName,
+        CommandType = CommandType.StoredProcedure,
+        Connection = new SqlConnection(user.ConnectionString)
       };
 
       SetParameter(Constant.ROOT.Id(), user.RootId);

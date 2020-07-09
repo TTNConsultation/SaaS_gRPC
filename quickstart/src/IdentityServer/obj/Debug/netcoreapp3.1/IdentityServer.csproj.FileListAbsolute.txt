@@ -67,3 +67,4 @@ G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\staticwebasset
 G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll
 G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
 G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache
+G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csprojAssemblyReference.cache
