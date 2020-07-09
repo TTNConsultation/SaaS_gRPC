@@ -6,8 +6,13 @@ namespace Dal.Sp
 {
   internal sealed class ReadOnly<T> : Base<T>, IRead<T> where T : new()
   {
-    public ReadOnly(ConnectionStringManager.User user, SpInfo sp, ISpMappers mappers) : base(user, sp, mappers)
+    public ReadOnly(UserClaim claim, SpInfo sp, ISpMappers mappers) : base(claim, sp, mappers)
     {
+    }
+
+    public string Error()
+    {
+      throw new System.NotImplementedException();
     }
 
     public T Read(int id) => Read(Constant.ID, id).First();

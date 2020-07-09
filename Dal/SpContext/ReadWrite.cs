@@ -8,9 +8,9 @@ namespace Dal.Sp
   {
     private readonly IRead<T> SpRonly;
 
-    public ReadWrite(ConnectionStringManager.User user, SpInfo sp, SpInfo spReadOnly, ISpMappers mappers) : base(user, sp, mappers)
+    public ReadWrite(UserClaim claim, SpInfo sp, SpInfo spReadOnly, ISpMappers mappers) : base(claim, sp, mappers)
     {
-      SpRonly = (spReadOnly == null) ? null : new ReadOnly<T>(user, spReadOnly, mappers);
+      SpRonly = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, mappers);
     }
 
     public int Create(T obj) => SetParameter(obj) ? Create() : -1;

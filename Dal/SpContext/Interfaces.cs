@@ -2,10 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
+  public interface IConnectionManager
+  {
+    string Get(string schema);
+
+    string App();
+  }
+
   public interface IContext
   {
     IRead<T> ReferenceData<T>(int appId = 0) where T : new();
@@ -17,7 +25,9 @@ namespace Dal.Sp
 
   public interface IRead<T> : IDisposable where T : new()
   {
-    bool IsInit();
+    bool IsReady();
+
+    string ErrorMessages();
 
     T Read(int id);
 
@@ -51,7 +61,9 @@ namespace Dal.Sp
 
   public interface ISpMappers
   {
-    public ISpMapper FirstOrDefault(string type);
+    public string ErrorMessage();
+
+    public ISpMapper Get<T>();
 
     T Add<T>(SqlDataReader reader, out ISpMapper mapper) where T : new();
   }
@@ -63,14 +75,5 @@ namespace Dal.Sp
     T Build<T>(SqlDataReader reader) where T : new();
 
     T Parse<T>(SqlDataReader reader) where T : new();
-  }
-
-  internal interface IConnectionStringManager
-  {
-    string Get(string schema);
-
-    ConnectionStringManager.User GetAppUser(int appId);
-
-    ConnectionStringManager.User GetUser(ClaimsPrincipal uc, int appId);
   }
 }

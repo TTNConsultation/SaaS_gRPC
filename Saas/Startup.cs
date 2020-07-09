@@ -60,6 +60,7 @@ namespace Saas
                .WithExposedHeaders("Grpc-Status", "Grpc-Message");
       }));
 
+      services.AddSingleton<IConnectionManager, ConnectionManager>();
       services.AddSingleton<ISpMappers, SpMappers>();
       services.AddSingleton<IContext, Context>();
       services.AddSingleton<ReferenceData>();

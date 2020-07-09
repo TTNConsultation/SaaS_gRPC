@@ -11,7 +11,11 @@ namespace Dal.Sp
   {
     private readonly HashSet<ISpMapper> mappers = new HashSet<ISpMapper>();
 
-    public ISpMapper FirstOrDefault(string typename) => mappers.FirstOrDefault(sp => sp.IsType(typename));
+    private readonly string ErrMsg = string.Empty;
+
+    public string ErrorMessage() => ErrMsg;
+
+    public ISpMapper Get<T>() => mappers.FirstOrDefault(sp => sp.IsType(typeof(T).Name));
 
     public T Add<T>(SqlDataReader reader, out ISpMapper map) where T : new()
     {

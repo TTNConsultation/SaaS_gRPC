@@ -51,6 +51,11 @@ namespace Dal
       return str.IsEqual(compare, CultureInfo.CurrentCulture, true);
     }
 
+    public static string SpName(this Type t, string schema, string op)
+    {
+      return schema.DotAnd(t.Name).UnderscoreAnd(op);
+    }
+
     public static SqlDbType ToSqlDbType(this string str)
     {
       if (string.IsNullOrEmpty(str))
@@ -72,7 +77,7 @@ namespace Dal
     public static IEnumerable<T> Parse<T>(this SqlDataReader reader, ISpMappers mappers) where T : new()
     {
       var ret = new HashSet<T>();
-      var map = mappers.FirstOrDefault(typeof(T).Name);
+      var map = mappers.Get<T>();
 
       while (reader.Read())
       {
@@ -85,7 +90,7 @@ namespace Dal
     public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, ISpMappers mappers) where T : new()
     {
       var ret = new HashSet<T>();
-      var map = mappers.FirstOrDefault(typeof(T).Name);
+      var map = mappers.Get<T>();
 
       while (await reader.ReadAsync().ConfigureAwait(false))
       {

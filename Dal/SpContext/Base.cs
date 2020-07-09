@@ -4,6 +4,7 @@ using System.Data;
 
 using Microsoft.Data.SqlClient;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace Dal.Sp
 {
@@ -14,20 +15,31 @@ namespace Dal.Sp
     private readonly SqlCommand SqlCmd;
     private readonly SpInfo SpInfo;
     private readonly int RootId;
-    private readonly ISpMappers MapToEntities;
+    private readonly ISpMappers SpMappers;
+    private readonly string ErrMsg;
 
-    public bool IsInit() => SqlCmd != null;
+    public bool IsReady() => string.IsNullOrEmpty(ErrMsg);
 
-    protected Base(ConnectionStringManager.User user, SpInfo spinfo, ISpMappers mappers)
+    public string ErrorMessages() => ErrMsg;
+
+    protected Base(UserClaim claim, SpInfo sp, ISpMappers mappers)
     {
-      RootId = user.RootId;
-      SpInfo = spinfo;
-      MapToEntities = mappers;
+      ErrMsg = new StringBuilder().Append(sp?.ErrorMessage ?? "spInfo is null | ")
+                                  .Append(claim?.ErrorMessage ?? "claim is null |")
+                                  .Append(mappers?.ErrorMessage() ?? "mappers is null")
+                                  .ToString();
 
-      SqlCmd = (spinfo == null || string.IsNullOrEmpty(user.ConnectionStr)) ? null : new SqlCommand(spinfo.FullName, new SqlConnection(user.ConnectionStr))
+      if (IsReady())
       {
-        CommandType = CommandType.StoredProcedure
-      };
+        RootId = claim.RootId;
+        SpInfo = sp;
+        SpMappers = mappers;
+
+        SqlCmd = new SqlCommand(sp.FullName, new SqlConnection(claim.ConnectionString))
+        {
+          CommandType = CommandType.StoredProcedure
+        };
+      }
     }
 
     protected bool SetParameter(string key, object value)
@@ -100,7 +112,7 @@ namespace Dal.Sp
     {
       AddRootAndConnect();
       using var reader = SqlCmd.ExecuteReader();
-      return reader.Parse<T>(MapToEntities);
+      return reader.Parse<T>(SpMappers);
     }
 
     public async virtual Task<IEnumerable<T>> ReadAsync()
@@ -109,7 +121,7 @@ namespace Dal.Sp
 
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
-      return await reader.ParseAsync<T>(MapToEntities).ConfigureAwait(false);
+      return await reader.ParseAsync<T>(SpMappers).ConfigureAwait(false);
     }
 
     public virtual void Dispose()

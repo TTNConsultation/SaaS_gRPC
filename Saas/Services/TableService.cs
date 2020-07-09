@@ -37,7 +37,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Table>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsInit()) ? Task.FromResult(sp.Read(id.Value))
+      return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -47,7 +47,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Table>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsInit()) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.Id(), restaurantId.Value)))
+      return (sp.IsReady()) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.Id(), restaurantId.Value)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
   }
