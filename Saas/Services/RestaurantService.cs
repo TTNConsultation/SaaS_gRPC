@@ -36,7 +36,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsValid()) ? Task.FromResult(sp.Read(id.Value))
+      return (sp.IsInit()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -46,7 +46,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsValid()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))
+      return (sp.IsInit()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -57,7 +57,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadWrite<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.C);
-      return (sp.IsValid()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
+      return (sp.IsInit()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -68,7 +68,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadWrite<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.U);
-      return (sp.IsValid()) ? Task.FromResult(new MsgBool(sp.Update(obj)))
+      return (sp.IsInit()) ? Task.FromResult(new MsgBool(sp.Update(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -79,7 +79,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadWrite<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.D);
-      return (sp.IsValid()) ? Task.FromResult(new MsgBool(sp.UpdateState(id.Value, refData.States.DeleteId)))
+      return (sp.IsInit()) ? Task.FromResult(new MsgBool(sp.UpdateState(id.Value, refData.States.DeleteId)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
   }

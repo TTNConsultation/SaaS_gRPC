@@ -37,7 +37,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Menu>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsValid()) ? Task.FromResult(sp.Read(id.Value))
+      return (sp.IsInit()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -47,7 +47,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Menu>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsValid()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value).Result)).ConfigureAwait(false)
+      return (sp.IsInit()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value).Result)).ConfigureAwait(false)
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -57,7 +57,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadOnly<Menu>(refData.AppId, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsValid()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
+      return (sp.IsInit()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
 
@@ -67,7 +67,7 @@ namespace Saas.Services
         throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
 
       using var sp = spContext.ReadWrite<Menu>(refData.AppId, context.GetHttpContext().User, OperationType.C);
-      return (sp.IsValid()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
+      return (sp.IsInit()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
     }
   }

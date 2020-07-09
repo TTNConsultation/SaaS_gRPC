@@ -13,23 +13,21 @@ namespace Dal.Sp
   {
     private readonly SqlCommand SqlCmd;
     private readonly SpInfo SpInfo;
+    private readonly int RootId;
     private readonly ISpMappers MapToEntities;
 
-    public bool IsValid() => !string.IsNullOrEmpty(SqlCmd.CommandText) && !String.IsNullOrEmpty(SqlCmd.Connection.ConnectionString);
+    public bool IsInit() => SqlCmd != null;
 
     protected Base(ConnectionStringManager.User user, SpInfo spinfo, ISpMappers mappers)
     {
+      RootId = user.RootId;
       SpInfo = spinfo;
       MapToEntities = mappers;
 
-      SqlCmd = new SqlCommand()
+      SqlCmd = (spinfo == null || string.IsNullOrEmpty(user.ConnectionStr)) ? null : new SqlCommand(spinfo.FullName, new SqlConnection(user.ConnectionStr))
       {
-        CommandText = spinfo?.FullName,
-        CommandType = CommandType.StoredProcedure,
-        Connection = new SqlConnection(user.ConnectionString)
+        CommandType = CommandType.StoredProcedure
       };
-
-      SetParameter(Constant.ROOT.Id(), user.RootId);
     }
 
     protected bool SetParameter(string key, object value)
@@ -76,16 +74,22 @@ namespace Dal.Sp
       return true;
     }
 
+    private void AddRootAndConnect()
+    {
+      SetParameter(Constant.ROOT.Id(), RootId);
+      SqlCmd.Connection.Open();
+    }
+
     protected bool Update()
     {
-      SqlCmd.Connection.Open();
+      AddRootAndConnect();
 
       return SqlCmd.ExecuteNonQuery() == 1;
     }
 
     protected int Create()
     {
-      SqlCmd.Connection.Open();
+      AddRootAndConnect();
 
       return (SqlCmd.ExecuteNonQuery() == 1) ?
         int.Parse(SqlCmd.Parameters[Constant.ID].Value.ToString()) :
@@ -94,16 +98,16 @@ namespace Dal.Sp
 
     public IEnumerable<T> Read()
     {
-      SqlCmd.Connection.Open();
-
+      AddRootAndConnect();
       using var reader = SqlCmd.ExecuteReader();
       return reader.Parse<T>(MapToEntities);
     }
 
     public async virtual Task<IEnumerable<T>> ReadAsync()
     {
-      await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
+      SetParameter(Constant.ROOT.Id(), RootId);
 
+      await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
       return await reader.ParseAsync<T>(MapToEntities).ConfigureAwait(false);
     }

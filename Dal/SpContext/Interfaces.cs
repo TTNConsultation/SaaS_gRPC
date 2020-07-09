@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-using static Dal.Sp.ConnectionStringManager;
-
 namespace Dal.Sp
 {
   public interface IContext
   {
-    IRead<T> ReferenceData<T>() where T : new();
+    IRead<T> ReferenceData<T>(int appId = 0) where T : new();
 
     IRead<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
 
@@ -19,7 +17,7 @@ namespace Dal.Sp
 
   public interface IRead<T> : IDisposable where T : new()
   {
-    bool IsValid();
+    bool IsInit();
 
     T Read(int id);
 
@@ -69,9 +67,9 @@ namespace Dal.Sp
 
   internal interface IConnectionStringManager
   {
-    string Get(ConnectionStringManager.User user);
+    string Get(string schema);
 
-    ConnectionStringManager.User GetAppUser();
+    ConnectionStringManager.User GetAppUser(int appId);
 
     ConnectionStringManager.User GetUser(ClaimsPrincipal uc, int appId);
   }

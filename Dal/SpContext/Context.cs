@@ -17,14 +17,14 @@ namespace Dal.Sp
     {
       ConStrManager = new ConnectionStringManager(config);
       SpMappers = mappers;
-      SpInfos = SpInfo.Read(SpMappers, ConStrManager.Get(ConnectionStringManager.User.AppUser()));
+      SpInfos = SpInfo.Read(SpMappers, ConStrManager.Get(Constant.APP));
     }
 
     private SpInfo GetSpInfo(OperationType op, string name) => SpInfos.FirstOrDefault(sp => sp.Op == op && sp.Name.IsEqual(name));
 
-    public IRead<T> ReferenceData<T>() where T : new()
+    public IRead<T> ReferenceData<T>(int appId = 0) where T : new()
     {
-      var user = ConStrManager.GetAppUser();
+      var user = ConStrManager.GetAppUser(appId);
       var spInfo = GetSpInfo(OperationType.R, typeof(T).Name);
 
       return new ReadOnly<T>(user, spInfo, SpMappers);
@@ -58,66 +58,49 @@ namespace Dal.Sp
       ConnectionStrings = (cfgs == null) ? throw new NullReferenceException() : cfgs.ToDictionary(s => s.Key, s => s.Value);
     }
 
-    public string Get(User user) => (user.IdVerified) ? ConnectionStrings.First(s => s.Key.IsEqual(user.Role)).Value : string.Empty;
+    public string Get(string schema) => ConnectionStrings.First(s => s.Key.IsEqual(schema)).Value;
 
     public User GetUser(ClaimsPrincipal uc, int appId)
     {
-      var user = new User(uc, appId);
-      user.ConnectionString = Get(user);
-
-      return user;
+      return new User(this, uc, appId);
     }
 
-    public User GetAppUser()
+    public User GetAppUser(int appId)
     {
-      var user = User.AppUser();
-      user.ConnectionString = Get(user);
-
-      return user;
+      return User.AppUser(this, appId);
     }
 
     internal sealed class User
     {
       public readonly int RootId;
-      public readonly int AppId;
-      public string ConnectionString { get; internal set; }
+      public readonly string ConnectionStr;
 
-      internal readonly string Role;
-
-      public readonly bool IdVerified;
-
-      private User(string role)
+      internal User(IConnectionStringManager conStrMng, ClaimsPrincipal cp, int appId)
       {
-        Role = role;
-        IdVerified = true;
-      }
-
-      internal User(ClaimsPrincipal cp, int appId)
-      {
-        AppId = appId;
-
         foreach (var c in cp.Claims)
         {
           switch (c.Type)
           {
             case "client_id":
-              int clientId;
-              RootId = int.TryParse(c.Value, out clientId) ? clientId : 0;
+              RootId = int.Parse(c.Value);
               break;
 
             case "role":
-              Role = c.Value;
-              break;
-
-            case "id":
-              int id;
-              IdVerified = (int.TryParse(c.Value, out id) && appId == id);
+              ConnectionStr = conStrMng.Get(c.Value);
               break;
           }
+
+          RootId = (RootId == 0) ? appId : 0;
         }
       }
 
-      internal static User AppUser() => new User(Constant.APP);
+      private User(string conStr, int appId)
+      {
+        ConnectionStr = conStr;
+        RootId = appId;
+      }
+
+      internal static User AppUser(IConnectionStringManager conStrMng, int appId) => new User(conStrMng.Get(Constant.APP), appId);
     }
   }
 }
