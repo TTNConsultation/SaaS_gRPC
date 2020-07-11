@@ -32,9 +32,6 @@ namespace Saas.Services
 
     public override Task<Restaurant> Get(MsgInt id, ServerCallContext context)
     {
-      if (id is null || id.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
       using var sp = spContext.ReadOnly<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
@@ -42,9 +39,6 @@ namespace Saas.Services
 
     public async override Task<Restaurants> Lookup(MsgString lookupStr, ServerCallContext context)
     {
-      if (lookupStr is null || string.IsNullOrEmpty(lookupStr.Value))
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
       using var sp = spContext.ReadOnly<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
@@ -53,9 +47,6 @@ namespace Saas.Services
     [Authorize(Policy = "admin")]
     public override Task<MsgInt> Create(Restaurant obj, ServerCallContext context)
     {
-      if (obj is null)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
       using var sp = spContext.ReadWrite<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.C);
       return (sp.IsReady()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
@@ -75,9 +66,6 @@ namespace Saas.Services
     [Authorize(Policy = "admin")]
     public override Task<MsgBool> Delete(MsgInt id, ServerCallContext context)
     {
-      if (id is null || id.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
       using var sp = spContext.ReadWrite<Restaurant>(refData.AppId, context.GetHttpContext().User, OperationType.D);
       return (sp.IsReady()) ? Task.FromResult(new MsgBool(sp.UpdateState(id.Value, refData.States.DeleteId)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));

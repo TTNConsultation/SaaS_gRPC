@@ -4,7 +4,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
-//using Saas.Dal;
 using Saas.Services;
 using Saas.Entity.App;
 using Microsoft.AspNetCore.Http;

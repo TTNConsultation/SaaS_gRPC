@@ -36,9 +36,6 @@ namespace Saas.Services
 
     public override Task<MenuItem> Get(MsgInt id, ServerCallContext context)
     {
-      if (id == null || id.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
       using var sp = spContext.ReadOnly<MenuItem>(refData.AppId, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
@@ -46,9 +43,6 @@ namespace Saas.Services
 
     public async override Task<MenuItem> GetByMenuAndItem(MenuItemIds menuItemIds, ServerCallContext context)
     {
-      if (menuItemIds == null || menuItemIds.MenuId <= 0 || menuItemIds.ItemId <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
       var parameters = new Dictionary<string, object>
       {
         { typeof(Menu).Name.Id(), menuItemIds.MenuId },
