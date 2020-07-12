@@ -15,17 +15,17 @@ namespace Dal.Sp
     private readonly SqlCommand SqlCmd;
     private readonly SpInfo SpInfo;
     private readonly ICollectionMap Mappers;
-    private readonly string ErrMsg;
+    private readonly string Err;
 
-    public bool IsReady() => string.IsNullOrEmpty(ErrMsg);
+    public bool IsReady() => string.IsNullOrEmpty(Err);
 
-    public string ErrorMessages() => ErrMsg;
+    public string Error() => Err;
 
     protected Base(Context.UserClaim claim, SpInfo sp, ICollectionMap mappers)
     {
-      ErrMsg = new StringBuilder().Append((sp == null) ? "sp is null | " : null)
-                                  .Append((claim == null) ? "claim is null" : null)
-                                  .ToString();
+      Err = new StringBuilder().Append((sp == null) ? "sp is null | " : null)
+                               .Append((claim == null) ? "claim is null" : null)
+                               .ToString();
 
       if (IsReady())
       {
@@ -101,7 +101,7 @@ namespace Dal.Sp
       return reader.Parse<T>(Mappers);
     }
 
-    public async virtual Task<IEnumerable<T>> ReadAsync()
+    public async Task<IEnumerable<T>> ReadAsync()
     {
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);

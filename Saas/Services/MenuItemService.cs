@@ -38,7 +38,7 @@ namespace Saas.Services
     {
       using var sp = DbContext.ReadOnly<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public async override Task<MenuItem> GetByMenuAndItem(MenuItemIds menuItemIds, ServerCallContext context)
@@ -51,28 +51,28 @@ namespace Saas.Services
 
       using var sp = DbContext.ReadOnly<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? await Task.FromResult(sp.ReadAsync(parameters).Result.First()).ConfigureAwait(false)
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public override Task<MenuItems> GetByItem(MsgInt itemId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(new MenuItems(sp.Read(typeof(Item).Name.Id(), itemId.Value)))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public override Task<MenuItems> GetByMenu(MsgInt menuId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(new MenuItems(sp.Read(typeof(Menu).Name.Id(), menuId.Value)))
-                            : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.Error()));
     }
 
     public override Task<MsgInt> Create(MenuItem obj, ServerCallContext context)
     {
-      using var sp = DbContext.ReadWrite<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.C);
+      using var sp = DbContext.Write<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.C);
       return (sp.IsReady()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
   }
 }

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
-  public interface IRead<T> : IDisposable where T : new()
+  public interface IReadOnly<T> : IDisposable where T : new()
   {
     bool IsReady();
 
-    string ErrorMessages();
+    string Error();
 
     T Read(int id);
 
@@ -30,7 +30,7 @@ namespace Dal.Sp
     Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator);
   }
 
-  internal sealed class ReadOnly<T> : Base<T>, IRead<T> where T : new()
+  internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : new()
   {
     public ReadOnly(Context.UserClaim claim, SpInfo sp, ICollectionMap mappers) : base(claim, sp, mappers)
     {

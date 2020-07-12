@@ -25,32 +25,31 @@ namespace Saas.Entity.App {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBQcm90b3MvYXBwLnByb3RvEgNBcHAidgoES2V5cxIdCgZ2YWx1ZXMYASAD",
-            "KAsyDS5BcHAuS2V5cy5LZXkaTwoDS2V5EgsKA2tleRgBIAEoBRIOCgZyb290",
-            "SWQYAiABKAUSEQoJb2JqZWN0X2lkGAMgASgFEgoKAmlkGAQgASgFEgwKBGNv",
-            "ZGUYBSABKAkiXAoGRnJlbmNoEiEKBnZhbHVlcxgBIAMoCzIRLkFwcC5GcmVu",
-            "Y2guVmFsdWUaLwoFVmFsdWUSCwoDa2V5GAEgASgFEgwKBHR5cGUYAiABKAUS",
-            "CwoDdmFsGAMgASgJIl4KB0VuZ2xpc2gSIgoGdmFsdWVzGAEgAygLMhIuQXBw",
-            "LkVuZ2xpc2guVmFsdWUaLwoFVmFsdWUSCwoDa2V5GAEgASgFEgwKBHR5cGUY",
-            "AiABKAUSCwoDdmFsGAMgASgJImQKClZpZXRuYW1lc2USJQoGdmFsdWVzGAEg",
-            "AygLMhUuQXBwLlZpZXRuYW1lc2UuVmFsdWUaLwoFVmFsdWUSCwoDa2V5GAEg",
-            "ASgFEgwKBHR5cGUYAiABKAUSCwoDdmFsGAMgASgJImYKCEtleVR5cGVzEiUK",
-            "BnZhbHVlcxgBIAMoCzIVLkFwcC5LZXlUeXBlcy5LZXlUeXBlGjMKB0tleVR5",
-            "cGUSCgoCaWQYASABKAUSDAoEbmFtZRgCIAEoCRIOCgZtYXhsZW4YAyABKAUi",
-            "TgoGU3RhdGVzEiEKBnZhbHVlcxgBIAMoCzIRLkFwcC5TdGF0ZXMuU3RhdGUa",
-            "IQoFU3RhdGUSCgoCaWQYASABKAUSDAoEbmFtZRgCIAEoCSJpCglMYW5ndWFn",
-            "ZXMSJwoGdmFsdWVzGAEgAygLMhcuQXBwLkxhbmd1YWdlcy5MYW5ndWFnZRoz",
-            "CghMYW5ndWFnZRIKCgJpZBgBIAEoBRIMCgRjb2RlGAIgASgJEg0KBXZhbHVl",
-            "GAMgASgJIkEKCkFwcFNldHRpbmcSCgoCSWQYASABKAUSDwoHTmFtZUtleRgC",
-            "IAEoBRIWCg5EZXNjcmlwdGlvbktleRgDIAEoBUISqgIPU2Fhcy5FbnRpdHku",
-            "QXBwYgZwcm90bzM="));
+            "KAsyDS5BcHAuS2V5cy5LZXkaTwoDS2V5EgsKA0tleRgBIAEoBRIOCgZSb290",
+            "SWQYAiABKAUSEQoJT2JqZWN0X2lkGAMgASgFEgoKAklkGAQgASgFEgwKBENv",
+            "ZGUYBSABKAkiTgoGRnJlbmNoEiEKBnZhbHVlcxgBIAMoCzIRLkFwcC5GcmVu",
+            "Y2guVmFsdWUaIQoFVmFsdWUSCwoDS2V5GAEgASgFEgsKA1ZhbBgDIAEoCSJQ",
+            "CgdFbmdsaXNoEiIKBnZhbHVlcxgBIAMoCzISLkFwcC5FbmdsaXNoLlZhbHVl",
+            "GiEKBVZhbHVlEgsKA0tleRgBIAEoBRILCgNWYWwYAyABKAkiVgoKVmlldG5h",
+            "bWVzZRIlCgZ2YWx1ZXMYASADKAsyFS5BcHAuVmlldG5hbWVzZS5WYWx1ZRoh",
+            "CgVWYWx1ZRILCgNLZXkYASABKAUSCwoDVmFsGAMgASgJImYKCEtleVR5cGVz",
+            "EiUKBnZhbHVlcxgBIAMoCzIVLkFwcC5LZXlUeXBlcy5LZXlUeXBlGjMKB0tl",
+            "eVR5cGUSCgoCSWQYASABKAUSDAoETmFtZRgCIAEoCRIOCgZNYXhMZW4YAyAB",
+            "KAUiTgoGU3RhdGVzEiEKBnZhbHVlcxgBIAMoCzIRLkFwcC5TdGF0ZXMuU3Rh",
+            "dGUaIQoFU3RhdGUSCgoCSWQYASABKAUSDAoETmFtZRgCIAEoCSJpCglMYW5n",
+            "dWFnZXMSJwoGdmFsdWVzGAEgAygLMhcuQXBwLkxhbmd1YWdlcy5MYW5ndWFn",
+            "ZRozCghMYW5ndWFnZRIKCgJJZBgBIAEoBRIMCgRDb2RlGAIgASgJEg0KBVZh",
+            "bHVlGAMgASgJIkEKCkFwcFNldHRpbmcSCgoCSWQYASABKAUSDwoHTmFtZUtl",
+            "eRgCIAEoBRIWCg5EZXNjcmlwdGlvbktleRgDIAEoBUISqgIPU2Fhcy5FbnRp",
+            "dHkuQXBwYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Keys), global::Saas.Entity.App.Keys.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Keys.Types.Key), global::Saas.Entity.App.Keys.Types.Key.Parser, new[]{ "Key_", "RootId", "ObjectId", "Id", "Code" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.French), global::Saas.Entity.App.French.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.French.Types.Value), global::Saas.Entity.App.French.Types.Value.Parser, new[]{ "Key", "Type", "Val" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.English), global::Saas.Entity.App.English.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.English.Types.Value), global::Saas.Entity.App.English.Types.Value.Parser, new[]{ "Key", "Type", "Val" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Vietnamese), global::Saas.Entity.App.Vietnamese.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Vietnamese.Types.Value), global::Saas.Entity.App.Vietnamese.Types.Value.Parser, new[]{ "Key", "Type", "Val" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.KeyTypes), global::Saas.Entity.App.KeyTypes.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.KeyTypes.Types.KeyType), global::Saas.Entity.App.KeyTypes.Types.KeyType.Parser, new[]{ "Id", "Name", "Maxlen" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.French), global::Saas.Entity.App.French.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.French.Types.Value), global::Saas.Entity.App.French.Types.Value.Parser, new[]{ "Key", "Val" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.English), global::Saas.Entity.App.English.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.English.Types.Value), global::Saas.Entity.App.English.Types.Value.Parser, new[]{ "Key", "Val" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Vietnamese), global::Saas.Entity.App.Vietnamese.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Vietnamese.Types.Value), global::Saas.Entity.App.Vietnamese.Types.Value.Parser, new[]{ "Key", "Val" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.KeyTypes), global::Saas.Entity.App.KeyTypes.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.KeyTypes.Types.KeyType), global::Saas.Entity.App.KeyTypes.Types.KeyType.Parser, new[]{ "Id", "Name", "MaxLen" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.States), global::Saas.Entity.App.States.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.States.Types.State), global::Saas.Entity.App.States.Types.State.Parser, new[]{ "Id", "Name" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Languages), global::Saas.Entity.App.Languages.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Languages.Types.Language), global::Saas.Entity.App.Languages.Types.Language.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.AppSetting), global::Saas.Entity.App.AppSetting.Parser, new[]{ "Id", "NameKey", "DescriptionKey" }, null, null, null, null)
@@ -221,7 +220,7 @@ namespace Saas.Entity.App {
           return new Key(this);
         }
 
-        /// <summary>Field number for the "key" field.</summary>
+        /// <summary>Field number for the "Key" field.</summary>
         public const int Key_FieldNumber = 1;
         private int key_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -232,7 +231,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "rootId" field.</summary>
+        /// <summary>Field number for the "RootId" field.</summary>
         public const int RootIdFieldNumber = 2;
         private int rootId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -243,7 +242,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "object_id" field.</summary>
+        /// <summary>Field number for the "Object_id" field.</summary>
         public const int ObjectIdFieldNumber = 3;
         private int objectId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -254,7 +253,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 4;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -265,7 +264,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "code" field.</summary>
+        /// <summary>Field number for the "Code" field.</summary>
         public const int CodeFieldNumber = 5;
         private string code_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -578,7 +577,6 @@ namespace Saas.Entity.App {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public Value(Value other) : this() {
           key_ = other.key_;
-          type_ = other.type_;
           val_ = other.val_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -588,7 +586,7 @@ namespace Saas.Entity.App {
           return new Value(this);
         }
 
-        /// <summary>Field number for the "key" field.</summary>
+        /// <summary>Field number for the "Key" field.</summary>
         public const int KeyFieldNumber = 1;
         private int key_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -599,18 +597,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "type" field.</summary>
-        public const int TypeFieldNumber = 2;
-        private int type_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Type {
-          get { return type_; }
-          set {
-            type_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "val" field.</summary>
+        /// <summary>Field number for the "Val" field.</summary>
         public const int ValFieldNumber = 3;
         private string val_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -635,7 +622,6 @@ namespace Saas.Entity.App {
             return true;
           }
           if (Key != other.Key) return false;
-          if (Type != other.Type) return false;
           if (Val != other.Val) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -644,7 +630,6 @@ namespace Saas.Entity.App {
         public override int GetHashCode() {
           int hash = 1;
           if (Key != 0) hash ^= Key.GetHashCode();
-          if (Type != 0) hash ^= Type.GetHashCode();
           if (Val.Length != 0) hash ^= Val.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -663,10 +648,6 @@ namespace Saas.Entity.App {
             output.WriteRawTag(8);
             output.WriteInt32(Key);
           }
-          if (Type != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Type);
-          }
           if (Val.Length != 0) {
             output.WriteRawTag(26);
             output.WriteString(Val);
@@ -681,9 +662,6 @@ namespace Saas.Entity.App {
           int size = 0;
           if (Key != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key);
-          }
-          if (Type != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
           }
           if (Val.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
@@ -702,9 +680,6 @@ namespace Saas.Entity.App {
           if (other.Key != 0) {
             Key = other.Key;
           }
-          if (other.Type != 0) {
-            Type = other.Type;
-          }
           if (other.Val.Length != 0) {
             Val = other.Val;
           }
@@ -721,10 +696,6 @@ namespace Saas.Entity.App {
                 break;
               case 8: {
                 Key = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Type = input.ReadInt32();
                 break;
               }
               case 26: {
@@ -891,7 +862,6 @@ namespace Saas.Entity.App {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public Value(Value other) : this() {
           key_ = other.key_;
-          type_ = other.type_;
           val_ = other.val_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -901,7 +871,7 @@ namespace Saas.Entity.App {
           return new Value(this);
         }
 
-        /// <summary>Field number for the "key" field.</summary>
+        /// <summary>Field number for the "Key" field.</summary>
         public const int KeyFieldNumber = 1;
         private int key_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -912,18 +882,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "type" field.</summary>
-        public const int TypeFieldNumber = 2;
-        private int type_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Type {
-          get { return type_; }
-          set {
-            type_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "val" field.</summary>
+        /// <summary>Field number for the "Val" field.</summary>
         public const int ValFieldNumber = 3;
         private string val_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -948,7 +907,6 @@ namespace Saas.Entity.App {
             return true;
           }
           if (Key != other.Key) return false;
-          if (Type != other.Type) return false;
           if (Val != other.Val) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -957,7 +915,6 @@ namespace Saas.Entity.App {
         public override int GetHashCode() {
           int hash = 1;
           if (Key != 0) hash ^= Key.GetHashCode();
-          if (Type != 0) hash ^= Type.GetHashCode();
           if (Val.Length != 0) hash ^= Val.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -976,10 +933,6 @@ namespace Saas.Entity.App {
             output.WriteRawTag(8);
             output.WriteInt32(Key);
           }
-          if (Type != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Type);
-          }
           if (Val.Length != 0) {
             output.WriteRawTag(26);
             output.WriteString(Val);
@@ -994,9 +947,6 @@ namespace Saas.Entity.App {
           int size = 0;
           if (Key != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key);
-          }
-          if (Type != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
           }
           if (Val.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
@@ -1015,9 +965,6 @@ namespace Saas.Entity.App {
           if (other.Key != 0) {
             Key = other.Key;
           }
-          if (other.Type != 0) {
-            Type = other.Type;
-          }
           if (other.Val.Length != 0) {
             Val = other.Val;
           }
@@ -1034,10 +981,6 @@ namespace Saas.Entity.App {
                 break;
               case 8: {
                 Key = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Type = input.ReadInt32();
                 break;
               }
               case 26: {
@@ -1204,7 +1147,6 @@ namespace Saas.Entity.App {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public Value(Value other) : this() {
           key_ = other.key_;
-          type_ = other.type_;
           val_ = other.val_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -1214,7 +1156,7 @@ namespace Saas.Entity.App {
           return new Value(this);
         }
 
-        /// <summary>Field number for the "key" field.</summary>
+        /// <summary>Field number for the "Key" field.</summary>
         public const int KeyFieldNumber = 1;
         private int key_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1225,18 +1167,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "type" field.</summary>
-        public const int TypeFieldNumber = 2;
-        private int type_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Type {
-          get { return type_; }
-          set {
-            type_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "val" field.</summary>
+        /// <summary>Field number for the "Val" field.</summary>
         public const int ValFieldNumber = 3;
         private string val_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1261,7 +1192,6 @@ namespace Saas.Entity.App {
             return true;
           }
           if (Key != other.Key) return false;
-          if (Type != other.Type) return false;
           if (Val != other.Val) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -1270,7 +1200,6 @@ namespace Saas.Entity.App {
         public override int GetHashCode() {
           int hash = 1;
           if (Key != 0) hash ^= Key.GetHashCode();
-          if (Type != 0) hash ^= Type.GetHashCode();
           if (Val.Length != 0) hash ^= Val.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -1289,10 +1218,6 @@ namespace Saas.Entity.App {
             output.WriteRawTag(8);
             output.WriteInt32(Key);
           }
-          if (Type != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Type);
-          }
           if (Val.Length != 0) {
             output.WriteRawTag(26);
             output.WriteString(Val);
@@ -1307,9 +1232,6 @@ namespace Saas.Entity.App {
           int size = 0;
           if (Key != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key);
-          }
-          if (Type != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
           }
           if (Val.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
@@ -1328,9 +1250,6 @@ namespace Saas.Entity.App {
           if (other.Key != 0) {
             Key = other.Key;
           }
-          if (other.Type != 0) {
-            Type = other.Type;
-          }
           if (other.Val.Length != 0) {
             Val = other.Val;
           }
@@ -1347,10 +1266,6 @@ namespace Saas.Entity.App {
                 break;
               case 8: {
                 Key = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Type = input.ReadInt32();
                 break;
               }
               case 26: {
@@ -1518,7 +1433,7 @@ namespace Saas.Entity.App {
         public KeyType(KeyType other) : this() {
           id_ = other.id_;
           name_ = other.name_;
-          maxlen_ = other.maxlen_;
+          maxLen_ = other.maxLen_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1527,7 +1442,7 @@ namespace Saas.Entity.App {
           return new KeyType(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1538,7 +1453,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "name" field.</summary>
+        /// <summary>Field number for the "Name" field.</summary>
         public const int NameFieldNumber = 2;
         private string name_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1549,14 +1464,14 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "maxlen" field.</summary>
-        public const int MaxlenFieldNumber = 3;
-        private int maxlen_;
+        /// <summary>Field number for the "MaxLen" field.</summary>
+        public const int MaxLenFieldNumber = 3;
+        private int maxLen_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Maxlen {
-          get { return maxlen_; }
+        public int MaxLen {
+          get { return maxLen_; }
           set {
-            maxlen_ = value;
+            maxLen_ = value;
           }
         }
 
@@ -1575,7 +1490,7 @@ namespace Saas.Entity.App {
           }
           if (Id != other.Id) return false;
           if (Name != other.Name) return false;
-          if (Maxlen != other.Maxlen) return false;
+          if (MaxLen != other.MaxLen) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1584,7 +1499,7 @@ namespace Saas.Entity.App {
           int hash = 1;
           if (Id != 0) hash ^= Id.GetHashCode();
           if (Name.Length != 0) hash ^= Name.GetHashCode();
-          if (Maxlen != 0) hash ^= Maxlen.GetHashCode();
+          if (MaxLen != 0) hash ^= MaxLen.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1606,9 +1521,9 @@ namespace Saas.Entity.App {
             output.WriteRawTag(18);
             output.WriteString(Name);
           }
-          if (Maxlen != 0) {
+          if (MaxLen != 0) {
             output.WriteRawTag(24);
-            output.WriteInt32(Maxlen);
+            output.WriteInt32(MaxLen);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -1624,8 +1539,8 @@ namespace Saas.Entity.App {
           if (Name.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
           }
-          if (Maxlen != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Maxlen);
+          if (MaxLen != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxLen);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1644,8 +1559,8 @@ namespace Saas.Entity.App {
           if (other.Name.Length != 0) {
             Name = other.Name;
           }
-          if (other.Maxlen != 0) {
-            Maxlen = other.Maxlen;
+          if (other.MaxLen != 0) {
+            MaxLen = other.MaxLen;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1667,7 +1582,7 @@ namespace Saas.Entity.App {
                 break;
               }
               case 24: {
-                Maxlen = input.ReadInt32();
+                MaxLen = input.ReadInt32();
                 break;
               }
             }
@@ -1839,7 +1754,7 @@ namespace Saas.Entity.App {
           return new State(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1850,7 +1765,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "name" field.</summary>
+        /// <summary>Field number for the "Name" field.</summary>
         public const int NameFieldNumber = 2;
         private string name_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2125,7 +2040,7 @@ namespace Saas.Entity.App {
           return new Language(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2136,7 +2051,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "code" field.</summary>
+        /// <summary>Field number for the "Code" field.</summary>
         public const int CodeFieldNumber = 2;
         private string code_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2147,7 +2062,7 @@ namespace Saas.Entity.App {
           }
         }
 
-        /// <summary>Field number for the "value" field.</summary>
+        /// <summary>Field number for the "Value" field.</summary>
         public const int ValueFieldNumber = 3;
         private string value_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

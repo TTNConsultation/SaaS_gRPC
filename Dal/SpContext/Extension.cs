@@ -13,35 +13,35 @@ namespace Dal
   {
     public static string Dot(this string str)
     {
-      return str + Constant.DOT;
+      return string.Concat(str, Constant.DOT);
     }
 
     public static string DotAnd(this string str, string more)
     {
-      return str.Dot() + more;
+      return string.Concat(str.Dot(), more);
     }
 
     public static string Underscore(this string str)
     {
-      return str + Constant.UNDERSCORE;
+      return string.Concat(str, Constant.UNDERSCORE);
     }
 
     public static string UnderscoreAnd(this string str, string more)
     {
-      return str.Underscore() + more;
+      return string.Concat(str.Underscore(), more);
     }
 
     public static string AsParameter(this string str)
     {
-      return Constant.PARAMETERSYMBOL + str;
+      return string.Concat(Constant.PARAMETERSYMBOL, str);
     }
 
     public static string Id(this string str)
     {
-      return str + Constant.ID;
+      return string.Concat(str, Constant.ID);
     }
 
-    public static bool IsEqual(this string str, string compare, CultureInfo culture, bool ignoreCase = true)
+    public static bool IsEqual(this string str, string compare, CultureInfo culture, bool ignoreCase)
     {
       return string.Compare(str, compare, ignoreCase, culture) == 0;
     }

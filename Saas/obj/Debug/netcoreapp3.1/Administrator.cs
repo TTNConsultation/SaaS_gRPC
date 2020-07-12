@@ -34,26 +34,26 @@ namespace Saas.Entity.Administrator {
             "bENvZGUYCCABKAkSGgoSTG9jYXRpb25TdHJlZXROYW1lGAkgASgJEhQKDExv",
             "Y2F0aW9uTGluaxgKIAEoCRITCgtMb2NhdGlvbk1hcBgLIAEoCRIXCg9Mb2Nh",
             "dGlvbkxhdExvbmcYDCABKAkitwEKBUl0ZW1zEikKBnZhbHVlcxgBIAMoCzIZ",
-            "LkFkbWluaXN0cmF0b3IuSXRlbXMuSXRlbRqCAQoESXRlbRIKCgJpZBgBIAEo",
-            "BRIUCgxyZXN0YXVyYW50SWQYAiABKAUSDQoFcHJpY2UYAyABKAISDwoHaXNF",
-            "eHRyYRgEIAEoCBIPCgdzdGF0ZUlkGAUgASgFEg8KB25hbWVLZXkYBiABKAUS",
-            "FgoOZGVzY3JpcHRpb25LZXkYByABKAUilQEKD1Jlc3RhdXJhbnRNZW51cxI9",
+            "LkFkbWluaXN0cmF0b3IuSXRlbXMuSXRlbRqCAQoESXRlbRIKCgJJZBgBIAEo",
+            "BRIUCgxSZXN0YXVyYW50SWQYAiABKAUSDQoFUHJpY2UYAyABKAISDwoHSXNF",
+            "eHRyYRgEIAEoCBIPCgdTdGF0ZUlkGAUgASgFEg8KB05hbWVLZXkYBiABKAUS",
+            "FgoORGVzY3JpcHRpb25LZXkYByABKAUilQEKD1Jlc3RhdXJhbnRNZW51cxI9",
             "CgZ2YWx1ZXMYASADKAsyLS5BZG1pbmlzdHJhdG9yLlJlc3RhdXJhbnRNZW51",
-            "cy5SZXN0YXVyYW50TWVudRpDCg5SZXN0YXVyYW50TWVudRIKCgJpZBgBIAEo",
-            "BRIUCgxyZXN0YXVyYW50SWQYAiABKAUSDwoHc3RhdGVJZBgDIAEoBSLGAQoF",
+            "cy5SZXN0YXVyYW50TWVudRpDCg5SZXN0YXVyYW50TWVudRIKCgJJZBgBIAEo",
+            "BRIUCgxSZXN0YXVyYW50SWQYAiABKAUSDwoHUnRhdGVJZBgDIAEoBSLGAQoF",
             "TWVudXMSKQoGdmFsdWVzGAEgAygLMhkuQWRtaW5pc3RyYXRvci5NZW51cy5N",
-            "ZW51GpEBCgRNZW51EgoKAmlkGAEgASgFEhgKEHJlc3RhdXJhbnRtZW51SWQY",
-            "AiABKAUSDQoFcHJpY2UYAyABKAISGgoSdXNlSXRlbURlc2NyaXB0aW9uGAQg",
-            "ASgIEg8KB3N0YXRlSWQYBSABKAUSDwoHbmFtZUtleRgGIAEoBRIWCg5kZXNj",
+            "ZW51GpEBCgRNZW51EgoKAklkGAEgASgFEhgKEFJlc3RhdXJhbnRNZW51SWQY",
+            "AiABKAUSDQoFUHJpY2UYAyABKAISGgoSVXNlSXRlbURlc2NyaXB0aW9uGAQg",
+            "ASgIEg8KB1N0YXRlSWQYBSABKAUSDwoHTmFtZUtleRgGIAEoBRIWCg5EZXNj",
             "cmlwdGlvbktleRgHIAEoBSKIAQoJTWVudUl0ZW1zEjEKBnZhbHVlcxgBIAMo",
             "CzIhLkFkbWluaXN0cmF0b3IuTWVudUl0ZW1zLk1lbnVJdGVtGkgKCE1lbnVJ",
-            "dGVtEgoKAmlkGAEgASgFEg4KBm1lbnVJZBgCIAEoBRIOCgZpdGVtSWQYAyAB",
-            "KAUSEAoIcXVhbnRpdHkYBCABKAUiLQoLTWVudUl0ZW1JZHMSDgoGbWVudUlk",
-            "GAEgASgFEg4KBml0ZW1JZBgCIAEoBSKHAQoGVGFibGVzEisKBnZhbHVlcxgB",
+            "dGVtEgoKAklkGAEgASgFEg4KBk1lbnVJZBgCIAEoBRIOCgZJdGVtSWQYAyAB",
+            "KAUSEAoIUXVhbnRpdHkYBCABKAUiLQoLTWVudUl0ZW1JZHMSDgoGTWVudUlk",
+            "GAEgASgFEg4KBkl0ZW1JZBgCIAEoBSKHAQoGVGFibGVzEisKBnZhbHVlcxgB",
             "IAMoCzIbLkFkbWluaXN0cmF0b3IuVGFibGVzLlRhYmxlGlAKBVRhYmxlEgoK",
-            "AmlkGAEgASgFEhQKDHJlc3RhdXJhbnRJZBgCIAEoBRIUCgxudW1iZXJPZlNl",
-            "YXQYAyABKAUSDwoHc3RhdGVJZBgEIAEoBSJKChJSZXN0YXVyYW50TGFuZ3Vh",
-            "Z2USCgoCaWQYASABKAUSFAoMcmVzdGF1cmFudElkGAIgASgFEhIKCmxhbmd1",
+            "AklkGAEgASgFEhQKDFJlc3RhdXJhbnRJZBgCIAEoBRIUCgxOdW1iZXJPZlNl",
+            "YXQYAyABKAUSDwoHU3RhdGVJZBgEIAEoBSJKChJSZXN0YXVyYW50TGFuZ3Vh",
+            "Z2USCgoCSWQYASABKAUSFAoMUmVzdGF1cmFudElkGAIgASgFEhIKCkxhbmd1",
             "YWdlSWQYAyABKAVCHKoCGVNhYXMuRW50aXR5LkFkbWluaXN0cmF0b3JiBnBy",
             "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -61,8 +61,8 @@ namespace Saas.Entity.Administrator {
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants), global::Saas.Entity.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items), global::Saas.Entity.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items.Types.Item), global::Saas.Entity.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus), global::Saas.Entity.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "StateId" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantmenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus), global::Saas.Entity.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "RtateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems), global::Saas.Entity.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems.Types.MenuItem), global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItemIds), global::Saas.Entity.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables), global::Saas.Entity.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables.Types.Table), global::Saas.Entity.Administrator.Tables.Types.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null)}),
@@ -801,7 +801,7 @@ namespace Saas.Entity.Administrator {
           return new Item(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -812,7 +812,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "restaurantId" field.</summary>
+        /// <summary>Field number for the "RestaurantId" field.</summary>
         public const int RestaurantIdFieldNumber = 2;
         private int restaurantId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -823,7 +823,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "price" field.</summary>
+        /// <summary>Field number for the "Price" field.</summary>
         public const int PriceFieldNumber = 3;
         private float price_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -834,7 +834,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "isExtra" field.</summary>
+        /// <summary>Field number for the "IsExtra" field.</summary>
         public const int IsExtraFieldNumber = 4;
         private bool isExtra_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -845,7 +845,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "stateId" field.</summary>
+        /// <summary>Field number for the "StateId" field.</summary>
         public const int StateIdFieldNumber = 5;
         private int stateId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -856,7 +856,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "nameKey" field.</summary>
+        /// <summary>Field number for the "NameKey" field.</summary>
         public const int NameKeyFieldNumber = 6;
         private int nameKey_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -867,7 +867,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "descriptionKey" field.</summary>
+        /// <summary>Field number for the "DescriptionKey" field.</summary>
         public const int DescriptionKeyFieldNumber = 7;
         private int descriptionKey_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1213,7 +1213,7 @@ namespace Saas.Entity.Administrator {
         public RestaurantMenu(RestaurantMenu other) : this() {
           id_ = other.id_;
           restaurantId_ = other.restaurantId_;
-          stateId_ = other.stateId_;
+          rtateId_ = other.rtateId_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1222,7 +1222,7 @@ namespace Saas.Entity.Administrator {
           return new RestaurantMenu(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1233,7 +1233,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "restaurantId" field.</summary>
+        /// <summary>Field number for the "RestaurantId" field.</summary>
         public const int RestaurantIdFieldNumber = 2;
         private int restaurantId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1244,14 +1244,14 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "stateId" field.</summary>
-        public const int StateIdFieldNumber = 3;
-        private int stateId_;
+        /// <summary>Field number for the "RtateId" field.</summary>
+        public const int RtateIdFieldNumber = 3;
+        private int rtateId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int StateId {
-          get { return stateId_; }
+        public int RtateId {
+          get { return rtateId_; }
           set {
-            stateId_ = value;
+            rtateId_ = value;
           }
         }
 
@@ -1270,7 +1270,7 @@ namespace Saas.Entity.Administrator {
           }
           if (Id != other.Id) return false;
           if (RestaurantId != other.RestaurantId) return false;
-          if (StateId != other.StateId) return false;
+          if (RtateId != other.RtateId) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1279,7 +1279,7 @@ namespace Saas.Entity.Administrator {
           int hash = 1;
           if (Id != 0) hash ^= Id.GetHashCode();
           if (RestaurantId != 0) hash ^= RestaurantId.GetHashCode();
-          if (StateId != 0) hash ^= StateId.GetHashCode();
+          if (RtateId != 0) hash ^= RtateId.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1301,9 +1301,9 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(16);
             output.WriteInt32(RestaurantId);
           }
-          if (StateId != 0) {
+          if (RtateId != 0) {
             output.WriteRawTag(24);
-            output.WriteInt32(StateId);
+            output.WriteInt32(RtateId);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -1319,8 +1319,8 @@ namespace Saas.Entity.Administrator {
           if (RestaurantId != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(RestaurantId);
           }
-          if (StateId != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(StateId);
+          if (RtateId != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(RtateId);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1339,8 +1339,8 @@ namespace Saas.Entity.Administrator {
           if (other.RestaurantId != 0) {
             RestaurantId = other.RestaurantId;
           }
-          if (other.StateId != 0) {
-            StateId = other.StateId;
+          if (other.RtateId != 0) {
+            RtateId = other.RtateId;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1362,7 +1362,7 @@ namespace Saas.Entity.Administrator {
                 break;
               }
               case 24: {
-                StateId = input.ReadInt32();
+                RtateId = input.ReadInt32();
                 break;
               }
             }
@@ -1525,7 +1525,7 @@ namespace Saas.Entity.Administrator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public Menu(Menu other) : this() {
           id_ = other.id_;
-          restaurantmenuId_ = other.restaurantmenuId_;
+          restaurantMenuId_ = other.restaurantMenuId_;
           price_ = other.price_;
           useItemDescription_ = other.useItemDescription_;
           stateId_ = other.stateId_;
@@ -1539,7 +1539,7 @@ namespace Saas.Entity.Administrator {
           return new Menu(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1550,18 +1550,18 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "restaurantmenuId" field.</summary>
-        public const int RestaurantmenuIdFieldNumber = 2;
-        private int restaurantmenuId_;
+        /// <summary>Field number for the "RestaurantMenuId" field.</summary>
+        public const int RestaurantMenuIdFieldNumber = 2;
+        private int restaurantMenuId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int RestaurantmenuId {
-          get { return restaurantmenuId_; }
+        public int RestaurantMenuId {
+          get { return restaurantMenuId_; }
           set {
-            restaurantmenuId_ = value;
+            restaurantMenuId_ = value;
           }
         }
 
-        /// <summary>Field number for the "price" field.</summary>
+        /// <summary>Field number for the "Price" field.</summary>
         public const int PriceFieldNumber = 3;
         private float price_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1572,7 +1572,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "useItemDescription" field.</summary>
+        /// <summary>Field number for the "UseItemDescription" field.</summary>
         public const int UseItemDescriptionFieldNumber = 4;
         private bool useItemDescription_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1583,7 +1583,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "stateId" field.</summary>
+        /// <summary>Field number for the "StateId" field.</summary>
         public const int StateIdFieldNumber = 5;
         private int stateId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1594,7 +1594,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "nameKey" field.</summary>
+        /// <summary>Field number for the "NameKey" field.</summary>
         public const int NameKeyFieldNumber = 6;
         private int nameKey_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1605,7 +1605,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "descriptionKey" field.</summary>
+        /// <summary>Field number for the "DescriptionKey" field.</summary>
         public const int DescriptionKeyFieldNumber = 7;
         private int descriptionKey_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1630,7 +1630,7 @@ namespace Saas.Entity.Administrator {
             return true;
           }
           if (Id != other.Id) return false;
-          if (RestaurantmenuId != other.RestaurantmenuId) return false;
+          if (RestaurantMenuId != other.RestaurantMenuId) return false;
           if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Price, other.Price)) return false;
           if (UseItemDescription != other.UseItemDescription) return false;
           if (StateId != other.StateId) return false;
@@ -1643,7 +1643,7 @@ namespace Saas.Entity.Administrator {
         public override int GetHashCode() {
           int hash = 1;
           if (Id != 0) hash ^= Id.GetHashCode();
-          if (RestaurantmenuId != 0) hash ^= RestaurantmenuId.GetHashCode();
+          if (RestaurantMenuId != 0) hash ^= RestaurantMenuId.GetHashCode();
           if (Price != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Price);
           if (UseItemDescription != false) hash ^= UseItemDescription.GetHashCode();
           if (StateId != 0) hash ^= StateId.GetHashCode();
@@ -1666,9 +1666,9 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(8);
             output.WriteInt32(Id);
           }
-          if (RestaurantmenuId != 0) {
+          if (RestaurantMenuId != 0) {
             output.WriteRawTag(16);
-            output.WriteInt32(RestaurantmenuId);
+            output.WriteInt32(RestaurantMenuId);
           }
           if (Price != 0F) {
             output.WriteRawTag(29);
@@ -1701,8 +1701,8 @@ namespace Saas.Entity.Administrator {
           if (Id != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
           }
-          if (RestaurantmenuId != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(RestaurantmenuId);
+          if (RestaurantMenuId != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(RestaurantMenuId);
           }
           if (Price != 0F) {
             size += 1 + 4;
@@ -1733,8 +1733,8 @@ namespace Saas.Entity.Administrator {
           if (other.Id != 0) {
             Id = other.Id;
           }
-          if (other.RestaurantmenuId != 0) {
-            RestaurantmenuId = other.RestaurantmenuId;
+          if (other.RestaurantMenuId != 0) {
+            RestaurantMenuId = other.RestaurantMenuId;
           }
           if (other.Price != 0F) {
             Price = other.Price;
@@ -1767,7 +1767,7 @@ namespace Saas.Entity.Administrator {
                 break;
               }
               case 16: {
-                RestaurantmenuId = input.ReadInt32();
+                RestaurantMenuId = input.ReadInt32();
                 break;
               }
               case 29: {
@@ -1961,7 +1961,7 @@ namespace Saas.Entity.Administrator {
           return new MenuItem(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1972,7 +1972,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "menuId" field.</summary>
+        /// <summary>Field number for the "MenuId" field.</summary>
         public const int MenuIdFieldNumber = 2;
         private int menuId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1983,7 +1983,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "itemId" field.</summary>
+        /// <summary>Field number for the "ItemId" field.</summary>
         public const int ItemIdFieldNumber = 3;
         private int itemId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1994,7 +1994,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "quantity" field.</summary>
+        /// <summary>Field number for the "Quantity" field.</summary>
         public const int QuantityFieldNumber = 4;
         private int quantity_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2177,7 +2177,7 @@ namespace Saas.Entity.Administrator {
       return new MenuItemIds(this);
     }
 
-    /// <summary>Field number for the "menuId" field.</summary>
+    /// <summary>Field number for the "MenuId" field.</summary>
     public const int MenuIdFieldNumber = 1;
     private int menuId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2188,7 +2188,7 @@ namespace Saas.Entity.Administrator {
       }
     }
 
-    /// <summary>Field number for the "itemId" field.</summary>
+    /// <summary>Field number for the "ItemId" field.</summary>
     public const int ItemIdFieldNumber = 2;
     private int itemId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2459,7 +2459,7 @@ namespace Saas.Entity.Administrator {
           return new Table(this);
         }
 
-        /// <summary>Field number for the "id" field.</summary>
+        /// <summary>Field number for the "Id" field.</summary>
         public const int IdFieldNumber = 1;
         private int id_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2470,7 +2470,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "restaurantId" field.</summary>
+        /// <summary>Field number for the "RestaurantId" field.</summary>
         public const int RestaurantIdFieldNumber = 2;
         private int restaurantId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2481,7 +2481,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "numberOfSeat" field.</summary>
+        /// <summary>Field number for the "NumberOfSeat" field.</summary>
         public const int NumberOfSeatFieldNumber = 3;
         private int numberOfSeat_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2492,7 +2492,7 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "stateId" field.</summary>
+        /// <summary>Field number for the "StateId" field.</summary>
         public const int StateIdFieldNumber = 4;
         private int stateId_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2676,7 +2676,7 @@ namespace Saas.Entity.Administrator {
       return new RestaurantLanguage(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
+    /// <summary>Field number for the "Id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2687,7 +2687,7 @@ namespace Saas.Entity.Administrator {
       }
     }
 
-    /// <summary>Field number for the "restaurantId" field.</summary>
+    /// <summary>Field number for the "RestaurantId" field.</summary>
     public const int RestaurantIdFieldNumber = 2;
     private int restaurantId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2698,7 +2698,7 @@ namespace Saas.Entity.Administrator {
       }
     }
 
-    /// <summary>Field number for the "languageId" field.</summary>
+    /// <summary>Field number for the "LanguageId" field.</summary>
     public const int LanguageIdFieldNumber = 3;
     private int languageId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -35,28 +35,28 @@ namespace Saas.Services
     {
       using var sp = DbContext.ReadOnly<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public async override Task<Menus> GetByRestaurantMenu(MsgInt restaurantMenuId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value).Result)).ConfigureAwait(false)
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public async override Task<Menus> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public override Task<MsgInt> Create(Menu obj, ServerCallContext context)
     {
-      using var sp = DbContext.ReadWrite<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.C);
+      using var sp = DbContext.Write<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.C);
       return (sp.IsReady()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
   }
 }

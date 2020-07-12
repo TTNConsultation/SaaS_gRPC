@@ -20,6 +20,7 @@
 
     public const string ROOT = "root";
     public const string ROLE = "role";
+    public const string CLIENT_ID = "client_id";
 
     public const string ERR = "err";
     public const string SEPARATOR = "separator";
@@ -43,8 +44,6 @@
     public const string CorsAllowedPolicy = "CorsAllowed";
 
     //Config section
-    public const string SPCONTEXT = "SpContext";
-
     public const string CONNECTIONSTRINGS = "ConnectionStrings";
   }
 }

@@ -104,7 +104,8 @@ namespace Dal.Sp
     internal int GetSize(object value)
     {
       return (string.IsNullOrEmpty(Collation)) ? MaxLength
-                                               : ((value.ToString().Length <= Precision) ? value.ToString().Length : -1);
+                                               : ((value.ToString().Length <= Precision) ? value.ToString().Length
+                                                                                         : -1);
     }
   }
 }

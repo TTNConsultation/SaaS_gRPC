@@ -6,58 +6,55 @@ package App;
 
 message Keys{
   message Key{
-    int32 key = 1;
-    int32 rootId = 2;
-    int32 object_id = 3;
-    int32 id = 4;   
-    string code = 5;    
+    int32 Key = 1;
+    int32 RootId = 2;
+    int32 Object_id = 3;
+    int32 Id = 4;   
+    string Code = 5;    
   }
   repeated Key values = 1;
 }
 message French{
   message Value{
-   int32 key = 1;
-   int32 type = 2;
-   string val = 3;
+   int32 Key = 1;
+   string Val = 3;
 	}
   repeated Value values = 1;
 }
 message English{
   message Value{
-   int32 key = 1;
-   int32 type = 2;
-   string val = 3;
+   int32 Key = 1;
+   string Val = 3;
 	}
   repeated Value values = 1;
 }
 message Vietnamese{
   message Value{
-   int32 key = 1;
-   int32 type = 2;
-   string val = 3;
+   int32 Key = 1;  
+   string Val = 3;
 	}
   repeated Value values = 1;
 }
 message KeyTypes{
   message KeyType{
-   int32 id = 1;
-   string name = 2;
-   int32 maxlen = 3;
+   int32 Id = 1;
+   string Name = 2;
+   int32 MaxLen = 3;
 	}
   repeated KeyType values = 1;
 }
 message States{
   message State{
-    int32 id = 1;
-    string name = 2;
+    int32 Id = 1;
+    string Name = 2;
   }
   repeated State values = 1;
 }
 message Languages{
   message Language{
-    int32 id = 1;
-    string code = 2;
-    string value = 3;
+    int32 Id = 1;
+    string Code = 2;
+    string Value = 3;
   }
   repeated Language values = 1;
 }

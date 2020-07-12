@@ -16,15 +16,6 @@ namespace Dal.Sp
     string App();
   }
 
-  public interface IContext
-  {
-    IRead<T> ReferenceData<T>(int appId = 0) where T : new();
-
-    IRead<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
-
-    IWrite<T> ReadWrite<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
-  }
-
   public interface ICollectionMap
   {
     public IMap Get<T>();
@@ -41,6 +32,15 @@ namespace Dal.Sp
     T Parse<T>(SqlDataReader reader) where T : new();
   }
 
+  public interface IContext
+  {
+    IReadOnly<T> ReferenceData<T>(int appId = 0) where T : new();
+
+    IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
+
+    IWrite<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
+  }
+
   public sealed class ConnectionManager : IConnectionManager
   {
     private readonly IDictionary<string, string> ConnectionStrings;
@@ -53,80 +53,6 @@ namespace Dal.Sp
     public string Get(string schema) => ConnectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
 
     public string App() => Get(Constant.APP);
-  }
-
-  public sealed class Context : IContext
-  {
-    private readonly IConnectionManager ConnectionStrings;
-    private readonly ICollectionMap Mappers;
-    private readonly SpInfoManager SpInfos;
-
-    public Context(IConnectionManager conmanager, ICollectionMap mappers)
-    {
-      ConnectionStrings = conmanager;
-      Mappers = mappers;
-      SpInfos = new SpInfoManager(Mappers, ConnectionStrings.App());
-    }
-
-    public IRead<T> ReferenceData<T>(int appId = 0) where T : new()
-    {
-      var user = UserClaim.AppUser(ConnectionStrings, appId);
-      var spInfo = SpInfos.Get(typeof(T).Name, OperationType.R);
-
-      return new ReadOnly<T>(user, spInfo, Mappers);
-    }
-
-    public IRead<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new()
-    {
-      var user = new UserClaim(ConnectionStrings, uc, appId);
-      var spR = SpInfos.Get(typeof(T).Name, OperationType.R);
-
-      return new ReadOnly<T>(user, spR, Mappers);
-    }
-
-    public IWrite<T> ReadWrite<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new()
-    {
-      var user = new UserClaim(ConnectionStrings, uc, appId);
-
-      var spR = SpInfos.Get(typeof(T).Name, OperationType.R);
-      var spRW = SpInfos.Get(typeof(T).Name, op);
-
-      return new ReadWrite<T>(user, spRW, spR, Mappers);
-    }
-
-    internal sealed class UserClaim
-    {
-      public readonly int RootId;
-      public readonly string ConnectionString;
-
-      internal UserClaim(IConnectionManager conManager, ClaimsPrincipal cp, int appId)
-      {
-        foreach (var c in cp.Claims)
-        {
-          switch (c.Type)
-          {
-            case "client_id":
-              RootId = int.Parse(c.Value);
-              break;
-
-            case "role":
-              ConnectionString = conManager.Get(c.Value);
-              break;
-          }
-        }
-
-        if (RootId <= 0)
-          RootId = appId;
-      }
-
-      private UserClaim(string conStr, int appId)
-      {
-        ConnectionString = conStr;
-        RootId = appId;
-      }
-
-      internal static UserClaim AppUser(IConnectionManager conManager, int appId) => new UserClaim(conManager.App(), appId);
-    }
   }
 
   public sealed class CollectionMapper : ICollectionMap
@@ -186,6 +112,72 @@ namespace Dal.Sp
     public bool IsType(string name)
     {
       return Name.IsEqual(name);
+    }
+  }
+
+  public sealed class Context : IContext
+  {
+    private readonly IConnectionManager ConnectionStrings;
+    private readonly ICollectionMap Mappers;
+    private readonly SpInfoManager SpInfos;
+
+    public Context(IConnectionManager conmanager, ICollectionMap mappers)
+    {
+      ConnectionStrings = conmanager;
+      Mappers = mappers;
+      SpInfos = new SpInfoManager(Mappers, ConnectionStrings.App());
+    }
+
+    public IReadOnly<T> ReferenceData<T>(int appId = 0) where T : new() =>
+      new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, appId),
+                      SpInfos.Get(typeof(T).Name, OperationType.R),
+                      Mappers);
+
+    public IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new() =>
+      new ReadOnly<T>(UserClaim.Get(ConnectionStrings, uc, appId),
+                      SpInfos.Get(typeof(T).Name, op),
+                      Mappers);
+
+    public IWrite<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new() =>
+      new Write<T>(UserClaim.Get(ConnectionStrings, uc, appId),
+                   SpInfos.Get(typeof(T).Name, op),
+                   SpInfos.Get(typeof(T).Name, OperationType.R),
+                   Mappers);
+
+    internal sealed class UserClaim
+    {
+      public readonly int RootId;
+      public readonly string ConnectionString;
+
+      private UserClaim(IConnectionManager conManager, ClaimsPrincipal cp, int appId)
+      {
+        foreach (var c in cp.Claims)
+        {
+          switch (c.Type)
+          {
+            case Constant.CLIENT_ID:
+              RootId = int.Parse(c.Value);
+              break;
+
+            case Constant.ROLE:
+              ConnectionString = conManager.Get(c.Value);
+              break;
+          }
+        }
+
+        if (RootId <= 0)
+          RootId = appId;
+      }
+
+      private UserClaim(string conStr, int appId)
+      {
+        ConnectionString = conStr;
+        RootId = appId;
+      }
+
+      internal static UserClaim Get(IConnectionManager conmanager, ClaimsPrincipal uc, int appid) => new UserClaim(conmanager, uc, appid);
+
+      internal static UserClaim AppUser(IConnectionManager conManager, int appId) => new UserClaim(conManager.App(), appId);
     }
   }
 }
