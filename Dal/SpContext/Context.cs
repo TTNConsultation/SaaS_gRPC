@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Security.Claims;
@@ -16,20 +17,27 @@ namespace Dal.Sp
     string App();
   }
 
-  public interface ICollectionMap
+  public interface ICollectionMapper
   {
-    public IMap Get<T>();
+    IMapper Get<T>();
 
-    T Add<T>(SqlDataReader reader, out IMap mapper) where T : new();
+    T Add<T>(SqlDataReader reader, out IMapper mapper) where T : new();
   }
 
-  public interface IMap
+  public interface IMapper
   {
+    string TypeName();
+
     bool IsType(string type);
 
     T Build<T>(SqlDataReader reader) where T : new();
 
     T Parse<T>(SqlDataReader reader) where T : new();
+  }
+
+  public interface ICollectionSpInfo
+  {
+    ISpInfo Get(string type, OperationType op);
   }
 
   public interface IContext
@@ -47,7 +55,9 @@ namespace Dal.Sp
 
     public ConnectionManager(IConfiguration config)
     {
-      ConnectionStrings = config.GetSection(Constant.CONNECTIONSTRINGS)?.GetChildren()?.ToDictionary(s => s.Key, s => s.Value);
+      ConnectionStrings = config.GetSection(Constant.CONNECTIONSTRINGS)
+                                ?.GetChildren()
+                                ?.ToDictionary(s => s.Key, s => s.Value);
     }
 
     public string Get(string schema) => ConnectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
@@ -55,29 +65,26 @@ namespace Dal.Sp
     public string App() => Get(Constant.APP);
   }
 
-  public sealed class CollectionMapper : ICollectionMap
+  public sealed class CollectionMapper : ICollectionMapper
   {
-    private readonly HashSet<IMap> mappers = new HashSet<IMap>();
+    private readonly HashSet<IMapper> mappers = new HashSet<IMapper>();
 
-    public IMap Get<T>() => mappers.FirstOrDefault(sp => sp.IsType(typeof(T).Name));
+    private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsType(map.TypeName()));
 
-    public T Add<T>(SqlDataReader reader, out IMap map) where T : new()
-    {
-      map = new Mapper(typeof(T).Name);
-      mappers.Add(map);
+    public IMapper Get<T>() => mappers.FirstOrDefault(sp => sp.IsType(typeof(T).Name));
 
-      return map.Build<T>(reader);
-    }
+    public T Add<T>(SqlDataReader reader, out IMapper map) where T : new() =>
+      Add(map = new Mapper(typeof(T).Name)).Build<T>(reader);
   }
 
-  public sealed class Mapper : IMap
+  public sealed class Mapper : IMapper
   {
-    private readonly string Name;
     private IDictionary<int, PropertyInfo> Map;
+    private readonly string Type;
 
-    internal Mapper(string name)
+    internal Mapper(string type)
     {
-      Name = name;
+      Type = type;
     }
 
     public T Build<T>(SqlDataReader reader) where T : new()
@@ -109,23 +116,75 @@ namespace Dal.Sp
       return ret;
     }
 
-    public bool IsType(string name)
+    public string TypeName() => Type;
+
+    public bool IsType(string name) => Type.IsEqual(name);
+  }
+
+  public sealed class CollectionSpInfo : ICollectionSpInfo
+  {
+    private readonly IEnumerable<SpInfo> SpInfos;
+
+    public CollectionSpInfo(ICollectionMapper mappers, IConnectionManager connectionManager)
     {
-      return Name.IsEqual(name);
+      SpInfos = Read(mappers, connectionManager.App());
+    }
+
+    public ISpInfo Get(string type, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(op.ToString()) && sp.Type.IsEqual(type));
+
+    private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
+    {
+      var parameters = ReadSpParameter(mappers, conStr);
+
+      string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
+
+      using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
+      {
+        CommandType = CommandType.StoredProcedure
+      };
+
+      sqlcmd.Connection.Open();
+      using var reader = sqlcmd.ExecuteReader();
+
+      var ret = new HashSet<SpInfo>();
+      IMapper map = null;
+
+      while (reader.Read())
+      {
+        var prop = (map == null) ? mappers.Add<SpProperty>(reader, out map) : map.Parse<SpProperty>(reader);
+        var pars = parameters.Where(p => p.SpId == prop.Id).OrderBy(p => p.Order);
+
+        ret.Add(new SpInfo(prop, pars));
+      }
+
+      return ret;
+    }
+
+    private IEnumerable<SpParameter> ReadSpParameter(ICollectionMapper mappers, string conStr)
+    {
+      string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
+      using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
+      {
+        CommandType = CommandType.StoredProcedure
+      };
+      sqlcmd.Connection.Open();
+
+      using var reader = sqlcmd.ExecuteReader();
+      return reader.Parse<SpParameter>(mappers);
     }
   }
 
   public sealed class Context : IContext
   {
     private readonly IConnectionManager ConnectionStrings;
-    private readonly ICollectionMap Mappers;
-    private readonly SpInfoManager SpInfos;
+    private readonly ICollectionMapper Mappers;
+    private readonly ICollectionSpInfo SpInfos;
 
-    public Context(IConnectionManager conmanager, ICollectionMap mappers)
+    public Context(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionSpInfo spinfos)
     {
       ConnectionStrings = conmanager;
       Mappers = mappers;
-      SpInfos = new SpInfoManager(Mappers, ConnectionStrings.App());
+      SpInfos = spinfos;
     }
 
     public IReadOnly<T> ReferenceData<T>(int appId = 0) where T : new() =>

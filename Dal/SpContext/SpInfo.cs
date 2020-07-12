@@ -1,76 +1,45 @@
 ﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
 namespace Dal.Sp
 {
-  internal sealed class SpInfoManager
+  public interface ISpInfo
   {
-    private readonly IEnumerable<SpInfo> SpInfos;
+    SqlCommand SqlCommand(string conStr);
 
-    public SpInfoManager(ICollectionMap mappers, string conStr)
-    {
-      SpInfos = Read(mappers, conStr);
-    }
-
-    public SpInfo Get(string type, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(op.ToString()) && sp.Type.IsEqual(type));
-
-    private IEnumerable<SpInfo> Read(ICollectionMap mappers, string conStr)
-    {
-      var parameters = ReadSpParameter(mappers, conStr);
-
-      string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
-
-      using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
-      {
-        CommandType = CommandType.StoredProcedure
-      };
-
-      sqlcmd.Connection.Open();
-      using var reader = sqlcmd.ExecuteReader();
-
-      var ret = new HashSet<SpInfo>();
-      IMap map = null;
-
-      while (reader.Read())
-      {
-        var prop = (map == null) ? mappers.Add<SpProperty>(reader, out map) : map.Parse<SpProperty>(reader);
-        var pars = parameters.Where(p => p.SpId == prop.Id);
-
-        ret.Add(new SpInfo(prop, pars));
-      }
-
-      return ret;
-    }
-
-    private IEnumerable<SpParameter> ReadSpParameter(ICollectionMap mappers, string conStr)
-    {
-      string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
-      using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
-      {
-        CommandType = CommandType.StoredProcedure
-      };
-      sqlcmd.Connection.Open();
-
-      using var reader = sqlcmd.ExecuteReader();
-      return reader.Parse<SpParameter>(mappers);
-    }
+    IParameter Parameter(string name);
   }
 
-  internal sealed class SpInfo
+  public interface IParameter
+  {
+    int Size(object value);
+
+    SqlParameter SqlParameter(object value);
+  }
+
+  public sealed class SpInfo : ISpInfo
   {
     private readonly SpProperty property;
     private readonly IEnumerable<SpParameter> parameters;
 
-    internal int ParameterCount => parameters.Count();
-
     internal string Op => property.Op;
-    internal string Type => property.Base;
-    internal string StoreProcName => Schema.DotAnd(property.Name);
-    internal string Schema => property.Schema;
+    internal string Type => property.Type;
 
-    internal SpParameter Parameter(string name) => parameters.FirstOrDefault(p => p.Name.IsEqual(name.AsParameter()));
+    public SqlCommand SqlCommand(string conStr)
+    {
+      var cmd = new SqlCommand(property.FullName, new SqlConnection(conStr))
+      {
+        CommandType = CommandType.StoredProcedure,
+      };
+      //cmd.Parameters.AddRange(parameters.Select(p => p.SqlParameter()).ToArray());
+
+      return cmd;
+    }
+
+    public IParameter Parameter(string name) => parameters.FirstOrDefault(p => p.Name.IsEqual(name.AsParameter()));
 
     internal SpInfo(SpProperty prop, IEnumerable<SpParameter> pars)
     {
@@ -82,13 +51,13 @@ namespace Dal.Sp
   internal sealed class SpProperty
   {
     public int Id { get; set; }
+    public string FullName { get; set; }
     public string Schema { get; set; }
-    public string Name { get; set; }
-    public string Base { get; set; }
+    public string Type { get; set; }
     public string Op { get; set; }
   }
 
-  internal sealed class SpParameter
+  internal sealed class SpParameter : IParameter
   {
     public string SpName { get; set; }
     public int SpId { get; set; }
@@ -101,11 +70,23 @@ namespace Dal.Sp
     public bool IsOutput { get; set; }
     public string Collation { get; set; }
 
-    internal int GetSize(object value)
+    public int Size(object value)
     {
-      return (string.IsNullOrEmpty(Collation)) ? MaxLength
-                                               : ((value.ToString().Length <= Precision) ? value.ToString().Length
-                                                                                         : -1);
+      if (value == null || value == DBNull.Value)
+        return 0;
+
+      int size;
+      return (string.IsNullOrEmpty(Collation))
+              ? MaxLength
+              : (size = value.ToString().Length) <= Precision ? size : -1;
     }
+
+    public SqlParameter SqlParameter(object value) =>
+      new SqlParameter(Name, Type.ToSqlDbType())
+      {
+        Direction = IsOutput ? ParameterDirection.Output : ParameterDirection.Input,
+        Value = value ?? DBNull.Value,
+        Size = Size(value)
+      };
   }
 }

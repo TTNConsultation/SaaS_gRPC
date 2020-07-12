@@ -13,15 +13,15 @@ namespace Dal.Sp
   internal abstract class Base<T> : IDisposable where T : new()
   {
     private readonly SqlCommand SqlCmd;
-    private readonly SpInfo SpInfo;
-    private readonly ICollectionMap Mappers;
+    private readonly ISpInfo SpInfo;
+    private readonly ICollectionMapper Mappers;
     private readonly string Err;
 
     public bool IsReady() => string.IsNullOrEmpty(Err);
 
     public string Error() => Err;
 
-    protected Base(Context.UserClaim claim, SpInfo sp, ICollectionMap mappers)
+    protected Base(Context.UserClaim claim, ISpInfo sp, ICollectionMapper mappers)
     {
       Err = new StringBuilder().Append((sp == null) ? "sp is null | " : null)
                                .Append((claim == null) ? "claim is null" : null)
@@ -31,51 +31,44 @@ namespace Dal.Sp
       {
         SpInfo = sp;
         Mappers = mappers;
-        SqlCmd = new SqlCommand(sp.StoreProcName, new SqlConnection(claim.ConnectionString))
-        {
-          CommandType = CommandType.StoredProcedure
-        };
-        SetParameter(Constant.ROOT.Id(), claim.RootId);
+        SqlCmd = sp.SqlCommand(claim.ConnectionString);
+        AddParameter(Constant.ROOT.Id(), claim.RootId);
       }
     }
 
-    protected bool SetParameter(string key, object value)
+    protected bool AddParameter(string key, object value)
     {
-      var spParam = SpInfo.Parameter(key);
-
-      return (spParam != null) && SqlCmd.Parameters.Add(new SqlParameter(spParam.Name, spParam.Type.ToSqlDbType())
-      {
-        Direction = spParam.IsOutput ? ParameterDirection.Output : ParameterDirection.Input,
-        Value = value,
-        Size = spParam.GetSize(value)
-      }).Size > 0;
+      SqlParameter par;
+      return (par = SpInfo.Parameter(key)?.SqlParameter(value)) != null &&
+             par.Size >= 0 &&
+             SqlCmd.Parameters.Add(par) != null;
     }
 
-    protected bool SetParameter(T obj)
+    protected bool AddParameters(T obj)
     {
-      var propInfos = obj.GetType().GetProperties();
-      foreach (var prop in propInfos)
+      foreach (var prop in obj.GetType().GetProperties())
       {
-        SetParameter(prop.Name, prop.GetValue(obj));
-      }
-
-      return propInfos.Length == SpInfo.ParameterCount - 1;  //rootid
-    }
-
-    protected bool SetParameter(IDictionary<string, object> parameters)
-    {
-      foreach (var p in parameters)
-      {
-        if (!SetParameter(p.Key, p.Value))
+        if (!AddParameter(prop.Name, prop.GetValue(obj)))
           return false;
       }
       return true;
     }
 
-    protected bool SetParameterValue(string key, object value)
+    protected bool AddParameters(IDictionary<string, object> parameters)
     {
-      var par = SpInfo.Parameter(key);
-      return par != null && (SqlCmd.Parameters[par.Order - 1].Value = value) != null;
+      foreach (var p in parameters)
+      {
+        if (!AddParameter(p.Key, p.Value))
+          return false;
+      }
+      return true;
+    }
+
+    protected bool SetParameter(string key, object value)
+    {
+      int index;
+      return ((index = SqlCmd.Parameters.IndexOf(key)) >= 0) &&
+             (SqlCmd.Parameters[index].Value = value ?? DBNull.Value) != null;
     }
 
     protected bool Update()

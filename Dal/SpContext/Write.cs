@@ -21,18 +21,18 @@ namespace Dal.Sp
   {
     private readonly IReadOnly<T> SpRonly;
 
-    public Write(Context.UserClaim claim, SpInfo sp, SpInfo spReadOnly, ICollectionMap mappers) : base(claim, sp, mappers)
+    public Write(Context.UserClaim claim, ISpInfo sp, ISpInfo spReadOnly, ICollectionMapper mappers) : base(claim, sp, mappers)
     {
       SpRonly = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, mappers);
     }
 
-    public int Create(T obj) => SetParameter(obj) ? Create() : -1;
+    public int Create(T obj) => AddParameters(obj) ? Create() : -1;
 
-    public bool Update(T obj) => SetParameter(obj) && Update();
+    public bool Update(T obj) => AddParameters(obj) && Update();
 
-    public bool UpdateState(int id, int stateId) => SetParameter(SpRonly.Read(id)) && SetParameterValue(Constant.STATE.Id(), stateId) && Update();
+    public bool UpdateState(int id, int stateId) => AddParameters(SpRonly.Read(id)) && AddParameter(Constant.STATE.Id(), stateId) && Update();
 
-    public bool Delete(int id) => SetParameter(Constant.ID, id) && Update();
+    public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
 
     public override void Dispose()
     {
