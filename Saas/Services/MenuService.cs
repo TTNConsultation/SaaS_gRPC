@@ -21,40 +21,40 @@ namespace Saas.Services
   internal class MenuService : MenuSvc.MenuSvcBase
   {
     private readonly ILogger<RestaurantMenuService> logger;
-    private readonly IContext spContext;
-    private readonly ReferenceData refData;
+    private readonly IContext DbContext;
+    private readonly ReferenceData RefData;
 
     public MenuService(ILogger<RestaurantMenuService> log, IContext sp, ReferenceData refdata)
     {
       logger = log;
-      spContext = sp;
-      refData = refdata;
+      DbContext = sp;
+      RefData = refdata;
     }
 
     public override Task<Menu> Get(MsgInt id, ServerCallContext context)
     {
-      using var sp = spContext.ReadOnly<Menu>(refData.App.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = DbContext.ReadOnly<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
     }
 
     public async override Task<Menus> GetByRestaurantMenu(MsgInt restaurantMenuId, ServerCallContext context)
     {
-      using var sp = spContext.ReadOnly<Menu>(refData.App.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = DbContext.ReadOnly<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(RestaurantMenu).Name.Id(), restaurantMenuId.Value).Result)).ConfigureAwait(false)
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
     }
 
     public async override Task<Menus> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
-      using var sp = spContext.ReadOnly<Menu>(refData.App.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = DbContext.ReadOnly<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? await Task.FromResult(new Menus(sp.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
     }
 
     public override Task<MsgInt> Create(Menu obj, ServerCallContext context)
     {
-      using var sp = spContext.ReadWrite<Menu>(refData.App.Id, context.GetHttpContext().User, OperationType.C);
+      using var sp = DbContext.ReadWrite<Menu>(RefData.App.Id, context.GetHttpContext().User, OperationType.C);
       return (sp.IsReady()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
     }

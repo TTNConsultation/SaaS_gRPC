@@ -11,27 +11,27 @@ namespace Saas.Services
   internal class AppService : AppDataSvc.AppDataSvcBase
   {
     private readonly ILogger<RestaurantService> logger;
-    private readonly ReferenceData refData;
+    private readonly ReferenceData RefData;
 
     public AppService(ILogger<RestaurantService> log, ReferenceData refdata)
     {
       logger = log;
-      refData = refdata;
+      RefData = refdata;
     }
 
     public override Task<Languages> Languages(MsgEmpty request, ServerCallContext context)
     {
-      return Task.FromResult(refData.Languages);
+      return Task.FromResult(RefData.Languages);
     }
 
     public override Task<States> States(MsgEmpty request, ServerCallContext context)
     {
-      return Task.FromResult(refData.States);
+      return Task.FromResult(RefData.States);
     }
 
     public override Task<KeyTypes> KeyTypes(MsgEmpty request, ServerCallContext context)
     {
-      return Task.FromResult(refData.KeyTypes);
+      return Task.FromResult(RefData.KeyTypes);
     }
   }
 }

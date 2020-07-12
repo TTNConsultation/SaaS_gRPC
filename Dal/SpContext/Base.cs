@@ -14,31 +14,28 @@ namespace Dal.Sp
   {
     private readonly SqlCommand SqlCmd;
     private readonly SpInfo SpInfo;
-    private readonly int RootId;
-    private readonly ISpMappers SpMappers;
+    private readonly ICollectionMap Mappers;
     private readonly string ErrMsg;
 
     public bool IsReady() => string.IsNullOrEmpty(ErrMsg);
 
     public string ErrorMessages() => ErrMsg;
 
-    protected Base(UserClaim claim, SpInfo sp, ISpMappers mappers)
+    protected Base(Context.UserClaim claim, SpInfo sp, ICollectionMap mappers)
     {
-      ErrMsg = new StringBuilder().Append(sp?.ErrorMessage ?? "sp is null | ")
-                                  .Append(claim?.ErrorMessage ?? "claim is null |")
-                                  .Append(mappers?.ErrorMessage() ?? "mappers is null")
+      ErrMsg = new StringBuilder().Append((sp == null) ? "sp is null | " : null)
+                                  .Append((claim == null) ? "claim is null" : null)
                                   .ToString();
 
       if (IsReady())
       {
-        RootId = claim.RootId;
         SpInfo = sp;
-        SpMappers = mappers;
-
-        SqlCmd = new SqlCommand(sp.FullName, new SqlConnection(claim.ConnectionString))
+        Mappers = mappers;
+        SqlCmd = new SqlCommand(sp.StoreProcName, new SqlConnection(claim.ConnectionString))
         {
           CommandType = CommandType.StoredProcedure
         };
+        SetParameter(Constant.ROOT.Id(), claim.RootId);
       }
     }
 
@@ -67,61 +64,49 @@ namespace Dal.Sp
 
     protected bool SetParameter(IDictionary<string, object> parameters)
     {
-      bool ret = true;
       foreach (var p in parameters)
       {
-        ret = ret && SetParameter(p.Key, p.Value);
+        if (!SetParameter(p.Key, p.Value))
+          return false;
       }
-      return ret;
+      return true;
     }
 
     protected bool SetParameterValue(string key, object value)
     {
       var par = SpInfo.Parameter(key);
-      if (par == null)
-        return false;
-
-      SqlCmd.Parameters[par.Order - 1].Value = value;
-
-      return true;
-    }
-
-    private void AddRootAndConnect()
-    {
-      SetParameter(Constant.ROOT.Id(), RootId);
-      SqlCmd.Connection.Open();
+      return par != null && (SqlCmd.Parameters[par.Order - 1].Value = value) != null;
     }
 
     protected bool Update()
     {
-      AddRootAndConnect();
-
+      SqlCmd.Connection.Open();
       return SqlCmd.ExecuteNonQuery() == 1;
     }
 
     protected int Create()
     {
-      AddRootAndConnect();
+      SqlCmd.Connection.Open();
 
-      return (SqlCmd.ExecuteNonQuery() == 1) ?
-        int.Parse(SqlCmd.Parameters[Constant.ID].Value.ToString()) :
-        -1;
+      return (SqlCmd.ExecuteNonQuery() == 1)
+        ? int.Parse(SqlCmd.Parameters[Constant.ID].Value.ToString())
+        : -1;
     }
 
     public IEnumerable<T> Read()
     {
-      AddRootAndConnect();
+      SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
-      return reader.Parse<T>(SpMappers);
+
+      return reader.Parse<T>(Mappers);
     }
 
     public async virtual Task<IEnumerable<T>> ReadAsync()
     {
-      SetParameter(Constant.ROOT.Id(), RootId);
-
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
-      return await reader.ParseAsync<T>(SpMappers).ConfigureAwait(false);
+
+      return await reader.ParseAsync<T>(Mappers).ConfigureAwait(false);
     }
 
     public virtual void Dispose()

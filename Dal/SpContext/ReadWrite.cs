@@ -4,11 +4,22 @@ using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
+  public interface IWrite<T> : IRead<T> where T : new()
+  {
+    int Create(T obj);
+
+    bool Update(T obj);
+
+    bool UpdateState(int id, int stateId);
+
+    bool Delete(int id);
+  }
+
   internal sealed class ReadWrite<T> : Base<T>, IWrite<T> where T : new()
   {
     private readonly IRead<T> SpRonly;
 
-    public ReadWrite(UserClaim claim, SpInfo sp, SpInfo spReadOnly, ISpMappers mappers) : base(claim, sp, mappers)
+    public ReadWrite(Context.UserClaim claim, SpInfo sp, SpInfo spReadOnly, ICollectionMap mappers) : base(claim, sp, mappers)
     {
       SpRonly = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, mappers);
     }

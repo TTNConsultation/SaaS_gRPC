@@ -59,7 +59,7 @@ namespace Saas
       }));
 
       services.AddSingleton<IConnectionManager, ConnectionManager>();
-      services.AddSingleton<ISpMappers, SpMappers>();
+      services.AddSingleton<ICollectionMap, CollectionMapper>();
       services.AddSingleton<IContext, Context>();
       services.AddSingleton<ReferenceData>();
     }
