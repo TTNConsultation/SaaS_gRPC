@@ -33,22 +33,16 @@ namespace Saas.Services
 
     public override Task<Table> Get(MsgInt id, ServerCallContext context)
     {
-      if (id is null || id.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
-      using var sp = spContext.ReadOnly<Table>(refData.AppId, context.GetHttpContext().User, OperationType.R);
+      using var sp = spContext.ReadOnly<Table>(refData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
     }
 
     public override Task<Tables> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
-      if (restaurantId is null || restaurantId.Value <= 0)
-        throw new RpcException(new Status(StatusCode.InvalidArgument, ""));
-
-      using var sp = spContext.ReadOnly<Table>(refData.AppId, context.GetHttpContext().User, OperationType.R);
+      using var sp = spContext.ReadOnly<Table>(refData.App.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady()) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.Id(), restaurantId.Value)))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, ""));
+                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.ErrorMessages()));
     }
   }
 }

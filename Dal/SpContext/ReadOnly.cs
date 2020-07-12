@@ -10,11 +10,6 @@ namespace Dal.Sp
     {
     }
 
-    public string Error()
-    {
-      throw new System.NotImplementedException();
-    }
-
     public T Read(int id) => Read(Constant.ID, id).First();
 
     public IEnumerable<T> Read(string value) => Read(Constant.VALUE, value);

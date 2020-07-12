@@ -24,7 +24,7 @@ namespace Dal.Sp
 
     protected Base(UserClaim claim, SpInfo sp, ISpMappers mappers)
     {
-      ErrMsg = new StringBuilder().Append(sp?.ErrorMessage ?? "spInfo is null | ")
+      ErrMsg = new StringBuilder().Append(sp?.ErrorMessage ?? "sp is null | ")
                                   .Append(claim?.ErrorMessage ?? "claim is null |")
                                   .Append(mappers?.ErrorMessage() ?? "mappers is null")
                                   .ToString();

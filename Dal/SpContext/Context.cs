@@ -39,7 +39,7 @@ namespace Dal.Sp
     public IRead<T> ReferenceData<T>(int appId = 0) where T : new()
     {
       var user = UserClaim.AppUser(ConMgr, appId);
-      var spInfo = SpInfoMgr.Get(OperationType.R, typeof(T).Name);
+      var spInfo = SpInfoMgr.Get(typeof(T).Name, OperationType.R);
 
       return new ReadOnly<T>(user, spInfo, SpMappers);
     }
@@ -47,7 +47,7 @@ namespace Dal.Sp
     public IRead<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new()
     {
       var user = new UserClaim(ConMgr, uc, appId);
-      var spR = SpInfoMgr.Get(OperationType.R, typeof(T).Name);
+      var spR = SpInfoMgr.Get(typeof(T).Name, OperationType.R);
 
       return new ReadOnly<T>(user, spR, SpMappers);
     }
@@ -56,8 +56,8 @@ namespace Dal.Sp
     {
       var user = new UserClaim(ConMgr, uc, appId);
 
-      var spR = SpInfoMgr.Get(OperationType.R, typeof(T).Name);
-      var spRW = SpInfoMgr.Get(op, typeof(T).Name);
+      var spR = SpInfoMgr.Get(typeof(T).Name, OperationType.R);
+      var spRW = SpInfoMgr.Get(typeof(T).Name, op);
 
       return new ReadWrite<T>(user, spRW, spR, SpMappers);
     }
@@ -67,7 +67,7 @@ namespace Dal.Sp
   {
     private readonly IEnumerable<SpInfo> SpInfos;
 
-    internal SpInfo Get(OperationType op, string name) => SpInfos.FirstOrDefault(sp => sp.Op == op && sp.Name.IsEqual(name));
+    internal SpInfo Get(string spName, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op == op && sp.Name.IsEqual(spName));
 
     public SpInfoManager(ISpMappers mappers, string conStr)
     {

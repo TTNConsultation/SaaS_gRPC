@@ -74,8 +74,6 @@ namespace Saas.Entity.App
 
   internal class ReferenceData
   {
-    public int AppId => App.Id;
-
     public readonly States States;
     public readonly Languages Languages;
     public readonly KeyTypes KeyTypes;
@@ -84,7 +82,6 @@ namespace Saas.Entity.App
     public ReferenceData(IContext context)
     {
       App = context.ReferenceData<AppSetting>().Read().First();
-
       States = new States(context.ReferenceData<State>(App.Id).Read());
       Languages = new Languages(context.ReferenceData<Language>(App.Id).Read());
       KeyTypes = new KeyTypes(context.ReferenceData<KeyType>(App.Id).Read());

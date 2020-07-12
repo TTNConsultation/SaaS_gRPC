@@ -30,7 +30,6 @@ namespace Saas
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddGrpc(options => options.EnableDetailedErrors = true);
-      //services.AddControllers();
 
       var authSrv = config.GetSection("IdentityServer4");
       services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
