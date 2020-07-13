@@ -5,16 +5,17 @@ using Grpc.Core;
 using Microsoft.Extensions.Logging;
 
 using Saas.gRPC;
+using Saas.Entity;
 using Saas.Entity.Administrator;
 using Saas.Entity.Common;
-using Saas.Entity.App;
+using Saas.Entity.ReferenceData;
 
-using Dal;
 using Dal.Sp;
 
 using static Saas.Entity.Administrator.Menus.Types;
 using static Saas.Entity.Administrator.RestaurantMenus.Types;
 using static Saas.Entity.Administrator.Restaurants.Types;
+using static Saas.Entity.ReferenceData.SupportedLanguages.Types;
 
 namespace Saas.Services
 {
@@ -22,13 +23,13 @@ namespace Saas.Services
   {
     private readonly ILogger<RestaurantMenuService> logger;
     private readonly IContext DbContext;
-    private readonly ReferenceData RefData;
+    private readonly ReferenceDatas RefData;
 
-    public MenuService(ILogger<RestaurantMenuService> log, IContext sp, ReferenceData refdata)
+    public MenuService(ILogger<RestaurantMenuService> log, IContext sp, AppData appData)
     {
       logger = log;
       DbContext = sp;
-      RefData = refdata;
+      RefData = appData.RefDatas;
     }
 
     public override Task<Menu> Get(MsgInt id, ServerCallContext context)

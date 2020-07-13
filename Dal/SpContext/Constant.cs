@@ -15,6 +15,7 @@
 
     public const string APP = "app";
     public const string ADMINISTRATOR = "administrator";
+    public const string REFERENCEDATAS = "refereceDatas";
     public const string EMPLOYEE = "employee";
     public const string USER = "user";
 

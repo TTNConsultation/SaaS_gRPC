@@ -682,30 +682,47 @@ namespace Saas.gRPC {
     static readonly string __ServiceName = "Services.AppDataSvc";
 
     static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgEmpty> __Marshaller_Common_MsgEmpty = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgEmpty.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.App.Languages> __Marshaller_App_Languages = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.App.Languages.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.App.States> __Marshaller_App_States = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.App.States.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.App.KeyTypes> __Marshaller_App_KeyTypes = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.App.KeyTypes.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.ReferenceData.SupportedLanguages> __Marshaller_ReferenceData_SupportedLanguages = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.ReferenceData.SupportedLanguages.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.ReferenceData.States> __Marshaller_ReferenceData_States = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.ReferenceData.States.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.ReferenceData.KeyTypes> __Marshaller_ReferenceData_KeyTypes = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.ReferenceData.KeyTypes.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.ReferenceData.ReferenceDatas> __Marshaller_ReferenceData_ReferenceDatas = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.ReferenceData.ReferenceDatas.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage> __Marshaller_ReferenceData_SupportedLanguages_CodeLanguage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Entity.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Language.Dictionary.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.Languages> __Method_Languages = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.Languages>(
+    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.SupportedLanguages> __Method_SupportedLanguages = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.SupportedLanguages>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Languages",
+        "SupportedLanguages",
         __Marshaller_Common_MsgEmpty,
-        __Marshaller_App_Languages);
+        __Marshaller_ReferenceData_SupportedLanguages);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.States> __Method_States = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.States>(
+    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.States> __Method_States = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.States>(
         grpc::MethodType.Unary,
         __ServiceName,
         "States",
         __Marshaller_Common_MsgEmpty,
-        __Marshaller_App_States);
+        __Marshaller_ReferenceData_States);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.KeyTypes> __Method_KeyTypes = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.KeyTypes>(
+    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.KeyTypes> __Method_KeyTypes = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.KeyTypes>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KeyTypes",
         __Marshaller_Common_MsgEmpty,
-        __Marshaller_App_KeyTypes);
+        __Marshaller_ReferenceData_KeyTypes);
+
+    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.ReferenceDatas> __Method_ReferenceData = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.ReferenceDatas>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ReferenceData",
+        __Marshaller_Common_MsgEmpty,
+        __Marshaller_ReferenceData_ReferenceDatas);
+
+    static readonly grpc::Method<global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage, global::Saas.Entity.Language.Dictionary> __Method_MyDictionary = new grpc::Method<global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage, global::Saas.Entity.Language.Dictionary>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "MyDictionary",
+        __Marshaller_ReferenceData_SupportedLanguages_CodeLanguage,
+        __Marshaller_Language_Dictionary);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -717,17 +734,27 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(AppDataSvc), "BindService")]
     public abstract partial class AppDataSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.App.Languages> Languages(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.ReferenceData.SupportedLanguages> SupportedLanguages(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.App.States> States(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.ReferenceData.States> States(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.App.KeyTypes> KeyTypes(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.ReferenceData.KeyTypes> KeyTypes(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.ReferenceData.ReferenceDatas> ReferenceData(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Language.Dictionary> MyDictionary(global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -739,9 +766,11 @@ namespace Saas.gRPC {
     public static grpc::ServerServiceDefinition BindService(AppDataSvcBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Languages, serviceImpl.Languages)
+          .AddMethod(__Method_SupportedLanguages, serviceImpl.SupportedLanguages)
           .AddMethod(__Method_States, serviceImpl.States)
-          .AddMethod(__Method_KeyTypes, serviceImpl.KeyTypes).Build();
+          .AddMethod(__Method_KeyTypes, serviceImpl.KeyTypes)
+          .AddMethod(__Method_ReferenceData, serviceImpl.ReferenceData)
+          .AddMethod(__Method_MyDictionary, serviceImpl.MyDictionary).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -750,9 +779,11 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AppDataSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Languages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.Languages>(serviceImpl.Languages));
-      serviceBinder.AddMethod(__Method_States, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.States>(serviceImpl.States));
-      serviceBinder.AddMethod(__Method_KeyTypes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.App.KeyTypes>(serviceImpl.KeyTypes));
+      serviceBinder.AddMethod(__Method_SupportedLanguages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.SupportedLanguages>(serviceImpl.SupportedLanguages));
+      serviceBinder.AddMethod(__Method_States, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.States>(serviceImpl.States));
+      serviceBinder.AddMethod(__Method_KeyTypes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.KeyTypes>(serviceImpl.KeyTypes));
+      serviceBinder.AddMethod(__Method_ReferenceData, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.ReferenceData.ReferenceDatas>(serviceImpl.ReferenceData));
+      serviceBinder.AddMethod(__Method_MyDictionary, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage, global::Saas.Entity.Language.Dictionary>(serviceImpl.MyDictionary));
     }
 
   }

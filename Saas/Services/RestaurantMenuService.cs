@@ -1,15 +1,14 @@
-﻿using Grpc.Core;
-using System.Threading.Tasks;
-
-using Microsoft.Extensions.Logging;
+﻿using Saas.Entity.Administrator;
+using Saas.Entity.Common;
+using Saas.Entity.ReferenceData;
+using Saas.Entity;
 
 using Saas.gRPC;
-using Saas.Entity.Administrator;
-using Saas.Entity.Common;
-using Saas.Entity.App;
+using Grpc.Core;
 
-using Dal;
 using Dal.Sp;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 using static Saas.Entity.Administrator.RestaurantMenus.Types;
 using static Saas.Entity.Administrator.Restaurants.Types;
@@ -20,13 +19,13 @@ namespace Saas.Services
   {
     private readonly ILogger<RestaurantMenuService> logger;
     private readonly IContext DbContext;
-    private readonly ReferenceData RefData;
+    private readonly ReferenceDatas RefData;
 
-    public RestaurantMenuService(ILogger<RestaurantMenuService> log, IContext sp, ReferenceData refdata)
+    public RestaurantMenuService(ILogger<RestaurantMenuService> log, IContext sp, AppData appData)
     {
       logger = log;
       DbContext = sp;
-      RefData = refdata;
+      RefData = appData.RefDatas;
     }
 
     public override Task<RestaurantMenu> Get(MsgInt id, ServerCallContext context)

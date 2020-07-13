@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "Saas.Entity.ReferenceData";
+
+package ReferenceData;
+
+message KeyTypes{
+  message KeyType{
+   int32 Id = 1;
+   string Name = 2;
+   int32 MaxLen = 3;
+	}
+  repeated KeyType values = 1;
+}
+message States{
+  message State{
+    int32 Id = 1;
+    string Name = 2;
+  }
+  repeated State values = 1;
+}
+message SupportedLanguages{
+  message CodeLanguage{
+    int32 Id = 1;
+    string Code = 2;
+    string Value = 3;
+  }
+  repeated CodeLanguage values = 1;
+}
+message AppSetting{
+  int32 Id = 1;
+  int32 NameKey = 2;
+  int32 DescriptionKey = 3;
+}
+message ReferenceDatas{
+  States states = 1;
+  SupportedLanguages languages = 2;
+  KeyTypes keyTypes = 3;
+  AppSetting app = 4;
+}

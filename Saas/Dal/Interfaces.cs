@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Saas.Entity;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;

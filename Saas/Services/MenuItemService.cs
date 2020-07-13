@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -9,15 +10,13 @@ using Microsoft.Extensions.Logging;
 using Saas.gRPC;
 using Saas.Entity.Administrator;
 using Saas.Entity.Common;
-using Saas.Entity.App;
-
-using Dal;
+using Saas.Entity;
+using Saas.Entity.ReferenceData;
 using Dal.Sp;
 
 using static Saas.Entity.Administrator.MenuItems.Types;
 using static Saas.Entity.Administrator.Menus.Types;
 using static Saas.Entity.Administrator.Items.Types;
-using System.Linq;
 
 namespace Saas.Services
 {
@@ -25,13 +24,13 @@ namespace Saas.Services
   {
     private readonly ILogger<MenuItemService> logger;
     private readonly IContext DbContext;
-    private readonly ReferenceData RefData;
+    private readonly ReferenceDatas RefData;
 
-    public MenuItemService(ILogger<MenuItemService> log, IContext sp, ReferenceData refdata)
+    public MenuItemService(ILogger<MenuItemService> log, IContext sp, AppData appData)
     {
       logger = log;
       DbContext = sp;
-      RefData = refdata;
+      RefData = appData.RefDatas;
     }
 
     public override Task<MenuItem> Get(MsgInt id, ServerCallContext context)

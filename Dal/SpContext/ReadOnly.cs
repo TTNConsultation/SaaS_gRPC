@@ -11,6 +11,8 @@ namespace Dal.Sp
 
     string Error();
 
+    Context.UserClaim Claim();
+
     T Read(int id);
 
     IEnumerable<T> Read();

@@ -8,6 +8,8 @@ namespace Dal.Sp
 
     string Error();
 
+    Context.UserClaim Claim();
+
     int Create(T obj);
 
     bool Update(T obj);

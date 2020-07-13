@@ -5,8 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 
-using Saas.Security;
-using Saas.Entity.App;
+using Saas.Entity;
 
 namespace Saas.Dal
 {
@@ -60,6 +59,16 @@ namespace Saas.Dal
       var conStr = ConStrManager.GetConnectionString(user.Role.ToString());
 
       return (spInfo?.IsReadOnly ?? false && user.IdVerified) ? null : new SpCrud<T>(user, spInfo, spInfoR, Mappers, conStr);
+    }
+
+    public IRonly<T> SpROnly<T>(AppData appData, ClaimsPrincipal uc, OperationType op) where T : new()
+    {
+      throw new NotImplementedException();
+    }
+
+    public ICrud<T> SpCrud<T>(AppData appData, ClaimsPrincipal uc, OperationType op) where T : new()
+    {
+      throw new NotImplementedException();
     }
   }
 

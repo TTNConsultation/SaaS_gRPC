@@ -3,13 +3,13 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 
 using Grpc.Core;
-
-using Dal;
 using Dal.Sp;
+
 using Saas.gRPC;
 using Saas.Entity.Administrator;
 using Saas.Entity.Common;
-using Saas.Entity.App;
+using Saas.Entity;
+using Saas.Entity.ReferenceData;
 
 using static Saas.Entity.Administrator.Items.Types;
 using static Saas.Entity.Administrator.MenuItems.Types;
@@ -23,13 +23,13 @@ namespace Saas.Services
   {
     private readonly ILogger<ItemService> logger;
     private readonly IContext DbContext;
-    private readonly ReferenceData RefData;
+    private readonly ReferenceDatas RefData;
 
-    public ItemService(ILogger<ItemService> log, IContext sp, ReferenceData refdata)
+    public ItemService(ILogger<ItemService> log, IContext sp, AppData appData)
     {
       logger = log;
       DbContext = sp;
-      RefData = refdata;
+      RefData = appData.RefDatas;
     }
 
     public override Task<Item> Get(MsgInt id, ServerCallContext context)

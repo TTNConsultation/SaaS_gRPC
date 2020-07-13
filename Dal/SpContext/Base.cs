@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 
 using Microsoft.Data.SqlClient;
 using System.Threading.Tasks;
@@ -16,22 +15,26 @@ namespace Dal.Sp
     private readonly ISpInfo SpInfo;
     private readonly ICollectionMapper Mappers;
     private readonly string Err;
+    private readonly Context.UserClaim UserClaim;
 
     public bool IsReady() => string.IsNullOrEmpty(Err);
 
     public string Error() => Err;
 
-    protected Base(Context.UserClaim claim, ISpInfo sp, ICollectionMapper mappers)
+    public Context.UserClaim Claim() => UserClaim;
+
+    protected Base(Context.UserClaim claim, ISpInfo spinfo, ICollectionMapper mappers)
     {
-      Err = new StringBuilder().Append((sp == null) ? "sp is null | " : null)
+      Err = new StringBuilder().Append((spinfo == null) ? "sp is null | " : null)
                                .Append((claim == null) ? "claim is null" : null)
                                .ToString();
 
       if (IsReady())
       {
-        SpInfo = sp;
+        UserClaim = claim;
+        SpInfo = spinfo;
         Mappers = mappers;
-        SqlCmd = sp.SqlCommand(claim.ConnectionString);
+        SqlCmd = SpInfo.SqlCommand(claim.ConnectionString);
         AddParameter(Constant.ROOT.Id(), claim.RootId);
       }
     }

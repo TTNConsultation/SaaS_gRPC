@@ -81,7 +81,7 @@ namespace Dal
 
       while (reader.Read())
       {
-        ret.Add((map == null) ? mappers.Add<T>(reader, out map) : map.Parse<T>(reader));
+        ret.Add(map.Parse<T>(reader));
       }
 
       return ret;
@@ -94,7 +94,7 @@ namespace Dal
 
       while (await reader.ReadAsync().ConfigureAwait(false))
       {
-        ret.Add((map == null) ? mappers.Add<T>(reader, out map) : map.Parse<T>(reader));
+        ret.Add(map.Parse<T>(reader));
       }
 
       return ret;

@@ -1,18 +1,19 @@
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 using Grpc.Core;
 
 using Saas.gRPC;
 using Saas.Entity.Administrator;
 using Saas.Entity.Common;
-using Saas.Entity.App;
+using Saas.Entity;
+using Saas.Entity.ReferenceData;
 
 using Dal.Sp;
 
 using static Saas.Entity.Administrator.Restaurants.Types;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Saas.Services
 {
@@ -21,13 +22,13 @@ namespace Saas.Services
   {
     private readonly ILogger<RestaurantService> logger;
     private readonly IContext DbContext;
-    private readonly ReferenceData RefData;
+    private readonly ReferenceDatas RefData;
 
-    public RestaurantService(ILogger<RestaurantService> log, IContext sp, ReferenceData refdata)
+    public RestaurantService(ILogger<RestaurantService> log, IContext sp, AppData appData)
     {
       logger = log;
       DbContext = sp;
-      RefData = refdata;
+      RefData = appData.RefDatas;
     }
 
     public override Task<Restaurant> Get(MsgInt id, ServerCallContext context)

@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
+
+using IdentityServer4.AccessTokenValidation;
 
 using Saas.Services;
-using Saas.Entity.App;
-using Microsoft.AspNetCore.Http;
-using IdentityServer4.AccessTokenValidation;
+using Saas.Entity;
 
 using Dal;
 using Dal.Sp;
@@ -62,7 +63,8 @@ namespace Saas
       services.AddSingleton<ICollectionMapper, CollectionMapper>();
       services.AddSingleton<ICollectionSpInfo, CollectionSpInfo>();
       services.AddSingleton<IContext, Context>();
-      services.AddSingleton<ReferenceData>();
+
+      services.AddSingleton<AppData>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -95,7 +97,6 @@ namespace Saas
         endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<RestaurantMenuService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<MenuItemService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-        endpoints.MapGrpcService<TestService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
 
         //endpoints.MapControllers();
 

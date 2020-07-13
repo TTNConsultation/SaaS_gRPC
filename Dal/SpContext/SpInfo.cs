@@ -28,16 +28,11 @@ namespace Dal.Sp
     internal string Op => property.Op;
     internal string Type => property.Type;
 
-    public SqlCommand SqlCommand(string conStr)
-    {
-      var cmd = new SqlCommand(property.FullName, new SqlConnection(conStr))
+    public SqlCommand SqlCommand(string conStr) =>
+      new SqlCommand(property.FullName, new SqlConnection(conStr))
       {
         CommandType = CommandType.StoredProcedure,
       };
-      //cmd.Parameters.AddRange(parameters.Select(p => p.SqlParameter()).ToArray());
-
-      return cmd;
-    }
 
     public IParameter Parameter(string name) => parameters.FirstOrDefault(p => p.Name.IsEqual(name.AsParameter()));
 

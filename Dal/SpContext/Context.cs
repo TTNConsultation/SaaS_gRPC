@@ -19,30 +19,26 @@ namespace Dal.Sp
 
   public interface ICollectionMapper
   {
-    IMapper Get<T>();
+    IMapper Get(string typename);
 
-    T Add<T>(SqlDataReader reader, out IMapper mapper) where T : new();
+    IMapper Get<T>() => Get(typeof(T).Name);
   }
 
   public interface IMapper
   {
-    string TypeName();
-
-    bool IsType(string type);
-
-    T Build<T>(SqlDataReader reader) where T : new();
+    bool IsType(string typename);
 
     T Parse<T>(SqlDataReader reader) where T : new();
   }
 
   public interface ICollectionSpInfo
   {
-    ISpInfo Get(string type, OperationType op);
+    ISpInfo Get(string typename, OperationType op);
   }
 
   public interface IContext
   {
-    IReadOnly<T> ReferenceData<T>(int appId = 0) where T : new();
+    IReadOnly<T> ReferenceData<T>(int rootId = 0) where T : new();
 
     IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new();
 
@@ -69,27 +65,25 @@ namespace Dal.Sp
   {
     private readonly HashSet<IMapper> mappers = new HashSet<IMapper>();
 
-    private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsType(map.TypeName()));
+    private IMapper Add(IMapper map) => mappers.Add(map) ? map : null;
 
-    public IMapper Get<T>() => mappers.FirstOrDefault(sp => sp.IsType(typeof(T).Name));
-
-    public T Add<T>(SqlDataReader reader, out IMapper map) where T : new() =>
-      Add(map = new Mapper(typeof(T).Name)).Build<T>(reader);
+    public IMapper Get(string typename) => mappers.FirstOrDefault(m => m.IsType(typename)) ?? Add(new Mapper(typename));
   }
 
   public sealed class Mapper : IMapper
   {
-    private IDictionary<int, PropertyInfo> Map;
-    private readonly string Type;
+    private IDictionary<int, PropertyInfo> ReflectionDictionnary;
+    private readonly string TypeName;
 
-    internal Mapper(string type)
+    internal Mapper(string typename)
     {
-      Type = type;
+      TypeName = typename;
     }
 
-    public T Build<T>(SqlDataReader reader) where T : new()
+    private T BuildDictionary<T>(SqlDataReader reader) where T : new()
     {
-      Map = new Dictionary<int, PropertyInfo>();
+      ReflectionDictionnary = new Dictionary<int, PropertyInfo>();
+
       var propInfos = typeof(T).GetProperties();
       var ret = new T();
 
@@ -99,26 +93,27 @@ namespace Dal.Sp
         if (propInfo != null)
         {
           propInfo.SetValue(ret, Convert.ChangeType(reader[i], propInfo.PropertyType));
-          Map.Add(new KeyValuePair<int, PropertyInfo>(i, propInfo));
+          ReflectionDictionnary.Add(new KeyValuePair<int, PropertyInfo>(i, propInfo));
         }
       }
 
       return ret;
     }
 
-    public T Parse<T>(SqlDataReader reader) where T : new()
+    private T UseDictionary<T>(SqlDataReader reader) where T : new()
     {
       var ret = new T();
-      foreach (var m in Map)
+      foreach (var kpv in ReflectionDictionnary)
       {
-        m.Value.SetValue(ret, Convert.ChangeType(reader[m.Key], m.Value.PropertyType));
+        kpv.Value.SetValue(ret, Convert.ChangeType(reader[kpv.Key], kpv.Value.PropertyType));
       }
       return ret;
     }
 
-    public string TypeName() => Type;
+    public T Parse<T>(SqlDataReader reader) where T : new() =>
+      (ReflectionDictionnary == null) ? BuildDictionary<T>(reader) : UseDictionary<T>(reader);
 
-    public bool IsType(string name) => Type.IsEqual(name);
+    public bool IsType(string typename) => TypeName.IsEqual(typename);
   }
 
   public sealed class CollectionSpInfo : ICollectionSpInfo
@@ -130,7 +125,7 @@ namespace Dal.Sp
       SpInfos = Read(mappers, connectionManager.App());
     }
 
-    public ISpInfo Get(string type, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(op.ToString()) && sp.Type.IsEqual(type));
+    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(op.ToString()) && sp.Type.IsEqual(typename));
 
     private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
     {
@@ -147,12 +142,12 @@ namespace Dal.Sp
       using var reader = sqlcmd.ExecuteReader();
 
       var ret = new HashSet<SpInfo>();
-      IMapper map = null;
+      IMapper map = mappers.Get<SpProperty>();
 
       while (reader.Read())
       {
-        var prop = (map == null) ? mappers.Add<SpProperty>(reader, out map) : map.Parse<SpProperty>(reader);
-        var pars = parameters.Where(p => p.SpId == prop.Id).OrderBy(p => p.Order);
+        var prop = map.Parse<SpProperty>(reader);
+        var pars = parameters.Where(p => p.SpId == prop.Id);
 
         ret.Add(new SpInfo(prop, pars));
       }
@@ -187,8 +182,8 @@ namespace Dal.Sp
       SpInfos = spinfos;
     }
 
-    public IReadOnly<T> ReferenceData<T>(int appId = 0) where T : new() =>
-      new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, appId),
+    public IReadOnly<T> ReferenceData<T>(int rootId) where T : new() =>
+      new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, (rootId == 0) ? int.Parse(ConnectionStrings.Get("AppId")) : rootId),
                       SpInfos.Get(typeof(T).Name, OperationType.R),
                       Mappers);
 
@@ -203,7 +198,7 @@ namespace Dal.Sp
                    SpInfos.Get(typeof(T).Name, OperationType.R),
                    Mappers);
 
-    internal sealed class UserClaim
+    public sealed class UserClaim
     {
       public readonly int RootId;
       public readonly string ConnectionString;
@@ -228,15 +223,15 @@ namespace Dal.Sp
           RootId = appId;
       }
 
-      private UserClaim(string conStr, int appId)
+      private UserClaim(string conStr, int rootId)
       {
         ConnectionString = conStr;
-        RootId = appId;
+        RootId = rootId;
       }
 
-      internal static UserClaim Get(IConnectionManager conmanager, ClaimsPrincipal uc, int appid) => new UserClaim(conmanager, uc, appid);
+      internal static UserClaim Get(IConnectionManager conmanager, ClaimsPrincipal uc, int appid = 0) => new UserClaim(conmanager, uc, appid);
 
-      internal static UserClaim AppUser(IConnectionManager conManager, int appId) => new UserClaim(conManager.App(), appId);
+      internal static UserClaim AppUser(IConnectionManager conManager, int rootId) => new UserClaim(conManager.App(), rootId);
     }
   }
 }

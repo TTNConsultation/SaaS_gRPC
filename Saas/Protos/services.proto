@@ -5,7 +5,8 @@ option csharp_namespace = "Saas.gRPC";
 package Services;
 
 import "Protos/common.proto";
-import "Protos/app.proto";
+import "Protos/lang.proto";
+import "Protos/reference.proto";
 import "Protos/administrator.proto";
 
 service RestaurantSvc {
@@ -53,7 +54,9 @@ service MenuItemSvc {
   rpc Delete (Common.MsgInt) returns (Common.MsgInt);
 }
 service AppDataSvc {
-	rpc Languages (Common.MsgEmpty) returns (App.Languages);
-  rpc States (Common.MsgEmpty) returns (App.States);
-  rpc KeyTypes (Common.MsgEmpty) returns (App.KeyTypes);
+	rpc SupportedLanguages (Common.MsgEmpty) returns (ReferenceData.SupportedLanguages);
+  rpc States (Common.MsgEmpty) returns (ReferenceData.States);
+  rpc KeyTypes (Common.MsgEmpty) returns (ReferenceData.KeyTypes);
+  rpc ReferenceData (Common.MsgEmpty) returns (ReferenceData.ReferenceDatas);
+  rpc MyDictionary (ReferenceData.SupportedLanguages.CodeLanguage) returns (Language.Dictionary);
 }
