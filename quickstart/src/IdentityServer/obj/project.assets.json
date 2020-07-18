@@ -3728,7 +3728,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "IdentityServer4 >= 4.0.2",
       "IdentityServer4.AccessTokenValidation >= 3.0.1",
       "IdentityServer4.Storage >= 4.0.2",
       "Microsoft.AspNetCore.Authentication.Google >= 3.1.6",
@@ -3781,10 +3780,6 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "IdentityServer4": {
-            "target": "Package",
-            "version": "[4.0.2, )"
-          },
           "IdentityServer4.AccessTokenValidation": {
             "target": "Package",
             "version": "[3.0.1, )"
@@ -3823,16 +3818,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1108",
-      "level": "Error",
-      "message": "Cycle detected. \r\n  IdentityServer4 -> IdentityServer4 (>= 4.0.2).",
-      "libraryId": "IdentityServer4",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

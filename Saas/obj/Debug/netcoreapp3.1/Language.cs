@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Saas.Entity.App {
+namespace Saas.Entity.Language {
 
   /// <summary>Holder for reflection information generated from Protos/language.proto</summary>
   public static partial class LanguageReflection {
@@ -24,22 +24,23 @@ namespace Saas.Entity.App {
     static LanguageReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVQcm90b3MvbGFuZ3VhZ2UucHJvdG8SA0FwcBoWUHJvdG9zL3JlZmVyZW5j",
-            "ZS5wcm90byKVAQoES2V5cxIdCgZ2YWx1ZXMYASADKAsyDS5BcHAuS2V5cy5L",
-            "ZXkabgoDS2V5EgsKA0tleRgBIAEoBRIMCgRUeXBlGAIgASgFEg4KBlJvb3RJ",
-            "ZBgDIAEoBRIRCglPYmplY3RfaWQYBCABKAUSCgoCSWQYBSABKAUSDwoHS2V5",
-            "TmFtZRgGIAEoCRIMCgRDb2RlGAcgASgJIo4BCgpEaWN0aW9uYXJ5Eg4KBlJv",
-            "b3RJZBgBIAEoBRIvCghMYW5ndWFnZRgCIAEoCzIdLlJlZmVyZW5jZS5MYW5n",
-            "dWFnZXMuTGFuZ3VhZ2USFwoES2V5cxgDIAEoCzIJLkFwcC5LZXlzEiYKB2Nv",
-            "bnRlbnQYBSADKAsyFS5BcHAuRGljdEtleVZhbHVlUGFpciIsChBEaWN0S2V5",
-            "VmFsdWVQYWlyEgsKA0tleRgBIAEoBRILCgNWYWwYAiABKAlCEqoCD1NhYXMu",
-            "RW50aXR5LkFwcGIGcHJvdG8z"));
+            "ChVQcm90b3MvbGFuZ3VhZ2UucHJvdG8SCExhbmd1YWdlGhpQcm90b3MvcmVm",
+            "ZXJlbmNlRGF0YS5wcm90byKaAQoES2V5cxIiCgZ2YWx1ZXMYASADKAsyEi5M",
+            "YW5ndWFnZS5LZXlzLktleRpuCgNLZXkSCwoDS2V5GAEgASgFEgwKBFR5cGUY",
+            "AiABKAUSDgoGUm9vdElkGAMgASgFEhEKCU9iamVjdF9pZBgEIAEoBRIKCgJJ",
+            "ZBgFIAEoBRIPCgdLZXlOYW1lGAYgASgJEgwKBENvZGUYByABKAkiqQEKCkRp",
+            "Y3Rpb25hcnkSDgoGUm9vdElkGAEgASgFEkAKCExhbmd1YWdlGAIgASgLMi4u",
+            "UmVmZXJlbmNlRGF0YS5TdXBwb3J0ZWRMYW5ndWFnZXMuQ29kZUxhbmd1YWdl",
+            "EhwKBEtleXMYAyABKAsyDi5MYW5ndWFnZS5LZXlzEisKB2NvbnRlbnQYBCAD",
+            "KAsyGi5MYW5ndWFnZS5EaWN0S2V5VmFsdWVQYWlyIiwKEERpY3RLZXlWYWx1",
+            "ZVBhaXISCwoDS2V5GAEgASgFEgsKA1ZhbBgCIAEoCUIXqgIUU2Fhcy5FbnRp",
+            "dHkuTGFuZ3VhZ2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Saas.Entity.Reference.ReferenceReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Saas.Entity.ReferenceData.ReferenceDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Keys), global::Saas.Entity.App.Keys.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Keys.Types.Key), global::Saas.Entity.App.Keys.Types.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.Dictionary), global::Saas.Entity.App.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.App.DictKeyValuePair), global::Saas.Entity.App.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Keys), global::Saas.Entity.Language.Keys.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Keys.Types.Key), global::Saas.Entity.Language.Keys.Types.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Dictionary), global::Saas.Entity.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.DictKeyValuePair), global::Saas.Entity.Language.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null)
           }));
     }
     #endregion
@@ -54,7 +55,7 @@ namespace Saas.Entity.App {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.App.LanguageReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Saas.Entity.Language.LanguageReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -82,11 +83,11 @@ namespace Saas.Entity.App {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.App.Keys.Types.Key> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.App.Keys.Types.Key.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.App.Keys.Types.Key> values_ = new pbc::RepeatedField<global::Saas.Entity.App.Keys.Types.Key>();
+    private static readonly pb::FieldCodec<global::Saas.Entity.Language.Keys.Types.Key> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Language.Keys.Types.Key.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Entity.Language.Keys.Types.Key> values_ = new pbc::RepeatedField<global::Saas.Entity.Language.Keys.Types.Key>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.App.Keys.Types.Key> Values {
+    public pbc::RepeatedField<global::Saas.Entity.Language.Keys.Types.Key> Values {
       get { return values_; }
     }
 
@@ -177,7 +178,7 @@ namespace Saas.Entity.App {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.App.Keys.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Entity.Language.Keys.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -479,7 +480,7 @@ namespace Saas.Entity.App {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.App.LanguageReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Saas.Entity.Language.LanguageReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -521,9 +522,9 @@ namespace Saas.Entity.App {
 
     /// <summary>Field number for the "Language" field.</summary>
     public const int LanguageFieldNumber = 2;
-    private global::Saas.Entity.Reference.Languages.Types.Language language_;
+    private global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage language_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.Reference.Languages.Types.Language Language {
+    public global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage Language {
       get { return language_; }
       set {
         language_ = value;
@@ -532,9 +533,9 @@ namespace Saas.Entity.App {
 
     /// <summary>Field number for the "Keys" field.</summary>
     public const int KeysFieldNumber = 3;
-    private global::Saas.Entity.App.Keys keys_;
+    private global::Saas.Entity.Language.Keys keys_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Entity.App.Keys Keys {
+    public global::Saas.Entity.Language.Keys Keys {
       get { return keys_; }
       set {
         keys_ = value;
@@ -542,12 +543,12 @@ namespace Saas.Entity.App {
     }
 
     /// <summary>Field number for the "content" field.</summary>
-    public const int ContentFieldNumber = 5;
-    private static readonly pb::FieldCodec<global::Saas.Entity.App.DictKeyValuePair> _repeated_content_codec
-        = pb::FieldCodec.ForMessage(42, global::Saas.Entity.App.DictKeyValuePair.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.App.DictKeyValuePair> content_ = new pbc::RepeatedField<global::Saas.Entity.App.DictKeyValuePair>();
+    public const int ContentFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Saas.Entity.Language.DictKeyValuePair> _repeated_content_codec
+        = pb::FieldCodec.ForMessage(34, global::Saas.Entity.Language.DictKeyValuePair.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Entity.Language.DictKeyValuePair> content_ = new pbc::RepeatedField<global::Saas.Entity.Language.DictKeyValuePair>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.App.DictKeyValuePair> Content {
+    public pbc::RepeatedField<global::Saas.Entity.Language.DictKeyValuePair> Content {
       get { return content_; }
     }
 
@@ -638,13 +639,13 @@ namespace Saas.Entity.App {
       }
       if (other.language_ != null) {
         if (language_ == null) {
-          Language = new global::Saas.Entity.Reference.Languages.Types.Language();
+          Language = new global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage();
         }
         Language.MergeFrom(other.Language);
       }
       if (other.keys_ != null) {
         if (keys_ == null) {
-          Keys = new global::Saas.Entity.App.Keys();
+          Keys = new global::Saas.Entity.Language.Keys();
         }
         Keys.MergeFrom(other.Keys);
       }
@@ -666,19 +667,19 @@ namespace Saas.Entity.App {
           }
           case 18: {
             if (language_ == null) {
-              Language = new global::Saas.Entity.Reference.Languages.Types.Language();
+              Language = new global::Saas.Entity.ReferenceData.SupportedLanguages.Types.CodeLanguage();
             }
             input.ReadMessage(Language);
             break;
           }
           case 26: {
             if (keys_ == null) {
-              Keys = new global::Saas.Entity.App.Keys();
+              Keys = new global::Saas.Entity.Language.Keys();
             }
             input.ReadMessage(Keys);
             break;
           }
-          case 42: {
+          case 34: {
             content_.AddEntriesFrom(input, _repeated_content_codec);
             break;
           }
@@ -696,7 +697,7 @@ namespace Saas.Entity.App {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.App.LanguageReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Saas.Entity.Language.LanguageReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

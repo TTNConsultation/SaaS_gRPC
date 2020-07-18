@@ -17,6 +17,9 @@ namespace IdentityServer
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
     public void ConfigureServices(IServiceCollection services)
     {
+      // uncomment, if you want to add an MVC-based UI
+      services.AddControllersWithViews();
+
       services.AddGrpc();
 
       var builder = services.AddIdentityServer(options =>
@@ -53,9 +56,11 @@ namespace IdentityServer
         app.UseDeveloperExceptionPage();
       }
 
+      app.UseStaticFiles();
       app.UseRouting();
 
       app.UseIdentityServer();
+      app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {
@@ -63,6 +68,8 @@ namespace IdentityServer
         {
           await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
         });
+
+        endpoints.MapDefaultControllerRoute();
       });
     }
   }

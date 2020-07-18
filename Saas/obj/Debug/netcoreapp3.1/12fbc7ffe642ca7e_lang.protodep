@@ -1,2 +1,0 @@
-obj\Debug\netcoreapp3.1/Lang.cs: Protos/reference.proto\
- Protos/lang.proto

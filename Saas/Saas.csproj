@@ -44,8 +44,8 @@
     <ProjectReference Include="..\Dal\SpContext\SpContext.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="Protos\reference.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\lang.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\referenceData.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\language.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\administrator.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\services.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\common.proto" GrpcServices="Server" />

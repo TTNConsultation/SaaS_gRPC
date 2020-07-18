@@ -56,14 +56,14 @@ namespace Saas.Services
     public override Task<MenuItems> GetByItem(MsgInt itemId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady()) ? Task.FromResult(new MenuItems(sp.Read(typeof(Item).Name.Id(), itemId.Value)))
+      return (sp.IsReady()) ? Task.FromResult(new MenuItems(sp.ReadBy<Item>(itemId.Value)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public override Task<MenuItems> GetByMenu(MsgInt menuId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<MenuItem>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady()) ? Task.FromResult(new MenuItems(sp.Read(typeof(Menu).Name.Id(), menuId.Value)))
+      return (sp.IsReady()) ? Task.FromResult(new MenuItems(sp.ReadBy<Menu>(menuId.Value)))
                             : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.Error()));
     }
 

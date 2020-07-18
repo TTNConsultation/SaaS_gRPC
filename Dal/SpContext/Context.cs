@@ -131,7 +131,7 @@ namespace Dal.Sp
       SpInfos = Read(mappers, connectionManager.App());
     }
 
-    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Type.IsEqual(typename) && sp.Op.IsEqual(nameof(op)));
+    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Type.IsEqual(typename) && sp.Op.IsEqual(op.ToString()));
 
     private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
     {
@@ -148,7 +148,7 @@ namespace Dal.Sp
       using var reader = sqlcmd.ExecuteReader();
 
       var ret = new HashSet<SpInfo>();
-      IMapper map = mappers.Get<SpProperty>();
+      var map = mappers.Get<SpProperty>();
 
       while (reader.Read())
       {
@@ -189,7 +189,7 @@ namespace Dal.Sp
     }
 
     public IReadOnly<T> ReferenceData<T>(int rootId) where T : new() =>
-      new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, (rootId == 0) ? int.Parse(ConnectionStrings.Get("AppId")) : rootId),
+      new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, rootId),
                       SpInfos.Get<T>(OperationType.R),
                       Mappers.Get<T>());
 

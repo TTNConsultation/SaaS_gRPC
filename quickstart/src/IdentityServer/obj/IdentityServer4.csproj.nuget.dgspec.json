@@ -45,10 +45,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "IdentityServer4": {
-              "target": "Package",
-              "version": "[4.0.2, )"
-            },
             "IdentityServer4.AccessTokenValidation": {
               "target": "Package",
               "version": "[3.0.1, )"

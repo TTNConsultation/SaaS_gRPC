@@ -5,8 +5,8 @@ option csharp_namespace = "Saas.gRPC";
 package Services;
 
 import "Protos/common.proto";
-import "Protos/lang.proto";
-import "Protos/reference.proto";
+import "Protos/language.proto";
+import "Protos/referenceData.proto";
 import "Protos/administrator.proto";
 
 service RestaurantSvc {

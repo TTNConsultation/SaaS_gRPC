@@ -13,17 +13,25 @@ namespace Dal.Sp
 
     Context.UserClaim Claim();
 
-    T Read(int id);
+    T Read(int id) => Read(Constant.ID, id).First();
 
     IEnumerable<T> Read();
 
-    IEnumerable<T> Read(string value);
+    IEnumerable<T> ReadBy<S>(int id) => Read(typeof(S).Name.Id(), id);
 
-    IEnumerable<T> Read(string key, object id);
+    IEnumerable<T> Read(string value) => Read(Constant.VALUE, value);
+
+    IEnumerable<T> Read(string key, object value);
+
+    IEnumerable<T> Read(IDictionary<string, object> parameters);
+
+    IEnumerable<T> ReadRange(string key, string values, char separator);
 
     Task<IEnumerable<T>> ReadAsync();
 
-    Task<IEnumerable<T>> ReadAsync(string value);
+    Task<IEnumerable<T>> ReadAsyncBy<S>(int id) => ReadAsync(typeof(S).Name.Id(), id);
+
+    Task<IEnumerable<T>> ReadAsync(string value) => ReadAsync(Constant.VALUE, value);
 
     Task<IEnumerable<T>> ReadAsync(string key, object id);
 
@@ -38,13 +46,11 @@ namespace Dal.Sp
     {
     }
 
-    public T Read(int id) => Read(Constant.ID, id).First();
-
-    public IEnumerable<T> Read(string value) => Read(Constant.VALUE, value);
-
     public IEnumerable<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
 
-    public async Task<IEnumerable<T>> ReadAsync(string value) => await ReadAsync(Constant.VALUE, value).ConfigureAwait(false);
+    public IEnumerable<T> Read(IDictionary<string, object> parameters) => AddParameters(parameters) ? Read() : null;
+
+    public IEnumerable<T> ReadRange(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? Read() : null;
 
     public async Task<IEnumerable<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
 
