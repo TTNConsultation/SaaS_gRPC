@@ -36,6 +36,8 @@ namespace Dal.Sp
   public interface ICollectionSpInfo
   {
     ISpInfo Get(string typename, OperationType op);
+
+    ISpInfo Get<T>(OperationType op) => Get(typeof(T).Name, op);
   }
 
   public interface IContext
@@ -74,7 +76,7 @@ namespace Dal.Sp
 
   public sealed class Mapper : IMapper
   {
-    private IDictionary<int, PropertyInfo> ReflectionDictionnary;
+    private IDictionary<int, PropertyInfo> ReflectionMap;
     private readonly string TypeName;
 
     internal Mapper(string typename)
@@ -82,9 +84,9 @@ namespace Dal.Sp
       TypeName = typename;
     }
 
-    private T BuildDictionary<T>(SqlDataReader reader) where T : new()
+    private T BuildMap<T>(SqlDataReader reader) where T : new()
     {
-      ReflectionDictionnary = new Dictionary<int, PropertyInfo>();
+      ReflectionMap = new Dictionary<int, PropertyInfo>();
 
       var propInfos = typeof(T).GetProperties();
       var ret = new T();
@@ -95,17 +97,17 @@ namespace Dal.Sp
         if (propInfo != null)
         {
           propInfo.SetValue(ret, Convert.ChangeType(reader[i], propInfo.PropertyType));
-          ReflectionDictionnary.Add(new KeyValuePair<int, PropertyInfo>(i, propInfo));
+          ReflectionMap.Add(i, propInfo);
         }
       }
 
       return ret;
     }
 
-    private T UseDictionary<T>(SqlDataReader reader) where T : new()
+    private T UseMap<T>(SqlDataReader reader) where T : new()
     {
       var ret = new T();
-      foreach (var kpv in ReflectionDictionnary)
+      foreach (var kpv in ReflectionMap)
       {
         kpv.Value.SetValue(ret, Convert.ChangeType(reader[kpv.Key], kpv.Value.PropertyType));
       }
@@ -113,7 +115,7 @@ namespace Dal.Sp
     }
 
     public T Parse<T>(SqlDataReader reader) where T : new() =>
-      (ReflectionDictionnary == null) ? BuildDictionary<T>(reader) : UseDictionary<T>(reader);
+      (ReflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
 
     public bool IsType(string typename) => TypeName.IsEqual(typename);
 
@@ -129,7 +131,7 @@ namespace Dal.Sp
       SpInfos = Read(mappers, connectionManager.App());
     }
 
-    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(nameof(op)) && sp.Type.IsEqual(typename));
+    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Type.IsEqual(typename) && sp.Op.IsEqual(nameof(op)));
 
     private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
     {
@@ -169,7 +171,7 @@ namespace Dal.Sp
       sqlcmd.Connection.Open();
 
       using var reader = sqlcmd.ExecuteReader();
-      return reader.Parse<SpParameter>(mappers);
+      return reader.Parse<SpParameter>(mappers.Get<SpParameter>());
     }
   }
 
@@ -188,19 +190,19 @@ namespace Dal.Sp
 
     public IReadOnly<T> ReferenceData<T>(int rootId) where T : new() =>
       new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, (rootId == 0) ? int.Parse(ConnectionStrings.Get("AppId")) : rootId),
-                      SpInfos.Get(typeof(T).Name, OperationType.R),
-                      Mappers);
+                      SpInfos.Get<T>(OperationType.R),
+                      Mappers.Get<T>());
 
     public IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new() =>
       new ReadOnly<T>(UserClaim.Get(ConnectionStrings, uc, appId),
-                      SpInfos.Get(typeof(T).Name, op),
-                      Mappers);
+                      SpInfos.Get<T>(op),
+                      Mappers.Get<T>());
 
     public IWrite<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new() =>
       new Write<T>(UserClaim.Get(ConnectionStrings, uc, appId),
-                   SpInfos.Get(typeof(T).Name, op),
-                   SpInfos.Get(typeof(T).Name, OperationType.R),
-                   Mappers);
+                   SpInfos.Get<T>(op),
+                   SpInfos.Get<T>(OperationType.R),
+                   Mappers.Get<T>());
 
     public sealed class UserClaim
     {

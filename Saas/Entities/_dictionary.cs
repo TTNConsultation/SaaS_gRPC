@@ -20,7 +20,7 @@ namespace Saas.Entity.Language
 
     public string UniqueCode => string.Concat(RootId.ToString(), ".", Language.Code);
 
-    public Dictionary(Keys allkeys, int rootId, CodeLanguage lang, IEnumerable<DictKeyValuePair> content)
+    public Dictionary(int rootId, CodeLanguage lang, Keys allkeys, IEnumerable<DictKeyValuePair> content)
     {
       RootId = rootId;
       Language = lang;
@@ -28,13 +28,11 @@ namespace Saas.Entity.Language
       Content.AddRange(content);
     }
 
-    public IDictionary<int, string> AsDictionary => Content.Select(c => c.AsKeyValuePair).ToDictionary(k => k.Key, k => k.Value);
+    public IDictionary<int, string> AsDictionary => Content.ToDictionary(c => c.Key, c => c.Val);
   }
 
   public partial class DictKeyValuePair
   {
-    public bool IsEqual(DictKeyValuePair dictkvp) => this.AsKeyValuePair.Equals(dictkvp.AsKeyValuePair);
-
     public KeyValuePair<int, string> AsKeyValuePair => new KeyValuePair<int, string>(Key, Val);
   }
 }

@@ -9,11 +9,11 @@ namespace Dal.Sp
 {
   public enum OperationType { C, R, RR, U, D, ND }
 
-  internal abstract class Base<T> : IDisposable where T : new()
+  internal abstract class Base<T> where T : new()
   {
     private readonly SqlCommand SqlCmd;
     private readonly ISpInfo SpInfo;
-    private readonly ICollectionMapper Mappers;
+    private readonly IMapper Map;
     private readonly string Err;
     private readonly Context.UserClaim UserClaim;
 
@@ -23,7 +23,7 @@ namespace Dal.Sp
 
     public Context.UserClaim Claim() => UserClaim;
 
-    protected Base(Context.UserClaim claim, ISpInfo spinfo, ICollectionMapper mappers)
+    protected Base(Context.UserClaim claim, ISpInfo spinfo, IMapper map)
     {
       Err = new StringBuilder().Append((spinfo == null) ? "sp is null | " : null)
                                .Append((claim == null) ? "claim is null" : null)
@@ -33,7 +33,7 @@ namespace Dal.Sp
       {
         UserClaim = claim;
         SpInfo = spinfo;
-        Mappers = mappers;
+        Map = map;
         SqlCmd = SpInfo.SqlCommand(claim.ConnectionString);
         AddParameter(Constant.ROOT.Id(), claim.RootId);
       }
@@ -92,7 +92,7 @@ namespace Dal.Sp
       SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
 
-      return reader.Parse<T>(Mappers);
+      return reader.Parse<T>(Map);
     }
 
     public async Task<IEnumerable<T>> ReadAsync()
@@ -100,7 +100,7 @@ namespace Dal.Sp
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(Mappers).ConfigureAwait(false);
+      return await reader.ParseAsync<T>(Map).ConfigureAwait(false);
     }
 
     public virtual void Dispose()

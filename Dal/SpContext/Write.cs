@@ -21,24 +21,24 @@ namespace Dal.Sp
 
   internal sealed class Write<T> : Base<T>, IWrite<T> where T : new()
   {
-    private readonly IReadOnly<T> SpRonly;
+    private readonly IReadOnly<T> SpRO;
 
-    public Write(Context.UserClaim claim, ISpInfo sp, ISpInfo spReadOnly, ICollectionMapper mappers) : base(claim, sp, mappers)
+    public Write(Context.UserClaim claim, ISpInfo sp, ISpInfo spReadOnly, IMapper map) : base(claim, sp, map)
     {
-      SpRonly = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, mappers);
+      SpRO = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, map);
     }
 
     public int Create(T obj) => AddParameters(obj) ? Create() : -1;
 
     public bool Update(T obj) => AddParameters(obj) && Update();
 
-    public bool UpdateState(int id, int stateId) => AddParameters(SpRonly.Read(id)) && AddParameter(Constant.STATE.Id(), stateId) && Update();
+    public bool UpdateState(int id, int stateId) => AddParameters(SpRO.Read(id)) && AddParameter(Constant.STATE.Id(), stateId) && Update();
 
     public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
 
     public override void Dispose()
     {
-      SpRonly?.Dispose();
+      SpRO?.Dispose();
       base.Dispose();
     }
   }

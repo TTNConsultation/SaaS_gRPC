@@ -34,7 +34,7 @@ namespace Dal.Sp
 
   internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : new()
   {
-    public ReadOnly(Context.UserClaim claim, ISpInfo sp, ICollectionMapper mappers) : base(claim, sp, mappers)
+    public ReadOnly(Context.UserClaim claim, ISpInfo sp, IMapper map) : base(claim, sp, map)
     {
     }
 

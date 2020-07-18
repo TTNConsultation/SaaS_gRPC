@@ -55,7 +55,7 @@ namespace Saas.Services
       Dictionary dict = DictCache.Get(rootId, lang);
 
       return await (dict == null
-        ? Task.FromResult(DictCache.Add(new Dictionary(await DictCache.GetKeys(rootId, DbContext).ConfigureAwait(false), rootId, lang, await sp.ReadAsync(lang.Code).ConfigureAwait(false))))
+        ? Task.FromResult(DictCache.Add(new Dictionary(rootId, lang, await DictCache.GetKeys(rootId, DbContext).ConfigureAwait(false), await sp.ReadAsync(lang.Code).ConfigureAwait(false))))
         : Task.FromResult(dict));
     }
   }
