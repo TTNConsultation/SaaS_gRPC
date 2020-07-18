@@ -26,11 +26,11 @@ namespace Saas.Entity
 
   internal class DictionaryCache
   {
-    public IDictionary<string, Dictionary> Cache { get; private set; } = new Dictionary<string, Dictionary>();
+    public IDictionary<string, Dictionary> Cache { get; } = new Dictionary<string, Dictionary>();
 
-    public Dictionary Get(int rootId, CodeLanguage lang) => Get(string.Concat(rootId.ToString(), lang.Code));
+    public Dictionary Get(int rootId, CodeLanguage lang) => Get(string.Concat(rootId.ToString(), ".", lang.Code));
 
-    public Dictionary Get(string uniqueCode) => Cache[uniqueCode] ?? null;
+    public Dictionary Get(string uniqueCode) => Cache[uniqueCode];
 
     public Dictionary Add(Dictionary dict, bool overwrite = true)
     {

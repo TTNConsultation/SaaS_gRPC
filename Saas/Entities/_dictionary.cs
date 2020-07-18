@@ -18,7 +18,7 @@ namespace Saas.Entity.Language
 
     public bool IsEqual(int rootId, CodeLanguage lang) => RootId == rootId && Language.IsEqual(lang);
 
-    public string UniqueCode => string.Concat(RootId.ToString(), Language.Code);
+    public string UniqueCode => string.Concat(RootId.ToString(), ".", Language.Code);
 
     public Dictionary(Keys allkeys, int rootId, CodeLanguage lang, IEnumerable<DictKeyValuePair> content)
     {
@@ -33,7 +33,7 @@ namespace Saas.Entity.Language
 
   public partial class DictKeyValuePair
   {
-    public bool IsEqual(DictKeyValuePair dict) => this.AsKeyValuePair.Equals(dict.AsKeyValuePair);
+    public bool IsEqual(DictKeyValuePair dictkvp) => this.AsKeyValuePair.Equals(dictkvp.AsKeyValuePair);
 
     public KeyValuePair<int, string> AsKeyValuePair => new KeyValuePair<int, string>(Key, Val);
   }

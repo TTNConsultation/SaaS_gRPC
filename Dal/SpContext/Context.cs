@@ -28,6 +28,8 @@ namespace Dal.Sp
   {
     bool IsType(string typename);
 
+    bool IsType(IMapper map);
+
     T Parse<T>(SqlDataReader reader) where T : new();
   }
 
@@ -65,7 +67,7 @@ namespace Dal.Sp
   {
     private readonly HashSet<IMapper> mappers = new HashSet<IMapper>();
 
-    private IMapper Add(IMapper map) => mappers.Add(map) ? map : null;
+    private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsType(map));
 
     public IMapper Get(string typename) => mappers.FirstOrDefault(m => m.IsType(typename)) ?? Add(new Mapper(typename));
   }
@@ -114,6 +116,8 @@ namespace Dal.Sp
       (ReflectionDictionnary == null) ? BuildDictionary<T>(reader) : UseDictionary<T>(reader);
 
     public bool IsType(string typename) => TypeName.IsEqual(typename);
+
+    public bool IsType(IMapper map) => map.IsType(this.TypeName);
   }
 
   public sealed class CollectionSpInfo : ICollectionSpInfo
@@ -125,7 +129,7 @@ namespace Dal.Sp
       SpInfos = Read(mappers, connectionManager.App());
     }
 
-    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(op.ToString()) && sp.Type.IsEqual(typename));
+    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Op.IsEqual(nameof(op)) && sp.Type.IsEqual(typename));
 
     private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
     {

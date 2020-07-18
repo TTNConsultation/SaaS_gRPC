@@ -15,8 +15,6 @@ namespace Dal.Sp
 
   public interface IParameter
   {
-    int Size(object value);
-
     SqlParameter SqlParameter(object value);
   }
 
@@ -65,15 +63,14 @@ namespace Dal.Sp
     public bool IsOutput { get; set; }
     public string Collation { get; set; }
 
-    public int Size(object value)
+    private int Size(object value)
     {
-      if (value == null || value == DBNull.Value)
-        return 0;
+      if (value == null || value == DBNull.Value || string.IsNullOrEmpty(Collation))
+        return MaxLength;
 
-      int size;
-      return (string.IsNullOrEmpty(Collation))
-              ? MaxLength
-              : (size = value.ToString().Length) <= Precision ? size : -1;
+      var size = value.ToString().Length;
+
+      return size <= Precision ? size : -1;
     }
 
     public SqlParameter SqlParameter(object value) =>

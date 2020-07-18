@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+option csharp_namespace = "IdentityServer.Protos";
+
+message ClientClaims{
+	int32 id = 1;
+	string Type = 2;
+	string Value = 3;
+	int32 ClientId = 4;
+}
+message ClientCorsOrigins{
+	int32 id = 1;
+	string Origin = 2;
+	int32 ClientId = 3;
+}
+message ClientGrantTypes{
+	int32 id = 1;
+	string GrantType = 2;
+	int32 ClientId = 3;
+}
+message ClientIdPRestrictions{
+	int32 id = 1;
+	string Provider = 2;
+	int32 ClientId = 3;
+}
+message ClientPostLogoutRedirectUris{
+	int32 id = 1;
+	string PostLogoutRedirectUri = 2;
+	int32 ClientId = 3;
+}
+message ClientProperties{
+	int32 id = 1;
+	string Key = 2;
+	string Value = 3;
+	int32 ClientId = 4;
+}
+message ClientRedirectUris{
+	int32 id = 1;
+	string RedirectUri = 2;
+	int32 ClientId = 3;
+}
+message Client_1{
+	int32 id = 1;
+	bool Enabled = 2;
+	string ClientId = 3;
+	string ProtocolType = 4;
+	bool RequireClientSecret = 5;
+	string ClientName = 6;
+	string Description = 7;
+	string ClientUri = 8;
+	bool RequireConsent = 9;
+	bool AllowRememberConsent = 10;
+	bool AlwaysIncludeUserClaimsInIdToken = 11;
+	bool RequirePkce = 12;
+	bool AllowPlainTextPkce = 13;
+	bool RequireRequestObject = 14;
+	bool AllowAccessTokensViaBrowser = 15;
+}
+message Client_2{
+	int32 id = 1;
+	string FrontChannelLogoutUri = 2;
+	bool FrontChannelLogoutSessionRequired = 3;
+	string BackChannelLogoutUri  = 4;
+	bool BackChannelLogoutSessionRequired = 5;
+	bool AllowOfflineAccess = 6;
+	int32 IdentityTokenLifetime = 7;
+	string AllowedIdentityTokenSigningAlgorithms = 8;
+	int32 AccessTokenLifetime = 9;
+	int32 AuthorizationCodeLifetime = 10;
+	int32 ConsentLifetime = 11;
+	int32 AbsoluteRefreshTokenLifetime = 12;
+	int32 SlidingRefreshTokenLifetime = 13;
+	int32 RefreshTokenUsage = 14;
+	bool UpdateAccessTokenClaimsOnRefresh = 15;
+}
+message Client_3{
+	int32 id = 1;
+	int32 RefreshTokenExpiration = 2;
+	int32 AccessTokenType = 3;
+	int32 EnableLocalLogin = 4;
+	bool IncludeJwtId = 5;
+	bool AlwaysSendClientClaims = 6;
+	string ClientClaimsPrefix = 7;
+	string PairWiseSubjectSalt = 8;
+	date Created = 9;
+	bool Updated = 10;
+	date Updated = 11;
+	date LastAccessed = 12;
+	string UserSsoLifetime = 13;
+	string UserCodeType = 14;
+	int32 DeviceCodeLifetime = 15;
+}
+message Client{
+	Client_1 part1 = 1;
+	Client_2 part2 = 2;
+	Client_3 part3 = 3;
+
+	bool NonEditable = 4;
+}
+message ClientScopes{
+	int32 id = 1;
+	string Scope = 2;
+	int32 ClientId = 3;
+}
+message ClientSecrets{
+	int32 id = 1;
+	string Description = 2;
+	string Value = 3;
+	date Expiration = 4;
+	string Type = 5;
+	date Created = 6;
+	int32 ClientId = 7;
+}

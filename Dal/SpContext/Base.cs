@@ -41,10 +41,9 @@ namespace Dal.Sp
 
     protected bool AddParameter(string key, object value)
     {
-      SqlParameter par;
-      return (par = SpInfo.Parameter(key)?.SqlParameter(value)) != null &&
-             par.Size >= 0 &&
-             SqlCmd.Parameters.Add(par) != null;
+      var par = SpInfo.Parameter(key)?.SqlParameter(value);
+
+      return par?.Size >= 0 && SqlCmd.Parameters.Add(par) != null;
     }
 
     protected bool AddParameters(T obj)
@@ -69,9 +68,8 @@ namespace Dal.Sp
 
     protected bool SetParameter(string key, object value)
     {
-      int index;
-      return ((index = SqlCmd.Parameters.IndexOf(key)) >= 0) &&
-             (SqlCmd.Parameters[index].Value = value ?? DBNull.Value) != null;
+      int index = SqlCmd.Parameters.IndexOf(key);
+      return (index >= 0) && (SqlCmd.Parameters[index].Value = (value ?? DBNull.Value)) != null;
     }
 
     protected bool Update()

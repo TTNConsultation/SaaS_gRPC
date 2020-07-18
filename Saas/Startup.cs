@@ -32,24 +32,24 @@ namespace Saas
     {
       services.AddGrpc(options => options.EnableDetailedErrors = true);
 
-      var authSrv = config.GetSection("IdentityServer4");
+      var auth = config.GetSection("IdentityServer");
       services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
               .AddIdentityServerAuthentication(options =>
-        {
-          options.Authority = authSrv["Url"];
-          options.ApiName = authSrv["ApiName"];
-          options.ApiSecret = authSrv["ApiSecret"];
-        });
+              {
+                options.Authority = auth["Url"];
+                options.ApiName = auth["ApiName"];
+                options.ApiSecret = auth["ApiSecret"];
+              });
 
       services.AddAuthorization(options =>
-      {
-        options.AddPolicy("admin", policy =>
-        {
-          policy.RequireAuthenticatedUser();
-          policy.RequireClaim("scope", "aaf.admin");
-          policy.RequireClaim("role", "administrator");
-        });
-      });
+              {
+                options.AddPolicy("admin", policy =>
+                {
+                  policy.RequireAuthenticatedUser();
+                  policy.RequireClaim("scope", "aaf.admin");
+                  policy.RequireClaim("role", "administrator");
+                });
+              });
 
       services.AddCors(o => o.AddPolicy(Constant.CorsAllowedPolicy, builder =>
       {

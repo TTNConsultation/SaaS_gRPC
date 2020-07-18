@@ -1,14 +1,15 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using IdentityServer4;
-using IdentityServer4.Services;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
+using IdentityServer4;
+using IdentityServer4.Services;
 
 namespace IdentityServer
 {
@@ -37,16 +38,16 @@ namespace IdentityServer
           .AddInMemoryClients(Config.Clients)
           .AddTestUsers(TestUsers.Users);
 
-      services.AddAuthentication()
-          .AddGoogle("Google", options =>
-          {
-            options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+      //services.AddAuthentication()
+      //    .AddGoogle("Google", options =>
+      //    {
+      //      options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-            options.ClientId = "964468178648-02b6d5okdoo055aeq58np4jbq3rnoo96.apps.googleusercontent.com";
-            options.ClientSecret = "bUuNq643Jb0qGn2Bdv3kDNYx";
-          });
+      //      options.ClientId = "964468178648-02b6d5okdoo055aeq58np4jbq3rnoo96.apps.googleusercontent.com";
+      //      options.ClientSecret = "bUuNq643Jb0qGn2Bdv3kDNYx";
+      //    });
 
-      services.AddSingleton<ICorsPolicyService, CorsPolicyService>();
+      //services.AddSingleton<ICorsPolicyService, CorsPolicyService>();
 
       // not recommended for production - you need to store your key material somewhere secure
       builder.AddDeveloperSigningCredential();

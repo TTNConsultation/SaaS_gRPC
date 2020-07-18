@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+option csharp_namespace = "IdentityServer.Protos";
+
+message ApiResourceClaims{
+	int32 id = 1;
+	string Type = 2;
+	int32 ApiResourceId = 3;
+}
+message ApiResourceProperties{
+	int32 id = 1;
+	string key = 2;
+	string value = 3;
+	int32 apiResourceId = 4;
+}
+message ApiResources{
+	int32 id = 1;
+	bool Enabled = 2;
+	string Name = 3;
+	string DisplayName = 4;
+	string Description = 5;
+	string AllowedAccessTokenSigningAlgorithms = 6;
+	date Ceated = 7;
+	date Updated = 8;
+	date LastAccessed = 9;
+	bool NonEditable = 10;
+}
+message ApiResourceScopes{
+ int32 id = 1;
+ string scope = 2;
+ int ApiResourceId = 3;
+}
+message ApiResourceId{
+ int32 id = 1;
+ string scope = 2;
+ int32 ApiResourceId = 3;
+}
+message ApiResourceSecrets{
+	int32 id = 1;
+	string Description = 2;
+	string Value = 3;
+	int32 Expiration = 4;
+	string Type = 5;
+	date Created = 6;
+	int32 ApiResourceId = 7;
+}
+message ApiScopeClaims{
+ int32 id = 1;
+ string Type = 2;
+ int32 ScopeId = 3;
+}
+message ApiScopeClaims{
+ int32 id = 1;
+ string Type = 2;
+ int32 ScopeId = 3;
+}
+message ApiScopeProperties{
+	int32 id = 1;
+	string Key = 2;
+	string Value = 3;
+	int32 ScopeId = 4;
+}
+message ApiScopes{
+	int32 id = 1;
+	bool Enabled = 2;
+	string Name = 3;
+	string DisplayName = 4;
+	string Description = 5;
+	bool Required = 6;
+	bool Emphasize = 7;
+	bool ShowInDiscoveryDocument = 8;
+}
