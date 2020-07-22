@@ -5,7 +5,7 @@ using Saas.Entity;
 
 using Saas.Entity.Administrator;
 using Saas.Entity.Common;
-using Saas.Entity.ReferenceData;
+using Saas.Entity.Reference;
 
 using Dal.Sp;
 using Microsoft.Extensions.Logging;
@@ -19,10 +19,10 @@ namespace Saas.Services
   internal class TableService : TableSvc.TableSvcBase
   {
     private readonly ILogger<TableService> logger;
-    private readonly IContext DbContext;
-    private readonly ReferenceDatas RefData;
+    private readonly IDbContext DbContext;
+    private readonly References RefData;
 
-    public TableService(ILogger<TableService> log, IContext sp, AppData appData)
+    public TableService(ILogger<TableService> log, IDbContext sp, App appData)
     {
       logger = log;
       DbContext = sp;
@@ -31,15 +31,15 @@ namespace Saas.Services
 
     public override Task<Table> Get(MsgInt id, ServerCallContext context)
     {
-      using var sp = DbContext.ReadOnly<Table>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
+      using var sp = DbContext.ReadOnly<Table>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      return (sp.IsNotNull()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public override Task<Tables> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
-      using var sp = DbContext.ReadOnly<Table>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady()) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.Id(), restaurantId.Value)))
+      using var sp = DbContext.ReadOnly<Table>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      return (sp.IsNotNull()) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.Id(), restaurantId.Value)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
   }

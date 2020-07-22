@@ -14,12 +14,12 @@
           "lib/netstandard2.0/Google.Protobuf.dll": {}
         }
       },
-      "Grpc.AspNetCore/2.29.0": {
+      "Grpc.AspNetCore/2.30.0": {
         "type": "package",
         "dependencies": {
-          "Google.Protobuf": "3.11.4",
-          "Grpc.AspNetCore.Server.ClientFactory": "2.29.0",
-          "Grpc.Tools": "2.29.0"
+          "Google.Protobuf": "3.12.2",
+          "Grpc.AspNetCore.Server.ClientFactory": "2.30.0",
+          "Grpc.Tools": "2.30.0-pre1"
         },
         "compile": {
           "lib/netcoreapp3.0/_._": {}
@@ -28,10 +28,10 @@
           "lib/netcoreapp3.0/_._": {}
         }
       },
-      "Grpc.AspNetCore.Server/2.30.0-pre1": {
+      "Grpc.AspNetCore.Server/2.30.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Net.Common": "2.30.0-pre1"
+          "Grpc.Net.Common": "2.30.0"
         },
         "compile": {
           "lib/netcoreapp3.0/Grpc.AspNetCore.Server.dll": {}
@@ -43,12 +43,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Grpc.AspNetCore.Server.ClientFactory/2.29.0": {
+      "Grpc.AspNetCore.Server.ClientFactory/2.30.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.AspNetCore.Server": "2.29.0",
-          "Grpc.Core.Api": "2.29.0",
-          "Grpc.Net.ClientFactory": "2.29.0"
+          "Grpc.AspNetCore.Server": "2.30.0",
+          "Grpc.Net.ClientFactory": "2.30.0"
         },
         "compile": {
           "lib/netcoreapp3.0/Grpc.AspNetCore.Server.ClientFactory.dll": {}
@@ -60,7 +59,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Grpc.AspNetCore.Web/2.30.0-pre1": {
+      "Grpc.AspNetCore.Web/2.30.0": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.0/Grpc.AspNetCore.Web.dll": {}
@@ -72,46 +71,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Grpc.Core/2.30.0": {
-        "type": "package",
-        "dependencies": {
-          "Grpc.Core.Api": "2.30.0",
-          "System.Memory": "4.5.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Grpc.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Grpc.Core.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/linux/native/libgrpc_csharp_ext.x64.so": {
-            "assetType": "native",
-            "rid": "linux"
-          },
-          "runtimes/linux/native/libgrpc_csharp_ext.x86.so": {
-            "assetType": "native",
-            "rid": "linux"
-          },
-          "runtimes/osx/native/libgrpc_csharp_ext.x64.dylib": {
-            "assetType": "native",
-            "rid": "osx"
-          },
-          "runtimes/osx/native/libgrpc_csharp_ext.x86.dylib": {
-            "assetType": "native",
-            "rid": "osx"
-          },
-          "runtimes/win/native/grpc_csharp_ext.x64.dll": {
-            "assetType": "native",
-            "rid": "win"
-          },
-          "runtimes/win/native/grpc_csharp_ext.x86.dll": {
-            "assetType": "native",
-            "rid": "win"
-          }
-        }
-      },
-      "Grpc.Core.Api/2.30.0": {
+      "Grpc.Core.Api/2.30.0-pre1": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -123,11 +83,10 @@
           "lib/netstandard2.0/Grpc.Core.Api.dll": {}
         }
       },
-      "Grpc.Net.Client/2.29.0": {
+      "Grpc.Net.Client/2.30.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Core.Api": "2.29.0",
-          "Grpc.Net.Common": "2.29.0",
+          "Grpc.Net.Common": "2.30.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
           "System.Diagnostics.DiagnosticSource": "4.5.1"
         },
@@ -138,11 +97,10 @@
           "lib/netstandard2.1/Grpc.Net.Client.dll": {}
         }
       },
-      "Grpc.Net.ClientFactory/2.29.0": {
+      "Grpc.Net.ClientFactory/2.30.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Core.Api": "2.29.0",
-          "Grpc.Net.Client": "2.29.0",
+          "Grpc.Net.Client": "2.30.0",
           "Microsoft.Extensions.Http": "2.1.1"
         },
         "compile": {
@@ -152,7 +110,7 @@
           "lib/netstandard2.1/Grpc.Net.ClientFactory.dll": {}
         }
       },
-      "Grpc.Net.Common/2.30.0-pre1": {
+      "Grpc.Net.Common/2.30.0": {
         "type": "package",
         "dependencies": {
           "Grpc.Core.Api": "2.30.0-pre1"
@@ -199,11 +157,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "IdentityServer4/4.0.2": {
+      "IdentityServer4/4.0.3": {
         "type": "package",
         "dependencies": {
           "IdentityModel": "4.3.0",
-          "IdentityServer4.Storage": "4.0.2",
+          "IdentityServer4.Storage": "4.0.3",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0",
           "Newtonsoft.Json": "12.0.2"
@@ -234,7 +192,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "IdentityServer4.Storage/4.0.2": {
+      "IdentityServer4.Storage/4.0.3": {
         "type": "package",
         "dependencies": {
           "IdentityModel": "4.3.0"
@@ -245,6 +203,18 @@
         "runtime": {
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
         }
+      },
+      "Microsoft.AspNetCore.Authentication.Certificate/3.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
         "type": "package",
@@ -1644,27 +1614,27 @@
         "lib/netstandard2.0/Google.Protobuf.xml"
       ]
     },
-    "Grpc.AspNetCore/2.29.0": {
-      "sha512": "t9nhYA0Jd1w+Xh8DXvtR2nv6Bb5iSkQ9ImNnEv+grftsGvd29eZS52+ohSJsREPivHjb/fkNij7PRoNG6JPtVw==",
+    "Grpc.AspNetCore/2.30.0": {
+      "sha512": "jomJsVMnYCCfeOSxi/0lfXr+iMKbZz9OlHTEB/QyHXW0RoBgUsJww7Yt+ZQ19Fdu2CW72/Y5hSOUeP3e1X4sZg==",
       "type": "package",
-      "path": "grpc.aspnetcore/2.29.0",
+      "path": "grpc.aspnetcore/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.2.29.0.nupkg.sha512",
+        "grpc.aspnetcore.2.30.0.nupkg.sha512",
         "grpc.aspnetcore.nuspec",
         "lib/netcoreapp3.0/_._",
         "packageIcon.png"
       ]
     },
-    "Grpc.AspNetCore.Server/2.30.0-pre1": {
-      "sha512": "Lky6BJn1Yj70uozwpluAS6KQ0XvzJbWkf7poBT8GJteUzmMNTZ6WyTZ3g6VsBV7hXVNOENNPUJeY+M4WL5AHzg==",
+    "Grpc.AspNetCore.Server/2.30.0": {
+      "sha512": "GlNV4/mzNMwGU4qbjlVAGugTloc2AGB+wuEZ99aTcf23VHTXMDy8gR1RKU027diUmNHMV10EEM3kKRyJvNbq6w==",
       "type": "package",
-      "path": "grpc.aspnetcore.server/2.30.0-pre1",
+      "path": "grpc.aspnetcore.server/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.server.2.30.0-pre1.nupkg.sha512",
+        "grpc.aspnetcore.server.2.30.0.nupkg.sha512",
         "grpc.aspnetcore.server.nuspec",
         "lib/netcoreapp3.0/Grpc.AspNetCore.Server.dll",
         "lib/netcoreapp3.0/Grpc.AspNetCore.Server.pdb",
@@ -1672,14 +1642,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.AspNetCore.Server.ClientFactory/2.29.0": {
-      "sha512": "tsJyEsvxUyr1Z+/KxcdnlS2hlb0umxcEAj46LMnI38ei4ZASSXg27U0ErHQ+vU6cE7msG7tsZjZ853EUytxq4Q==",
+    "Grpc.AspNetCore.Server.ClientFactory/2.30.0": {
+      "sha512": "F7S5WCX0o5wVkFRDt6bGiZQCaYbxtDiQt2wU53rK3pLDDSHv5WxbwV2Wc8zBgjGHgqxcCOwAcRup6GUm311TcQ==",
       "type": "package",
-      "path": "grpc.aspnetcore.server.clientfactory/2.29.0",
+      "path": "grpc.aspnetcore.server.clientfactory/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.server.clientfactory.2.29.0.nupkg.sha512",
+        "grpc.aspnetcore.server.clientfactory.2.30.0.nupkg.sha512",
         "grpc.aspnetcore.server.clientfactory.nuspec",
         "lib/netcoreapp3.0/Grpc.AspNetCore.Server.ClientFactory.dll",
         "lib/netcoreapp3.0/Grpc.AspNetCore.Server.ClientFactory.pdb",
@@ -1687,14 +1657,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.AspNetCore.Web/2.30.0-pre1": {
-      "sha512": "h7WbM/sTlx6yD4XpgjAlKiXrDzbRAk4BKISiZs9TQ3UqjtOeejMDc+0BPOF1UieJwqwb6GIoG2S9UKp7z+hdxA==",
+    "Grpc.AspNetCore.Web/2.30.0": {
+      "sha512": "JJmIaephcSsKWYfWNDiMqXGuQmv2IAKtE3s5BSTN/O2bo/dShf5ysvV5iHWLo7JrGVU1wMuxsAvOLK+Acid+ug==",
       "type": "package",
-      "path": "grpc.aspnetcore.web/2.30.0-pre1",
+      "path": "grpc.aspnetcore.web/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.web.2.30.0-pre1.nupkg.sha512",
+        "grpc.aspnetcore.web.2.30.0.nupkg.sha512",
         "grpc.aspnetcore.web.nuspec",
         "lib/netcoreapp3.0/Grpc.AspNetCore.Web.dll",
         "lib/netcoreapp3.0/Grpc.AspNetCore.Web.pdb",
@@ -1702,48 +1672,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.Core/2.30.0": {
-      "sha512": "wng69Wi893WmcSwK1cackh55QNaImVgM6gmTCvk+TM+raBHqVArZt5UYsS8M9w9P/v0HjeyHeFYNfeSZdjcPrQ==",
+    "Grpc.Core.Api/2.30.0-pre1": {
+      "sha512": "FO/Xg/9aJDpK9bXcWrw1A0VGhns/eID5arIco1p1Zoc/PomIfv54w5l8ik7K9hKejieZnC1NWZ8tPo5ckOKgCA==",
       "type": "package",
-      "path": "grpc.core/2.30.0",
+      "path": "grpc.core.api/2.30.0-pre1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/MonoAndroid10/Grpc.Core.targets",
-        "build/Xamarin.iOS10/Grpc.Core.targets",
-        "build/net45/Grpc.Core.targets",
-        "grpc.core.2.30.0.nupkg.sha512",
-        "grpc.core.nuspec",
-        "lib/net45/Grpc.Core.dll",
-        "lib/net45/Grpc.Core.pdb",
-        "lib/net45/Grpc.Core.xml",
-        "lib/netstandard1.5/Grpc.Core.dll",
-        "lib/netstandard1.5/Grpc.Core.pdb",
-        "lib/netstandard1.5/Grpc.Core.xml",
-        "lib/netstandard2.0/Grpc.Core.dll",
-        "lib/netstandard2.0/Grpc.Core.pdb",
-        "lib/netstandard2.0/Grpc.Core.xml",
-        "native/android/arm64-v8a/libgrpc_csharp_ext.so",
-        "native/android/armeabi-v7a/libgrpc_csharp_ext.so",
-        "native/android/x86/libgrpc_csharp_ext.so",
-        "native/ios/universal/libgrpc.a",
-        "native/ios/universal/libgrpc_csharp_ext.a",
-        "runtimes/linux/native/libgrpc_csharp_ext.x64.so",
-        "runtimes/linux/native/libgrpc_csharp_ext.x86.so",
-        "runtimes/osx/native/libgrpc_csharp_ext.x64.dylib",
-        "runtimes/osx/native/libgrpc_csharp_ext.x86.dylib",
-        "runtimes/win/native/grpc_csharp_ext.x64.dll",
-        "runtimes/win/native/grpc_csharp_ext.x86.dll"
-      ]
-    },
-    "Grpc.Core.Api/2.30.0": {
-      "sha512": "olr6WVb/aNp/2cAKhHl/b5IGTDjc0lCnT2tk/IY43wHix3+NIrF9gQr4tgXVbt7wDbf55+xDE/yicqa6ao/l2Q==",
-      "type": "package",
-      "path": "grpc.core.api/2.30.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "grpc.core.api.2.30.0.nupkg.sha512",
+        "grpc.core.api.2.30.0-pre1.nupkg.sha512",
         "grpc.core.api.nuspec",
         "lib/net45/Grpc.Core.Api.dll",
         "lib/net45/Grpc.Core.Api.pdb",
@@ -1756,14 +1692,14 @@
         "lib/netstandard2.0/Grpc.Core.Api.xml"
       ]
     },
-    "Grpc.Net.Client/2.29.0": {
-      "sha512": "uxMV3TMWyd60zJaqWeGCQCybSihplR+JyNGuzny9qyKTCGkcB0U4vPe8O6CJMG8GQyKevu103xsURWF/XNVrBg==",
+    "Grpc.Net.Client/2.30.0": {
+      "sha512": "LfvnO3ahboj2V2perNryvExSrD5On89N1C7+K83kmLhoCHhNe/PURjcrg3o4wjOxfN9YjzB8RnTXn99Pw5RPQA==",
       "type": "package",
-      "path": "grpc.net.client/2.29.0",
+      "path": "grpc.net.client/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.net.client.2.29.0.nupkg.sha512",
+        "grpc.net.client.2.30.0.nupkg.sha512",
         "grpc.net.client.nuspec",
         "lib/netstandard2.1/Grpc.Net.Client.dll",
         "lib/netstandard2.1/Grpc.Net.Client.pdb",
@@ -1771,14 +1707,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.Net.ClientFactory/2.29.0": {
-      "sha512": "lkgs+7OGwfY9ypq3zsDWwXzaat/Gj69LxmQww9F9oiEKdNCPMSQ/1HGQZiD0aaevPSsJBnxGri10j803Zqo3xg==",
+    "Grpc.Net.ClientFactory/2.30.0": {
+      "sha512": "tsbCWb5wfl1vcKFQ+liY8V3WvSAit1YxzGwjjBqAv5jgF0Y+4tjj9JhfDeCMdTeOqYf9GS1GCRC7ToYu9sVLhA==",
       "type": "package",
-      "path": "grpc.net.clientfactory/2.29.0",
+      "path": "grpc.net.clientfactory/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.net.clientfactory.2.29.0.nupkg.sha512",
+        "grpc.net.clientfactory.2.30.0.nupkg.sha512",
         "grpc.net.clientfactory.nuspec",
         "lib/netstandard2.1/Grpc.Net.ClientFactory.dll",
         "lib/netstandard2.1/Grpc.Net.ClientFactory.pdb",
@@ -1786,14 +1722,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.Net.Common/2.30.0-pre1": {
-      "sha512": "sMvkt4pgM5mmbzWYsET4oI3WZHbAU0EHR2Pum/ScxaYDSTxRiv8HYvmPUUoY1qpNdfL2/0TUNevTXo8c7p40bQ==",
+    "Grpc.Net.Common/2.30.0": {
+      "sha512": "WGEaQQ5dVMaEJPk6wGuiTZKxNpWG5xonjbzEldPHfy4rNuIk8XyX57hp2GfjqFqfeYjxBpwE7XMGJc9T6dnZ+Q==",
       "type": "package",
-      "path": "grpc.net.common/2.30.0-pre1",
+      "path": "grpc.net.common/2.30.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.net.common.2.30.0-pre1.nupkg.sha512",
+        "grpc.net.common.2.30.0.nupkg.sha512",
         "grpc.net.common.nuspec",
         "lib/netstandard2.1/Grpc.Net.Common.dll",
         "lib/netstandard2.1/Grpc.Net.Common.pdb",
@@ -1883,15 +1819,15 @@
         "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.xml"
       ]
     },
-    "IdentityServer4/4.0.2": {
-      "sha512": "Ny/kWccBixiigkTEYC3qKM2h1xr18wEmPHLlDLFt7EcOhU7wHZdL0z7y5KzlIfbuZVZsoM/GTEBhdZNdPnZW9Q==",
+    "IdentityServer4/4.0.3": {
+      "sha512": "j0FHkW60zFCRP79hMJAsjMEZzeIKffiaD12LFeKDhb0DuzvmC1R77vcDawjZRtln5rpV4SwJQlAtfGUqUd+RVw==",
       "type": "package",
-      "path": "identityserver4/4.0.2",
+      "path": "identityserver4/4.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.jpg",
-        "identityserver4.4.0.2.nupkg.sha512",
+        "identityserver4.4.0.3.nupkg.sha512",
         "identityserver4.nuspec",
         "lib/netcoreapp3.1/IdentityServer4.dll",
         "lib/netcoreapp3.1/IdentityServer4.pdb",
@@ -1913,19 +1849,34 @@
         "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.xml"
       ]
     },
-    "IdentityServer4.Storage/4.0.2": {
-      "sha512": "xSE6cIQaDeeaHx4zZj+sXsSQ13YbANBwIWHVx0UiO4ox9Z4eFN6cnDFNNTIDXKRyoAlR248A6ALOtBC6wZTQ0g==",
+    "IdentityServer4.Storage/4.0.3": {
+      "sha512": "5Z/yfMf2LVnw1rABxt8pwWyEVt4xocFfWpED08HVaDgCNTcq/58sb6RXrgMPkkJUD0fQGU57qS8Um0fACTYjEQ==",
       "type": "package",
-      "path": "identityserver4.storage/4.0.2",
+      "path": "identityserver4.storage/4.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.jpg",
-        "identityserver4.storage.4.0.2.nupkg.sha512",
+        "identityserver4.storage.4.0.3.nupkg.sha512",
         "identityserver4.storage.nuspec",
         "lib/netstandard2.0/IdentityServer4.Storage.dll",
         "lib/netstandard2.0/IdentityServer4.Storage.pdb",
         "lib/netstandard2.0/IdentityServer4.Storage.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Certificate/3.1.6": {
+      "sha512": "hpGmI6jTpJn1q4XVLj3uNL6rgoZemlHabJOOF0rXEL1/0dUZTXqZi9NMvqp/RcFwH6K0l2KeVaU5tTVhnD/rQg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.certificate/3.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.xml",
+        "microsoft.aspnetcore.authentication.certificate.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
@@ -5844,15 +5795,14 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Google.Protobuf >= 3.12.3",
-      "Grpc.AspNetCore >= 2.29.0",
-      "Grpc.AspNetCore.Server >= 2.30.0-pre1",
-      "Grpc.AspNetCore.Web >= 2.30.0-pre1",
-      "Grpc.Core >= 2.30.0",
+      "Grpc.AspNetCore >= 2.30.0",
+      "Grpc.AspNetCore.Server >= 2.30.0",
+      "Grpc.AspNetCore.Web >= 2.30.0",
       "Grpc.Tools >= 2.30.0",
-      "IdentityServer4 >= 4.0.2",
+      "IdentityServer4 >= 4.0.3",
       "IdentityServer4.AccessTokenValidation >= 3.0.1",
+      "Microsoft.AspNetCore.Authentication.Certificate >= 3.1.6",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.6",
-      "Microsoft.Data.SqlClient >= 2.0.0",
       "Microsoft.Extensions.Logging >= 3.1.6",
       "SpContext >= 1.0.0"
     ]
@@ -5913,17 +5863,13 @@
           },
           "Grpc.AspNetCore": {
             "target": "Package",
-            "version": "[2.29.0, )"
+            "version": "[2.30.0, )"
           },
           "Grpc.AspNetCore.Server": {
             "target": "Package",
-            "version": "[2.30.0-pre1, )"
+            "version": "[2.30.0, )"
           },
           "Grpc.AspNetCore.Web": {
-            "target": "Package",
-            "version": "[2.30.0-pre1, )"
-          },
-          "Grpc.Core": {
             "target": "Package",
             "version": "[2.30.0, )"
           },
@@ -5935,19 +5881,19 @@
           },
           "IdentityServer4": {
             "target": "Package",
-            "version": "[4.0.2, )"
+            "version": "[4.0.3, )"
           },
           "IdentityServer4.AccessTokenValidation": {
             "target": "Package",
             "version": "[3.0.1, )"
           },
-          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+          "Microsoft.AspNetCore.Authentication.Certificate": {
             "target": "Package",
             "version": "[3.1.6, )"
           },
-          "Microsoft.Data.SqlClient": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[2.0.0, )"
+            "version": "[3.1.6, )"
           },
           "Microsoft.Extensions.Logging": {
             "target": "Package",

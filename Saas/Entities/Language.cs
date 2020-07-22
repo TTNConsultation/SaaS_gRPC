@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using static Saas.Entity.ReferenceData.SupportedLanguages.Types;
+
+using static Saas.Entity.Language.Dictionary.Types;
+using static Saas.Entity.Language.SupportedLanguages.Types;
 
 namespace Saas.Entity.Language
 {
@@ -9,6 +11,26 @@ namespace Saas.Entity.Language
     public Keys(IEnumerable<Types.Key> values)
     {
       Values.AddRange(values);
+    }
+  }
+
+  public partial class SupportedLanguages
+  {
+    public SupportedLanguages(IEnumerable<CodeLanguage> values)
+    {
+      Values.AddRange(values);
+    }
+
+    public CodeLanguage Get(string code) => Values.FirstOrDefault(l => l.Code.IsEqual(code));
+
+    public CodeLanguage Get(int id) => Values.FirstOrDefault(l => l.Id == id);
+
+    public partial class Types
+    {
+      public partial class CodeLanguage
+      {
+        public bool IsEqual(CodeLanguage lang) => Id == lang.Id;
+      }
     }
   }
 
@@ -29,10 +51,5 @@ namespace Saas.Entity.Language
     }
 
     public IDictionary<int, string> AsDictionary => Content.ToDictionary(c => c.Key, c => c.Val);
-  }
-
-  public partial class DictKeyValuePair
-  {
-    public KeyValuePair<int, string> AsKeyValuePair => new KeyValuePair<int, string>(Key, Val);
   }
 }

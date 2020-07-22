@@ -45,7 +45,7 @@ namespace IdentityServer
       services.AddSingleton<IConnectionManager, ConnectionManager>()
               .AddSingleton<ICollectionMapper, CollectionMapper>()
               .AddSingleton<ICollectionSpInfo, CollectionSpInfo>()
-              .AddSingleton<IContext, Context>();
+              .AddSingleton<IDbContext, DbContext>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

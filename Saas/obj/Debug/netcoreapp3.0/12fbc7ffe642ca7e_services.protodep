@@ -1,0 +1,6 @@
+obj\Debug\netcoreapp3.0/Services.cs \
+obj\Debug\netcoreapp3.0/ServicesGrpc.cs: Protos/common.proto\
+ Protos/language.proto\
+ Protos/reference.proto\
+ Protos/administrator.proto\
+ Protos/services.proto

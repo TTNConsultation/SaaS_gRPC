@@ -1,7 +1,0 @@
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.csprojAssemblyReference.cache
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.AssemblyInfoInputs.cache
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.AssemblyInfo.cs
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.csproj.CoreCompileInputs.cache
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.MvcApplicationPartsAssemblyInfo.cache
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.RazorAssemblyInfo.cache
-G:\Dev\SaaS\quickstart\src\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer4.RazorAssemblyInfo.cs

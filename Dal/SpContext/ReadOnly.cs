@@ -5,13 +5,11 @@ using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
-  public interface IReadOnly<T> : IDisposable where T : new()
+  public interface IReadOnly<T> : IObject, IDisposable where T : new()
   {
-    bool IsReady();
-
     string Error();
 
-    Context.UserClaim Claim();
+    int RootId();
 
     T Read(int id) => Read(Constant.ID, id).First();
 
@@ -42,7 +40,7 @@ namespace Dal.Sp
 
   internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : new()
   {
-    public ReadOnly(Context.UserClaim claim, ISpInfo sp, IMapper map) : base(claim, sp, map)
+    public ReadOnly(DbContext.UserClaim claim, ISpInfo sp, IMapper map) : base(claim, sp, map)
     {
     }
 

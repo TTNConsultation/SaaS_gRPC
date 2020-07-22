@@ -6,7 +6,7 @@ package Services;
 
 import "Protos/common.proto";
 import "Protos/language.proto";
-import "Protos/referenceData.proto";
+import "Protos/reference.proto";
 import "Protos/administrator.proto";
 
 service RestaurantSvc {
@@ -54,9 +54,9 @@ service MenuItemSvc {
   rpc Delete (Common.MsgInt) returns (Common.MsgInt);
 }
 service AppDataSvc {
-	rpc SupportedLanguages (Common.MsgEmpty) returns (ReferenceData.SupportedLanguages);
-  rpc States (Common.MsgEmpty) returns (ReferenceData.States);
-  rpc KeyTypes (Common.MsgEmpty) returns (ReferenceData.KeyTypes);
-  rpc ReferenceData (Common.MsgEmpty) returns (ReferenceData.ReferenceDatas);
-  rpc MyDictionary (ReferenceData.SupportedLanguages.CodeLanguage) returns (Language.Dictionary);
+	rpc SupportedLanguages (Common.MsgEmpty) returns (Language.SupportedLanguages);
+  rpc States (Common.MsgEmpty) returns (Reference.States);
+  rpc KeyTypes (Common.MsgEmpty) returns (Reference.KeyTypes);
+  rpc References (Common.MsgEmpty) returns (Reference.References);
+  rpc Dictionary (Language.SupportedLanguages.CodeLanguage) returns (Language.Dictionary);
 }

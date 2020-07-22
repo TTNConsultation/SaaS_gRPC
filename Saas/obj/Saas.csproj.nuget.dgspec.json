@@ -128,17 +128,13 @@
             },
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.29.0, )"
+              "version": "[2.30.0, )"
             },
             "Grpc.AspNetCore.Server": {
               "target": "Package",
-              "version": "[2.30.0-pre1, )"
+              "version": "[2.30.0, )"
             },
             "Grpc.AspNetCore.Web": {
-              "target": "Package",
-              "version": "[2.30.0-pre1, )"
-            },
-            "Grpc.Core": {
               "target": "Package",
               "version": "[2.30.0, )"
             },
@@ -150,19 +146,19 @@
             },
             "IdentityServer4": {
               "target": "Package",
-              "version": "[4.0.2, )"
+              "version": "[4.0.3, )"
             },
             "IdentityServer4.AccessTokenValidation": {
               "target": "Package",
               "version": "[3.0.1, )"
             },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "Microsoft.AspNetCore.Authentication.Certificate": {
               "target": "Package",
               "version": "[3.1.6, )"
             },
-            "Microsoft.Data.SqlClient": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[3.1.6, )"
             },
             "Microsoft.Extensions.Logging": {
               "target": "Package",

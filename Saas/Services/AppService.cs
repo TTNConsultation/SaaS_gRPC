@@ -6,21 +6,21 @@ using Saas.gRPC;
 using Saas.Entity;
 using Saas.Entity.Common;
 using Saas.Entity.Language;
-using Saas.Entity.ReferenceData;
+using Saas.Entity.Reference;
 using Dal.Sp;
-
-using static Saas.Entity.ReferenceData.SupportedLanguages.Types;
+using static Saas.Entity.Language.SupportedLanguages.Types;
+using static Saas.Entity.Language.Dictionary.Types;
 
 namespace Saas.Services
 {
   internal class AppService : AppDataSvc.AppDataSvcBase
   {
     private readonly ILogger<RestaurantService> logger;
-    private readonly ReferenceDatas RefData;
+    private readonly References RefData;
     private readonly DictionaryCache DictCache;
-    private readonly IContext DbContext;
+    private readonly IDbContext DbContext;
 
-    public AppService(ILogger<RestaurantService> log, AppData appData, IContext context)
+    public AppService(ILogger<RestaurantService> log, App appData, IDbContext context)
     {
       logger = log;
       RefData = appData.RefDatas;
@@ -28,7 +28,7 @@ namespace Saas.Services
       DbContext = context;
     }
 
-    public override Task<SupportedLanguages> SupportedLanguages(MsgEmpty request, ServerCallContext context)
+    public override Task<Entity.Language.SupportedLanguages> SupportedLanguages(MsgEmpty request, ServerCallContext context)
     {
       return Task.FromResult(RefData.Languages);
     }
@@ -43,20 +43,21 @@ namespace Saas.Services
       return Task.FromResult(RefData.KeyTypes);
     }
 
-    public override Task<ReferenceDatas> ReferenceData(MsgEmpty request, ServerCallContext context)
+    public override Task<References> References(MsgEmpty request, ServerCallContext context)
     {
       return Task.FromResult(RefData);
     }
 
-    public async override Task<Dictionary> MyDictionary(CodeLanguage lang, ServerCallContext context)
+    public override async Task<Dictionary> Dictionary(CodeLanguage lang, ServerCallContext context)
     {
-      using var sp = DbContext.ReadOnly<DictKeyValuePair>(RefData.App.Id, context.GetHttpContext().User, OperationType.R);
-      var rootId = sp.Claim().RootId;
-      Dictionary dict = DictCache.Get(rootId, lang);
+      using var sp = DbContext.ReadOnly<DictKeyValuePair>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
-      return await (dict == null
-        ? Task.FromResult(DictCache.Add(new Dictionary(rootId, lang, await DictCache.GetKeys(rootId, DbContext).ConfigureAwait(false), await sp.ReadAsync(lang.Code).ConfigureAwait(false))))
-        : Task.FromResult(dict));
+      return await Task.FromResult(DictCache.Add(DictCache.Get(sp.RootId(), lang) ??
+                                                 new Dictionary(sp.RootId(),
+                                                  lang,
+                                                  await DictCache.GetKeys(sp.RootId(), DbContext).ConfigureAwait(false),
+                                                  await sp.ReadAsync(lang.Code).ConfigureAwait(false)))
+                                                 ).ConfigureAwait(false);
     }
   }
 }

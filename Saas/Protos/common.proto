@@ -11,6 +11,6 @@ message MsgBool{
 	bool Value = 1;
 }
 message MsgString{
-	string Value = 1; 
+	string Value = 1;
 }
 message MsgEmpty{}

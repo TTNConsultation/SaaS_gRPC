@@ -1,2 +1,1 @@
-obj\Debug\netcoreapp3.1/Language.cs: Protos/referenceData.proto\
- Protos/language.proto
+obj\Debug\netcoreapp3.1/Language.cs: Protos/language.proto

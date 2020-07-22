@@ -124,11 +124,11 @@
           "dependencies": {
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.29.0, )"
+              "version": "[2.30.0, )"
             },
             "IdentityServer4": {
               "target": "Package",
-              "version": "[4.0.2, )"
+              "version": "[4.0.3, )"
             },
             "IdentityServer4.AccessTokenValidation": {
               "target": "Package",
@@ -136,7 +136,7 @@
             },
             "IdentityServer4.Storage": {
               "target": "Package",
-              "version": "[4.0.2, )"
+              "version": "[4.0.3, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",

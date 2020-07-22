@@ -25,26 +25,25 @@
     <Compile Remove="Security.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.29.0" />
-    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.30.0-pre1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.30.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.30.0" />
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />
-    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.30.0-pre1" />
-    <PackageReference Include="Grpc.Core" Version="2.30.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.30.0" />
     <PackageReference Include="Grpc.Tools" Version="2.30.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="IdentityServer4" Version="4.0.2" />
+    <PackageReference Include="IdentityServer4" Version="4.0.3" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dal\SpContext\SpContext.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="Protos\referenceData.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\reference.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\language.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\administrator.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\services.proto" GrpcServices="Server" />

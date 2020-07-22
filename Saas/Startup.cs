@@ -9,9 +9,10 @@ using IdentityServer4.AccessTokenValidation;
 
 using Saas.Services;
 using Saas.Entity;
-
-using Dal;
 using Dal.Sp;
+using Microsoft.AspNetCore.Authentication.Certificate;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Saas
 {
@@ -31,6 +32,35 @@ namespace Saas
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddGrpc(options => options.EnableDetailedErrors = true);
+
+      services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
+              .AddCertificate(options =>
+              {
+                options.Events = new CertificateAuthenticationEvents
+                {
+                  OnCertificateValidated = context =>
+                  {
+                    var claims = new[]
+                    {
+                    new Claim(
+                        ClaimTypes.NameIdentifier,
+                        context.ClientCertificate.Subject,
+                        ClaimValueTypes.String,
+                        context.Options.ClaimsIssuer),
+                    new Claim(ClaimTypes.Name,
+                        context.ClientCertificate.Subject,
+                        ClaimValueTypes.String,
+                        context.Options.ClaimsIssuer)
+                   };
+
+                    context.Principal = new ClaimsPrincipal(
+                      new ClaimsIdentity(claims, context.Scheme.Name));
+                    context.Success();
+
+                    return Task.CompletedTask;
+                  }
+                };
+              });
 
       var auth = config.GetSection("IdentityServer");
       services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
@@ -62,9 +92,9 @@ namespace Saas
       services.AddSingleton<IConnectionManager, ConnectionManager>();
       services.AddSingleton<ICollectionMapper, CollectionMapper>();
       services.AddSingleton<ICollectionSpInfo, CollectionSpInfo>();
-      services.AddSingleton<IContext, Context>();
+      services.AddSingleton<IDbContext, DbContext>();
 
-      services.AddSingleton<AppData>();
+      services.AddSingleton<App>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

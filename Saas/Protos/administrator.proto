@@ -18,8 +18,10 @@ message Restaurants{
     string LocationLink = 10;
     string LocationMap = 11;
     string LocationLatLong = 12;
+    bool IsNotNull = 15;
   }
   repeated Restaurant values = 1;
+  bool IsNotNull = 15;
 }
 message Items{
   message Item{
@@ -30,16 +32,20 @@ message Items{
     int32 StateId = 5;
     int32 NameKey = 6;
     int32 DescriptionKey = 7;
+    bool IsNotNull = 15;
   }
   repeated Item values = 1;
+  bool IsNotNull = 15;
 }
 message RestaurantMenus{
   message RestaurantMenu{
     int32 Id = 1;
     int32 RestaurantId = 2;
     int32 RtateId = 3;
+    bool IsNotNull = 15;
   }
   repeated RestaurantMenu values = 1;
+  bool IsNotNull = 15;
 }
 message Menus{
   message Menu{
@@ -50,21 +56,26 @@ message Menus{
     int32 StateId = 5;
     int32 NameKey = 6;
     int32 DescriptionKey = 7;
+    bool IsNotNull = 15;
   }
   repeated Menu values = 1;
+  bool IsNotNull = 15;
 }
 message MenuItems{
   message MenuItem{
     int32 Id = 1;
     int32 MenuId = 2;
     int32 ItemId = 3;
-    int32 Quantity = 4;    
+    int32 Quantity = 4;
+    bool IsNotNull = 15;
   }
   repeated MenuItem values = 1;
+  bool IsNotNull = 15;
 }
 message MenuItemIds{
   int32 MenuId = 1;
   int32 ItemId = 2;
+  bool IsNotNull = 15;
 }
 message Tables{
   message Table{
@@ -72,11 +83,14 @@ message Tables{
     int32 RestaurantId = 2;    
     int32 NumberOfSeat = 3;
     int32 StateId = 4;
+    bool IsNotNull = 15;
   }
   repeated Table values = 1;
+  bool IsNotNull = 15;
 }
 message RestaurantLanguage{
   int32 Id = 1;
   int32 RestaurantId = 2;
   int32 LanguageId = 3;
+  bool IsNotNull = 15;
 }

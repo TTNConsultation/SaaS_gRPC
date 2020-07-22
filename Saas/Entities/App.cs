@@ -5,21 +5,21 @@ using System.Threading.Tasks;
 
 using Dal.Sp;
 using Saas.Entity.Language;
-using Saas.Entity.ReferenceData;
+using Saas.Entity.Reference;
 
 using static Saas.Entity.Language.Keys.Types;
-using static Saas.Entity.ReferenceData.SupportedLanguages.Types;
+using static Saas.Entity.Language.SupportedLanguages.Types;
 
 namespace Saas.Entity
 {
-  internal class AppData
+  internal class App
   {
-    internal readonly ReferenceDatas RefDatas;
+    internal readonly References RefDatas;
     internal readonly DictionaryCache DictCache;
 
-    public AppData(IContext context)
+    public App(IDbContext context)
     {
-      RefDatas = new ReferenceDatas(context);
+      RefDatas = new References(context);
       DictCache = new DictionaryCache();
     }
   }
@@ -28,27 +28,31 @@ namespace Saas.Entity
   {
     public IDictionary<string, Dictionary> Cache { get; } = new Dictionary<string, Dictionary>();
 
-    public Dictionary Get(int rootId, CodeLanguage lang) => Get(string.Concat(rootId.ToString(), ".", lang.Code));
+    public Dictionary Get(int rootId, CodeLanguage lang)
+    {
+      var codeunique = string.Concat(rootId.ToString(), ".", lang.Code);
+      return Get(codeunique) ?? new Dictionary();
+    }
 
     public Dictionary Get(string uniqueCode) => Cache[uniqueCode];
 
     public Dictionary Add(Dictionary dict, bool overwrite = true)
     {
-      if (Cache.ContainsKey(dict.UniqueCode) && !overwrite)
-        return null;
-
-      Cache.Remove(dict.UniqueCode);
-      Cache.Add(dict.UniqueCode, dict);
+      if (!Cache.ContainsKey(dict.UniqueCode) || overwrite)
+      {
+        Cache.Remove(dict.UniqueCode);
+        Cache.Add(dict.UniqueCode, dict);
+      }
 
       return Cache[dict.UniqueCode];
     }
 
-    public async Task<Keys> GetKeys(int rootId, IContext context)
+    public async Task<Keys> GetKeys(int rootId, IDbContext context)
     {
       using var sp = context.ReferenceData<Key>(rootId);
 
       return await Task.FromResult(Cache.FirstOrDefault(c => c.Value.RootId == rootId).Value.Keys ??
-        (sp.IsReady() ? new Keys(await sp.ReadAsync().ConfigureAwait(false)) : throw new NotSupportedException())).ConfigureAwait(false);
+        (sp.IsNotNull() ? new Keys(await sp.ReadAsync().ConfigureAwait(false)) : throw new NotSupportedException())).ConfigureAwait(false);
     }
   }
 }

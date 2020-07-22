@@ -15,21 +15,21 @@ namespace Dal.Sp
     private readonly ISpInfo SpInfo;
     private readonly IMapper Map;
     private readonly string Err;
-    private readonly Context.UserClaim UserClaim;
+    private readonly DbContext.UserClaim UserClaim;
 
-    public bool IsReady() => string.IsNullOrEmpty(Err);
+    public bool IsNotNull() => string.IsNullOrEmpty(Err);
 
     public string Error() => Err;
 
-    public Context.UserClaim Claim() => UserClaim;
+    public int RootId() => UserClaim.RootId;
 
-    protected Base(Context.UserClaim claim, ISpInfo spinfo, IMapper map)
+    protected Base(DbContext.UserClaim claim, ISpInfo spinfo, IMapper map)
     {
       Err = new StringBuilder().Append((spinfo == null) ? "sp is null | " : null)
                                .Append((claim == null) ? "claim is null" : null)
                                .ToString();
 
-      if (IsReady())
+      if (IsNotNull())
       {
         UserClaim = claim;
         SpInfo = spinfo;

@@ -4,8 +4,6 @@ option csharp_namespace = "Saas.Entity.Language";
 
 package Language;
 
-import "Protos/referenceData.proto";
-
 message Keys{
   message Key{
     int32 Key = 1;
@@ -14,17 +12,31 @@ message Keys{
     int32 Object_id = 4;
     int32 Id = 5;
     string KeyName = 6;
-    string Code = 7;    
+    string Code = 7;
+    bool IsNotNull = 15;
   }
   repeated Key values = 1;
+  bool IsNotNull = 15;
+}
+message SupportedLanguages{
+  message CodeLanguage{
+    int32 Id = 1;
+    string Code = 2;
+    string Value = 3;
+    bool IsNotNull = 15;
+  }
+  repeated CodeLanguage values = 1;
+  bool IsNotNull = 15;
 }
 message Dictionary{
+  message DictKeyValuePair{
+    int32 Key = 1;
+    string Val = 2;
+    bool IsNotNull = 15;
+  }
   int32 RootId = 1;
-  ReferenceData.SupportedLanguages.CodeLanguage Language = 2;
+  SupportedLanguages.CodeLanguage Language = 2;
   Keys Keys = 3;
   repeated DictKeyValuePair content = 4;
-}
-message DictKeyValuePair{
-  int32 Key = 1;
-  string Val = 2;  
+  bool IsNotNull = 15;
 }

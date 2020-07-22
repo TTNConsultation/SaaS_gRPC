@@ -2,13 +2,11 @@
 
 namespace Dal.Sp
 {
-  public interface IWrite<T> : IDisposable where T : new()
+  public interface IWrite<T> : IObject, IDisposable where T : new()
   {
-    bool IsReady();
-
     string Error();
 
-    Context.UserClaim Claim();
+    int RootId();
 
     int Create(T obj);
 
@@ -23,7 +21,7 @@ namespace Dal.Sp
   {
     private readonly IReadOnly<T> SpRO;
 
-    public Write(Context.UserClaim claim, ISpInfo sp, ISpInfo spReadOnly, IMapper map) : base(claim, sp, map)
+    public Write(DbContext.UserClaim claim, ISpInfo sp, ISpInfo spReadOnly, IMapper map) : base(claim, sp, map)
     {
       SpRO = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, map);
     }
