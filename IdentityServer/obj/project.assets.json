@@ -145,11 +145,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "IdentityServer4/4.0.3": {
+      "IdentityServer4/4.0.4": {
         "type": "package",
         "dependencies": {
           "IdentityModel": "4.3.0",
-          "IdentityServer4.Storage": "4.0.3",
+          "IdentityServer4.Storage": "4.0.4",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0",
           "Newtonsoft.Json": "12.0.2"
@@ -180,7 +180,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "IdentityServer4.Storage/4.0.3": {
+      "IdentityServer4.Storage/4.0.4": {
         "type": "package",
         "dependencies": {
           "IdentityModel": "4.3.0"
@@ -191,6 +191,18 @@
         "runtime": {
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
         }
+      },
+      "Microsoft.AspNetCore.Authentication.Certificate/3.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Microsoft.AspNetCore.Authentication.Google/3.1.6": {
         "type": "package",
@@ -1780,15 +1792,15 @@
         "lib/netcoreapp3.0/IdentityModel.AspNetCore.OAuth2Introspection.xml"
       ]
     },
-    "IdentityServer4/4.0.3": {
-      "sha512": "j0FHkW60zFCRP79hMJAsjMEZzeIKffiaD12LFeKDhb0DuzvmC1R77vcDawjZRtln5rpV4SwJQlAtfGUqUd+RVw==",
+    "IdentityServer4/4.0.4": {
+      "sha512": "Jx0qxfmRDPojGQnEXKiPDPoVTpk3HdabjTaxoc7ZQpN2nxCSdcNZkohceqhiX2nk40qviJ5foFT9+Z8FjB90Iw==",
       "type": "package",
-      "path": "identityserver4/4.0.3",
+      "path": "identityserver4/4.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.jpg",
-        "identityserver4.4.0.3.nupkg.sha512",
+        "identityserver4.4.0.4.nupkg.sha512",
         "identityserver4.nuspec",
         "lib/netcoreapp3.1/IdentityServer4.dll",
         "lib/netcoreapp3.1/IdentityServer4.pdb",
@@ -1810,19 +1822,34 @@
         "lib/netcoreapp3.0/IdentityServer4.AccessTokenValidation.xml"
       ]
     },
-    "IdentityServer4.Storage/4.0.3": {
-      "sha512": "5Z/yfMf2LVnw1rABxt8pwWyEVt4xocFfWpED08HVaDgCNTcq/58sb6RXrgMPkkJUD0fQGU57qS8Um0fACTYjEQ==",
+    "IdentityServer4.Storage/4.0.4": {
+      "sha512": "sirHYj1kQNrSwy4FufUlD2uIFlq9uHzLkEyVp70SXW+7qGv29YVe63uKqZ8WIwEGBMCMDBGA+zvqFNAUSeNnQQ==",
       "type": "package",
-      "path": "identityserver4.storage/4.0.3",
+      "path": "identityserver4.storage/4.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.jpg",
-        "identityserver4.storage.4.0.3.nupkg.sha512",
+        "identityserver4.storage.4.0.4.nupkg.sha512",
         "identityserver4.storage.nuspec",
         "lib/netstandard2.0/IdentityServer4.Storage.dll",
         "lib/netstandard2.0/IdentityServer4.Storage.pdb",
         "lib/netstandard2.0/IdentityServer4.Storage.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Certificate/3.1.6": {
+      "sha512": "hpGmI6jTpJn1q4XVLj3uNL6rgoZemlHabJOOF0rXEL1/0dUZTXqZi9NMvqp/RcFwH6K0l2KeVaU5tTVhnD/rQg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.certificate/3.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.xml",
+        "microsoft.aspnetcore.authentication.certificate.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Google/3.1.6": {
@@ -5686,9 +5713,10 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Grpc.AspNetCore >= 2.30.0",
-      "IdentityServer4 >= 4.0.3",
+      "IdentityServer4 >= 4.0.4",
       "IdentityServer4.AccessTokenValidation >= 3.0.1",
-      "IdentityServer4.Storage >= 4.0.3",
+      "IdentityServer4.Storage >= 4.0.4",
+      "Microsoft.AspNetCore.Authentication.Certificate >= 3.1.6",
       "Microsoft.AspNetCore.Authentication.Google >= 3.1.6",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.6",
       "SpContext >= 1.0.0"
@@ -5750,7 +5778,7 @@
           },
           "IdentityServer4": {
             "target": "Package",
-            "version": "[4.0.3, )"
+            "version": "[4.0.4, )"
           },
           "IdentityServer4.AccessTokenValidation": {
             "target": "Package",
@@ -5758,7 +5786,11 @@
           },
           "IdentityServer4.Storage": {
             "target": "Package",
-            "version": "[4.0.3, )"
+            "version": "[4.0.4, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Certificate": {
+            "target": "Package",
+            "version": "[3.1.6, )"
           },
           "Microsoft.AspNetCore.Authentication.Google": {
             "target": "Package",

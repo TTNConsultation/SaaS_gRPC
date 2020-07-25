@@ -16,18 +16,18 @@ namespace Saas
     // For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
     public static IHostBuilder CreateHostBuilder(string[] args) =>
       Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-          webBuilder.ConfigureKestrel(kestrelOptions =>
+          .ConfigureWebHostDefaults(webBuilder =>
           {
-            kestrelOptions.ConfigureEndpointDefaults(lo => lo.Protocols = HttpProtocols.Http2);
-            kestrelOptions.ConfigureHttpsDefaults(httpsOptions =>
+            webBuilder.ConfigureKestrel(kestrelOptions =>
             {
-              httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
-              //httpsOptions.ClientCertificateMode = ClientCertificateMode.RequireCertificate;
+              kestrelOptions.ConfigureEndpointDefaults(lo => lo.Protocols = HttpProtocols.Http2);
+              kestrelOptions.ConfigureHttpsDefaults(httpsOptions =>
+              {
+                //httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
+                httpsOptions.ClientCertificateMode = ClientCertificateMode.RequireCertificate;
+              });
             });
+            webBuilder.UseStartup<Startup>();
           });
-          webBuilder.UseStartup<Startup>();
-        });
   }
 }

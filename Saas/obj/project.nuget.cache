@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1qap5x5l777uH9p0HEm2y+kxnDfMUtkfrw/1i6Tx+RDq3i8kKmdyTShoIxWbvmlLoMatdqf8h4ZS/ze6DTzomw==",
+  "dgSpecHash": "hq5t3YiqjXNecR0NDgP03CfQ4DJhPoDt3A4qVQz9N4y7rMNlEXshnFKemCVF4TuytCZtK/W6pMzyBFtWsDSyRA==",
   "success": true,
   "projectFilePath": "G:\\Dev\\SaaS\\Saas\\Saas.csproj",
   "expectedPackageFiles": [
@@ -16,9 +16,9 @@
     "C:\\Users\\Yummi\\.nuget\\packages\\grpc.tools\\2.30.0\\grpc.tools.2.30.0.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\identitymodel\\4.3.0\\identitymodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\identitymodel.aspnetcore.oauth2introspection\\4.0.1\\identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
-    "C:\\Users\\Yummi\\.nuget\\packages\\identityserver4\\4.0.3\\identityserver4.4.0.3.nupkg.sha512",
+    "C:\\Users\\Yummi\\.nuget\\packages\\identityserver4\\4.0.4\\identityserver4.4.0.4.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\identityserver4.accesstokenvalidation\\3.0.1\\identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512",
-    "C:\\Users\\Yummi\\.nuget\\packages\\identityserver4.storage\\4.0.3\\identityserver4.storage.4.0.3.nupkg.sha512",
+    "C:\\Users\\Yummi\\.nuget\\packages\\identityserver4.storage\\4.0.4\\identityserver4.storage.4.0.4.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\3.1.6\\microsoft.aspnetcore.authentication.certificate.3.1.6.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.6\\microsoft.aspnetcore.authentication.jwtbearer.3.1.6.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",

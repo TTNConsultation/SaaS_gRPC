@@ -8,6 +8,10 @@ using IdentityServer4;
 using IdentityServer.Entities;
 
 using Dal.Sp;
+using Microsoft.AspNetCore.Authentication.Certificate;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace IdentityServer
 {

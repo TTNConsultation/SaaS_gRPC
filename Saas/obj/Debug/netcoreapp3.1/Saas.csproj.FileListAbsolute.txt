@@ -72,9 +72,6 @@ C:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.dll
 C:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.pdb
 C:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.genruntimeconfig.cache
 C:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csprojAssemblyReference.cache
-G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csprojAssemblyReference.cache
-G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.AssemblyInfoInputs.cache
-G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.AssemblyInfo.cs
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\web.config
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\appsettings.Development.json
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\appsettings.json
@@ -99,6 +96,7 @@ G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\IdentityModel.AspNetCore.OAuth2Introspe
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\IdentityServer4.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\IdentityServer4.AccessTokenValidation.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\IdentityServer4.Storage.dll
+G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Certificate.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -136,6 +134,11 @@ G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\SpContext.dll
 G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\SpContext.pdb
+G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csprojAssemblyReference.cache
+G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.AssemblyInfoInputs.cache
+G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.AssemblyInfo.cs
+G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csproj.CoreCompileInputs.cache
+G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.MvcApplicationPartsAssemblyInfo.cache
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.RazorTargetAssemblyInfo.cache
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csproj.CopyComplete
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\staticwebassets\Saas.StaticWebAssets.Manifest.cache
@@ -143,6 +146,3 @@ G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\staticwebassets\Saas.StaticWebAssets.xm
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.dll
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.pdb
 G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.genruntimeconfig.cache
-G:\Dev\SaaS\Saas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Certificate.dll
-G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.csproj.CoreCompileInputs.cache
-G:\Dev\SaaS\Saas\obj\Debug\netcoreapp3.1\Saas.MvcApplicationPartsAssemblyInfo.cache

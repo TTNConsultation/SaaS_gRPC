@@ -128,7 +128,7 @@
             },
             "IdentityServer4": {
               "target": "Package",
-              "version": "[4.0.3, )"
+              "version": "[4.0.4, )"
             },
             "IdentityServer4.AccessTokenValidation": {
               "target": "Package",
@@ -136,7 +136,11 @@
             },
             "IdentityServer4.Storage": {
               "target": "Package",
-              "version": "[4.0.3, )"
+              "version": "[4.0.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Certificate": {
+              "target": "Package",
+              "version": "[3.1.6, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",

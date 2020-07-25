@@ -7,6 +7,8 @@ G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.runtimeconfig.
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.runtimeconfig.dev.json
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.pdb
+G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Views.dll
+G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Views.pdb
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Grpc.AspNetCore.Server.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Grpc.AspNetCore.Server.ClientFactory.dll
@@ -19,6 +21,7 @@ G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityModel.AspNetCore.OAut
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer4.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer4.AccessTokenValidation.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer4.Storage.dll
+G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Certificate.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
@@ -56,15 +59,6 @@ G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfoIn
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfo.cs
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.CoreCompileInputs.cache
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.MvcApplicationPartsAssemblyInfo.cache
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorTargetAssemblyInfo.cache
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.CopyComplete
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServer.StaticWebAssets.Manifest.cache
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServer.StaticWebAssets.xml
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
-G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache
-G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Views.dll
-G:\Dev\SaaS\IdentityServer\bin\Debug\netcoreapp3.1\IdentityServer.Views.pdb
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorAssemblyInfo.cache
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorAssemblyInfo.cs
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.TagHelpers.input.cache
@@ -89,5 +83,12 @@ G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ScopeList
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationSummary.cshtml.g.cs
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorTargetAssemblyInfo.cache
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.RazorTargetAssemblyInfo.cs
 G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.Views.pdb
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.CopyComplete
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServer.StaticWebAssets.Manifest.cache
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\staticwebassets\IdentityServer.StaticWebAssets.xml
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
+G:\Dev\SaaS\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache

@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.Extensions.Hosting;
 
@@ -19,15 +15,19 @@ namespace IdentityServer
     // Additional configuration is required to successfully run gRPC on macOS.
     // For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
     public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
+      Host.CreateDefaultBuilder(args)
+          .ConfigureWebHostDefaults(webBuilder =>
+          {
+            webBuilder.ConfigureKestrel(kestrelOptions =>
             {
-              webBuilder.UseStartup<Startup>();
-              webBuilder.ConfigureKestrel(o =>
+              kestrelOptions.ConfigureEndpointDefaults(lo => lo.Protocols = HttpProtocols.Http1AndHttp2);
+              kestrelOptions.ConfigureHttpsDefaults(httpsOptions =>
               {
-                o.ConfigureHttpsDefaults(o =>
-                o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+                httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
+                //httpsOptions.ClientCertificateMode = ClientCertificateMode.RequireCertificate;
               });
             });
+            webBuilder.UseStartup<Startup>();
+          });
   }
 }

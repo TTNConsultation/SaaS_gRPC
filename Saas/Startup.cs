@@ -11,6 +11,7 @@ using Saas.Services;
 using Saas.Entity;
 using Dal.Sp;
 using Microsoft.AspNetCore.Authentication.Certificate;
+using System.Security.Cryptography.X509Certificates;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -36,25 +37,29 @@ namespace Saas
       services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
               .AddCertificate(options =>
               {
+                // Not recommended in production environments. The example is using a self-signed test certificate.
+                options.RevocationMode = X509RevocationMode.NoCheck;
+                options.AllowedCertificateTypes = CertificateTypes.All;
+
                 options.Events = new CertificateAuthenticationEvents
                 {
                   OnCertificateValidated = context =>
                   {
                     var claims = new[]
                     {
-                    new Claim(
-                        ClaimTypes.NameIdentifier,
-                        context.ClientCertificate.Subject,
-                        ClaimValueTypes.String,
-                        context.Options.ClaimsIssuer),
-                    new Claim(ClaimTypes.Name,
-                        context.ClientCertificate.Subject,
-                        ClaimValueTypes.String,
-                        context.Options.ClaimsIssuer)
-                   };
+                        new Claim(
+                            ClaimTypes.NameIdentifier,
+                            context.ClientCertificate.Subject,
+                            ClaimValueTypes.String,
+                            context.Options.ClaimsIssuer),
+                        new Claim(
+                            ClaimTypes.Name,
+                            context.ClientCertificate.Subject,
+                            ClaimValueTypes.String,
+                            context.Options.ClaimsIssuer)
+                    };
 
-                    context.Principal = new ClaimsPrincipal(
-                      new ClaimsIdentity(claims, context.Scheme.Name));
+                    context.Principal = new ClaimsPrincipal(new ClaimsIdentity(claims, context.Scheme.Name));
                     context.Success();
 
                     return Task.CompletedTask;
