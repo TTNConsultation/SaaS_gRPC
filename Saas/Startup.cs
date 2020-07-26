@@ -34,38 +34,15 @@ namespace Saas
     {
       services.AddGrpc(options => options.EnableDetailedErrors = true);
 
-      services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
-              .AddCertificate(options =>
-              {
-                // Not recommended in production environments. The example is using a self-signed test certificate.
-                options.RevocationMode = X509RevocationMode.NoCheck;
-                options.AllowedCertificateTypes = CertificateTypes.All;
-
-                options.Events = new CertificateAuthenticationEvents
-                {
-                  OnCertificateValidated = context =>
-                  {
-                    var claims = new[]
-                    {
-                        new Claim(
-                            ClaimTypes.NameIdentifier,
-                            context.ClientCertificate.Subject,
-                            ClaimValueTypes.String,
-                            context.Options.ClaimsIssuer),
-                        new Claim(
-                            ClaimTypes.Name,
-                            context.ClientCertificate.Subject,
-                            ClaimValueTypes.String,
-                            context.Options.ClaimsIssuer)
-                    };
-
-                    context.Principal = new ClaimsPrincipal(new ClaimsIdentity(claims, context.Scheme.Name));
-                    context.Success();
-
-                    return Task.CompletedTask;
-                  }
-                };
-              });
+      services.AddAuthorization(options =>
+      {
+        options.AddPolicy("admin", policy =>
+        {
+          policy.RequireAuthenticatedUser();
+          policy.RequireClaim("scope", "aaf.admin");
+          policy.RequireClaim("role", "administrator");
+        });
+      });
 
       var auth = config.GetSection("IdentityServer");
       services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
@@ -76,15 +53,33 @@ namespace Saas
                 options.ApiSecret = auth["ApiSecret"];
               });
 
-      services.AddAuthorization(options =>
-              {
-                options.AddPolicy("admin", policy =>
-                {
-                  policy.RequireAuthenticatedUser();
-                  policy.RequireClaim("scope", "aaf.admin");
-                  policy.RequireClaim("role", "administrator");
-                });
-              });
+      //services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
+      //        .AddCertificate(options =>
+      //        {
+      //          options.Events = new CertificateAuthenticationEvents
+      //          {
+      //            OnCertificateValidated = context =>
+      //            {
+      //              var claims = new[]
+      //              {
+      //                          new Claim(
+      //                              ClaimTypes.NameIdentifier,
+      //                              context.ClientCertificate.Subject,
+      //                              ClaimValueTypes.String,
+      //                              context.Options.ClaimsIssuer),
+      //                          new Claim(ClaimTypes.Thumbprint,
+      //                              context.ClientCertificate.Thumbprint,
+      //                              ClaimValueTypes.String,
+      //                              context.Options.ClaimsIssuer)
+      //                };
+
+      //              context.Principal.AddIdentity(new ClaimsIdentity(claims, context.Scheme.Name));
+      //              context.Success();
+
+      //              return Task.CompletedTask;
+      //            }
+      //          };
+      //        });
 
       services.AddCors(o => o.AddPolicy(Constant.CorsAllowedPolicy, builder =>
       {

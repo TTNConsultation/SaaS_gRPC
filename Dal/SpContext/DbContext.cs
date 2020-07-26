@@ -40,7 +40,7 @@ namespace Dal.Sp
                    SpInfos.Get<T>(OperationType.R),
                    Mappers.Get<T>());
 
-    public bool IsNotNull() => ConnectionStrings.IsNotNull() && Mappers.IsNotNull() && SpInfos.IsNotNull();
+    public bool IsNotNull() => ConnectionStrings.IsNotNull() && SpInfos.IsNotNull();
 
     public sealed class UserClaim
     {

@@ -7,14 +7,14 @@ using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
 {
-  public interface ICollectionMapper : IObject
+  public interface ICollectionMapper
   {
     IMapper Get(string typename);
 
     IMapper Get<T>() => Get(typeof(T).Name);
   }
 
-  public interface IMapper : IObject
+  public interface IMapper
   {
     bool IsType(string typename);
 
@@ -30,8 +30,6 @@ namespace Dal.Sp
     private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsType(map));
 
     public IMapper Get(string typename) => mappers.FirstOrDefault(m => m.IsType(typename)) ?? Add(new Mapper(typename));
-
-    public bool IsNotNull() => true;
   }
 
   public sealed class Mapper : IMapper
@@ -79,7 +77,5 @@ namespace Dal.Sp
     public bool IsType(string typename) => TypeName.IsEqual(typename);
 
     public bool IsType(IMapper map) => map.IsType(this.TypeName);
-
-    public bool IsNotNull() => ReflectionMap != null;
   }
 }

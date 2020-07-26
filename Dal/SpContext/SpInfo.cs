@@ -11,8 +11,6 @@ namespace Dal.Sp
     ISpInfo Get(string typename, OperationType op);
 
     ISpInfo Get<T>(OperationType op) => Get(typeof(T).Name, op);
-
-    bool IsNotNull();
   }
 
   public interface ISpInfo : IObject

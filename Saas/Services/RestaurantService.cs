@@ -41,6 +41,8 @@ namespace Saas.Services
 
     public async override Task<Restaurants> Lookup(MsgString lookupStr, ServerCallContext context)
     {
+      var ctx = context.GetHttpContext().Connection.ClientCertificate;
+
       using var sp = DbContext.ReadOnly<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
       return (sp.IsNotNull()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.Extensions.Hosting;
+using System.Security.Authentication;
 
 namespace Saas
 {
@@ -20,11 +21,11 @@ namespace Saas
           {
             webBuilder.ConfigureKestrel(kestrelOptions =>
             {
-              kestrelOptions.ConfigureEndpointDefaults(lo => lo.Protocols = HttpProtocols.Http2);
+              kestrelOptions.ConfigureEndpointDefaults(listenOptions => listenOptions.Protocols = HttpProtocols.Http2);
               kestrelOptions.ConfigureHttpsDefaults(httpsOptions =>
               {
-                //httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
                 httpsOptions.ClientCertificateMode = ClientCertificateMode.RequireCertificate;
+                httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
               });
             });
             webBuilder.UseStartup<Startup>();
