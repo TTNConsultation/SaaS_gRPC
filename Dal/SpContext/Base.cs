@@ -12,7 +12,7 @@ namespace Dal.Sp
   internal abstract class Base<T> where T : new()
   {
     private readonly SqlCommand SqlCmd;
-    private readonly ISpInfo SpInfo;
+    private readonly ISpProperty SpProperty;
     private readonly IMapper Map;
     private readonly string Err;
     private readonly DbContext.UserClaim UserClaim;
@@ -23,27 +23,27 @@ namespace Dal.Sp
 
     public int RootId() => UserClaim.RootId;
 
-    protected Base(DbContext.UserClaim claim, ISpInfo spinfo, IMapper map)
+    protected Base(DbContext.UserClaim claim, ISpProperty spProp, IMapper map)
     {
-      Err = new StringBuilder().Append((spinfo == null) ? "sp is null | " : null)
-                               .Append((claim == null) ? "claim is null" : null)
+      Err = new StringBuilder().Append((spProp == null) ? "store procedure not found | " : null)
+                               .Append((claim == null) ? "invalid claim" : null)
                                .ToString();
 
       if (IsReady())
       {
         UserClaim = claim;
-        SpInfo = spinfo;
+        SpProperty = spProp;
         Map = map;
-        SqlCmd = SpInfo.SqlCommand(claim.ConnectionString);
+        SqlCmd = SpProperty.SqlCommand(claim.ConnectionString);
         AddParameter(Constant.ROOT.Id(), claim.RootId);
       }
     }
 
     protected bool AddParameter(string key, object value)
     {
-      var par = SpInfo.Parameter(key)?.SqlParameter(value);
+      var par = SpProperty.Parameter(key)?.SqlParameter(value);
 
-      return par?.Size >= 0 && SqlCmd.Parameters.Add(par) != null;
+      return (par != null) && SqlCmd.Parameters.Add(par).Size >= 0;
     }
 
     protected bool AddParameters(T obj)

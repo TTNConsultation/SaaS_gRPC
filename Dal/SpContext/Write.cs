@@ -23,7 +23,7 @@ namespace Dal.Sp
   {
     private readonly IReadOnly<T> SpRO;
 
-    public Write(DbContext.UserClaim claim, ISpInfo sp, ISpInfo spReadOnly, IMapper map) : base(claim, sp, map)
+    public Write(DbContext.UserClaim claim, ISpProperty sp, ISpProperty spReadOnly, IMapper map) : base(claim, sp, map)
     {
       SpRO = (spReadOnly == null) ? null : new ReadOnly<T>(claim, spReadOnly, map);
     }

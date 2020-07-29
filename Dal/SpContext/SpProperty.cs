@@ -6,39 +6,41 @@ using System.Linq;
 
 namespace Dal.Sp
 {
-  public interface ICollectionSpInfo
+  public interface ICollectionSpProperty
   {
-    ISpInfo Get(string typename, OperationType op);
+    ISpProperty Get(string typename, OperationType op);
 
-    ISpInfo Get<T>(OperationType op) => Get(typeof(T).Name, op);
+    ISpProperty Get<T>(OperationType op) => Get(typeof(T).Name, op);
   }
 
-  public interface ISpInfo
+  public interface ISpProperty
   {
     SqlCommand SqlCommand(string conStr);
 
     IParameter Parameter(string name);
+
+    bool IsEqual(string typename, OperationType op);
   }
 
   public interface IParameter
   {
-    bool IsName(string name);
+    bool IsEqual(string name);
 
     SqlParameter SqlParameter(object value);
   }
 
-  public sealed class CollectionSpInfo : ICollectionSpInfo
+  public sealed class CollectionSpProperty : ICollectionSpProperty
   {
-    private readonly IEnumerable<SpInfo> SpInfos;
+    private readonly IEnumerable<ISpProperty> SpProperties;
 
-    public CollectionSpInfo(ICollectionMapper mappers, IConnectionManager connectionManager)
+    public CollectionSpProperty(ICollectionMapper mappers, IConnectionManager connectionManager)
     {
-      SpInfos = Read(mappers, connectionManager.App());
+      SpProperties = Read(mappers, connectionManager.App());
     }
 
-    public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Type.IsEqual(typename) && sp.Op.IsEqual(op.ToString()));
+    public ISpProperty Get(string typename, OperationType op) => SpProperties.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
+    private IEnumerable<ISpProperty> Read(ICollectionMapper mappers, string conStr)
     {
       var parameters = ReadSpParameter(mappers, conStr);
 
@@ -52,15 +54,14 @@ namespace Dal.Sp
       sqlcmd.Connection.Open();
       using var reader = sqlcmd.ExecuteReader();
 
-      var ret = new HashSet<SpInfo>();
+      var ret = new HashSet<ISpProperty>();
       var map = mappers.Get<SpProperty>();
 
       while (reader.Read())
       {
         var prop = map.Parse<SpProperty>(reader);
-        var pars = parameters.Where(p => p.SpId == prop.Id);
-
-        ret.Add(new SpInfo(prop, pars));
+        prop.SetParameters(parameters.Where(p => p.SpId == prop.Id));
+        ret.Add(prop);
       }
 
       return ret;
@@ -80,36 +81,30 @@ namespace Dal.Sp
     }
   }
 
-  public sealed class SpInfo : ISpInfo
-  {
-    private readonly SpProperty Property;
-    private readonly IEnumerable<IParameter> Parameters;
-
-    internal string Op => Property.Op;
-    internal string Type => Property.Type;
-
-    public SqlCommand SqlCommand(string conStr) =>
-      new SqlCommand(Property.FullName, new SqlConnection(conStr))
-      {
-        CommandType = CommandType.StoredProcedure,
-      };
-
-    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.IsName(name.AsParameter()));
-
-    internal SpInfo(SpProperty prop, IEnumerable<SpParameter> pars)
-    {
-      Property = prop;
-      Parameters = pars ?? new HashSet<SpParameter>();
-    }
-  }
-
-  internal sealed class SpProperty
+  internal sealed class SpProperty : ISpProperty
   {
     public int Id { get; set; }
     public string FullName { get; set; }
     public string Schema { get; set; }
     public string Type { get; set; }
     public string Op { get; set; }
+
+    private IEnumerable<IParameter> Parameters = new HashSet<IParameter>();
+
+    public void SetParameters(IEnumerable<IParameter> pars)
+    {
+      Parameters = pars ?? new HashSet<IParameter>();
+    }
+
+    public SqlCommand SqlCommand(string conStr) =>
+      new SqlCommand(FullName, new SqlConnection(conStr))
+      {
+        CommandType = CommandType.StoredProcedure,
+      };
+
+    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.IsEqual(name.AsParameter()));
+
+    public bool IsEqual(string typename, OperationType op) => Type.IsEqual(typename) && Op.IsEqual(op.ToString());
   }
 
   internal sealed class SpParameter : IParameter
@@ -135,7 +130,7 @@ namespace Dal.Sp
       return size <= Precision ? size : -1;
     }
 
-    public bool IsName(string name)
+    public bool IsEqual(string name)
     {
       return Name.IsEqual(name);
     }

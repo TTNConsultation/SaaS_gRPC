@@ -87,7 +87,7 @@ namespace Saas
 
       services.AddSingleton<IConnectionManager, ConnectionManager>();
       services.AddSingleton<ICollectionMapper, CollectionMapper>();
-      services.AddSingleton<ICollectionSpInfo, CollectionSpInfo>();
+      services.AddSingleton<ICollectionSpProperty, CollectionSpProperty>();
       services.AddSingleton<IDbContext, DbContext>();
 
       services.AddSingleton<App>();

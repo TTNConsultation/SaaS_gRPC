@@ -15,29 +15,29 @@ namespace Dal.Sp
   {
     private readonly IConnectionManager ConnectionStrings;
     private readonly ICollectionMapper Mappers;
-    private readonly ICollectionSpInfo SpInfos;
+    private readonly ICollectionSpProperty SpProperties;
 
-    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionSpInfo spinfos)
+    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionSpProperty spProps)
     {
       ConnectionStrings = conmanager;
       Mappers = mappers;
-      SpInfos = spinfos;
+      SpProperties = spProps;
     }
 
     public IReadOnly<T> ReferenceData<T>(int rootId) where T : new() =>
       new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, rootId),
-                      SpInfos.Get<T>(OperationType.R),
+                      SpProperties.Get<T>(OperationType.R),
                       Mappers.Get<T>());
 
     public IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new() =>
       new ReadOnly<T>(UserClaim.Get(ConnectionStrings, uc, appId),
-                      SpInfos.Get<T>(op),
+                      SpProperties.Get<T>(op),
                       Mappers.Get<T>());
 
     public IWrite<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : new() =>
       new Write<T>(UserClaim.Get(ConnectionStrings, uc, appId),
-                   SpInfos.Get<T>(op),
-                   SpInfos.Get<T>(OperationType.R),
+                   SpProperties.Get<T>(op),
+                   SpProperties.Get<T>(OperationType.R),
                    Mappers.Get<T>());
 
     public sealed class UserClaim

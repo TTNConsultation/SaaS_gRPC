@@ -35,6 +35,7 @@ namespace Saas.Services
     public override Task<Item> Get(MsgInt id, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<Item>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
@@ -42,6 +43,7 @@ namespace Saas.Services
     public override Task<Items> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       using var sp = DbContext.ReadOnly<Item>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+
       return sp.IsReady() ? Task.FromResult(new Items(sp.ReadBy<Restaurant>(restaurantId.Value)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
@@ -49,6 +51,7 @@ namespace Saas.Services
     public override Task<Items> GetByRestaurantMenu(MsgInt restaurantMenuId, ServerCallContext context)
     {
       using var spMenu = DbContext.ReadOnly<Menu>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+
       var menuIds = (spMenu.IsReady()) ? spMenu.ReadBy<RestaurantMenu>(restaurantMenuId.Value)?.Select(m => m.Id).Distinct()
                                        : throw new RpcException(new Status(StatusCode.PermissionDenied, spMenu.Error()));
 

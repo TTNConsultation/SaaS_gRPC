@@ -48,7 +48,7 @@ namespace IdentityServer
 
       services.AddSingleton<IConnectionManager, ConnectionManager>()
               .AddSingleton<ICollectionMapper, CollectionMapper>()
-              .AddSingleton<ICollectionSpInfo, CollectionSpInfo>()
+              .AddSingleton<ICollectionSpProperty, CollectionSpProperty>()
               .AddSingleton<IDbContext, DbContext>();
     }
 

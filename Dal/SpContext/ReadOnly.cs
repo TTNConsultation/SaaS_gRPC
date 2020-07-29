@@ -42,7 +42,7 @@ namespace Dal.Sp
 
   internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : new()
   {
-    public ReadOnly(DbContext.UserClaim claim, ISpInfo sp, IMapper map) : base(claim, sp, map)
+    public ReadOnly(DbContext.UserClaim claim, ISpProperty sp, IMapper map) : base(claim, sp, map)
     {
     }
 
