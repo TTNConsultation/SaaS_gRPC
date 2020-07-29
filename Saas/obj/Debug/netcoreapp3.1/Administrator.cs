@@ -24,54 +24,49 @@ namespace Saas.Entity.Administrator {
     static AdministratorReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpQcm90b3MvYWRtaW5pc3RyYXRvci5wcm90bxINQWRtaW5pc3RyYXRvciKe",
-            "AwoLUmVzdGF1cmFudHMSNQoGdmFsdWVzGAEgAygLMiUuQWRtaW5pc3RyYXRv",
-            "ci5SZXN0YXVyYW50cy5SZXN0YXVyYW50EhEKCUlzTm90TnVsbBgPIAEoCBrE",
-            "AgoKUmVzdGF1cmFudBIKCgJJZBgBIAEoBRIMCgROYW1lGAIgASgJEhwKFFJl",
-            "c3RhdXJhbnRMb2NhdGlvbklkGAMgASgFEh4KFlJlc3RhdXJhbnRMb2NhdGlv",
-            "bk5hbWUYBCABKAkSJQodUmVzdGF1cmFudExvY2F0aW9uUGhvbmVOdW1iZXIY",
-            "BSABKAkSEgoKTG9jYXRpb25JZBgGIAEoBRIUCgxMb2NhdGlvblVuaXQYByAB",
-            "KAUSGgoSTG9jYXRpb25Qb3N0YWxDb2RlGAggASgJEhoKEkxvY2F0aW9uU3Ry",
-            "ZWV0TmFtZRgJIAEoCRIUCgxMb2NhdGlvbkxpbmsYCiABKAkSEwoLTG9jYXRp",
-            "b25NYXAYCyABKAkSFwoPTG9jYXRpb25MYXRMb25nGAwgASgJEhEKCUlzTm90",
-            "TnVsbBgPIAEoCCLdAQoFSXRlbXMSKQoGdmFsdWVzGAEgAygLMhkuQWRtaW5p",
-            "c3RyYXRvci5JdGVtcy5JdGVtEhEKCUlzTm90TnVsbBgPIAEoCBqVAQoESXRl",
-            "bRIKCgJJZBgBIAEoBRIUCgxSZXN0YXVyYW50SWQYAiABKAUSDQoFUHJpY2UY",
-            "AyABKAISDwoHSXNFeHRyYRgEIAEoCBIPCgdTdGF0ZUlkGAUgASgFEg8KB05h",
-            "bWVLZXkYBiABKAUSFgoORGVzY3JpcHRpb25LZXkYByABKAUSEQoJSXNOb3RO",
-            "dWxsGA8gASgIIrsBCg9SZXN0YXVyYW50TWVudXMSPQoGdmFsdWVzGAEgAygL",
-            "Mi0uQWRtaW5pc3RyYXRvci5SZXN0YXVyYW50TWVudXMuUmVzdGF1cmFudE1l",
-            "bnUSEQoJSXNOb3ROdWxsGA8gASgIGlYKDlJlc3RhdXJhbnRNZW51EgoKAklk",
-            "GAEgASgFEhQKDFJlc3RhdXJhbnRJZBgCIAEoBRIPCgdSdGF0ZUlkGAMgASgF",
-            "EhEKCUlzTm90TnVsbBgPIAEoCCLsAQoFTWVudXMSKQoGdmFsdWVzGAEgAygL",
-            "MhkuQWRtaW5pc3RyYXRvci5NZW51cy5NZW51EhEKCUlzTm90TnVsbBgPIAEo",
-            "CBqkAQoETWVudRIKCgJJZBgBIAEoBRIYChBSZXN0YXVyYW50TWVudUlkGAIg",
-            "ASgFEg0KBVByaWNlGAMgASgCEhoKElVzZUl0ZW1EZXNjcmlwdGlvbhgEIAEo",
-            "CBIPCgdTdGF0ZUlkGAUgASgFEg8KB05hbWVLZXkYBiABKAUSFgoORGVzY3Jp",
-            "cHRpb25LZXkYByABKAUSEQoJSXNOb3ROdWxsGA8gASgIIq4BCglNZW51SXRl",
-            "bXMSMQoGdmFsdWVzGAEgAygLMiEuQWRtaW5pc3RyYXRvci5NZW51SXRlbXMu",
-            "TWVudUl0ZW0SEQoJSXNOb3ROdWxsGA8gASgIGlsKCE1lbnVJdGVtEgoKAklk",
-            "GAEgASgFEg4KBk1lbnVJZBgCIAEoBRIOCgZJdGVtSWQYAyABKAUSEAoIUXVh",
-            "bnRpdHkYBCABKAUSEQoJSXNOb3ROdWxsGA8gASgIIkAKC01lbnVJdGVtSWRz",
-            "Eg4KBk1lbnVJZBgBIAEoBRIOCgZJdGVtSWQYAiABKAUSEQoJSXNOb3ROdWxs",
-            "GA8gASgIIq0BCgZUYWJsZXMSKwoGdmFsdWVzGAEgAygLMhsuQWRtaW5pc3Ry",
-            "YXRvci5UYWJsZXMuVGFibGUSEQoJSXNOb3ROdWxsGA8gASgIGmMKBVRhYmxl",
-            "EgoKAklkGAEgASgFEhQKDFJlc3RhdXJhbnRJZBgCIAEoBRIUCgxOdW1iZXJP",
-            "ZlNlYXQYAyABKAUSDwoHU3RhdGVJZBgEIAEoBRIRCglJc05vdE51bGwYDyAB",
-            "KAgiXQoSUmVzdGF1cmFudExhbmd1YWdlEgoKAklkGAEgASgFEhQKDFJlc3Rh",
-            "dXJhbnRJZBgCIAEoBRISCgpMYW5ndWFnZUlkGAMgASgFEhEKCUlzTm90TnVs",
-            "bBgPIAEoCEIcqgIZU2Fhcy5FbnRpdHkuQWRtaW5pc3RyYXRvcmIGcHJvdG8z"));
+            "ChpQcm90b3MvYWRtaW5pc3RyYXRvci5wcm90bxINQWRtaW5pc3RyYXRvciL4",
+            "AgoLUmVzdGF1cmFudHMSNQoGdmFsdWVzGAEgAygLMiUuQWRtaW5pc3RyYXRv",
+            "ci5SZXN0YXVyYW50cy5SZXN0YXVyYW50GrECCgpSZXN0YXVyYW50EgoKAklk",
+            "GAEgASgFEgwKBE5hbWUYAiABKAkSHAoUUmVzdGF1cmFudExvY2F0aW9uSWQY",
+            "AyABKAUSHgoWUmVzdGF1cmFudExvY2F0aW9uTmFtZRgEIAEoCRIlCh1SZXN0",
+            "YXVyYW50TG9jYXRpb25QaG9uZU51bWJlchgFIAEoCRISCgpMb2NhdGlvbklk",
+            "GAYgASgFEhQKDExvY2F0aW9uVW5pdBgHIAEoBRIaChJMb2NhdGlvblBvc3Rh",
+            "bENvZGUYCCABKAkSGgoSTG9jYXRpb25TdHJlZXROYW1lGAkgASgJEhQKDExv",
+            "Y2F0aW9uTGluaxgKIAEoCRITCgtMb2NhdGlvbk1hcBgLIAEoCRIXCg9Mb2Nh",
+            "dGlvbkxhdExvbmcYDCABKAkitwEKBUl0ZW1zEikKBnZhbHVlcxgBIAMoCzIZ",
+            "LkFkbWluaXN0cmF0b3IuSXRlbXMuSXRlbRqCAQoESXRlbRIKCgJJZBgBIAEo",
+            "BRIUCgxSZXN0YXVyYW50SWQYAiABKAUSDQoFUHJpY2UYAyABKAISDwoHSXNF",
+            "eHRyYRgEIAEoCBIPCgdTdGF0ZUlkGAUgASgFEg8KB05hbWVLZXkYBiABKAUS",
+            "FgoORGVzY3JpcHRpb25LZXkYByABKAUilQEKD1Jlc3RhdXJhbnRNZW51cxI9",
+            "CgZ2YWx1ZXMYASADKAsyLS5BZG1pbmlzdHJhdG9yLlJlc3RhdXJhbnRNZW51",
+            "cy5SZXN0YXVyYW50TWVudRpDCg5SZXN0YXVyYW50TWVudRIKCgJJZBgBIAEo",
+            "BRIUCgxSZXN0YXVyYW50SWQYAiABKAUSDwoHUnRhdGVJZBgDIAEoBSLGAQoF",
+            "TWVudXMSKQoGdmFsdWVzGAEgAygLMhkuQWRtaW5pc3RyYXRvci5NZW51cy5N",
+            "ZW51GpEBCgRNZW51EgoKAklkGAEgASgFEhgKEFJlc3RhdXJhbnRNZW51SWQY",
+            "AiABKAUSDQoFUHJpY2UYAyABKAISGgoSVXNlSXRlbURlc2NyaXB0aW9uGAQg",
+            "ASgIEg8KB1N0YXRlSWQYBSABKAUSDwoHTmFtZUtleRgGIAEoBRIWCg5EZXNj",
+            "cmlwdGlvbktleRgHIAEoBSKIAQoJTWVudUl0ZW1zEjEKBnZhbHVlcxgBIAMo",
+            "CzIhLkFkbWluaXN0cmF0b3IuTWVudUl0ZW1zLk1lbnVJdGVtGkgKCE1lbnVJ",
+            "dGVtEgoKAklkGAEgASgFEg4KBk1lbnVJZBgCIAEoBRIOCgZJdGVtSWQYAyAB",
+            "KAUSEAoIUXVhbnRpdHkYBCABKAUiLQoLTWVudUl0ZW1JZHMSDgoGTWVudUlk",
+            "GAEgASgFEg4KBkl0ZW1JZBgCIAEoBSKHAQoGVGFibGVzEisKBnZhbHVlcxgB",
+            "IAMoCzIbLkFkbWluaXN0cmF0b3IuVGFibGVzLlRhYmxlGlAKBVRhYmxlEgoK",
+            "AklkGAEgASgFEhQKDFJlc3RhdXJhbnRJZBgCIAEoBRIUCgxOdW1iZXJPZlNl",
+            "YXQYAyABKAUSDwoHU3RhdGVJZBgEIAEoBSJKChJSZXN0YXVyYW50TGFuZ3Vh",
+            "Z2USCgoCSWQYASABKAUSFAoMUmVzdGF1cmFudElkGAIgASgFEhIKCkxhbmd1",
+            "YWdlSWQYAyABKAVCHKoCGVNhYXMuRW50aXR5LkFkbWluaXN0cmF0b3JiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants), global::Saas.Entity.Administrator.Restaurants.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items), global::Saas.Entity.Administrator.Items.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items.Types.Item), global::Saas.Entity.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus), global::Saas.Entity.Administrator.RestaurantMenus.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "RtateId", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems), global::Saas.Entity.Administrator.MenuItems.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems.Types.MenuItem), global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItemIds), global::Saas.Entity.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId", "IsNotNull" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables), global::Saas.Entity.Administrator.Tables.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables.Types.Table), global::Saas.Entity.Administrator.Tables.Types.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantLanguage), global::Saas.Entity.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId", "IsNotNull" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants), global::Saas.Entity.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items), global::Saas.Entity.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items.Types.Item), global::Saas.Entity.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus), global::Saas.Entity.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "RtateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems), global::Saas.Entity.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems.Types.MenuItem), global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItemIds), global::Saas.Entity.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables), global::Saas.Entity.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables.Types.Table), global::Saas.Entity.Administrator.Tables.Types.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantLanguage), global::Saas.Entity.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -104,7 +99,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Restaurants(Restaurants other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -123,17 +117,6 @@ namespace Saas.Entity.Administrator {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Restaurants);
@@ -148,7 +131,6 @@ namespace Saas.Entity.Administrator {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -156,7 +138,6 @@ namespace Saas.Entity.Administrator {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -171,10 +152,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -184,9 +161,6 @@ namespace Saas.Entity.Administrator {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -199,9 +173,6 @@ namespace Saas.Entity.Administrator {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -215,10 +186,6 @@ namespace Saas.Entity.Administrator {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -266,7 +233,6 @@ namespace Saas.Entity.Administrator {
           locationLink_ = other.locationLink_;
           locationMap_ = other.locationMap_;
           locationLatLong_ = other.locationLatLong_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -407,17 +373,6 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Restaurant);
@@ -443,7 +398,6 @@ namespace Saas.Entity.Administrator {
           if (LocationLink != other.LocationLink) return false;
           if (LocationMap != other.LocationMap) return false;
           if (LocationLatLong != other.LocationLatLong) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -462,7 +416,6 @@ namespace Saas.Entity.Administrator {
           if (LocationLink.Length != 0) hash ^= LocationLink.GetHashCode();
           if (LocationMap.Length != 0) hash ^= LocationMap.GetHashCode();
           if (LocationLatLong.Length != 0) hash ^= LocationLatLong.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -524,10 +477,6 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(98);
             output.WriteString(LocationLatLong);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -571,9 +520,6 @@ namespace Saas.Entity.Administrator {
           }
           if (LocationLatLong.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationLatLong);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -621,9 +567,6 @@ namespace Saas.Entity.Administrator {
           }
           if (other.LocationLatLong.Length != 0) {
             LocationLatLong = other.LocationLatLong;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -684,10 +627,6 @@ namespace Saas.Entity.Administrator {
                 LocationLatLong = input.ReadString();
                 break;
               }
-              case 120: {
-                IsNotNull = input.ReadBool();
-                break;
-              }
             }
           }
         }
@@ -725,7 +664,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Items(Items other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -744,17 +682,6 @@ namespace Saas.Entity.Administrator {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Items);
@@ -769,7 +696,6 @@ namespace Saas.Entity.Administrator {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -777,7 +703,6 @@ namespace Saas.Entity.Administrator {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -792,10 +717,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -805,9 +726,6 @@ namespace Saas.Entity.Administrator {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -820,9 +738,6 @@ namespace Saas.Entity.Administrator {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -836,10 +751,6 @@ namespace Saas.Entity.Administrator {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -882,7 +793,6 @@ namespace Saas.Entity.Administrator {
           stateId_ = other.stateId_;
           nameKey_ = other.nameKey_;
           descriptionKey_ = other.descriptionKey_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -968,17 +878,6 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Item);
@@ -999,7 +898,6 @@ namespace Saas.Entity.Administrator {
           if (StateId != other.StateId) return false;
           if (NameKey != other.NameKey) return false;
           if (DescriptionKey != other.DescriptionKey) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1013,7 +911,6 @@ namespace Saas.Entity.Administrator {
           if (StateId != 0) hash ^= StateId.GetHashCode();
           if (NameKey != 0) hash ^= NameKey.GetHashCode();
           if (DescriptionKey != 0) hash ^= DescriptionKey.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1055,10 +952,6 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(56);
             output.WriteInt32(DescriptionKey);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1087,9 +980,6 @@ namespace Saas.Entity.Administrator {
           }
           if (DescriptionKey != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(DescriptionKey);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1122,9 +1012,6 @@ namespace Saas.Entity.Administrator {
           }
           if (other.DescriptionKey != 0) {
             DescriptionKey = other.DescriptionKey;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1165,10 +1052,6 @@ namespace Saas.Entity.Administrator {
                 DescriptionKey = input.ReadInt32();
                 break;
               }
-              case 120: {
-                IsNotNull = input.ReadBool();
-                break;
-              }
             }
           }
         }
@@ -1206,7 +1089,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RestaurantMenus(RestaurantMenus other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1225,17 +1107,6 @@ namespace Saas.Entity.Administrator {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as RestaurantMenus);
@@ -1250,7 +1121,6 @@ namespace Saas.Entity.Administrator {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1258,7 +1128,6 @@ namespace Saas.Entity.Administrator {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1273,10 +1142,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1286,9 +1151,6 @@ namespace Saas.Entity.Administrator {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1301,9 +1163,6 @@ namespace Saas.Entity.Administrator {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1317,10 +1176,6 @@ namespace Saas.Entity.Administrator {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -1359,7 +1214,6 @@ namespace Saas.Entity.Administrator {
           id_ = other.id_;
           restaurantId_ = other.restaurantId_;
           rtateId_ = other.rtateId_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1401,17 +1255,6 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as RestaurantMenu);
@@ -1428,7 +1271,6 @@ namespace Saas.Entity.Administrator {
           if (Id != other.Id) return false;
           if (RestaurantId != other.RestaurantId) return false;
           if (RtateId != other.RtateId) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1438,7 +1280,6 @@ namespace Saas.Entity.Administrator {
           if (Id != 0) hash ^= Id.GetHashCode();
           if (RestaurantId != 0) hash ^= RestaurantId.GetHashCode();
           if (RtateId != 0) hash ^= RtateId.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1464,10 +1305,6 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(24);
             output.WriteInt32(RtateId);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1484,9 +1321,6 @@ namespace Saas.Entity.Administrator {
           }
           if (RtateId != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(RtateId);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1507,9 +1341,6 @@ namespace Saas.Entity.Administrator {
           }
           if (other.RtateId != 0) {
             RtateId = other.RtateId;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1532,10 +1363,6 @@ namespace Saas.Entity.Administrator {
               }
               case 24: {
                 RtateId = input.ReadInt32();
-                break;
-              }
-              case 120: {
-                IsNotNull = input.ReadBool();
                 break;
               }
             }
@@ -1575,7 +1402,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Menus(Menus other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1594,17 +1420,6 @@ namespace Saas.Entity.Administrator {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Menus);
@@ -1619,7 +1434,6 @@ namespace Saas.Entity.Administrator {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1627,7 +1441,6 @@ namespace Saas.Entity.Administrator {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1642,10 +1455,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1655,9 +1464,6 @@ namespace Saas.Entity.Administrator {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1670,9 +1476,6 @@ namespace Saas.Entity.Administrator {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1686,10 +1489,6 @@ namespace Saas.Entity.Administrator {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -1732,7 +1531,6 @@ namespace Saas.Entity.Administrator {
           stateId_ = other.stateId_;
           nameKey_ = other.nameKey_;
           descriptionKey_ = other.descriptionKey_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1818,17 +1616,6 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Menu);
@@ -1849,7 +1636,6 @@ namespace Saas.Entity.Administrator {
           if (StateId != other.StateId) return false;
           if (NameKey != other.NameKey) return false;
           if (DescriptionKey != other.DescriptionKey) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1863,7 +1649,6 @@ namespace Saas.Entity.Administrator {
           if (StateId != 0) hash ^= StateId.GetHashCode();
           if (NameKey != 0) hash ^= NameKey.GetHashCode();
           if (DescriptionKey != 0) hash ^= DescriptionKey.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1905,10 +1690,6 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(56);
             output.WriteInt32(DescriptionKey);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1937,9 +1718,6 @@ namespace Saas.Entity.Administrator {
           }
           if (DescriptionKey != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(DescriptionKey);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1972,9 +1750,6 @@ namespace Saas.Entity.Administrator {
           }
           if (other.DescriptionKey != 0) {
             DescriptionKey = other.DescriptionKey;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2015,10 +1790,6 @@ namespace Saas.Entity.Administrator {
                 DescriptionKey = input.ReadInt32();
                 break;
               }
-              case 120: {
-                IsNotNull = input.ReadBool();
-                break;
-              }
             }
           }
         }
@@ -2056,7 +1827,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MenuItems(MenuItems other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2075,17 +1845,6 @@ namespace Saas.Entity.Administrator {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MenuItems);
@@ -2100,7 +1859,6 @@ namespace Saas.Entity.Administrator {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2108,7 +1866,6 @@ namespace Saas.Entity.Administrator {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2123,10 +1880,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2136,9 +1889,6 @@ namespace Saas.Entity.Administrator {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2151,9 +1901,6 @@ namespace Saas.Entity.Administrator {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2167,10 +1914,6 @@ namespace Saas.Entity.Administrator {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -2210,7 +1953,6 @@ namespace Saas.Entity.Administrator {
           menuId_ = other.menuId_;
           itemId_ = other.itemId_;
           quantity_ = other.quantity_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2263,17 +2005,6 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as MenuItem);
@@ -2291,7 +2022,6 @@ namespace Saas.Entity.Administrator {
           if (MenuId != other.MenuId) return false;
           if (ItemId != other.ItemId) return false;
           if (Quantity != other.Quantity) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -2302,7 +2032,6 @@ namespace Saas.Entity.Administrator {
           if (MenuId != 0) hash ^= MenuId.GetHashCode();
           if (ItemId != 0) hash ^= ItemId.GetHashCode();
           if (Quantity != 0) hash ^= Quantity.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2332,10 +2061,6 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(32);
             output.WriteInt32(Quantity);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -2355,9 +2080,6 @@ namespace Saas.Entity.Administrator {
           }
           if (Quantity != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(Quantity);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -2381,9 +2103,6 @@ namespace Saas.Entity.Administrator {
           }
           if (other.Quantity != 0) {
             Quantity = other.Quantity;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2410,10 +2129,6 @@ namespace Saas.Entity.Administrator {
               }
               case 32: {
                 Quantity = input.ReadInt32();
-                break;
-              }
-              case 120: {
-                IsNotNull = input.ReadBool();
                 break;
               }
             }
@@ -2454,7 +2169,6 @@ namespace Saas.Entity.Administrator {
     public MenuItemIds(MenuItemIds other) : this() {
       menuId_ = other.menuId_;
       itemId_ = other.itemId_;
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2485,17 +2199,6 @@ namespace Saas.Entity.Administrator {
       }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MenuItemIds);
@@ -2511,7 +2214,6 @@ namespace Saas.Entity.Administrator {
       }
       if (MenuId != other.MenuId) return false;
       if (ItemId != other.ItemId) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2520,7 +2222,6 @@ namespace Saas.Entity.Administrator {
       int hash = 1;
       if (MenuId != 0) hash ^= MenuId.GetHashCode();
       if (ItemId != 0) hash ^= ItemId.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2542,10 +2243,6 @@ namespace Saas.Entity.Administrator {
         output.WriteRawTag(16);
         output.WriteInt32(ItemId);
       }
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2559,9 +2256,6 @@ namespace Saas.Entity.Administrator {
       }
       if (ItemId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ItemId);
-      }
-      if (IsNotNull != false) {
-        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2580,9 +2274,6 @@ namespace Saas.Entity.Administrator {
       if (other.ItemId != 0) {
         ItemId = other.ItemId;
       }
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2600,10 +2291,6 @@ namespace Saas.Entity.Administrator {
           }
           case 16: {
             ItemId = input.ReadInt32();
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -2638,7 +2325,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Tables(Tables other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2657,17 +2343,6 @@ namespace Saas.Entity.Administrator {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Tables);
@@ -2682,7 +2357,6 @@ namespace Saas.Entity.Administrator {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2690,7 +2364,6 @@ namespace Saas.Entity.Administrator {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2705,10 +2378,6 @@ namespace Saas.Entity.Administrator {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2718,9 +2387,6 @@ namespace Saas.Entity.Administrator {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2733,9 +2399,6 @@ namespace Saas.Entity.Administrator {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2749,10 +2412,6 @@ namespace Saas.Entity.Administrator {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -2792,7 +2451,6 @@ namespace Saas.Entity.Administrator {
           restaurantId_ = other.restaurantId_;
           numberOfSeat_ = other.numberOfSeat_;
           stateId_ = other.stateId_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2845,17 +2503,6 @@ namespace Saas.Entity.Administrator {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Table);
@@ -2873,7 +2520,6 @@ namespace Saas.Entity.Administrator {
           if (RestaurantId != other.RestaurantId) return false;
           if (NumberOfSeat != other.NumberOfSeat) return false;
           if (StateId != other.StateId) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -2884,7 +2530,6 @@ namespace Saas.Entity.Administrator {
           if (RestaurantId != 0) hash ^= RestaurantId.GetHashCode();
           if (NumberOfSeat != 0) hash ^= NumberOfSeat.GetHashCode();
           if (StateId != 0) hash ^= StateId.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2914,10 +2559,6 @@ namespace Saas.Entity.Administrator {
             output.WriteRawTag(32);
             output.WriteInt32(StateId);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -2937,9 +2578,6 @@ namespace Saas.Entity.Administrator {
           }
           if (StateId != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(StateId);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -2963,9 +2601,6 @@ namespace Saas.Entity.Administrator {
           }
           if (other.StateId != 0) {
             StateId = other.StateId;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2992,10 +2627,6 @@ namespace Saas.Entity.Administrator {
               }
               case 32: {
                 StateId = input.ReadInt32();
-                break;
-              }
-              case 120: {
-                IsNotNull = input.ReadBool();
                 break;
               }
             }
@@ -3037,7 +2668,6 @@ namespace Saas.Entity.Administrator {
       id_ = other.id_;
       restaurantId_ = other.restaurantId_;
       languageId_ = other.languageId_;
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3079,17 +2709,6 @@ namespace Saas.Entity.Administrator {
       }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as RestaurantLanguage);
@@ -3106,7 +2725,6 @@ namespace Saas.Entity.Administrator {
       if (Id != other.Id) return false;
       if (RestaurantId != other.RestaurantId) return false;
       if (LanguageId != other.LanguageId) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3116,7 +2734,6 @@ namespace Saas.Entity.Administrator {
       if (Id != 0) hash ^= Id.GetHashCode();
       if (RestaurantId != 0) hash ^= RestaurantId.GetHashCode();
       if (LanguageId != 0) hash ^= LanguageId.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3142,10 +2759,6 @@ namespace Saas.Entity.Administrator {
         output.WriteRawTag(24);
         output.WriteInt32(LanguageId);
       }
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3162,9 +2775,6 @@ namespace Saas.Entity.Administrator {
       }
       if (LanguageId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(LanguageId);
-      }
-      if (IsNotNull != false) {
-        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3185,9 +2795,6 @@ namespace Saas.Entity.Administrator {
       }
       if (other.LanguageId != 0) {
         LanguageId = other.LanguageId;
-      }
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3210,10 +2817,6 @@ namespace Saas.Entity.Administrator {
           }
           case 24: {
             LanguageId = input.ReadInt32();
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }

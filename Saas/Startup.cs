@@ -10,10 +10,6 @@ using IdentityServer4.AccessTokenValidation;
 using Saas.Services;
 using Saas.Entity;
 using Dal.Sp;
-using Microsoft.AspNetCore.Authentication.Certificate;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace Saas
 {

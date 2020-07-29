@@ -2,7 +2,7 @@
 
 namespace Dal.Sp
 {
-  public interface IDbContext : IObject
+  public interface IDbContext
   {
     IReadOnly<T> ReferenceData<T>(int rootId = 0) where T : new();
 
@@ -39,8 +39,6 @@ namespace Dal.Sp
                    SpInfos.Get<T>(op),
                    SpInfos.Get<T>(OperationType.R),
                    Mappers.Get<T>());
-
-    public bool IsNotNull() => ConnectionStrings.IsNotNull() && SpInfos.IsNotNull();
 
     public sealed class UserClaim
     {

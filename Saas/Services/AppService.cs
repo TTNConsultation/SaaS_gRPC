@@ -28,7 +28,7 @@ namespace Saas.Services
       DbContext = context;
     }
 
-    public override Task<Entity.Language.SupportedLanguages> SupportedLanguages(MsgEmpty request, ServerCallContext context)
+    public override Task<SupportedLanguages> SupportedLanguages(MsgEmpty request, ServerCallContext context)
     {
       return Task.FromResult(RefData.Languages);
     }
@@ -52,12 +52,12 @@ namespace Saas.Services
     {
       using var sp = DbContext.ReadOnly<DictKeyValuePair>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
-      return await Task.FromResult(DictCache.Add(DictCache.Get(sp.RootId(), lang) ??
-                                                 new Dictionary(sp.RootId(),
-                                                  lang,
-                                                  await DictCache.GetKeys(sp.RootId(), DbContext).ConfigureAwait(false),
-                                                  await sp.ReadAsync(lang.Code).ConfigureAwait(false)))
-                                                 ).ConfigureAwait(false);
+      return await Task.FromResult(DictCache.Get(sp.RootId(), lang) ??
+                                   DictCache.Add(new Dictionary(sp.RootId(),
+                                                                lang,
+                                                                await DictCache.GetKeys(sp.RootId(), DbContext).ConfigureAwait(false),
+                                                                await sp.ReadAsync(lang.Code).ConfigureAwait(false)))
+                                                               ).ConfigureAwait(false);
     }
   }
 }

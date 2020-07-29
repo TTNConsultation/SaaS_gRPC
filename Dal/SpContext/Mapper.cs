@@ -34,7 +34,7 @@ namespace Dal.Sp
 
   public sealed class Mapper : IMapper
   {
-    private readonly IDictionary<int, PropertyInfo> ReflectionMap = new Dictionary<int, PropertyInfo>();
+    private IDictionary<int, PropertyInfo> ReflectionMap;
 
     private readonly string TypeName;
 
@@ -45,6 +45,7 @@ namespace Dal.Sp
 
     private T BuildMap<T>(SqlDataReader reader) where T : new()
     {
+      ReflectionMap = new Dictionary<int, PropertyInfo>();
       var propInfos = typeof(T).GetProperties();
       var ret = new T();
 
@@ -72,7 +73,7 @@ namespace Dal.Sp
     }
 
     public T Parse<T>(SqlDataReader reader) where T : new() =>
-      (ReflectionMap.Count == 0) ? BuildMap<T>(reader) : UseMap<T>(reader);
+      (ReflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
 
     public bool IsType(string typename) => TypeName.IsEqual(typename);
 

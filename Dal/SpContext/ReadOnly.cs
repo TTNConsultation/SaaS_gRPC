@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
-  public interface IReadOnly<T> : IObject, IDisposable where T : new()
+  public interface IReadOnly<T> : IDisposable where T : new()
   {
     string Error();
 
     int RootId();
+
+    bool IsReady();
 
     T Read(int id) => Read(Constant.ID, id).First();
 

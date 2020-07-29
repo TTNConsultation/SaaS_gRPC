@@ -35,17 +35,17 @@ namespace Saas.Services
     {
       using var sp = DbContext.ReadOnly<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
-      return (sp.IsNotNull()) ? Task.FromResult(sp.Read(id.Value))
+      return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
     public async override Task<Restaurants> Lookup(MsgString lookupStr, ServerCallContext context)
     {
-      var ctx = context.GetHttpContext().Connection.ClientCertificate;
+      //var ctx = context.GetHttpContext().Connection.ClientCertificate;
 
       using var sp = DbContext.ReadOnly<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
-      return (sp.IsNotNull()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))
+      return (sp.IsReady()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
@@ -54,7 +54,7 @@ namespace Saas.Services
     {
       using var sp = DbContext.Write<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
 
-      return (sp.IsNotNull()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
+      return (sp.IsReady()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
@@ -63,7 +63,7 @@ namespace Saas.Services
     {
       using var sp = DbContext.Write<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.U);
 
-      return (sp.IsNotNull()) ? Task.FromResult(new MsgBool(sp.Update(obj)))
+      return (sp.IsReady()) ? Task.FromResult(new MsgBool(sp.Update(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
 
@@ -72,7 +72,7 @@ namespace Saas.Services
     {
       using var sp = DbContext.Write<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.D);
 
-      return (sp.IsNotNull()) ? Task.FromResult(new MsgBool(sp.UpdateState(id.Value, RefData.States.DeleteId)))
+      return (sp.IsReady()) ? Task.FromResult(new MsgBool(sp.UpdateState(id.Value, RefData.States.DeleteId)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
     }
   }

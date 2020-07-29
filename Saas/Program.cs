@@ -24,7 +24,7 @@ namespace Saas
               kestrelOptions.ConfigureEndpointDefaults(listenOptions => listenOptions.Protocols = HttpProtocols.Http2);
               kestrelOptions.ConfigureHttpsDefaults(httpsOptions =>
               {
-                httpsOptions.ClientCertificateMode = ClientCertificateMode.RequireCertificate;
+                httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
                 httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
               });
             });

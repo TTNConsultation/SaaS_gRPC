@@ -2,11 +2,13 @@
 
 namespace Dal.Sp
 {
-  public interface IWrite<T> : IObject, IDisposable where T : new()
+  public interface IWrite<T> : IDisposable where T : new()
   {
     string Error();
 
     int RootId();
+
+    bool IsReady();
 
     int Create(T obj);
 

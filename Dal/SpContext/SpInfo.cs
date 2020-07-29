@@ -6,21 +6,21 @@ using System.Linq;
 
 namespace Dal.Sp
 {
-  public interface ICollectionSpInfo : IObject
+  public interface ICollectionSpInfo
   {
     ISpInfo Get(string typename, OperationType op);
 
     ISpInfo Get<T>(OperationType op) => Get(typeof(T).Name, op);
   }
 
-  public interface ISpInfo : IObject
+  public interface ISpInfo
   {
     SqlCommand SqlCommand(string conStr);
 
     IParameter Parameter(string name);
   }
 
-  public interface IParameter : IObject
+  public interface IParameter
   {
     bool IsName(string name);
 
@@ -37,8 +37,6 @@ namespace Dal.Sp
     }
 
     public ISpInfo Get(string typename, OperationType op) => SpInfos.FirstOrDefault(sp => sp.Type.IsEqual(typename) && sp.Op.IsEqual(op.ToString()));
-
-    public bool IsNotNull() => SpInfos.Any();
 
     private IEnumerable<SpInfo> Read(ICollectionMapper mappers, string conStr)
     {
@@ -98,8 +96,6 @@ namespace Dal.Sp
 
     public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.IsName(name.AsParameter()));
 
-    public bool IsNotNull() => Property.Id > 0;
-
     internal SpInfo(SpProperty prop, IEnumerable<SpParameter> pars)
     {
       Property = prop;
@@ -151,7 +147,5 @@ namespace Dal.Sp
         Value = value ?? DBNull.Value,
         Size = Size(value)
       };
-
-    public bool IsNotNull() => SpId > 0;
   }
 }

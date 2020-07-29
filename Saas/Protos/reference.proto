@@ -11,29 +11,23 @@ message KeyTypes{
    int32 Id = 1;
    string Name = 2;
    int32 MaxLen = 3;
-   bool IsNotNull = 15;
 	}
   repeated KeyType values = 1;
-  bool IsNotNull = 15;
 }
 message States{
   message State{
     int32 Id = 1;
     string Name = 2;
-    bool IsNotNull = 15;
   }
   repeated State values = 1;
-  bool IsNotNull = 15;
 }
 message AppSetting{
   int32 Id = 1;
   int32 NameKey = 2;
   int32 DescriptionKey = 3;
-  bool IsNotNull = 15;
 }
 message References{
   States states = 1;
   Language.SupportedLanguages languages = 2;
   KeyTypes keyTypes = 3;
-  bool IsNotNull = 15;
 }

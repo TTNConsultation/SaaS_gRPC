@@ -17,7 +17,7 @@ namespace Dal.Sp
     private readonly string Err;
     private readonly DbContext.UserClaim UserClaim;
 
-    public bool IsNotNull() => string.IsNullOrEmpty(Err);
+    public bool IsReady() => string.IsNullOrEmpty(Err);
 
     public string Error() => Err;
 
@@ -29,7 +29,7 @@ namespace Dal.Sp
                                .Append((claim == null) ? "claim is null" : null)
                                .ToString();
 
-      if (IsNotNull())
+      if (IsReady())
       {
         UserClaim = claim;
         SpInfo = spinfo;

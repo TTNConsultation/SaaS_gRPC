@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Dal.Sp
 {
-  public interface IConnectionManager : IObject
+  public interface IConnectionManager
   {
     string Get(string schema);
 
@@ -25,7 +25,5 @@ namespace Dal.Sp
     public string Get(string schema) => ConnectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
 
     public string App() => Get(Constant.APP);
-
-    public bool IsNotNull() => ConnectionStrings.Count > 0;
   }
 }

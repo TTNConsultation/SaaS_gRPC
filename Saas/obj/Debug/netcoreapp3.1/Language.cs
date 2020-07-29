@@ -24,28 +24,26 @@ namespace Saas.Entity.Language {
     static LanguageReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVQcm90b3MvbGFuZ3VhZ2UucHJvdG8SCExhbmd1YWdlIsEBCgRLZXlzEiIK",
-            "BnZhbHVlcxgBIAMoCzISLkxhbmd1YWdlLktleXMuS2V5EhEKCUlzTm90TnVs",
-            "bBgPIAEoCBqBAQoDS2V5EgsKA0tleRgBIAEoBRIMCgRUeXBlGAIgASgFEg4K",
-            "BlJvb3RJZBgDIAEoBRIRCglPYmplY3RfaWQYBCABKAUSCgoCSWQYBSABKAUS",
-            "DwoHS2V5TmFtZRgGIAEoCRIMCgRDb2RlGAcgASgJEhEKCUlzTm90TnVsbBgP",
-            "IAEoCCKuAQoSU3VwcG9ydGVkTGFuZ3VhZ2VzEjkKBnZhbHVlcxgBIAMoCzIp",
-            "Lkxhbmd1YWdlLlN1cHBvcnRlZExhbmd1YWdlcy5Db2RlTGFuZ3VhZ2USEQoJ",
-            "SXNOb3ROdWxsGA8gASgIGkoKDENvZGVMYW5ndWFnZRIKCgJJZBgBIAEoBRIM",
-            "CgRDb2RlGAIgASgJEg0KBVZhbHVlGAMgASgJEhEKCUlzTm90TnVsbBgPIAEo",
-            "CCKDAgoKRGljdGlvbmFyeRIOCgZSb290SWQYASABKAUSOwoITGFuZ3VhZ2UY",
-            "AiABKAsyKS5MYW5ndWFnZS5TdXBwb3J0ZWRMYW5ndWFnZXMuQ29kZUxhbmd1",
-            "YWdlEhwKBEtleXMYAyABKAsyDi5MYW5ndWFnZS5LZXlzEjYKB2NvbnRlbnQY",
-            "BCADKAsyJS5MYW5ndWFnZS5EaWN0aW9uYXJ5LkRpY3RLZXlWYWx1ZVBhaXIS",
-            "EQoJSXNOb3ROdWxsGA8gASgIGj8KEERpY3RLZXlWYWx1ZVBhaXISCwoDS2V5",
-            "GAEgASgFEgsKA1ZhbBgCIAEoCRIRCglJc05vdE51bGwYDyABKAhCF6oCFFNh",
-            "YXMuRW50aXR5Lkxhbmd1YWdlYgZwcm90bzM="));
+            "ChVQcm90b3MvbGFuZ3VhZ2UucHJvdG8SCExhbmd1YWdlIpoBCgRLZXlzEiIK",
+            "BnZhbHVlcxgBIAMoCzISLkxhbmd1YWdlLktleXMuS2V5Gm4KA0tleRILCgNL",
+            "ZXkYASABKAUSDAoEVHlwZRgCIAEoBRIOCgZSb290SWQYAyABKAUSEQoJT2Jq",
+            "ZWN0X2lkGAQgASgFEgoKAklkGAUgASgFEg8KB0tleU5hbWUYBiABKAkSDAoE",
+            "Q29kZRgHIAEoCSKIAQoSU3VwcG9ydGVkTGFuZ3VhZ2VzEjkKBnZhbHVlcxgB",
+            "IAMoCzIpLkxhbmd1YWdlLlN1cHBvcnRlZExhbmd1YWdlcy5Db2RlTGFuZ3Vh",
+            "Z2UaNwoMQ29kZUxhbmd1YWdlEgoKAklkGAEgASgFEgwKBENvZGUYAiABKAkS",
+            "DQoFVmFsdWUYAyABKAki3QEKCkRpY3Rpb25hcnkSDgoGUm9vdElkGAEgASgF",
+            "EjsKCExhbmd1YWdlGAIgASgLMikuTGFuZ3VhZ2UuU3VwcG9ydGVkTGFuZ3Vh",
+            "Z2VzLkNvZGVMYW5ndWFnZRIcCgRLZXlzGAMgASgLMg4uTGFuZ3VhZ2UuS2V5",
+            "cxI2Cgdjb250ZW50GAQgAygLMiUuTGFuZ3VhZ2UuRGljdGlvbmFyeS5EaWN0",
+            "S2V5VmFsdWVQYWlyGiwKEERpY3RLZXlWYWx1ZVBhaXISCwoDS2V5GAEgASgF",
+            "EgsKA1ZhbBgCIAEoCUIXqgIUU2Fhcy5FbnRpdHkuTGFuZ3VhZ2ViBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Keys), global::Saas.Entity.Language.Keys.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Keys.Types.Key), global::Saas.Entity.Language.Keys.Types.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.SupportedLanguages), global::Saas.Entity.Language.SupportedLanguages.Parser, new[]{ "Values", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage), global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage.Parser, new[]{ "Id", "Code", "Value", "IsNotNull" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Dictionary), global::Saas.Entity.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content", "IsNotNull" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Dictionary.Types.DictKeyValuePair), global::Saas.Entity.Language.Dictionary.Types.DictKeyValuePair.Parser, new[]{ "Key", "Val", "IsNotNull" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Keys), global::Saas.Entity.Language.Keys.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Keys.Types.Key), global::Saas.Entity.Language.Keys.Types.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.SupportedLanguages), global::Saas.Entity.Language.SupportedLanguages.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage), global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Dictionary), global::Saas.Entity.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Language.Dictionary.Types.DictKeyValuePair), global::Saas.Entity.Language.Dictionary.Types.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null)})
           }));
     }
     #endregion
@@ -78,7 +76,6 @@ namespace Saas.Entity.Language {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Keys(Keys other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -97,17 +94,6 @@ namespace Saas.Entity.Language {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Keys);
@@ -122,7 +108,6 @@ namespace Saas.Entity.Language {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -130,7 +115,6 @@ namespace Saas.Entity.Language {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -145,10 +129,6 @@ namespace Saas.Entity.Language {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -158,9 +138,6 @@ namespace Saas.Entity.Language {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -173,9 +150,6 @@ namespace Saas.Entity.Language {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -189,10 +163,6 @@ namespace Saas.Entity.Language {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -235,7 +205,6 @@ namespace Saas.Entity.Language {
           id_ = other.id_;
           keyName_ = other.keyName_;
           code_ = other.code_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -321,17 +290,6 @@ namespace Saas.Entity.Language {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Key);
@@ -352,7 +310,6 @@ namespace Saas.Entity.Language {
           if (Id != other.Id) return false;
           if (KeyName != other.KeyName) return false;
           if (Code != other.Code) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -366,7 +323,6 @@ namespace Saas.Entity.Language {
           if (Id != 0) hash ^= Id.GetHashCode();
           if (KeyName.Length != 0) hash ^= KeyName.GetHashCode();
           if (Code.Length != 0) hash ^= Code.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -408,10 +364,6 @@ namespace Saas.Entity.Language {
             output.WriteRawTag(58);
             output.WriteString(Code);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -440,9 +392,6 @@ namespace Saas.Entity.Language {
           }
           if (Code.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Code);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -475,9 +424,6 @@ namespace Saas.Entity.Language {
           }
           if (other.Code.Length != 0) {
             Code = other.Code;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -518,10 +464,6 @@ namespace Saas.Entity.Language {
                 Code = input.ReadString();
                 break;
               }
-              case 120: {
-                IsNotNull = input.ReadBool();
-                break;
-              }
             }
           }
         }
@@ -559,7 +501,6 @@ namespace Saas.Entity.Language {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SupportedLanguages(SupportedLanguages other) : this() {
       values_ = other.values_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -578,17 +519,6 @@ namespace Saas.Entity.Language {
       get { return values_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SupportedLanguages);
@@ -603,7 +533,6 @@ namespace Saas.Entity.Language {
         return true;
       }
       if(!values_.Equals(other.values_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -611,7 +540,6 @@ namespace Saas.Entity.Language {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= values_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -626,10 +554,6 @@ namespace Saas.Entity.Language {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       values_.WriteTo(output, _repeated_values_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -639,9 +563,6 @@ namespace Saas.Entity.Language {
     public int CalculateSize() {
       int size = 0;
       size += values_.CalculateSize(_repeated_values_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -654,9 +575,6 @@ namespace Saas.Entity.Language {
         return;
       }
       values_.Add(other.values_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -670,10 +588,6 @@ namespace Saas.Entity.Language {
             break;
           case 10: {
             values_.AddEntriesFrom(input, _repeated_values_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -712,7 +626,6 @@ namespace Saas.Entity.Language {
           id_ = other.id_;
           code_ = other.code_;
           value_ = other.value_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -754,17 +667,6 @@ namespace Saas.Entity.Language {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as CodeLanguage);
@@ -781,7 +683,6 @@ namespace Saas.Entity.Language {
           if (Id != other.Id) return false;
           if (Code != other.Code) return false;
           if (Value != other.Value) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -791,7 +692,6 @@ namespace Saas.Entity.Language {
           if (Id != 0) hash ^= Id.GetHashCode();
           if (Code.Length != 0) hash ^= Code.GetHashCode();
           if (Value.Length != 0) hash ^= Value.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -817,10 +717,6 @@ namespace Saas.Entity.Language {
             output.WriteRawTag(26);
             output.WriteString(Value);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -837,9 +733,6 @@ namespace Saas.Entity.Language {
           }
           if (Value.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Value);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -860,9 +753,6 @@ namespace Saas.Entity.Language {
           }
           if (other.Value.Length != 0) {
             Value = other.Value;
-          }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -885,10 +775,6 @@ namespace Saas.Entity.Language {
               }
               case 26: {
                 Value = input.ReadString();
-                break;
-              }
-              case 120: {
-                IsNotNull = input.ReadBool();
                 break;
               }
             }
@@ -931,7 +817,6 @@ namespace Saas.Entity.Language {
       language_ = other.language_ != null ? other.language_.Clone() : null;
       keys_ = other.keys_ != null ? other.keys_.Clone() : null;
       content_ = other.content_.Clone();
-      isNotNull_ = other.isNotNull_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -983,17 +868,6 @@ namespace Saas.Entity.Language {
       get { return content_; }
     }
 
-    /// <summary>Field number for the "IsNotNull" field.</summary>
-    public const int IsNotNullFieldNumber = 15;
-    private bool isNotNull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool IsNotNull {
-      get { return isNotNull_; }
-      set {
-        isNotNull_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Dictionary);
@@ -1011,7 +885,6 @@ namespace Saas.Entity.Language {
       if (!object.Equals(Language, other.Language)) return false;
       if (!object.Equals(Keys, other.Keys)) return false;
       if(!content_.Equals(other.content_)) return false;
-      if (IsNotNull != other.IsNotNull) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1022,7 +895,6 @@ namespace Saas.Entity.Language {
       if (language_ != null) hash ^= Language.GetHashCode();
       if (keys_ != null) hash ^= Keys.GetHashCode();
       hash ^= content_.GetHashCode();
-      if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1049,10 +921,6 @@ namespace Saas.Entity.Language {
         output.WriteMessage(Keys);
       }
       content_.WriteTo(output, _repeated_content_codec);
-      if (IsNotNull != false) {
-        output.WriteRawTag(120);
-        output.WriteBool(IsNotNull);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1071,9 +939,6 @@ namespace Saas.Entity.Language {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Keys);
       }
       size += content_.CalculateSize(_repeated_content_codec);
-      if (IsNotNull != false) {
-        size += 1 + 1;
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1101,9 +966,6 @@ namespace Saas.Entity.Language {
         Keys.MergeFrom(other.Keys);
       }
       content_.Add(other.content_);
-      if (other.IsNotNull != false) {
-        IsNotNull = other.IsNotNull;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1135,10 +997,6 @@ namespace Saas.Entity.Language {
           }
           case 34: {
             content_.AddEntriesFrom(input, _repeated_content_codec);
-            break;
-          }
-          case 120: {
-            IsNotNull = input.ReadBool();
             break;
           }
         }
@@ -1176,7 +1034,6 @@ namespace Saas.Entity.Language {
         public DictKeyValuePair(DictKeyValuePair other) : this() {
           key_ = other.key_;
           val_ = other.val_;
-          isNotNull_ = other.isNotNull_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1207,17 +1064,6 @@ namespace Saas.Entity.Language {
           }
         }
 
-        /// <summary>Field number for the "IsNotNull" field.</summary>
-        public const int IsNotNullFieldNumber = 15;
-        private bool isNotNull_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool IsNotNull {
-          get { return isNotNull_; }
-          set {
-            isNotNull_ = value;
-          }
-        }
-
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as DictKeyValuePair);
@@ -1233,7 +1079,6 @@ namespace Saas.Entity.Language {
           }
           if (Key != other.Key) return false;
           if (Val != other.Val) return false;
-          if (IsNotNull != other.IsNotNull) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -1242,7 +1087,6 @@ namespace Saas.Entity.Language {
           int hash = 1;
           if (Key != 0) hash ^= Key.GetHashCode();
           if (Val.Length != 0) hash ^= Val.GetHashCode();
-          if (IsNotNull != false) hash ^= IsNotNull.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1264,10 +1108,6 @@ namespace Saas.Entity.Language {
             output.WriteRawTag(18);
             output.WriteString(Val);
           }
-          if (IsNotNull != false) {
-            output.WriteRawTag(120);
-            output.WriteBool(IsNotNull);
-          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1281,9 +1121,6 @@ namespace Saas.Entity.Language {
           }
           if (Val.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
-          }
-          if (IsNotNull != false) {
-            size += 1 + 1;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1302,9 +1139,6 @@ namespace Saas.Entity.Language {
           if (other.Val.Length != 0) {
             Val = other.Val;
           }
-          if (other.IsNotNull != false) {
-            IsNotNull = other.IsNotNull;
-          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -1322,10 +1156,6 @@ namespace Saas.Entity.Language {
               }
               case 18: {
                 Val = input.ReadString();
-                break;
-              }
-              case 120: {
-                IsNotNull = input.ReadBool();
                 break;
               }
             }
