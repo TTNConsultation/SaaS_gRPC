@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-
+using Google.Protobuf;
+using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
@@ -20,7 +20,7 @@ namespace Dal.Sp
 
     bool IsType(IMapper map);
 
-    T Parse<T>(SqlDataReader reader) where T : new();
+    T Parse<T>(SqlDataReader reader) where T : IMessage, new();
   }
 
   public sealed class CollectionMapper : ICollectionMapper
@@ -34,7 +34,7 @@ namespace Dal.Sp
 
   public sealed class Mapper : IMapper
   {
-    private IDictionary<int, PropertyInfo> ReflectionMap;
+    private IDictionary<int, int> ReflectionMap;
 
     private readonly string TypeName;
 
@@ -43,36 +43,37 @@ namespace Dal.Sp
       TypeName = typename;
     }
 
-    private T BuildMap<T>(SqlDataReader reader) where T : new()
+    private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      ReflectionMap = new Dictionary<int, PropertyInfo>();
-      var propInfos = typeof(T).GetProperties();
+      ReflectionMap = new Dictionary<int, int>();
       var ret = new T();
 
       for (int i = 0; i < reader.FieldCount; i++)
       {
-        var propInfo = propInfos?.FirstOrDefault(pi => pi.Name.IsEqual(reader.GetName(i)));
-        if (propInfo != null)
+        var fd = ret.Descriptor.Fields[reader.GetName(i)];
+        if (fd != null)
         {
-          propInfo.SetValue(ret, Convert.ChangeType(reader[i], propInfo.PropertyType));
-          ReflectionMap.Add(i, propInfo);
+          fd.Accessor.SetValue(ret, fd.ChangeType(reader[i]));
+          ReflectionMap.Add(i, fd.FieldNumber);
         }
       }
 
       return ret;
     }
 
-    private T UseMap<T>(SqlDataReader reader) where T : new()
+    private T UseMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
       var ret = new T();
-      foreach (var kpv in ReflectionMap)
+      FieldDescriptor fd;
+      foreach (var m in ReflectionMap)
       {
-        kpv.Value.SetValue(ret, Convert.ChangeType(reader[kpv.Key], kpv.Value.PropertyType));
+        fd = ret.Descriptor.Fields[m.Value];
+        fd.Accessor.SetValue(ret, fd.ChangeType(reader[m.Key]));
       }
       return ret;
     }
 
-    public T Parse<T>(SqlDataReader reader) where T : new() =>
+    public T Parse<T>(SqlDataReader reader) where T : IMessage, new() =>
       (ReflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
 
     public bool IsType(string typename) => TypeName.IsEqual(typename);

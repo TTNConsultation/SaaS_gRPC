@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Text;
+using Google.Protobuf;
 
 namespace Dal.Sp
 {
   public enum OperationType { C, R, RR, U, D, ND }
 
-  internal abstract class Base<T> where T : new()
+  internal abstract class Base<T> where T : IMessage, new()
   {
     private readonly SqlCommand SqlCmd;
     private readonly ISpProperty SpProperty;

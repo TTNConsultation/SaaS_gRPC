@@ -1,5 +1,5 @@
-obj\Debug\netcoreapp3.1/Services.cs \
-obj\Debug\netcoreapp3.1/ServicesGrpc.cs: Protos/common.proto\
+obj\Debug\netcoreapp3.1\Protos/Services.cs \
+obj\Debug\netcoreapp3.1\Protos/ServicesGrpc.cs: Protos/common.proto\
  Protos/language.proto\
  Protos/reference.proto\
  Protos/administrator.proto\

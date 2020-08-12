@@ -81,17 +81,11 @@ namespace Dal.Sp
     }
   }
 
-  internal sealed class SpProperty : ISpProperty
+  public partial class SpProperty : ISpProperty
   {
-    public int Id { get; set; }
-    public string FullName { get; set; }
-    public string Schema { get; set; }
-    public string Type { get; set; }
-    public string Op { get; set; }
-
     private IEnumerable<IParameter> Parameters = new HashSet<IParameter>();
 
-    public void SetParameters(IEnumerable<IParameter> pars)
+    internal void SetParameters(IEnumerable<IParameter> pars)
     {
       Parameters = pars ?? new HashSet<IParameter>();
     }
@@ -107,19 +101,8 @@ namespace Dal.Sp
     public bool IsEqual(string typename, OperationType op) => Type.IsEqual(typename) && Op.IsEqual(op.ToString());
   }
 
-  internal sealed class SpParameter : IParameter
+  public partial class SpParameter : IParameter
   {
-    public string SpName { get; set; }
-    public int SpId { get; set; }
-    public string Name { get; set; }
-    public string Type { get; set; }
-    public int MaxLength { get; set; }
-    public int Precision { get; set; }
-    public int Scale { get; set; }
-    public int Order { get; set; }
-    public bool IsOutput { get; set; }
-    public string Collation { get; set; }
-
     private int Size(object value)
     {
       if (value == null || value == DBNull.Value || string.IsNullOrEmpty(Collation))

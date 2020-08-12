@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Google.Protobuf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
-  public interface IReadOnly<T> : IDisposable where T : new()
+  public interface IReadOnly<T> : IDisposable where T : IMessage, new()
   {
     string Error();
 
@@ -40,7 +41,7 @@ namespace Dal.Sp
     Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator);
   }
 
-  internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : new()
+  internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : IMessage, new()
   {
     public ReadOnly(DbContext.UserClaim claim, ISpProperty sp, IMapper map) : base(claim, sp, map)
     {

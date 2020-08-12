@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1685298B-9F17-4A49-B468-0F54AF87E190}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AAF</RootNamespace>
+    <AssemblyName>AAF</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\Implementation\zCtSqlParameter.cs" />
+    <Compile Include="DataObjects\Implementation\zAAFConn_BaseData.cs" />
+    <Compile Include="DataObjects\Implementation\zAAFConn_TxConnectionProvider.cs" />
+    <Compile Include="DataObjects\Implementation\DataCriterion.cs" />
+    <Compile Include="DataObjects\Implementation\zAAFConn_ConfigWrapper.cs" />
+    <Compile Include="DataObjects\Implementation\DAOEnglish.cs" />
+    <Compile Include="DataObjects\Implementation\DAOFrench.cs" />
+    <Compile Include="DataObjects\Implementation\DAOItem.cs" />
+    <Compile Include="DataObjects\Implementation\DAOKey.cs" />
+    <Compile Include="DataObjects\Implementation\DAOKeyType.cs" />
+    <Compile Include="DataObjects\Implementation\DAOLanguage.cs" />
+    <Compile Include="DataObjects\Implementation\DAOLocation.cs" />
+    <Compile Include="DataObjects\Implementation\DAOMenu.cs" />
+    <Compile Include="DataObjects\Implementation\DAOMenuItem.cs" />
+    <Compile Include="DataObjects\Implementation\DAORestaurant.cs" />
+    <Compile Include="DataObjects\Implementation\DAORestaurantLanguage.cs" />
+    <Compile Include="DataObjects\Implementation\DAORestaurantLocation.cs" />
+    <Compile Include="DataObjects\Implementation\DAORestaurantMenu.cs" />
+    <Compile Include="DataObjects\Implementation\DAOSchedule.cs" />
+    <Compile Include="DataObjects\Implementation\DAOState.cs" />
+    <Compile Include="DataObjects\Implementation\DAOTable.cs" />
+    <Compile Include="DataObjects\Implementation\DAOVietnamese.cs" />
+    <Compile Include="DataObjects\Implementation\DAOAppSetting.cs" />
+    <Compile Include="DataObjects\Implementation\DAOSpParameter.cs" />
+    <Compile Include="DataObjects\Implementation\DAOSpProperty.cs" />
+    <Compile Include="DataObjects\Interfaces\IDataCriterion.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOEnglish.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOFrench.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOItem.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOKey.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOKeyType.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOLanguage.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOLocation.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOMenu.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOMenuItem.cs" />
+    <Compile Include="BusinessObjects\Implementation\BORestaurant.cs" />
+    <Compile Include="BusinessObjects\Implementation\BORestaurantLanguage.cs" />
+    <Compile Include="BusinessObjects\Implementation\BORestaurantLocation.cs" />
+    <Compile Include="BusinessObjects\Implementation\BORestaurantMenu.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOSchedule.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOState.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOTable.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOVietnamese.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOAppSetting.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOSpParameter.cs" />
+    <Compile Include="BusinessObjects\Implementation\BOSpProperty.cs" />
+    <Compile Include="BusinessObjects\Implementation\zAAFConn_BaseBusiness.cs" />
+    <Compile Include="BusinessObjects\Implementation\Criteria.cs" />
+    <Compile Include="BusinessObjects\Implementation\CriteriaExpression.cs" />
+    <Compile Include="BusinessObjects\Interfaces\IQueryableCollection.cs" />
+    <Compile Include="MVVMSample\RelayCommand.cs" />
+    <Compile Include="MVVMSample\ViewModel\IViewModelBase.cs" />
+    <Compile Include="MVVMSample\ViewModel\MenuItem.cs" />
+    <Page Include="MVVMSample\View\EnglishView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\EnglishView.xaml.cs">
+      <DependentUpon>EnglishView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\EnglishViewModel.cs" />
+    <Page Include="MVVMSample\View\FrenchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\FrenchView.xaml.cs">
+      <DependentUpon>FrenchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\FrenchViewModel.cs" />
+    <Page Include="MVVMSample\View\ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\ItemView.xaml.cs">
+      <DependentUpon>ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\ItemViewModel.cs" />
+    <Page Include="MVVMSample\View\KeyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\KeyView.xaml.cs">
+      <DependentUpon>KeyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\KeyViewModel.cs" />
+    <Page Include="MVVMSample\View\KeyTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\KeyTypeView.xaml.cs">
+      <DependentUpon>KeyTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\KeyTypeViewModel.cs" />
+    <Page Include="MVVMSample\View\LanguageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\LanguageView.xaml.cs">
+      <DependentUpon>LanguageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\LanguageViewModel.cs" />
+    <Page Include="MVVMSample\View\LocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\LocationView.xaml.cs">
+      <DependentUpon>LocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\LocationViewModel.cs" />
+    <Page Include="MVVMSample\View\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\MenuViewModel.cs" />
+    <Page Include="MVVMSample\View\MenuItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\MenuItemView.xaml.cs">
+      <DependentUpon>MenuItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\MenuItemViewModel.cs" />
+    <Page Include="MVVMSample\View\RestaurantView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\RestaurantView.xaml.cs">
+      <DependentUpon>RestaurantView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\RestaurantViewModel.cs" />
+    <Page Include="MVVMSample\View\RestaurantLanguageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\RestaurantLanguageView.xaml.cs">
+      <DependentUpon>RestaurantLanguageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\RestaurantLanguageViewModel.cs" />
+    <Page Include="MVVMSample\View\RestaurantLocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\RestaurantLocationView.xaml.cs">
+      <DependentUpon>RestaurantLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\RestaurantLocationViewModel.cs" />
+    <Page Include="MVVMSample\View\RestaurantMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\RestaurantMenuView.xaml.cs">
+      <DependentUpon>RestaurantMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\RestaurantMenuViewModel.cs" />
+    <Page Include="MVVMSample\View\ScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\ScheduleView.xaml.cs">
+      <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\ScheduleViewModel.cs" />
+    <Page Include="MVVMSample\View\StateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\StateView.xaml.cs">
+      <DependentUpon>StateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\StateViewModel.cs" />
+    <Page Include="MVVMSample\View\TableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\TableViewModel.cs" />
+    <Page Include="MVVMSample\View\VietnameseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\VietnameseView.xaml.cs">
+      <DependentUpon>VietnameseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\VietnameseViewModel.cs" />
+    <Page Include="MVVMSample\View\AppSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\AppSettingView.xaml.cs">
+      <DependentUpon>AppSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\AppSettingViewModel.cs" />
+    <Page Include="MVVMSample\View\SpParameterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\SpParameterView.xaml.cs">
+      <DependentUpon>SpParameterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\SpParameterViewModel.cs" />
+    <Page Include="MVVMSample\View\SpPropertyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\SpPropertyView.xaml.cs">
+      <DependentUpon>SpPropertyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\SpPropertyViewModel.cs" />
+    <Page Include="MVVMSample\View\MainFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="MVVMSample\View\MainFrame.xaml.cs">
+      <DependentUpon>MainFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVMSample\ViewModel\MainFrameViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="generated.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

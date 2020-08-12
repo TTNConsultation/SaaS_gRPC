@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Google.Protobuf;
+using System;
 
 namespace Dal.Sp
 {
-  public interface IWrite<T> : IDisposable where T : new()
+  public interface IWrite<T> : IDisposable where T : IMessage, new()
   {
     string Error();
 
@@ -19,7 +20,7 @@ namespace Dal.Sp
     bool Delete(int id);
   }
 
-  internal sealed class Write<T> : Base<T>, IWrite<T> where T : new()
+  internal sealed class Write<T> : Base<T>, IWrite<T> where T : IMessage, new()
   {
     private readonly IReadOnly<T> SpRO;
 

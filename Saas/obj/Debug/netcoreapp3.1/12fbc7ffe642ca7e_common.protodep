@@ -1,1 +1,1 @@
-obj\Debug\netcoreapp3.1/Common.cs: Protos/common.proto
+obj\Debug\netcoreapp3.1\Protos/Common.cs: Protos/common.proto

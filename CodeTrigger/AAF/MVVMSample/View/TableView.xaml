@@ -1,0 +1,91 @@
+<UserControl x:Class="AAF.MVVMSample.View.TableView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:vwm="clr-namespace:AAF.MVVMSample.ViewModel" xmlns:vw="clr-namespace:AAF.MVVMSample.View">
+  <UserControl.Resources>
+    <Style x:Key="PrimaryKeyElementStyle" TargetType="{x:Type TextBlock}">
+      <Setter Property="Padding" Value="4,4,2,4" />
+      <Setter Property="Background" Value="LightYellow" />
+      <Setter Property="Foreground" Value="Black" />
+    </Style>
+    <Style x:Key="NonEditablePrimaryKeyElementStyle" TargetType="{x:Type TextBlock}">
+      <Setter Property="Padding" Value="4,4,2,4" />
+      <Setter Property="Background" Value="Gray" />
+      <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style x:Key="EditableElementStyle" TargetType="{x:Type TextBlock}">
+      <Setter Property="Padding" Value="4,4,2,4" />
+      <Setter Property="Background" Value="White" />
+      <Setter Property="Foreground" Value="Black" />
+    </Style>
+    <Style x:Key="EditingElementStyle" TargetType="{x:Type TextBox}">
+      <Setter Property="Margin" Value="0,1,0,0" />
+      <Setter Property="Background" Value="White" />
+      <Setter Property="Foreground" Value="Black" />
+    </Style>
+    <Style x:Key="CustomLabelButtonStyle" TargetType="{x:Type Button}">
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" />
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <ObjectDataProvider x:Key="boRestaurantDataProvider" ObjectType="{x:Type vwm:RestaurantViewModel}" MethodName="GetRestaurantList" />
+  </UserControl.Resources>
+  <Grid Margin="0,0,0,10">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="360" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="35" />
+      <RowDefinition Height="25" />
+      <RowDefinition />
+      <RowDefinition Height="25" />
+    </Grid.RowDefinitions>
+    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Content="{Binding DisplayName}" />
+    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Search results" FontSize="14" Foreground="DimGray" HorizontalAlignment="Left" />
+    <DataGrid x:Name="gridView1" Grid.Row="2" Grid.Column="0" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Results}" Background="White" HorizontalGridLinesBrush="Silver" VerticalGridLinesBrush="Silver" Margin="4,4,4,4" Padding="4,0,4,4" RowHeaderWidth="0">
+      <DataGrid.Columns>
+        <DataGridTemplateColumn>
+          <DataGridTemplateColumn.CellTemplate>
+            <DataTemplate>
+              <Button Style="{DynamicResource CustomLabelButtonStyle}" Command="{Binding RelativeSource={RelativeSource FindAncestor,  AncestorType={x:Type vw:TableView}}, Path=DataContext.DeleteRowCommand}" CommandParameter="{Binding Path=.}">
+                <Label Content="X" FontSize="8" Padding="0" FontWeight="Bold" Foreground="Red" FontStyle="Italic" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Button>
+            </DataTemplate>
+          </DataGridTemplateColumn.CellTemplate>
+        </DataGridTemplateColumn>
+        <DataGridTextColumn Header="Id" MinWidth="100" Binding="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ElementStyle="{StaticResource NonEditablePrimaryKeyElementStyle}" />
+        <DataGridComboBoxColumn Header="RestaurantId" MinWidth="100" ItemsSource="{Binding Source={StaticResource boRestaurantDataProvider}}" DisplayMemberPath="Id" SelectedValuePath="Id" SelectedValueBinding="{Binding RestaurantId, UpdateSourceTrigger=PropertyChanged}" />
+        <DataGridTextColumn Header="NumberOfSeat" MinWidth="100" Binding="{Binding Path=NumberOfSeat, UpdateSourceTrigger=PropertyChanged}" ElementStyle="{StaticResource EditableElementStyle}" EditingElementStyle="{StaticResource EditingElementStyle}" />
+        <DataGridTextColumn Header="StateId" MinWidth="100" Binding="{Binding Path=StateId, UpdateSourceTrigger=PropertyChanged}" ElementStyle="{StaticResource EditableElementStyle}" EditingElementStyle="{StaticResource EditingElementStyle}" />
+      </DataGrid.Columns>
+    </DataGrid>
+    <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Stretch">
+      <Grid Margin="10,0,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="180" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="35" />
+          <RowDefinition Height="28" />
+          <RowDefinition Height="28" />
+          <RowDefinition Height="28" />
+          <RowDefinition Height="28" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Search Filter [wildcard '%']" FontSize="14" Foreground="DimGray" HorizontalAlignment="Left" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Id" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Filter.Id, Mode=TwoWay, TargetNullValue={x:Static sys:String.Empty}, UpdateSourceTrigger=PropertyChanged}" Margin="2,2,2,2" />
+        <Label Grid.Row="2" Grid.Column="0" Content="RestaurantId" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Filter.RestaurantId, Mode=TwoWay, TargetNullValue={x:Static sys:String.Empty}, UpdateSourceTrigger=PropertyChanged}" Margin="2,2,2,2" />
+        <Label Grid.Row="3" Grid.Column="0" Content="NumberOfSeat" />
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Filter.NumberOfSeat, Mode=TwoWay, TargetNullValue={x:Static sys:String.Empty}, UpdateSourceTrigger=PropertyChanged}" Margin="2,2,2,2" />
+        <Label Grid.Row="4" Grid.Column="0" Content="StateId" />
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=Filter.StateId, Mode=TwoWay, TargetNullValue={x:Static sys:String.Empty}, UpdateSourceTrigger=PropertyChanged}" Margin="2,2,2,2" />
+      </Grid>
+    </ScrollViewer>
+  </Grid>
+</UserControl>
