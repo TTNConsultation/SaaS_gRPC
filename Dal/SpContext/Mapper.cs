@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
@@ -34,7 +33,7 @@ namespace Dal.Sp
 
   public sealed class Mapper : IMapper
   {
-    private IDictionary<int, int> ReflectionMap;
+    private IDictionary<int, FieldDescriptor> FieldMap;
 
     private readonly string TypeName;
 
@@ -43,9 +42,9 @@ namespace Dal.Sp
       TypeName = typename;
     }
 
-    private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
+    private T MapAndParse<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      ReflectionMap = new Dictionary<int, int>();
+      FieldMap = new Dictionary<int, FieldDescriptor>();
       var objT = new T();
 
       for (int i = 0; i < reader.FieldCount; i++)
@@ -54,31 +53,24 @@ namespace Dal.Sp
         if (fd != null)
         {
           fd.Accessor.SetValue(objT, fd.ChangeType(reader[i]));
-          ReflectionMap.Add(i, fd.FieldNumber);
+          FieldMap.Add(i, fd);
         }
       }
 
       return objT;
     }
 
-    private T UseMap<T>(SqlDataReader reader) where T : IMessage, new()
-    {
-      var objT = new T();
-      FieldDescriptor fd;
-      foreach (var m in ReflectionMap)
-      {
-        fd = objT.Descriptor.Fields[m.Value];
-        fd.Accessor.SetValue(objT, fd.ChangeType(reader[m.Key]));
-      }
-      return objT;
-    }
-
     public T Parse<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      if (!typeof(T).Name.IsEqual(TypeName))
-        throw new Exception();
+      if (FieldMap == null)
+        return MapAndParse<T>(reader);
 
-      return (ReflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+      var objT = new T();
+      foreach (var fm in FieldMap)
+      {
+        fm.Value.Accessor.SetValue(objT, fm.Value.ChangeType(reader[fm.Key]));
+      }
+      return objT;
     }
 
     public bool IsType(string typename) => TypeName.IsEqual(typename);

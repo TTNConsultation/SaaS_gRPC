@@ -14,7 +14,7 @@ namespace Dal.Sp
   {
     private readonly SqlCommand SqlCmd;
     private readonly ISpProperty SpProperty;
-    private readonly IMapper Map;
+    private readonly IMapper FieldMap;
     private readonly string Err;
     private readonly DbContext.UserClaim UserClaim;
 
@@ -24,7 +24,7 @@ namespace Dal.Sp
 
     public int RootId() => UserClaim.RootId;
 
-    protected DbCommand(DbContext.UserClaim claim, ISpProperty spProp, IMapper map)
+    protected DbCommand(DbContext.UserClaim claim, ISpProperty spProp, ICollectionMapper reflectionMaps)
     {
       Err = new StringBuilder().Append((spProp == null) ? "store procedure not found | " : null)
                                .Append((claim == null) ? "invalid claim" : null)
@@ -34,7 +34,7 @@ namespace Dal.Sp
       {
         UserClaim = claim;
         SpProperty = spProp;
-        Map = map;
+        FieldMap = reflectionMaps.Get<T>();
         SqlCmd = SpProperty.SqlCommand(claim.ConnectionString);
         AddParameter(Constant.ROOT.Id(), claim.RootId);
       }
@@ -93,7 +93,7 @@ namespace Dal.Sp
       SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
 
-      return reader.Parse<T>(Map);
+      return reader.Parse<T>(FieldMap);
     }
 
     public async Task<IEnumerable<T>> ReadAsync()
@@ -101,7 +101,7 @@ namespace Dal.Sp
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(Map).ConfigureAwait(false);
+      return await reader.ParseAsync<T>(FieldMap).ConfigureAwait(false);
     }
 
     public virtual void Dispose()

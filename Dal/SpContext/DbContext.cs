@@ -15,31 +15,31 @@ namespace Dal.Sp
   public sealed class DbContext : IDbContext
   {
     private readonly IConnectionManager ConnectionStrings;
-    private readonly ICollectionMapper Mappers;
+    private readonly ICollectionMapper ReflectionMaps;
     private readonly ICollectionSpProperty SpProperties;
 
     public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionSpProperty spProps)
     {
       ConnectionStrings = conmanager;
-      Mappers = mappers;
+      ReflectionMaps = mappers;
       SpProperties = spProps;
     }
 
     public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>
       new ExecuteReader<T>(UserClaim.AppUser(ConnectionStrings, rootId),
                       SpProperties.Get<T>(OperationType.R),
-                      Mappers.Get<T>());
+                      ReflectionMaps);
 
     public IExecuteReader<T> ReadContext<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
       new ExecuteReader<T>(UserClaim.Get(ConnectionStrings, uc, appId),
                       SpProperties.Get<T>(op),
-                      Mappers.Get<T>());
+                      ReflectionMaps);
 
     public IExecuteNonQuery<T> WriteContext<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
       new ExecuteNonQuery<T>(UserClaim.Get(ConnectionStrings, uc, appId),
                    SpProperties.Get<T>(op),
                    SpProperties.Get<T>(OperationType.R),
-                   Mappers.Get<T>());
+                   ReflectionMaps);
 
     public sealed class UserClaim
     {
