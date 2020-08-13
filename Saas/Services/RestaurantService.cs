@@ -33,7 +33,7 @@ namespace Saas.Services
 
     public override Task<Restaurant> Get(MsgInt id, ServerCallContext context)
     {
-      using var sp = DbContext.ReadOnly<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = DbContext.ReadContext<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
       return (sp.IsReady()) ? Task.FromResult(sp.Read(id.Value))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
@@ -43,7 +43,7 @@ namespace Saas.Services
     {
       //var ctx = context.GetHttpContext().Connection.ClientCertificate;
 
-      using var sp = DbContext.ReadOnly<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = DbContext.ReadContext<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
       return (sp.IsReady()) ? new Restaurants(await sp.ReadAsync(lookupStr.Value).ConfigureAwait(false))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
@@ -52,7 +52,7 @@ namespace Saas.Services
     [Authorize(Policy = "admin")]
     public override Task<MsgInt> Create(Restaurant obj, ServerCallContext context)
     {
-      using var sp = DbContext.Write<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
+      using var sp = DbContext.WriteContext<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
 
       return (sp.IsReady()) ? Task.FromResult(new MsgInt(sp.Create(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
@@ -61,7 +61,7 @@ namespace Saas.Services
     [Authorize(Policy = "admin")]
     public override Task<MsgBool> Update(Restaurant obj, ServerCallContext context)
     {
-      using var sp = DbContext.Write<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.U);
+      using var sp = DbContext.WriteContext<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.U);
 
       return (sp.IsReady()) ? Task.FromResult(new MsgBool(sp.Update(obj)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));
@@ -70,7 +70,7 @@ namespace Saas.Services
     [Authorize(Policy = "admin")]
     public override Task<MsgBool> Delete(MsgInt id, ServerCallContext context)
     {
-      using var sp = DbContext.Write<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.D);
+      using var sp = DbContext.WriteContext<Restaurant>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.D);
 
       return (sp.IsReady()) ? Task.FromResult(new MsgBool(sp.UpdateState(id.Value, RefData.States.DeleteId)))
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error()));

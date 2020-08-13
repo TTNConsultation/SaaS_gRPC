@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dal.Sp
 {
-  public interface IReadOnly<T> : IDisposable where T : IMessage, new()
+  public interface IExecuteReader<T> : IDisposable where T : IMessage, new()
   {
     string Error();
 
@@ -41,9 +41,9 @@ namespace Dal.Sp
     Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator);
   }
 
-  internal sealed class ReadOnly<T> : Base<T>, IReadOnly<T> where T : IMessage, new()
+  internal sealed class ExecuteReader<T> : DbCommand<T>, IExecuteReader<T> where T : IMessage, new()
   {
-    public ReadOnly(DbContext.UserClaim claim, ISpProperty sp, IMapper map) : base(claim, sp, map)
+    public ExecuteReader(DbContext.UserClaim claim, ISpProperty sp, IMapper map) : base(claim, sp, map)
     {
     }
 

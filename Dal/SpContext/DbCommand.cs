@@ -10,7 +10,7 @@ namespace Dal.Sp
 {
   public enum OperationType { C, R, RR, U, D, ND }
 
-  internal abstract class Base<T> where T : IMessage, new()
+  internal abstract class DbCommand<T> where T : IMessage, new()
   {
     private readonly SqlCommand SqlCmd;
     private readonly ISpProperty SpProperty;
@@ -24,7 +24,7 @@ namespace Dal.Sp
 
     public int RootId() => UserClaim.RootId;
 
-    protected Base(DbContext.UserClaim claim, ISpProperty spProp, IMapper map)
+    protected DbCommand(DbContext.UserClaim claim, ISpProperty spProp, IMapper map)
     {
       Err = new StringBuilder().Append((spProp == null) ? "store procedure not found | " : null)
                                .Append((claim == null) ? "invalid claim" : null)

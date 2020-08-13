@@ -5,11 +5,11 @@ namespace Dal.Sp
 {
   public interface IDbContext
   {
-    IReadOnly<T> ReferenceData<T>(int rootId = 0) where T : IMessage, new();
+    IExecuteReader<T> ReferenceData<T>(int rootId = 0) where T : IMessage, new();
 
-    IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new();
+    IExecuteReader<T> ReadContext<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new();
 
-    IWrite<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new();
+    IExecuteNonQuery<T> WriteContext<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new();
   }
 
   public sealed class DbContext : IDbContext
@@ -25,18 +25,18 @@ namespace Dal.Sp
       SpProperties = spProps;
     }
 
-    public IReadOnly<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>
-      new ReadOnly<T>(UserClaim.AppUser(ConnectionStrings, rootId),
+    public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>
+      new ExecuteReader<T>(UserClaim.AppUser(ConnectionStrings, rootId),
                       SpProperties.Get<T>(OperationType.R),
                       Mappers.Get<T>());
 
-    public IReadOnly<T> ReadOnly<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
-      new ReadOnly<T>(UserClaim.Get(ConnectionStrings, uc, appId),
+    public IExecuteReader<T> ReadContext<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
+      new ExecuteReader<T>(UserClaim.Get(ConnectionStrings, uc, appId),
                       SpProperties.Get<T>(op),
                       Mappers.Get<T>());
 
-    public IWrite<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
-      new Write<T>(UserClaim.Get(ConnectionStrings, uc, appId),
+    public IExecuteNonQuery<T> WriteContext<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
+      new ExecuteNonQuery<T>(UserClaim.Get(ConnectionStrings, uc, appId),
                    SpProperties.Get<T>(op),
                    SpProperties.Get<T>(OperationType.R),
                    Mappers.Get<T>());

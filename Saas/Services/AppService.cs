@@ -50,7 +50,7 @@ namespace Saas.Services
 
     public override async Task<Dictionary> Dictionary(CodeLanguage lang, ServerCallContext context)
     {
-      using var sp = DbContext.ReadOnly<DictKeyValuePair>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = DbContext.ReadContext<DictKeyValuePair>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
       return await Task.FromResult(DictCache.Get(sp.RootId(), lang) ??
                                    DictCache.Add(new Dictionary(sp.RootId(),

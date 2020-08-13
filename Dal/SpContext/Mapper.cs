@@ -9,7 +9,7 @@ namespace Dal.Sp
 {
   public interface ICollectionMapper
   {
-    IMapper Get(string typename);
+    IMapper Get(string typeName);
 
     IMapper Get<T>() => Get(typeof(T).Name);
   }
@@ -29,7 +29,7 @@ namespace Dal.Sp
 
     private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsType(map));
 
-    public IMapper Get(string typename) => mappers.FirstOrDefault(m => m.IsType(typename)) ?? Add(new Mapper(typename));
+    public IMapper Get(string typeName) => mappers.FirstOrDefault(m => m.IsType(typeName)) ?? Add(new Mapper(typeName));
   }
 
   public sealed class Mapper : IMapper
@@ -46,35 +46,40 @@ namespace Dal.Sp
     private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
       ReflectionMap = new Dictionary<int, int>();
-      var ret = new T();
+      var objT = new T();
 
       for (int i = 0; i < reader.FieldCount; i++)
       {
-        var fd = ret.Descriptor.Fields[reader.GetName(i)];
+        var fd = objT.Descriptor.FindFieldByName(reader.GetName(i));
         if (fd != null)
         {
-          fd.Accessor.SetValue(ret, fd.ChangeType(reader[i]));
+          fd.Accessor.SetValue(objT, fd.ChangeType(reader[i]));
           ReflectionMap.Add(i, fd.FieldNumber);
         }
       }
 
-      return ret;
+      return objT;
     }
 
     private T UseMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      var ret = new T();
+      var objT = new T();
       FieldDescriptor fd;
       foreach (var m in ReflectionMap)
       {
-        fd = ret.Descriptor.Fields[m.Value];
-        fd.Accessor.SetValue(ret, fd.ChangeType(reader[m.Key]));
+        fd = objT.Descriptor.Fields[m.Value];
+        fd.Accessor.SetValue(objT, fd.ChangeType(reader[m.Key]));
       }
-      return ret;
+      return objT;
     }
 
-    public T Parse<T>(SqlDataReader reader) where T : IMessage, new() =>
-      (ReflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+    public T Parse<T>(SqlDataReader reader) where T : IMessage, new()
+    {
+      if (!typeof(T).Name.IsEqual(TypeName))
+        throw new Exception();
+
+      return (ReflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+    }
 
     public bool IsType(string typename) => TypeName.IsEqual(typename);
 
