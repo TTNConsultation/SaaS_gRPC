@@ -19,12 +19,14 @@ namespace Dal.Sp
 
     IParameter Parameter(string name);
 
-    bool IsEqual(string typename, OperationType op);
+    bool IsEqual(string spName, OperationType op);
   }
 
   public interface IParameter
   {
     bool IsEqual(string name);
+
+    bool IsSpId(int spId);
 
     SqlParameter SqlParameter(object value);
   }
@@ -60,14 +62,14 @@ namespace Dal.Sp
       while (reader.Read())
       {
         var prop = map.Parse<SpProperty>(reader);
-        prop.SetParameters(parameters.Where(p => p.SpId == prop.Id));
+        prop.SetParameters(parameters.Where(p => p.IsSpId(prop.Id)));
         ret.Add(prop);
       }
 
       return ret;
     }
 
-    private IEnumerable<SpParameter> ReadSpParameter(ICollectionMapper mappers, string conStr)
+    private IEnumerable<IParameter> ReadSpParameter(ICollectionMapper mappers, string conStr)
     {
       string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
       using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
@@ -98,7 +100,7 @@ namespace Dal.Sp
 
     public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.IsEqual(name.AsParameter()));
 
-    public bool IsEqual(string typename, OperationType op) => Type.IsEqual(typename) && Op.IsEqual(op.ToString());
+    public bool IsEqual(string spName, OperationType op) => Type.IsEqual(spName) && Op.IsEqual(op.ToString());
   }
 
   public partial class SpParameter : IParameter
@@ -117,6 +119,8 @@ namespace Dal.Sp
     {
       return Name.IsEqual(name);
     }
+
+    public bool IsSpId(int spId) => this.SpId == spId;
 
     public SqlParameter SqlParameter(object value) =>
       new SqlParameter(Name, Type.ToSqlDbType())

@@ -24,16 +24,16 @@ namespace Dal.Sp
 
     public int RootId() => UserClaim.RootId;
 
-    protected DbCommand(DbContext.UserClaim claim, ISpProperty spProp, ICollectionMapper reflectionMaps)
+    protected DbCommand(DbContext.UserClaim claim, ISpProperty sp, ICollectionMapper reflectionMaps)
     {
-      Err = new StringBuilder().Append((spProp == null) ? "store procedure not found | " : null)
+      Err = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
                                .Append((claim == null) ? "invalid claim" : null)
                                .ToString();
 
       if (IsReady())
       {
         UserClaim = claim;
-        SpProperty = spProp;
+        SpProperty = sp;
         FieldMap = reflectionMaps.Get<T>();
         SqlCmd = SpProperty.SqlCommand(claim.ConnectionString);
         AddParameter(Constant.ROOT.Id(), claim.RootId);

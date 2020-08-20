@@ -8,7 +8,7 @@ namespace Dal.Sp
   {
     string Get(string schema);
 
-    string App();
+    string App() => Get(Constant.APP);
   }
 
   public sealed class ConnectionManager : IConnectionManager
@@ -23,7 +23,5 @@ namespace Dal.Sp
     }
 
     public string Get(string schema) => ConnectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
-
-    public string App() => Get(Constant.APP);
   }
 }
