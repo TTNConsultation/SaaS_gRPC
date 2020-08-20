@@ -52,7 +52,7 @@ namespace Saas.Entity
       using var sp = context.ReferenceData<Key>(rootId);
 
       return await Task.FromResult(Cache.FirstOrDefault(c => c.Value.RootId == rootId).Value.Keys ??
-        (sp.IsReady() ? new Keys(await sp.ReadAsync().ConfigureAwait(false)) : throw new NotSupportedException())).ConfigureAwait(false);
+        (sp.IsReady ? new Keys(await sp.ReadAsync().ConfigureAwait(false)) : throw new NotSupportedException())).ConfigureAwait(false);
     }
   }
 }

@@ -5,11 +5,11 @@ namespace Dal.Sp
 {
   public interface IExecuteNonQuery<T> : IDisposable where T : IMessage, new()
   {
-    string Error();
+    string Error { get; }
 
-    int RootId();
+    int RootId { get; }
 
-    bool IsReady();
+    bool IsReady { get; }
 
     int Create(T obj);
 

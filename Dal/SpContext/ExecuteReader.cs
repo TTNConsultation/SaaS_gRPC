@@ -8,11 +8,11 @@ namespace Dal.Sp
 {
   public interface IExecuteReader<T> : IDisposable where T : IMessage, new()
   {
-    string Error();
+    string Error { get; }
 
-    int RootId();
+    int RootId { get; }
 
-    bool IsReady();
+    bool IsReady { get; }
 
     T Read(int id) => Read(Constant.ID, id).First();
 

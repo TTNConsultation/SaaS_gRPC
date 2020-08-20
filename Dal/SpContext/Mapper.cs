@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Google.Protobuf;
-using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
@@ -15,9 +14,9 @@ namespace Dal.Sp
 
   public interface IMapper
   {
-    bool IsType(string typename);
+    string TypeName { get; }
 
-    bool IsType(IMapper map);
+    bool IsEqual(IMapper map) => TypeName.IsEqual(map.TypeName);
 
     T Parse<T>(SqlDataReader reader) where T : IMessage, new();
   }
@@ -26,16 +25,16 @@ namespace Dal.Sp
   {
     private readonly HashSet<IMapper> mappers = new HashSet<IMapper>();
 
-    private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsType(map));
+    private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsEqual(map));
 
-    public IMapper Get(string typeName) => mappers.FirstOrDefault(m => m.IsType(typeName)) ?? Add(new Mapper(typeName));
+    public IMapper Get(string typeName) => mappers.FirstOrDefault(m => m.TypeName.IsEqual(typeName)) ?? Add(new Mapper(typeName));
   }
 
   public sealed class Mapper : IMapper
   {
-    private IDictionary<int, FieldDescriptor> FieldMap;
+    private IDictionary<int, int> FieldMap;
 
-    private readonly string TypeName;
+    public string TypeName { get; }
 
     internal Mapper(string typename)
     {
@@ -44,7 +43,7 @@ namespace Dal.Sp
 
     private T MapAndParse<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      FieldMap = new Dictionary<int, FieldDescriptor>();
+      FieldMap = new Dictionary<int, int>();
       var objT = new T();
 
       for (int i = 0; i < reader.FieldCount; i++)
@@ -53,7 +52,7 @@ namespace Dal.Sp
         if (fd != null)
         {
           fd.Accessor.SetValue(objT, fd.ChangeType(reader[i]));
-          FieldMap.Add(i, fd);
+          FieldMap.Add(i, fd.FieldNumber);
         }
       }
 
@@ -68,13 +67,10 @@ namespace Dal.Sp
       var objT = new T();
       foreach (var fm in FieldMap)
       {
-        fm.Value.Accessor.SetValue(objT, fm.Value.ChangeType(reader[fm.Key]));
+        var fd = objT.Descriptor.Fields[fm.Value];
+        fd.Accessor.SetValue(objT, fd.ChangeType(reader[fm.Key]));
       }
       return objT;
     }
-
-    public bool IsType(string typename) => TypeName.IsEqual(typename);
-
-    public bool IsType(IMapper map) => map.IsType(this.TypeName);
   }
 }

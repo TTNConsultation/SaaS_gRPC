@@ -52,10 +52,10 @@ namespace Saas.Services
     {
       using var sp = DbContext.ReadContext<DictKeyValuePair>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
 
-      return await Task.FromResult(DictCache.Get(sp.RootId(), lang) ??
-                                   DictCache.Add(new Dictionary(sp.RootId(),
+      return await Task.FromResult(DictCache.Get(sp.RootId, lang) ??
+                                   DictCache.Add(new Dictionary(sp.RootId,
                                                                 lang,
-                                                                await DictCache.GetKeys(sp.RootId(), DbContext).ConfigureAwait(false),
+                                                                await DictCache.GetKeys(sp.RootId, DbContext).ConfigureAwait(false),
                                                                 await sp.ReadAsync(lang.Code).ConfigureAwait(false)))
                                                                ).ConfigureAwait(false);
     }

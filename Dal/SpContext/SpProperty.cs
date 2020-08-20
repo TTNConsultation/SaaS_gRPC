@@ -24,9 +24,9 @@ namespace Dal.Sp
 
   public interface IParameter
   {
-    bool IsEqual(string name);
+    string ParameterName { get; }
 
-    bool IsSpId(int spId);
+    int StoreProcedureId { get; }
 
     SqlParameter SqlParameter(object value);
   }
@@ -62,7 +62,7 @@ namespace Dal.Sp
       while (reader.Read())
       {
         var prop = map.Parse<SpProperty>(reader);
-        prop.SetParameters(parameters.Where(p => p.IsSpId(prop.Id)));
+        prop.SetParameters(parameters.Where(p => p.StoreProcedureId == prop.Id));
         ret.Add(prop);
       }
 
@@ -85,7 +85,7 @@ namespace Dal.Sp
 
   public partial class SpProperty : ISpProperty
   {
-    private IEnumerable<IParameter> Parameters = new HashSet<IParameter>();
+    private IEnumerable<IParameter> Parameters;
 
     internal void SetParameters(IEnumerable<IParameter> pars)
     {
@@ -98,7 +98,7 @@ namespace Dal.Sp
         CommandType = CommandType.StoredProcedure,
       };
 
-    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.IsEqual(name.AsParameter()));
+    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
 
     public bool IsEqual(string spName, OperationType op) => Type.IsEqual(spName) && Op.IsEqual(op.ToString());
   }
@@ -115,12 +115,9 @@ namespace Dal.Sp
       return size <= Precision ? size : -1;
     }
 
-    public bool IsEqual(string name)
-    {
-      return Name.IsEqual(name);
-    }
+    public string ParameterName => this.Name;
 
-    public bool IsSpId(int spId) => this.SpId == spId;
+    public int StoreProcedureId => this.SpId;
 
     public SqlParameter SqlParameter(object value) =>
       new SqlParameter(Name, Type.ToSqlDbType())

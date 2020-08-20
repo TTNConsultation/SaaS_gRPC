@@ -15,28 +15,24 @@ namespace Dal.Sp
     private readonly SqlCommand SqlCmd;
     private readonly ISpProperty SpProperty;
     private readonly IMapper FieldMap;
-    private readonly string Err;
-    private readonly DbContext.UserClaim UserClaim;
 
-    public bool IsReady() => string.IsNullOrEmpty(Err);
-
-    public string Error() => Err;
-
-    public int RootId() => UserClaim.RootId;
+    public string Error { get; }
+    public int RootId { get; }
+    public bool IsReady => string.IsNullOrEmpty(Error);
 
     protected DbCommand(DbContext.UserClaim claim, ISpProperty sp, ICollectionMapper reflectionMaps)
     {
-      Err = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
+      Error = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
                                .Append((claim == null) ? "invalid claim" : null)
                                .ToString();
 
-      if (IsReady())
+      if (IsReady)
       {
-        UserClaim = claim;
+        RootId = claim.RootId;
         SpProperty = sp;
         FieldMap = reflectionMaps.Get<T>();
         SqlCmd = SpProperty.SqlCommand(claim.ConnectionString);
-        AddParameter(Constant.ROOT.Id(), claim.RootId);
+        AddParameter(Constant.ROOT.Id(), RootId);
       }
     }
 
