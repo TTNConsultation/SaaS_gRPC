@@ -1,11 +1,14 @@
-﻿using Dal.Sp;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using Dal.Sp;
+
+using Saas.Entity.Language;
 
 using static Saas.Entity.Reference.KeyTypes.Types;
 using static Saas.Entity.Reference.States.Types;
 using static Saas.Entity.Language.SupportedLanguages.Types;
-using Saas.Entity.Language;
 
 namespace Saas.Entity.Reference
 {
@@ -32,10 +35,17 @@ namespace Saas.Entity.Reference
 
     public References(IDbContext context)
     {
-      AppSetting = context.ReferenceData<AppSetting>().Read().First();
-      States = new States(context.ReferenceData<State>().Read());
-      Languages = new SupportedLanguages(context.ReferenceData<CodeLanguage>().Read());
-      KeyTypes = new KeyTypes(context.ReferenceData<KeyType>().Read());
+      using var appSettingCtx = context.ReferenceData<AppSetting>();
+      AppSetting = (appSettingCtx.IsReady) ? appSettingCtx.Read().First() : throw new NotSupportedException();
+
+      using var stateCtx = context.ReferenceData<State>();
+      States = (stateCtx.IsReady) ? new States(stateCtx.Read()) : throw new NotSupportedException();
+
+      using var codeLanguageCtx = context.ReferenceData<CodeLanguage>();
+      Languages = (codeLanguageCtx.IsReady) ? new SupportedLanguages(codeLanguageCtx.Read()) : throw new NotSupportedException();
+
+      using var keyTypeCtx = context.ReferenceData<KeyType>();
+      KeyTypes = (keyTypeCtx.IsReady) ? new KeyTypes(keyTypeCtx.Read()) : throw new NotSupportedException();
     }
   }
 }

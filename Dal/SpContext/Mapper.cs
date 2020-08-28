@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Google.Protobuf;
+using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
@@ -15,6 +16,8 @@ namespace Dal.Sp
   public interface IMapper
   {
     string TypeName { get; }
+
+    bool IsType<T>() where T : IMessage => TypeName.IsEqual(typeof(T).Name);
 
     bool IsEqual(IMapper map) => TypeName.IsEqual(map.TypeName);
 
@@ -36,7 +39,7 @@ namespace Dal.Sp
 
     public string TypeName { get; }
 
-    internal Mapper(string typename)
+    public Mapper(string typename)
     {
       TypeName = typename;
     }
@@ -65,11 +68,14 @@ namespace Dal.Sp
         return MapAndParse<T>(reader);
 
       var objT = new T();
+      FieldDescriptor fd;
+
       foreach (var fm in FieldMap)
       {
-        var fd = objT.Descriptor.Fields[fm.Value];
+        fd = objT.Descriptor.Fields[fm.Value];
         fd.Accessor.SetValue(objT, fd.ChangeType(reader[fm.Key]));
       }
+
       return objT;
     }
   }

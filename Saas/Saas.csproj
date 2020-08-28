@@ -12,10 +12,10 @@
     <NoWarn>1701;1702;CS8603;CS8604;CS8618;CS8602</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.30.0" />
-    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.30.0" />
-    <PackageReference Include="Google.Protobuf" Version="3.12.4" />
-    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.30.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.31.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.31.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.13.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.31.0" />
     <PackageReference Include="Grpc.Tools" Version="2.31.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

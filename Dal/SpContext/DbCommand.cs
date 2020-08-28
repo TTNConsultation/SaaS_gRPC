@@ -45,11 +45,12 @@ namespace Dal.Sp
 
     protected bool AddParameters(T obj)
     {
-      foreach (var prop in obj.GetType().GetProperties())
+      foreach (var fd in obj.Descriptor.Fields.InDeclarationOrder())
       {
-        if (!AddParameter(prop.Name, prop.GetValue(obj)))
+        if (!AddParameter(fd.Name, fd.Accessor.GetValue(obj)))
           return false;
       }
+
       return true;
     }
 
@@ -89,7 +90,7 @@ namespace Dal.Sp
       SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
 
-      return reader.Parse<T>(FieldMap);
+      return (reader.HasRows) ? reader.Parse<T>(FieldMap) : new HashSet<T>();
     }
 
     public async Task<IEnumerable<T>> ReadAsync()
@@ -97,7 +98,7 @@ namespace Dal.Sp
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(FieldMap).ConfigureAwait(false);
+      return (reader.HasRows) ? await reader.ParseAsync<T>(FieldMap).ConfigureAwait(false) : new HashSet<T>();
     }
 
     public virtual void Dispose()

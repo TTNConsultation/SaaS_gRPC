@@ -78,6 +78,9 @@ namespace Dal
 
     public static IEnumerable<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
     {
+      //if (!map.IsType<T>())
+      //  throw new NotSupportedException();
+
       var ret = new HashSet<T>();
 
       while (reader.Read())
@@ -90,6 +93,9 @@ namespace Dal
 
     public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
     {
+      //if (!map.IsType<T>())
+      //  throw new NotSupportedException();
+
       var ret = new HashSet<T>();
 
       while (await reader.ReadAsync().ConfigureAwait(false))

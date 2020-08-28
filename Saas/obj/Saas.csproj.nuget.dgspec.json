@@ -47,7 +47,7 @@
           "dependencies": {
             "Google.Protobuf": {
               "target": "Package",
-              "version": "[3.12.4, )"
+              "version": "[3.13.0, )"
             },
             "Grpc.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -134,19 +134,19 @@
           "dependencies": {
             "Google.Protobuf": {
               "target": "Package",
-              "version": "[3.12.4, )"
+              "version": "[3.13.0, )"
             },
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.30.0, )"
+              "version": "[2.31.0, )"
             },
             "Grpc.AspNetCore.Server": {
               "target": "Package",
-              "version": "[2.30.0, )"
+              "version": "[2.31.0, )"
             },
             "Grpc.AspNetCore.Web": {
               "target": "Package",
-              "version": "[2.30.0, )"
+              "version": "[2.31.0, )"
             },
             "Grpc.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

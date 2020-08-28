@@ -6,7 +6,7 @@ package Sp;
 
 message SpProperty{
     int32 Id = 1;
-    string FullName = 2;    
+    string FullName = 2;
     string Schema = 3;
     string Type = 4;
     string Op = 5;

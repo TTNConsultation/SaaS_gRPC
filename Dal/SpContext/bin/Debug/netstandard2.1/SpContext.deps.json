@@ -9,7 +9,7 @@
     ".NETStandard,Version=v2.1/": {
       "SpContext/1.0.0": {
         "dependencies": {
-          "Google.Protobuf": "3.12.4",
+          "Google.Protobuf": "3.13.0",
           "Grpc.Tools": "2.31.0",
           "Microsoft.Data.SqlClient": "2.0.0",
           "Microsoft.Extensions.Configuration": "3.1.7",
@@ -19,14 +19,15 @@
           "SpContext.dll": {}
         }
       },
-      "Google.Protobuf/3.12.4": {
+      "Google.Protobuf/3.13.0": {
         "dependencies": {
-          "System.Memory": "4.5.4"
+          "System.Memory": "4.5.4",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.1"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Protobuf.dll": {
-            "assemblyVersion": "3.12.4.0",
-            "fileVersion": "3.12.4.0"
+            "assemblyVersion": "3.13.0.0",
+            "fileVersion": "3.13.0.0"
           }
         }
       },
@@ -1193,12 +1194,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Google.Protobuf/3.12.4": {
+    "Google.Protobuf/3.13.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Vl0FuEKLBQp6WOFacaRXnwSlnBKwYtoWtSK0tErYBcLvipbx5Jdq3V17xLHsUUluF/ZOSyjZ2L2skCVxwGNhZw==",
-      "path": "google.protobuf/3.12.4",
-      "hashPath": "google.protobuf.3.12.4.nupkg.sha512"
+      "sha512": "sha512-/6VgKCh0P59x/rYsBkCvkUanF0TeUYzwV9hzLIWgt23QRBaKHoxaaMkidEWhKibLR88c3PVCXyyrx9Xlb+Ne6w==",
+      "path": "google.protobuf/3.13.0",
+      "hashPath": "google.protobuf.3.13.0.nupkg.sha512"
     },
     "Grpc.Tools/2.31.0": {
       "type": "package",

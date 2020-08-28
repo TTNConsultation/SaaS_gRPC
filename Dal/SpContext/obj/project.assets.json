@@ -2,10 +2,11 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.1": {
-      "Google.Protobuf/3.12.4": {
+      "Google.Protobuf/3.13.0": {
         "type": "package",
         "dependencies": {
-          "System.Memory": "4.5.2"
+          "System.Memory": "4.5.2",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
         },
         "compile": {
           "lib/netstandard2.0/Google.Protobuf.dll": {}
@@ -1649,21 +1650,21 @@
     }
   },
   "libraries": {
-    "Google.Protobuf/3.12.4": {
-      "sha512": "Vl0FuEKLBQp6WOFacaRXnwSlnBKwYtoWtSK0tErYBcLvipbx5Jdq3V17xLHsUUluF/ZOSyjZ2L2skCVxwGNhZw==",
+    "Google.Protobuf/3.13.0": {
+      "sha512": "/6VgKCh0P59x/rYsBkCvkUanF0TeUYzwV9hzLIWgt23QRBaKHoxaaMkidEWhKibLR88c3PVCXyyrx9Xlb+Ne6w==",
       "type": "package",
-      "path": "google.protobuf/3.12.4",
+      "path": "google.protobuf/3.13.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.12.4.nupkg.sha512",
+        "google.protobuf.3.13.0.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
         "lib/net45/Google.Protobuf.xml",
-        "lib/netstandard1.0/Google.Protobuf.dll",
-        "lib/netstandard1.0/Google.Protobuf.pdb",
-        "lib/netstandard1.0/Google.Protobuf.xml",
+        "lib/netstandard1.1/Google.Protobuf.dll",
+        "lib/netstandard1.1/Google.Protobuf.pdb",
+        "lib/netstandard1.1/Google.Protobuf.xml",
         "lib/netstandard2.0/Google.Protobuf.dll",
         "lib/netstandard2.0/Google.Protobuf.pdb",
         "lib/netstandard2.0/Google.Protobuf.xml"
@@ -6021,7 +6022,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
-      "Google.Protobuf >= 3.12.4",
+      "Google.Protobuf >= 3.13.0",
       "Grpc.Tools >= 2.31.0",
       "Microsoft.Data.SqlClient >= 2.0.0",
       "Microsoft.Extensions.Configuration >= 3.1.7",
@@ -6076,7 +6077,7 @@
         "dependencies": {
           "Google.Protobuf": {
             "target": "Package",
-            "version": "[3.12.4, )"
+            "version": "[3.13.0, )"
           },
           "Grpc.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
