@@ -72,20 +72,21 @@ namespace Dal
         "varchar" => SqlDbType.VarChar,
         "nvarchar" => SqlDbType.NVarChar,
         "char" => SqlDbType.Char,
+        "float" => SqlDbType.Float,
         _ => throw new InvalidCastException()
       };
     }
 
     public static IEnumerable<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
     {
-      //if (!map.IsType<T>())
-      //  throw new NotSupportedException();
-
       var ret = new HashSet<T>();
 
-      while (reader.Read())
+      if (reader.HasRows)
       {
-        ret.Add(map.Parse<T>(reader));
+        while (reader.Read())
+        {
+          ret.Add(map.Parse<T>(reader));
+        }
       }
 
       return ret;
@@ -93,14 +94,14 @@ namespace Dal
 
     public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
     {
-      //if (!map.IsType<T>())
-      //  throw new NotSupportedException();
-
       var ret = new HashSet<T>();
 
-      while (await reader.ReadAsync().ConfigureAwait(false))
+      if (reader.HasRows)
       {
-        ret.Add(map.Parse<T>(reader));
+        while (await reader.ReadAsync().ConfigureAwait(false))
+        {
+          ret.Add(map.Parse<T>(reader));
+        }
       }
 
       return ret;

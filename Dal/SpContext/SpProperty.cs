@@ -44,16 +44,17 @@ namespace Dal.Sp
 
     private IEnumerable<ISpProperty> Read(ICollectionMapper mappers, string conStr)
     {
-      var parameters = ReadSpParameter(mappers, conStr);
+      var parameters = ReadSpParameter(mappers.Get<SpParameter>(), conStr);
 
       string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
 
-      using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
+      using var sqlCon = new SqlConnection(conStr);
+      var sqlcmd = new SqlCommand(spName, sqlCon)
       {
         CommandType = CommandType.StoredProcedure
       };
 
-      sqlcmd.Connection.Open();
+      sqlCon.Open();
       using var reader = sqlcmd.ExecuteReader();
 
       var ret = new HashSet<ISpProperty>();
@@ -69,17 +70,18 @@ namespace Dal.Sp
       return ret;
     }
 
-    private IEnumerable<IParameter> ReadSpParameter(ICollectionMapper mappers, string conStr)
+    private IEnumerable<IParameter> ReadSpParameter(IMapper map, string conStr)
     {
       string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
-      using var sqlcmd = new SqlCommand(spName, new SqlConnection(conStr))
+      using var sqlcon = new SqlConnection(conStr);
+      var sqlcmd = new SqlCommand(spName, sqlcon)
       {
         CommandType = CommandType.StoredProcedure
       };
-      sqlcmd.Connection.Open();
+      sqlcon.Open();
 
       using var reader = sqlcmd.ExecuteReader();
-      return reader.Parse<SpParameter>(mappers.Get<SpParameter>());
+      return reader.Parse<SpParameter>(map);
     }
   }
 

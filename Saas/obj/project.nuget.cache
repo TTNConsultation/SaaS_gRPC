@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Pj77EVF8w8L1Nc3JT9Rg0cmo70+1uliipHP/LMv6Zk/UIqGvcr+/VWd/fT0Ivu7e29eJYLwFyE+Du0SUUDlwgA==",
+  "dgSpecHash": "AjpNWeUyu4J0ktO34SFSo7cbCsB76Gze2cQiqja3Yx2E8MJOhKfN911sRB2ZVL7ySDw0OvMShbV4p7ynPDIwnQ==",
   "success": true,
   "projectFilePath": "G:\\Dev\\SaaS\\Saas\\Saas.csproj",
   "expectedPackageFiles": [
@@ -23,8 +23,8 @@
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.7\\microsoft.aspnetcore.authentication.jwtbearer.3.1.7.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
-    "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.0\\microsoft.data.sqlclient.2.0.0.nupkg.sha512",
-    "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.0\\microsoft.data.sqlclient.sni.runtime.2.0.0.nupkg.sha512",
+    "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
+    "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.7\\microsoft.extensions.configuration.3.1.7.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.7\\microsoft.extensions.configuration.abstractions.3.1.7.nupkg.sha512",
     "C:\\Users\\Yummi\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.7\\microsoft.extensions.configuration.binder.3.1.7.nupkg.sha512",

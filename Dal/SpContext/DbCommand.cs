@@ -90,7 +90,7 @@ namespace Dal.Sp
       SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
 
-      return (reader.HasRows) ? reader.Parse<T>(FieldMap) : new HashSet<T>();
+      return reader.Parse<T>(FieldMap);
     }
 
     public async Task<IEnumerable<T>> ReadAsync()
@@ -98,7 +98,7 @@ namespace Dal.Sp
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return (reader.HasRows) ? await reader.ParseAsync<T>(FieldMap).ConfigureAwait(false) : new HashSet<T>();
+      return await reader.ParseAsync<T>(FieldMap).ConfigureAwait(false);
     }
 
     public virtual void Dispose()
