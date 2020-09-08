@@ -81,12 +81,9 @@ namespace Dal
     {
       var ret = new HashSet<T>();
 
-      if (reader.HasRows)
+      while (reader.Read())
       {
-        while (reader.Read())
-        {
-          ret.Add(map.Parse<T>(reader));
-        }
+        ret.Add(map.Parse<T>(reader));
       }
 
       return ret;
@@ -96,12 +93,9 @@ namespace Dal
     {
       var ret = new HashSet<T>();
 
-      if (reader.HasRows)
+      while (await reader.ReadAsync().ConfigureAwait(false))
       {
-        while (await reader.ReadAsync().ConfigureAwait(false))
-        {
-          ret.Add(map.Parse<T>(reader));
-        }
+        ret.Add(map.Parse<T>(reader));
       }
 
       return ret;

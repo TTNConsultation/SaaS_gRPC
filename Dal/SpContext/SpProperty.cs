@@ -63,7 +63,7 @@ namespace Dal.Sp
       while (reader.Read())
       {
         var prop = map.Parse<SpProperty>(reader);
-        prop.SetParameters(parameters.Where(p => p.StoreProcedureId == prop.Id));
+        prop.Parameters = parameters.Where(p => p.StoreProcedureId == prop.Id);
         ret.Add(prop);
       }
 
@@ -87,12 +87,7 @@ namespace Dal.Sp
 
   public partial class SpProperty : ISpProperty
   {
-    private IEnumerable<IParameter> Parameters;
-
-    internal void SetParameters(IEnumerable<IParameter> pars)
-    {
-      Parameters = pars ?? new HashSet<IParameter>();
-    }
+    internal IEnumerable<IParameter> Parameters { private get; set; }
 
     public SqlCommand SqlCommand(string conStr) =>
       new SqlCommand(FullName, new SqlConnection(conStr))
@@ -114,7 +109,7 @@ namespace Dal.Sp
 
       var size = value.ToString().Length;
 
-      return size <= Precision ? size : -1;
+      return size <= MaxLength ? size : -1;
     }
 
     public string ParameterName => this.Name;

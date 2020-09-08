@@ -17,8 +17,6 @@ namespace Dal.Sp
   {
     string TypeName { get; }
 
-    bool IsType<T>() where T : IMessage => TypeName.IsEqual(typeof(T).Name);
-
     bool IsEqual(IMapper map) => TypeName.IsEqual(map.TypeName);
 
     T Parse<T>(SqlDataReader reader) where T : IMessage, new();
@@ -44,7 +42,7 @@ namespace Dal.Sp
       TypeName = typename;
     }
 
-    private T MapAndParse<T>(SqlDataReader reader) where T : IMessage, new()
+    private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
       FieldMap = new Dictionary<int, int>();
       var objT = new T();
@@ -62,11 +60,8 @@ namespace Dal.Sp
       return objT;
     }
 
-    public T Parse<T>(SqlDataReader reader) where T : IMessage, new()
+    private T UseMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      if (FieldMap == null)
-        return MapAndParse<T>(reader);
-
       var objT = new T();
       FieldDescriptor fd;
 
@@ -78,5 +73,8 @@ namespace Dal.Sp
 
       return objT;
     }
+
+    public T Parse<T>(SqlDataReader reader) where T : IMessage, new() =>
+      (FieldMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
   }
 }
