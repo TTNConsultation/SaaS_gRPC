@@ -5,7 +5,6 @@ using Grpc.Core;
 using Microsoft.Extensions.Logging;
 
 using Saas.gRPC;
-using Saas.Entity;
 using Saas.Message.Administrator;
 using Saas.Message.Common;
 using Saas.Message.Reference;
@@ -15,7 +14,6 @@ using Dal.Sp;
 using static Saas.Message.Administrator.Menus.Types;
 using static Saas.Message.Administrator.RestaurantMenus.Types;
 using static Saas.Message.Administrator.Restaurants.Types;
-using static Saas.Message.Language.SupportedLanguages.Types;
 
 namespace Saas.Services
 {

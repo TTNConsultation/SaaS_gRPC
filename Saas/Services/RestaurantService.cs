@@ -8,7 +8,6 @@ using Grpc.Core;
 using Saas.gRPC;
 using Saas.Message.Administrator;
 using Saas.Message.Common;
-using Saas.Entity;
 using Saas.Message.Reference;
 
 using Dal.Sp;

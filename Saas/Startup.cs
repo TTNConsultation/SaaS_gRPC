@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http;
 using IdentityServer4.AccessTokenValidation;
 
 using Saas.Services;
-using Saas.Entity;
 using Dal.Sp;
 
 namespace Saas
