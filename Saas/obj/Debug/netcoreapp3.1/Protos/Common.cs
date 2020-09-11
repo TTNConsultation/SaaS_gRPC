@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Saas.Entity.Common {
+namespace Saas.Message.Common {
 
   /// <summary>Holder for reflection information generated from Protos/common.proto</summary>
   public static partial class CommonReflection {
@@ -26,15 +26,15 @@ namespace Saas.Entity.Common {
           string.Concat(
             "ChNQcm90b3MvY29tbW9uLnByb3RvEgZDb21tb24iFwoGTXNnSW50Eg0KBVZh",
             "bHVlGAEgASgFIhgKB01zZ0Jvb2wSDQoFVmFsdWUYASABKAgiGgoJTXNnU3Ry",
-            "aW5nEg0KBVZhbHVlGAEgASgJIgoKCE1zZ0VtcHR5QhWqAhJTYWFzLkVudGl0",
-            "eS5Db21tb25iBnByb3RvMw=="));
+            "aW5nEg0KBVZhbHVlGAEgASgJIgoKCE1zZ0VtcHR5QhaqAhNTYWFzLk1lc3Nh",
+            "Z2UuQ29tbW9uYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Common.MsgInt), global::Saas.Entity.Common.MsgInt.Parser, new[]{ "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Common.MsgBool), global::Saas.Entity.Common.MsgBool.Parser, new[]{ "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Common.MsgString), global::Saas.Entity.Common.MsgString.Parser, new[]{ "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Common.MsgEmpty), global::Saas.Entity.Common.MsgEmpty.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Common.MsgInt), global::Saas.Message.Common.MsgInt.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Common.MsgBool), global::Saas.Message.Common.MsgBool.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Common.MsgString), global::Saas.Message.Common.MsgString.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Common.MsgEmpty), global::Saas.Message.Common.MsgEmpty.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -49,7 +49,7 @@ namespace Saas.Entity.Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Common.CommonReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Saas.Message.Common.CommonReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -178,7 +178,7 @@ namespace Saas.Entity.Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Common.CommonReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Saas.Message.Common.CommonReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -307,7 +307,7 @@ namespace Saas.Entity.Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Common.CommonReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Saas.Message.Common.CommonReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -436,7 +436,7 @@ namespace Saas.Entity.Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Common.CommonReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Saas.Message.Common.CommonReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

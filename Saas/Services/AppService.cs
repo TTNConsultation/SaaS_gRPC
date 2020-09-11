@@ -4,12 +4,12 @@ using Microsoft.Extensions.Logging;
 
 using Saas.gRPC;
 using Saas.Entity;
-using Saas.Entity.Common;
-using Saas.Entity.Language;
-using Saas.Entity.Reference;
+using Saas.Message.Common;
+using Saas.Message.Language;
+using Saas.Message.Reference;
 using Dal.Sp;
-using static Saas.Entity.Language.SupportedLanguages.Types;
-using static Saas.Entity.Language.Dictionary.Types;
+using static Saas.Message.Language.SupportedLanguages.Types;
+using static Saas.Message.Language.Dictionary.Types;
 
 namespace Saas.Services
 {

@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Authorization;
 using Grpc.Core;
 
 using Saas.gRPC;
-using Saas.Entity.Administrator;
-using Saas.Entity.Common;
+using Saas.Message.Administrator;
+using Saas.Message.Common;
 using Saas.Entity;
-using Saas.Entity.Reference;
+using Saas.Message.Reference;
 
 using Dal.Sp;
 
-using static Saas.Entity.Administrator.Restaurants.Types;
+using static Saas.Message.Administrator.Restaurants.Types;
 
 namespace Saas.Services
 {

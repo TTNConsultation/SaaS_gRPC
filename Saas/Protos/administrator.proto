@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Saas.Entity.Administrator";
+option csharp_namespace = "Saas.Message.Administrator";
 
 package Administrator;
 

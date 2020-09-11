@@ -1,4 +1,4 @@
-﻿namespace Saas.Entity.Common
+﻿namespace Saas.Message.Common
 {
   public partial class MsgInt
   {

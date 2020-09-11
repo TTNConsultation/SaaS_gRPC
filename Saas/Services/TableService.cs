@@ -3,16 +3,16 @@ using Grpc.Core;
 
 using Saas.Entity;
 
-using Saas.Entity.Administrator;
-using Saas.Entity.Common;
-using Saas.Entity.Reference;
+using Saas.Message.Administrator;
+using Saas.Message.Common;
+using Saas.Message.Reference;
 
 using Dal.Sp;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-using static Saas.Entity.Administrator.Tables.Types;
-using static Saas.Entity.Administrator.Restaurants.Types;
+using static Saas.Message.Administrator.Tables.Types;
+using static Saas.Message.Administrator.Restaurants.Types;
 
 namespace Saas.Services
 {

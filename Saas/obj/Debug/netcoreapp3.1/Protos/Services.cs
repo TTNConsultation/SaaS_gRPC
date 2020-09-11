@@ -79,7 +79,7 @@ namespace Saas.gRPC {
             "dWFnZRoULkxhbmd1YWdlLkRpY3Rpb25hcnlCDKoCCVNhYXMuZ1JQQ2IGcHJv",
             "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Saas.Entity.Common.CommonReflection.Descriptor, global::Saas.Entity.Language.LanguageReflection.Descriptor, global::Saas.Entity.Reference.ReferenceReflection.Descriptor, global::Saas.Entity.Administrator.AdministratorReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Saas.Message.Common.CommonReflection.Descriptor, global::Saas.Message.Language.LanguageReflection.Descriptor, global::Saas.Message.Reference.ReferenceReflection.Descriptor, global::Saas.Message.Administrator.AdministratorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, null));
     }
     #endregion

@@ -6,16 +6,16 @@ using Grpc.Core;
 using Dal.Sp;
 
 using Saas.gRPC;
-using Saas.Entity.Administrator;
-using Saas.Entity.Common;
+using Saas.Message.Administrator;
+using Saas.Message.Common;
 using Saas.Entity;
-using Saas.Entity.Reference;
+using Saas.Message.Reference;
 
-using static Saas.Entity.Administrator.Items.Types;
-using static Saas.Entity.Administrator.MenuItems.Types;
-using static Saas.Entity.Administrator.Menus.Types;
-using static Saas.Entity.Administrator.Restaurants.Types;
-using static Saas.Entity.Administrator.RestaurantMenus.Types;
+using static Saas.Message.Administrator.Items.Types;
+using static Saas.Message.Administrator.MenuItems.Types;
+using static Saas.Message.Administrator.Menus.Types;
+using static Saas.Message.Administrator.Restaurants.Types;
+using static Saas.Message.Administrator.RestaurantMenus.Types;
 
 namespace Saas.Services
 {

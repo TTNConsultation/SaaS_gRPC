@@ -1,6 +1,6 @@
-﻿using Saas.Entity.Administrator;
-using Saas.Entity.Common;
-using Saas.Entity.Reference;
+﻿using Saas.Message.Administrator;
+using Saas.Message.Common;
+using Saas.Message.Reference;
 using Saas.Entity;
 
 using Saas.gRPC;
@@ -10,8 +10,8 @@ using Dal.Sp;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-using static Saas.Entity.Administrator.RestaurantMenus.Types;
-using static Saas.Entity.Administrator.Restaurants.Types;
+using static Saas.Message.Administrator.RestaurantMenus.Types;
+using static Saas.Message.Administrator.Restaurants.Types;
 
 namespace Saas.Services
 {

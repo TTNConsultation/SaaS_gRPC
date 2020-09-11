@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Dal.Sp;
-using Saas.Entity.Language;
-using Saas.Entity.Reference;
+using Saas.Message.Language;
+using Saas.Message.Reference;
 
-using static Saas.Entity.Language.Keys.Types;
-using static Saas.Entity.Language.SupportedLanguages.Types;
+using static Saas.Message.Language.Keys.Types;
+using static Saas.Message.Language.SupportedLanguages.Types;
 
 namespace Saas.Entity
 {

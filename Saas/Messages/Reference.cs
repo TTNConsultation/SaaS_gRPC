@@ -4,13 +4,13 @@ using System.Linq;
 
 using Dal.Sp;
 
-using Saas.Entity.Language;
+using Saas.Message.Language;
 
-using static Saas.Entity.Reference.KeyTypes.Types;
-using static Saas.Entity.Reference.States.Types;
-using static Saas.Entity.Language.SupportedLanguages.Types;
+using static Saas.Message.Reference.KeyTypes.Types;
+using static Saas.Message.Reference.States.Types;
+using static Saas.Message.Language.SupportedLanguages.Types;
 
-namespace Saas.Entity.Reference
+namespace Saas.Message.Reference
 {
   public partial class States
   {

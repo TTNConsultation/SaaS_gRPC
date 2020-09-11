@@ -12,6 +12,12 @@
     <NoWarn>1701;1702;CS8603;CS8604;CS8618;CS8602</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Db\**" />
+    <Content Remove="Db\**" />
+    <EmbeddedResource Remove="Db\**" />
+    <None Remove="Db\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.31.0" />
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.31.0" />
     <PackageReference Include="Google.Protobuf" Version="3.13.0" />

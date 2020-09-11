@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Saas.Entity.Common";
+option csharp_namespace = "Saas.Message.Common";
 
 package Common;
 

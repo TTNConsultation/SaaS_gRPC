@@ -6,16 +6,16 @@ using Microsoft.Extensions.Logging;
 
 using Saas.gRPC;
 using Saas.Entity;
-using Saas.Entity.Administrator;
-using Saas.Entity.Common;
-using Saas.Entity.Reference;
+using Saas.Message.Administrator;
+using Saas.Message.Common;
+using Saas.Message.Reference;
 
 using Dal.Sp;
 
-using static Saas.Entity.Administrator.Menus.Types;
-using static Saas.Entity.Administrator.RestaurantMenus.Types;
-using static Saas.Entity.Administrator.Restaurants.Types;
-using static Saas.Entity.Language.SupportedLanguages.Types;
+using static Saas.Message.Administrator.Menus.Types;
+using static Saas.Message.Administrator.RestaurantMenus.Types;
+using static Saas.Message.Administrator.Restaurants.Types;
+using static Saas.Message.Language.SupportedLanguages.Types;
 
 namespace Saas.Services
 {

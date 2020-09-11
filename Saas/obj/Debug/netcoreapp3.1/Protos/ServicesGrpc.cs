@@ -12,41 +12,41 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.RestaurantSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant> __Marshaller_Administrator_Restaurants_Restaurant = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgString> __Marshaller_Common_MsgString = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgString.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Restaurants> __Marshaller_Administrator_Restaurants = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Restaurants.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgBool.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> __Marshaller_Administrator_Restaurants_Restaurant = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Restaurants.Types.Restaurant.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgString> __Marshaller_Common_MsgString = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgString.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Restaurants> __Marshaller_Administrator_Restaurants = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Restaurants.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgBool.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Restaurants.Types.Restaurant> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Restaurants.Types.Restaurant>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Restaurants.Types.Restaurant> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Restaurants.Types.Restaurant>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Restaurants_Restaurant);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgString, global::Saas.Entity.Administrator.Restaurants> __Method_Lookup = new grpc::Method<global::Saas.Entity.Common.MsgString, global::Saas.Entity.Administrator.Restaurants>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgString, global::Saas.Message.Administrator.Restaurants> __Method_Lookup = new grpc::Method<global::Saas.Message.Common.MsgString, global::Saas.Message.Administrator.Restaurants>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Lookup",
         __Marshaller_Common_MsgString,
         __Marshaller_Administrator_Restaurants);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant, global::Saas.Entity.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Restaurants.Types.Restaurant, global::Saas.Message.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Message.Administrator.Restaurants.Types.Restaurant, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Restaurants_Restaurant,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant, global::Saas.Entity.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant, global::Saas.Entity.Common.MsgBool>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Restaurants.Types.Restaurant, global::Saas.Message.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Message.Administrator.Restaurants.Types.Restaurant, global::Saas.Message.Common.MsgBool>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
         __Marshaller_Administrator_Restaurants_Restaurant,
         __Marshaller_Common_MsgBool);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgBool> __Method_Delete = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgBool>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgBool> __Method_Delete = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgBool>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Delete",
@@ -63,27 +63,27 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(RestaurantSvc), "BindService")]
     public abstract partial class RestaurantSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant> Get(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> Get(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Restaurants> Lookup(global::Saas.Entity.Common.MsgString request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Restaurants> Lookup(global::Saas.Message.Common.MsgString request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Create(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Create(global::Saas.Message.Administrator.Restaurants.Types.Restaurant request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgBool> Update(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgBool> Update(global::Saas.Message.Administrator.Restaurants.Types.Restaurant request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgBool> Delete(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgBool> Delete(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -108,11 +108,11 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, RestaurantSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Restaurants.Types.Restaurant>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_Lookup, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgString, global::Saas.Entity.Administrator.Restaurants>(serviceImpl.Lookup));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant, global::Saas.Entity.Common.MsgBool>(serviceImpl.Update));
-      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgBool>(serviceImpl.Delete));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Restaurants.Types.Restaurant>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_Lookup, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgString, global::Saas.Message.Administrator.Restaurants>(serviceImpl.Lookup));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Restaurants.Types.Restaurant, global::Saas.Message.Common.MsgInt>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Restaurants.Types.Restaurant, global::Saas.Message.Common.MsgBool>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgBool>(serviceImpl.Delete));
     }
 
   }
@@ -120,40 +120,40 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.TableSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Tables.Types.Table> __Marshaller_Administrator_Tables_Table = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Tables.Types.Table.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Tables> __Marshaller_Administrator_Tables = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Tables.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgBool.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Tables.Types.Table> __Marshaller_Administrator_Tables_Table = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Tables.Types.Table.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Tables> __Marshaller_Administrator_Tables = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Tables.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgBool.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Tables.Types.Table> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Tables.Types.Table>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables.Types.Table> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables.Types.Table>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Tables_Table);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Tables> __Method_GetByRestaurant = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Tables>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables> __Method_GetByRestaurant = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Tables);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Tables.Types.Table, global::Saas.Entity.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Entity.Administrator.Tables.Types.Table, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Tables.Types.Table, global::Saas.Message.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Message.Administrator.Tables.Types.Table, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Tables_Table,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Tables.Types.Table, global::Saas.Entity.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.Tables.Types.Table, global::Saas.Entity.Common.MsgBool>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Tables.Types.Table, global::Saas.Message.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Message.Administrator.Tables.Types.Table, global::Saas.Message.Common.MsgBool>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
         __Marshaller_Administrator_Tables_Table,
         __Marshaller_Common_MsgBool);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgBool> __Method_Delete = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgBool>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgBool> __Method_Delete = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgBool>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Delete",
@@ -170,27 +170,27 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(TableSvc), "BindService")]
     public abstract partial class TableSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Tables.Types.Table> Get(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Tables.Types.Table> Get(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Tables> GetByRestaurant(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Tables> GetByRestaurant(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Create(global::Saas.Entity.Administrator.Tables.Types.Table request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Create(global::Saas.Message.Administrator.Tables.Types.Table request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgBool> Update(global::Saas.Entity.Administrator.Tables.Types.Table request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgBool> Update(global::Saas.Message.Administrator.Tables.Types.Table request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgBool> Delete(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgBool> Delete(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -215,11 +215,11 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, TableSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Tables.Types.Table>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Tables>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Tables.Types.Table, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Tables.Types.Table, global::Saas.Entity.Common.MsgBool>(serviceImpl.Update));
-      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgBool>(serviceImpl.Delete));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables.Types.Table>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Tables.Types.Table, global::Saas.Message.Common.MsgInt>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Tables.Types.Table, global::Saas.Message.Common.MsgBool>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgBool>(serviceImpl.Delete));
     }
 
   }
@@ -227,40 +227,40 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.ItemSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Items.Types.Item> __Marshaller_Administrator_Items_Item = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Items.Types.Item.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Items.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgBool.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Items.Types.Item> __Marshaller_Administrator_Items_Item = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Items.Types.Item.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Items.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgBool.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items.Types.Item> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items.Types.Item>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items.Types.Item> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items.Types.Item>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Items_Item);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items> __Method_GetByRestaurant = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items> __Method_GetByRestaurant = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Items);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items> __Method_GetByRestaurantMenu = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items> __Method_GetByRestaurantMenu = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurantMenu",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Items);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Items.Types.Item, global::Saas.Message.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Message.Administrator.Items.Types.Item, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Items_Item,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgBool>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Items.Types.Item, global::Saas.Message.Common.MsgBool> __Method_Update = new grpc::Method<global::Saas.Message.Administrator.Items.Types.Item, global::Saas.Message.Common.MsgBool>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
@@ -277,27 +277,27 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(ItemSvc), "BindService")]
     public abstract partial class ItemSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Items.Types.Item> Get(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Items.Types.Item> Get(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Items> GetByRestaurant(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Items> GetByRestaurant(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Items> GetByRestaurantMenu(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Items> GetByRestaurantMenu(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Create(global::Saas.Entity.Administrator.Items.Types.Item request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Create(global::Saas.Message.Administrator.Items.Types.Item request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgBool> Update(global::Saas.Entity.Administrator.Items.Types.Item request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgBool> Update(global::Saas.Message.Administrator.Items.Types.Item request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -322,11 +322,11 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ItemSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items.Types.Item>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Items>(serviceImpl.GetByRestaurantMenu));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Items.Types.Item, global::Saas.Entity.Common.MsgBool>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items.Types.Item>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items>(serviceImpl.GetByRestaurantMenu));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Items.Types.Item, global::Saas.Message.Common.MsgInt>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Items.Types.Item, global::Saas.Message.Common.MsgBool>(serviceImpl.Update));
     }
 
   }
@@ -334,39 +334,39 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.RestaurantMenuSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu> __Marshaller_Administrator_RestaurantMenus_RestaurantMenu = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.RestaurantMenus> __Marshaller_Administrator_RestaurantMenus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.RestaurantMenus.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> __Marshaller_Administrator_RestaurantMenus_RestaurantMenu = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.RestaurantMenus> __Marshaller_Administrator_RestaurantMenus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.RestaurantMenus.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_RestaurantMenus_RestaurantMenu);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.RestaurantMenus> __Method_GetByRestaurant = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.RestaurantMenus>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus> __Method_GetByRestaurant = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_RestaurantMenus);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Entity.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Message.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_RestaurantMenus_RestaurantMenu,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Entity.Common.MsgInt> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Message.Common.MsgInt> __Method_Update = new grpc::Method<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
         __Marshaller_Administrator_RestaurantMenus_RestaurantMenu,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt> __Method_Delete = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt> __Method_Delete = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Delete",
@@ -383,27 +383,27 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(RestaurantMenuSvc), "BindService")]
     public abstract partial class RestaurantMenuSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu> Get(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> Get(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.RestaurantMenus> GetByRestaurant(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.RestaurantMenus> GetByRestaurant(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Create(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Create(global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Update(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Update(global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Delete(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Delete(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -428,11 +428,11 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, RestaurantMenuSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.RestaurantMenus>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Entity.Common.MsgInt>(serviceImpl.Update));
-      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt>(serviceImpl.Delete));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Message.Common.MsgInt>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu, global::Saas.Message.Common.MsgInt>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt>(serviceImpl.Delete));
     }
 
   }
@@ -440,46 +440,46 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.MenuSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Menus.Types.Menu> __Marshaller_Administrator_Menus_Menu = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.Menus> __Marshaller_Administrator_Menus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.Menus.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Menus.Types.Menu> __Marshaller_Administrator_Menus_Menu = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Menus.Types.Menu.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Menus> __Marshaller_Administrator_Menus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Menus.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus.Types.Menu> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus.Types.Menu>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus.Types.Menu> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus.Types.Menu>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Menus_Menu);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus> __Method_GetByRestaurantMenu = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus> __Method_GetByRestaurantMenu = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurantMenu",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Menus);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus> __Method_GetByRestaurant = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus> __Method_GetByRestaurant = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_Menus);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Menus.Types.Menu, global::Saas.Entity.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Entity.Administrator.Menus.Types.Menu, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Menus.Types.Menu, global::Saas.Message.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Message.Administrator.Menus.Types.Menu, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Menus_Menu,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.Menus.Types.Menu, global::Saas.Entity.Common.MsgInt> __Method_Update = new grpc::Method<global::Saas.Entity.Administrator.Menus.Types.Menu, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.Menus.Types.Menu, global::Saas.Message.Common.MsgInt> __Method_Update = new grpc::Method<global::Saas.Message.Administrator.Menus.Types.Menu, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
         __Marshaller_Administrator_Menus_Menu,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt> __Method_Delete = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt> __Method_Delete = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Delete",
@@ -496,32 +496,32 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(MenuSvc), "BindService")]
     public abstract partial class MenuSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Menus.Types.Menu> Get(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Menus.Types.Menu> Get(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Menus> GetByRestaurantMenu(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Menus> GetByRestaurantMenu(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.Menus> GetByRestaurant(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.Menus> GetByRestaurant(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Create(global::Saas.Entity.Administrator.Menus.Types.Menu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Create(global::Saas.Message.Administrator.Menus.Types.Menu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Update(global::Saas.Entity.Administrator.Menus.Types.Menu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Update(global::Saas.Message.Administrator.Menus.Types.Menu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Delete(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Delete(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -547,12 +547,12 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, MenuSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus.Types.Menu>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus>(serviceImpl.GetByRestaurantMenu));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.Menus>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Menus.Types.Menu, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.Menus.Types.Menu, global::Saas.Entity.Common.MsgInt>(serviceImpl.Update));
-      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt>(serviceImpl.Delete));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus.Types.Menu>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus>(serviceImpl.GetByRestaurantMenu));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Menus.Types.Menu, global::Saas.Message.Common.MsgInt>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.Menus.Types.Menu, global::Saas.Message.Common.MsgInt>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt>(serviceImpl.Delete));
     }
 
   }
@@ -560,47 +560,47 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.MenuItemSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> __Marshaller_Administrator_MenuItems_MenuItem = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.MenuItems> __Marshaller_Administrator_MenuItems = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.MenuItems.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Administrator.MenuItemIds> __Marshaller_Administrator_MenuItemIds = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Administrator.MenuItemIds.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> __Marshaller_Administrator_MenuItems_MenuItem = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.MenuItems.Types.MenuItem.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItems> __Marshaller_Administrator_MenuItems = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.MenuItems.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItemIds> __Marshaller_Administrator_MenuItemIds = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.MenuItemIds.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> __Method_Get = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems.Types.MenuItem> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems.Types.MenuItem>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_MenuItems_MenuItem);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems> __Method_GetByMenu = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems> __Method_GetByMenu = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByMenu",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_MenuItems);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems> __Method_GetByItem = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems> __Method_GetByItem = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByItem",
         __Marshaller_Common_MsgInt,
         __Marshaller_Administrator_MenuItems);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.MenuItemIds, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> __Method_GetByMenuAndItem = new grpc::Method<global::Saas.Entity.Administrator.MenuItemIds, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.MenuItemIds, global::Saas.Message.Administrator.MenuItems.Types.MenuItem> __Method_GetByMenuAndItem = new grpc::Method<global::Saas.Message.Administrator.MenuItemIds, global::Saas.Message.Administrator.MenuItems.Types.MenuItem>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByMenuAndItem",
         __Marshaller_Administrator_MenuItemIds,
         __Marshaller_Administrator_MenuItems_MenuItem);
 
-    static readonly grpc::Method<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem, global::Saas.Entity.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Administrator.MenuItems.Types.MenuItem, global::Saas.Message.Common.MsgInt> __Method_Create = new grpc::Method<global::Saas.Message.Administrator.MenuItems.Types.MenuItem, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_MenuItems_MenuItem,
         __Marshaller_Common_MsgInt);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt> __Method_Delete = new grpc::Method<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt> __Method_Delete = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Delete",
@@ -617,32 +617,32 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(MenuItemSvc), "BindService")]
     public abstract partial class MenuItemSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> Get(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> Get(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.MenuItems> GetByMenu(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.MenuItems> GetByMenu(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.MenuItems> GetByItem(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.MenuItems> GetByItem(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> GetByMenuAndItem(global::Saas.Entity.Administrator.MenuItemIds request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> GetByMenuAndItem(global::Saas.Message.Administrator.MenuItemIds request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Create(global::Saas.Entity.Administrator.MenuItems.Types.MenuItem request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Create(global::Saas.Message.Administrator.MenuItems.Types.MenuItem request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Common.MsgInt> Delete(global::Saas.Entity.Common.MsgInt request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Common.MsgInt> Delete(global::Saas.Message.Common.MsgInt request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -668,12 +668,12 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, MenuItemSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems>(serviceImpl.GetByMenu));
-      serviceBinder.AddMethod(__Method_GetByItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Administrator.MenuItems>(serviceImpl.GetByItem));
-      serviceBinder.AddMethod(__Method_GetByMenuAndItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.MenuItemIds, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem>(serviceImpl.GetByMenuAndItem));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem, global::Saas.Entity.Common.MsgInt>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgInt, global::Saas.Entity.Common.MsgInt>(serviceImpl.Delete));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems.Types.MenuItem>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems>(serviceImpl.GetByMenu));
+      serviceBinder.AddMethod(__Method_GetByItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems>(serviceImpl.GetByItem));
+      serviceBinder.AddMethod(__Method_GetByMenuAndItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.MenuItemIds, global::Saas.Message.Administrator.MenuItems.Types.MenuItem>(serviceImpl.GetByMenuAndItem));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Administrator.MenuItems.Types.MenuItem, global::Saas.Message.Common.MsgInt>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgInt, global::Saas.Message.Common.MsgInt>(serviceImpl.Delete));
     }
 
   }
@@ -681,43 +681,43 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.AppDataSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Entity.Common.MsgEmpty> __Marshaller_Common_MsgEmpty = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Common.MsgEmpty.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Language.SupportedLanguages> __Marshaller_Language_SupportedLanguages = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Language.SupportedLanguages.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Reference.States> __Marshaller_Reference_States = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Reference.States.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Reference.KeyTypes> __Marshaller_Reference_KeyTypes = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Reference.KeyTypes.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Reference.References> __Marshaller_Reference_References = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Reference.References.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage> __Marshaller_Language_SupportedLanguages_CodeLanguage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Entity.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Entity.Language.Dictionary.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgEmpty> __Marshaller_Common_MsgEmpty = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgEmpty.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Language.SupportedLanguages> __Marshaller_Language_SupportedLanguages = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Language.SupportedLanguages.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Reference.States> __Marshaller_Reference_States = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Reference.States.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Reference.KeyTypes> __Marshaller_Reference_KeyTypes = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Reference.KeyTypes.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Reference.References> __Marshaller_Reference_References = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Reference.References.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage> __Marshaller_Language_SupportedLanguages_CodeLanguage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Saas.Message.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Language.Dictionary.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Language.SupportedLanguages> __Method_SupportedLanguages = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Language.SupportedLanguages>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Language.SupportedLanguages> __Method_SupportedLanguages = new grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Language.SupportedLanguages>(
         grpc::MethodType.Unary,
         __ServiceName,
         "SupportedLanguages",
         __Marshaller_Common_MsgEmpty,
         __Marshaller_Language_SupportedLanguages);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.States> __Method_States = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.States>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.States> __Method_States = new grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.States>(
         grpc::MethodType.Unary,
         __ServiceName,
         "States",
         __Marshaller_Common_MsgEmpty,
         __Marshaller_Reference_States);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.KeyTypes> __Method_KeyTypes = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.KeyTypes>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.KeyTypes> __Method_KeyTypes = new grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.KeyTypes>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KeyTypes",
         __Marshaller_Common_MsgEmpty,
         __Marshaller_Reference_KeyTypes);
 
-    static readonly grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.References> __Method_References = new grpc::Method<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.References>(
+    static readonly grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.References> __Method_References = new grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.References>(
         grpc::MethodType.Unary,
         __ServiceName,
         "References",
         __Marshaller_Common_MsgEmpty,
         __Marshaller_Reference_References);
 
-    static readonly grpc::Method<global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage, global::Saas.Entity.Language.Dictionary> __Method_Dictionary = new grpc::Method<global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage, global::Saas.Entity.Language.Dictionary>(
+    static readonly grpc::Method<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage, global::Saas.Message.Language.Dictionary> __Method_Dictionary = new grpc::Method<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage, global::Saas.Message.Language.Dictionary>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Dictionary",
@@ -734,27 +734,27 @@ namespace Saas.gRPC {
     [grpc::BindServiceMethod(typeof(AppDataSvc), "BindService")]
     public abstract partial class AppDataSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Language.SupportedLanguages> SupportedLanguages(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Language.SupportedLanguages> SupportedLanguages(global::Saas.Message.Common.MsgEmpty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Reference.States> States(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Reference.States> States(global::Saas.Message.Common.MsgEmpty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Reference.KeyTypes> KeyTypes(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Reference.KeyTypes> KeyTypes(global::Saas.Message.Common.MsgEmpty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Reference.References> References(global::Saas.Entity.Common.MsgEmpty request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Reference.References> References(global::Saas.Message.Common.MsgEmpty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Saas.Entity.Language.Dictionary> Dictionary(global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Saas.Message.Language.Dictionary> Dictionary(global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -779,11 +779,11 @@ namespace Saas.gRPC {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AppDataSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SupportedLanguages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Language.SupportedLanguages>(serviceImpl.SupportedLanguages));
-      serviceBinder.AddMethod(__Method_States, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.States>(serviceImpl.States));
-      serviceBinder.AddMethod(__Method_KeyTypes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.KeyTypes>(serviceImpl.KeyTypes));
-      serviceBinder.AddMethod(__Method_References, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Common.MsgEmpty, global::Saas.Entity.Reference.References>(serviceImpl.References));
-      serviceBinder.AddMethod(__Method_Dictionary, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Entity.Language.SupportedLanguages.Types.CodeLanguage, global::Saas.Entity.Language.Dictionary>(serviceImpl.Dictionary));
+      serviceBinder.AddMethod(__Method_SupportedLanguages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Language.SupportedLanguages>(serviceImpl.SupportedLanguages));
+      serviceBinder.AddMethod(__Method_States, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.States>(serviceImpl.States));
+      serviceBinder.AddMethod(__Method_KeyTypes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.KeyTypes>(serviceImpl.KeyTypes));
+      serviceBinder.AddMethod(__Method_References, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Reference.References>(serviceImpl.References));
+      serviceBinder.AddMethod(__Method_Dictionary, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage, global::Saas.Message.Language.Dictionary>(serviceImpl.Dictionary));
     }
 
   }

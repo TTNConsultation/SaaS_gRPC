@@ -1,8 +1,9 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+
+using Microsoft.Data.SqlClient;
 
 namespace Dal.Sp
 {
@@ -92,7 +93,7 @@ namespace Dal.Sp
     public SqlCommand SqlCommand(string conStr) =>
       new SqlCommand(FullName, new SqlConnection(conStr))
       {
-        CommandType = CommandType.StoredProcedure,
+        CommandType = CommandType.StoredProcedure
       };
 
     public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));

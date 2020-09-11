@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Saas.Entity.Administrator {
+namespace Saas.Message.Administrator {
 
   /// <summary>Holder for reflection information generated from Protos/administrator.proto</summary>
   public static partial class AdministratorReflection {
@@ -54,19 +54,19 @@ namespace Saas.Entity.Administrator {
             "AklkGAEgASgFEhQKDFJlc3RhdXJhbnRJZBgCIAEoBRIUCgxOdW1iZXJPZlNl",
             "YXQYAyABKAUSDwoHU3RhdGVJZBgEIAEoBSJKChJSZXN0YXVyYW50TGFuZ3Vh",
             "Z2USCgoCSWQYASABKAUSFAoMUmVzdGF1cmFudElkGAIgASgFEhIKCkxhbmd1",
-            "YWdlSWQYAyABKAVCHKoCGVNhYXMuRW50aXR5LkFkbWluaXN0cmF0b3JiBnBy",
-            "b3RvMw=="));
+            "YWdlSWQYAyABKAVCHaoCGlNhYXMuTWVzc2FnZS5BZG1pbmlzdHJhdG9yYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants), global::Saas.Entity.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Restaurants.Types.Restaurant), global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items), global::Saas.Entity.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Items.Types.Item), global::Saas.Entity.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus), global::Saas.Entity.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "RtateId" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus), global::Saas.Entity.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Menus.Types.Menu), global::Saas.Entity.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems), global::Saas.Entity.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItems.Types.MenuItem), global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.MenuItemIds), global::Saas.Entity.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables), global::Saas.Entity.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.Tables.Types.Table), global::Saas.Entity.Administrator.Tables.Types.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Entity.Administrator.RestaurantLanguage), global::Saas.Entity.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Restaurants), global::Saas.Message.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Restaurants.Types.Restaurant), global::Saas.Message.Administrator.Restaurants.Types.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Items), global::Saas.Message.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Items.Types.Item), global::Saas.Message.Administrator.Items.Types.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.RestaurantMenus), global::Saas.Message.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu), global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "RtateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Menus), global::Saas.Message.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Menus.Types.Menu), global::Saas.Message.Administrator.Menus.Types.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.MenuItems), global::Saas.Message.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.MenuItems.Types.MenuItem), global::Saas.Message.Administrator.MenuItems.Types.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.MenuItemIds), global::Saas.Message.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Tables), global::Saas.Message.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Tables.Types.Table), global::Saas.Message.Administrator.Tables.Types.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.RestaurantLanguage), global::Saas.Message.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -81,7 +81,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -109,11 +109,11 @@ namespace Saas.Entity.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Administrator.Restaurants.Types.Restaurant.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant> values_ = new pbc::RepeatedField<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Administrator.Restaurants.Types.Restaurant.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> values_ = new pbc::RepeatedField<global::Saas.Message.Administrator.Restaurants.Types.Restaurant>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.Administrator.Restaurants.Types.Restaurant> Values {
+    public pbc::RepeatedField<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> Values {
       get { return values_; }
     }
 
@@ -204,7 +204,7 @@ namespace Saas.Entity.Administrator {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.Administrator.Restaurants.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Message.Administrator.Restaurants.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -646,7 +646,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -674,11 +674,11 @@ namespace Saas.Entity.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.Administrator.Items.Types.Item> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Administrator.Items.Types.Item.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.Administrator.Items.Types.Item> values_ = new pbc::RepeatedField<global::Saas.Entity.Administrator.Items.Types.Item>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Administrator.Items.Types.Item> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Administrator.Items.Types.Item.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Administrator.Items.Types.Item> values_ = new pbc::RepeatedField<global::Saas.Message.Administrator.Items.Types.Item>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.Administrator.Items.Types.Item> Values {
+    public pbc::RepeatedField<global::Saas.Message.Administrator.Items.Types.Item> Values {
       get { return values_; }
     }
 
@@ -769,7 +769,7 @@ namespace Saas.Entity.Administrator {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.Administrator.Items.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Message.Administrator.Items.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1071,7 +1071,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1099,11 +1099,11 @@ namespace Saas.Entity.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu> values_ = new pbc::RepeatedField<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> values_ = new pbc::RepeatedField<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.Administrator.RestaurantMenus.Types.RestaurantMenu> Values {
+    public pbc::RepeatedField<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> Values {
       get { return values_; }
     }
 
@@ -1194,7 +1194,7 @@ namespace Saas.Entity.Administrator {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.Administrator.RestaurantMenus.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Message.Administrator.RestaurantMenus.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1384,7 +1384,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1412,11 +1412,11 @@ namespace Saas.Entity.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.Administrator.Menus.Types.Menu> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Administrator.Menus.Types.Menu.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.Administrator.Menus.Types.Menu> values_ = new pbc::RepeatedField<global::Saas.Entity.Administrator.Menus.Types.Menu>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Administrator.Menus.Types.Menu> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Administrator.Menus.Types.Menu.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Administrator.Menus.Types.Menu> values_ = new pbc::RepeatedField<global::Saas.Message.Administrator.Menus.Types.Menu>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.Administrator.Menus.Types.Menu> Values {
+    public pbc::RepeatedField<global::Saas.Message.Administrator.Menus.Types.Menu> Values {
       get { return values_; }
     }
 
@@ -1507,7 +1507,7 @@ namespace Saas.Entity.Administrator {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.Administrator.Menus.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Message.Administrator.Menus.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1809,7 +1809,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1837,11 +1837,11 @@ namespace Saas.Entity.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Administrator.MenuItems.Types.MenuItem.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> values_ = new pbc::RepeatedField<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Administrator.MenuItems.Types.MenuItem.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> values_ = new pbc::RepeatedField<global::Saas.Message.Administrator.MenuItems.Types.MenuItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.Administrator.MenuItems.Types.MenuItem> Values {
+    public pbc::RepeatedField<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> Values {
       get { return values_; }
     }
 
@@ -1932,7 +1932,7 @@ namespace Saas.Entity.Administrator {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.Administrator.MenuItems.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Message.Administrator.MenuItems.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2150,7 +2150,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2307,7 +2307,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2335,11 +2335,11 @@ namespace Saas.Entity.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Entity.Administrator.Tables.Types.Table> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Entity.Administrator.Tables.Types.Table.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Entity.Administrator.Tables.Types.Table> values_ = new pbc::RepeatedField<global::Saas.Entity.Administrator.Tables.Types.Table>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Administrator.Tables.Types.Table> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Administrator.Tables.Types.Table.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Administrator.Tables.Types.Table> values_ = new pbc::RepeatedField<global::Saas.Message.Administrator.Tables.Types.Table>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Entity.Administrator.Tables.Types.Table> Values {
+    public pbc::RepeatedField<global::Saas.Message.Administrator.Tables.Types.Table> Values {
       get { return values_; }
     }
 
@@ -2430,7 +2430,7 @@ namespace Saas.Entity.Administrator {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Entity.Administrator.Tables.Descriptor.NestedTypes[0]; }
+          get { return global::Saas.Message.Administrator.Tables.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2648,7 +2648,7 @@ namespace Saas.Entity.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Entity.Administrator.AdministratorReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Saas.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using static Saas.Entity.Language.Dictionary.Types;
-using static Saas.Entity.Language.SupportedLanguages.Types;
+using static Saas.Message.Language.Dictionary.Types;
+using static Saas.Message.Language.SupportedLanguages.Types;
 
-namespace Saas.Entity.Language
+namespace Saas.Message.Language
 {
   public partial class Keys
   {

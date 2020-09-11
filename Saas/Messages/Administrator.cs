@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Saas.Entity.Administrator
+namespace Saas.Message.Administrator
 {
   public partial class Restaurants
   {
@@ -46,8 +46,7 @@ namespace Saas.Entity.Administrator
   {
     public Tables(IEnumerable<Types.Table> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 }
