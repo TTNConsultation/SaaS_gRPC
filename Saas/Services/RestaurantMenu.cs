@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 using static Saas.Message.Administrator.RestaurantMenus.Types;
-using static Saas.Message.Administrator.Restaurants.Types;
 
 namespace Saas.Services
 {
@@ -36,7 +35,7 @@ namespace Saas.Services
     public async override Task<RestaurantMenus> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       using var sp = DbContext.ReadContext<RestaurantMenu>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? await Task.FromResult(new RestaurantMenus(sp.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
+      return (sp.IsReady) ? await Task.FromResult(new RestaurantMenus(sp.ReadAsync(typeof(Restaurants.Types.Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
                             : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 

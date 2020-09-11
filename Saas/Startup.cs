@@ -116,7 +116,7 @@ namespace Saas
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapGrpcService<AppService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
+        endpoints.MapGrpcService<AppData>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<TableService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
         endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();

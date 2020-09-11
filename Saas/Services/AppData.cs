@@ -13,14 +13,14 @@ using static Saas.Message.Language.Dictionary.Types;
 
 namespace Saas.Services
 {
-  internal class AppService : AppDataSvc.AppDataSvcBase
+  internal class AppData : AppDataSvc.AppDataSvcBase
   {
     private readonly ILogger<RestaurantService> logger;
     private readonly References RefData;
     private readonly DictionaryCache DictCache;
     private readonly IDbContext DbContext;
 
-    public AppService(ILogger<RestaurantService> log, App appData, IDbContext context)
+    public AppData(ILogger<RestaurantService> log, App appData, IDbContext context)
     {
       logger = log;
       RefData = appData.RefDatas;

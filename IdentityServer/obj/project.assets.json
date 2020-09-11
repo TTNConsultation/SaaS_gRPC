@@ -193,7 +193,7 @@
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.Certificate/3.1.7": {
+      "Microsoft.AspNetCore.Authentication.Certificate/3.1.8": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
@@ -205,7 +205,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Authentication.Google/3.1.7": {
+      "Microsoft.AspNetCore.Authentication.Google/3.1.8": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {}
@@ -217,7 +217,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.7": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
@@ -324,10 +324,10 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration/3.1.7": {
+      "Microsoft.Extensions.Configuration/3.1.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "3.1.7"
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.8"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
@@ -336,10 +336,10 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/3.1.7": {
+      "Microsoft.Extensions.Configuration.Abstractions/3.1.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.7"
+          "Microsoft.Extensions.Primitives": "3.1.8"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
@@ -432,7 +432,7 @@
           "lib/netcoreapp3.0/Microsoft.Extensions.Options.dll": {}
         }
       },
-      "Microsoft.Extensions.Primitives/3.1.7": {
+      "Microsoft.Extensions.Primitives/3.1.8": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
@@ -1592,7 +1592,7 @@
         "dependencies": {
           "Google.Protobuf": "3.13.0",
           "Microsoft.Data.SqlClient": "2.0.1",
-          "Microsoft.Extensions.Configuration": "3.1.7",
+          "Microsoft.Extensions.Configuration": "3.1.8",
           "NETStandard.Library": "2.0.3"
         },
         "compile": {
@@ -1862,10 +1862,10 @@
         "lib/netstandard2.0/IdentityServer4.Storage.xml"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.Certificate/3.1.7": {
-      "sha512": "Ry0W44ecSZZd8fw2zOEZo6jz/YGQiqzE9yjCeF5Cz9q6M3UJKH0pt666qgLLqvL8f5dkls4SHXm48TzBks5Aig==",
+    "Microsoft.AspNetCore.Authentication.Certificate/3.1.8": {
+      "sha512": "D5kFvrVOqp/9Hd0+adT3jq88VvZFdIzhwkFJaVRrIFM8pUnPxLDY54Ck2VDtYG62Z65NbrI2CxKHZAMcu9VloA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.certificate/3.1.7",
+      "path": "microsoft.aspnetcore.authentication.certificate/3.1.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1873,14 +1873,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Certificate.xml",
-        "microsoft.aspnetcore.authentication.certificate.3.1.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.3.1.8.nupkg.sha512",
         "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.Google/3.1.7": {
-      "sha512": "6Y4oKM4f8QPOKLiiznna2HIQzMObrkWFHns8TWRcUOQWadUK+4ki7qP2mtU763HZZSWZ1riY5kpzlvQUXgZ/GA==",
+    "Microsoft.AspNetCore.Authentication.Google/3.1.8": {
+      "sha512": "gOfurVsnr/WteLGBkS7YE9caOBEAMQ0LE6IPMUokYqv7YYrHrq/x174eBH5NscN1tfzKu3bDBs1w7tR5ilZfsw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.google/3.1.7",
+      "path": "microsoft.aspnetcore.authentication.google/3.1.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1888,14 +1888,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.xml",
-        "microsoft.aspnetcore.authentication.google.3.1.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.3.1.8.nupkg.sha512",
         "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.7": {
-      "sha512": "TkJj6eBzFihlnOtssoTJMBPVuRxtQiYr6fJVd5WrYmNpxR3dQ2t55KNPy8jgIS8yXGMq2UUTM/CdyN+NKVbbYQ==",
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.8": {
+      "sha512": "sAXFFgsSEYd6PTFCzBKYBlXnb+ncclrQPMyMzARELxBv94Onqtr/JTWKih+NUr/3xR5BAs1xE6boao0Us6xcPA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.7",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1903,7 +1903,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.3.1.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
@@ -2070,10 +2070,10 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb"
       ]
     },
-    "Microsoft.Extensions.Configuration/3.1.7": {
-      "sha512": "JCVsQYNZNGeLXWMw6tkCZ8Wa2IQKF9AiLKeq9Ff2XvGJTMzhYEHAzF/FvHdeBBhPiOf+Kl1t6mdcHL93kUz6MA==",
+    "Microsoft.Extensions.Configuration/3.1.8": {
+      "sha512": "xWvtu/ra8xDOy62ZXzQj1ElmmH3GpZBSKvw4LbfNXKCy+PaziS5Uh0gQ47D4H4w3u+PJfhNWCCGCp9ORNEzkRw==",
       "type": "package",
-      "path": "microsoft.extensions.configuration/3.1.7",
+      "path": "microsoft.extensions.configuration/3.1.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2082,14 +2082,14 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
-        "microsoft.extensions.configuration.3.1.7.nupkg.sha512",
+        "microsoft.extensions.configuration.3.1.8.nupkg.sha512",
         "microsoft.extensions.configuration.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration.Abstractions/3.1.7": {
-      "sha512": "WJEbrrIgly95D9rM8Gwr4w8sbYla6/iOcCZ0UE7+Qg/Q8NnQJwAJ60Lq1A26zbNE8Fm1fkbGU90LDl8e+BoRSQ==",
+    "Microsoft.Extensions.Configuration.Abstractions/3.1.8": {
+      "sha512": "0qbNyxGpuNP/fuQ3FLHesm1Vn/83qYcAgVsi1UQCQN1peY4YH1uiizOh4xbYkQyxiVMD/c/zhiYYv94G0DXSSA==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.abstractions/3.1.7",
+      "path": "microsoft.extensions.configuration.abstractions/3.1.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2098,7 +2098,7 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "microsoft.extensions.configuration.abstractions.3.1.7.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.3.1.8.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec"
       ]
     },
@@ -2212,10 +2212,10 @@
         "microsoft.extensions.options.nuspec"
       ]
     },
-    "Microsoft.Extensions.Primitives/3.1.7": {
-      "sha512": "sa17s3vDAXTuIVGxuJcK713i0B0iaUoiwY4Sl2SLHhMqM8snznn0YVGiZAVkoKEUFWjvIg1Z/JNmAicBamI4mg==",
+    "Microsoft.Extensions.Primitives/3.1.8": {
+      "sha512": "XcIoXQhT0kwnEhOKv/LmpWR6yF6QWmBTy9Fcsz4aHuCOgTJ7Zd23ELtUA4BfwlYoFlSedavS+vURz9tNekd44g==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/3.1.7",
+      "path": "microsoft.extensions.primitives/3.1.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2224,7 +2224,7 @@
         "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.3.1.7.nupkg.sha512",
+        "microsoft.extensions.primitives.3.1.8.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec"
       ]
     },
@@ -5798,9 +5798,9 @@
       "IdentityServer4 >= 4.0.4",
       "IdentityServer4.AccessTokenValidation >= 3.0.1",
       "IdentityServer4.Storage >= 4.0.4",
-      "Microsoft.AspNetCore.Authentication.Certificate >= 3.1.7",
-      "Microsoft.AspNetCore.Authentication.Google >= 3.1.7",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.7",
+      "Microsoft.AspNetCore.Authentication.Certificate >= 3.1.8",
+      "Microsoft.AspNetCore.Authentication.Google >= 3.1.8",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.8",
       "SpContext >= 1.0.0"
     ]
   },
@@ -5872,15 +5872,15 @@
           },
           "Microsoft.AspNetCore.Authentication.Certificate": {
             "target": "Package",
-            "version": "[3.1.7, )"
+            "version": "[3.1.8, )"
           },
           "Microsoft.AspNetCore.Authentication.Google": {
             "target": "Package",
-            "version": "[3.1.7, )"
+            "version": "[3.1.8, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[3.1.7, )"
+            "version": "[3.1.8, )"
           }
         },
         "imports": [

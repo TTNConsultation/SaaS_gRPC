@@ -12,11 +12,41 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.RestaurantSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> __Marshaller_Administrator_Restaurants_Restaurant = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Restaurants.Types.Restaurant.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgString> __Marshaller_Common_MsgString = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgString.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Restaurants> __Marshaller_Administrator_Restaurants = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Restaurants.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgBool.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgInt.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Restaurants.Types.Restaurant> __Marshaller_Administrator_Restaurants_Restaurant = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Restaurants.Types.Restaurant.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgString> __Marshaller_Common_MsgString = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgString.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Restaurants> __Marshaller_Administrator_Restaurants = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Restaurants.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgBool.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Restaurants.Types.Restaurant> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Restaurants.Types.Restaurant>(
         grpc::MethodType.Unary,
@@ -120,10 +150,40 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.TableSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Tables.Types.Table> __Marshaller_Administrator_Tables_Table = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Tables.Types.Table.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Tables> __Marshaller_Administrator_Tables = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Tables.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgBool.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgInt.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Tables.Types.Table> __Marshaller_Administrator_Tables_Table = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Tables.Types.Table.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Tables> __Marshaller_Administrator_Tables = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Tables.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgBool.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables.Types.Table> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Tables.Types.Table>(
         grpc::MethodType.Unary,
@@ -227,10 +287,40 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.ItemSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Items.Types.Item> __Marshaller_Administrator_Items_Item = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Items.Types.Item.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Items.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgBool.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgInt.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Items.Types.Item> __Marshaller_Administrator_Items_Item = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Items.Types.Item.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Items.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgBool> __Marshaller_Common_MsgBool = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgBool.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items.Types.Item> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Items.Types.Item>(
         grpc::MethodType.Unary,
@@ -334,9 +424,39 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.RestaurantMenuSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> __Marshaller_Administrator_RestaurantMenus_RestaurantMenu = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.RestaurantMenus> __Marshaller_Administrator_RestaurantMenus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.RestaurantMenus.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgInt.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> __Marshaller_Administrator_RestaurantMenus_RestaurantMenu = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.RestaurantMenus> __Marshaller_Administrator_RestaurantMenus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.RestaurantMenus.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.RestaurantMenus.Types.RestaurantMenu>(
         grpc::MethodType.Unary,
@@ -440,9 +560,39 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.MenuSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Menus.Types.Menu> __Marshaller_Administrator_Menus_Menu = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Menus.Types.Menu.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Menus> __Marshaller_Administrator_Menus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.Menus.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgInt.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Menus.Types.Menu> __Marshaller_Administrator_Menus_Menu = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Menus.Types.Menu.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.Menus> __Marshaller_Administrator_Menus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.Menus.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus.Types.Menu> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.Menus.Types.Menu>(
         grpc::MethodType.Unary,
@@ -560,10 +710,40 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.MenuItemSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgInt.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> __Marshaller_Administrator_MenuItems_MenuItem = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.MenuItems.Types.MenuItem.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItems> __Marshaller_Administrator_MenuItems = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.MenuItems.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItemIds> __Marshaller_Administrator_MenuItemIds = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Administrator.MenuItemIds.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgInt> __Marshaller_Common_MsgInt = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgInt.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItems.Types.MenuItem> __Marshaller_Administrator_MenuItems_MenuItem = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.MenuItems.Types.MenuItem.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItems> __Marshaller_Administrator_MenuItems = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.MenuItems.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Administrator.MenuItemIds> __Marshaller_Administrator_MenuItemIds = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Administrator.MenuItemIds.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems.Types.MenuItem> __Method_Get = new grpc::Method<global::Saas.Message.Common.MsgInt, global::Saas.Message.Administrator.MenuItems.Types.MenuItem>(
         grpc::MethodType.Unary,
@@ -681,13 +861,43 @@ namespace Saas.gRPC {
   {
     static readonly string __ServiceName = "Services.AppDataSvc";
 
-    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgEmpty> __Marshaller_Common_MsgEmpty = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Common.MsgEmpty.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Language.SupportedLanguages> __Marshaller_Language_SupportedLanguages = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Language.SupportedLanguages.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Reference.States> __Marshaller_Reference_States = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Reference.States.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Reference.KeyTypes> __Marshaller_Reference_KeyTypes = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Reference.KeyTypes.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Reference.References> __Marshaller_Reference_References = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Reference.References.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage> __Marshaller_Language_SupportedLanguages_CodeLanguage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Saas.Message.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Saas.Message.Language.Dictionary.Parser.ParseFrom);
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
+
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    static readonly grpc::Marshaller<global::Saas.Message.Common.MsgEmpty> __Marshaller_Common_MsgEmpty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Common.MsgEmpty.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Language.SupportedLanguages> __Marshaller_Language_SupportedLanguages = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Language.SupportedLanguages.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Reference.States> __Marshaller_Reference_States = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Reference.States.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Reference.KeyTypes> __Marshaller_Reference_KeyTypes = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Reference.KeyTypes.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Reference.References> __Marshaller_Reference_References = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Reference.References.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage> __Marshaller_Language_SupportedLanguages_CodeLanguage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage.Parser));
+    static readonly grpc::Marshaller<global::Saas.Message.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Saas.Message.Language.Dictionary.Parser));
 
     static readonly grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Language.SupportedLanguages> __Method_SupportedLanguages = new grpc::Method<global::Saas.Message.Common.MsgEmpty, global::Saas.Message.Language.SupportedLanguages>(
         grpc::MethodType.Unary,

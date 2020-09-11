@@ -53,7 +53,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.31.0, )"
+              "version": "[2.32.0, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
@@ -61,7 +61,7 @@
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.8, )"
             },
             "NETStandard.Library": {
               "target": "Package",
@@ -150,15 +150,15 @@
             },
             "Microsoft.AspNetCore.Authentication.Certificate": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.8, )"
             }
           },
           "imports": [
