@@ -8,6 +8,8 @@ using IdentityServer4;
 using IdentityServer.Entities;
 
 using Dal.Sp;
+using Dal.SpProperty;
+
 using Microsoft.AspNetCore.Authentication.Certificate;
 using System.Security.Claims;
 using System.Threading.Tasks;

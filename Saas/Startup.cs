@@ -9,6 +9,7 @@ using IdentityServer4.AccessTokenValidation;
 
 using Saas.Services;
 using Dal.Sp;
+using Dal.SpProperty;
 
 namespace Saas
 {

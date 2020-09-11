@@ -10,7 +10,6 @@
       "SpContext/1.0.0": {
         "dependencies": {
           "Google.Protobuf": "3.13.0",
-          "Grpc.Tools": "2.32.0",
           "Microsoft.Data.SqlClient": "2.0.1",
           "Microsoft.Extensions.Configuration": "3.1.8",
           "NETStandard.Library": "2.0.3"
@@ -31,7 +30,6 @@
           }
         }
       },
-      "Grpc.Tools/2.32.0": {},
       "Microsoft.CSharp/4.5.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.CSharp.dll": {
@@ -1200,13 +1198,6 @@
       "sha512": "sha512-/6VgKCh0P59x/rYsBkCvkUanF0TeUYzwV9hzLIWgt23QRBaKHoxaaMkidEWhKibLR88c3PVCXyyrx9Xlb+Ne6w==",
       "path": "google.protobuf/3.13.0",
       "hashPath": "google.protobuf.3.13.0.nupkg.sha512"
-    },
-    "Grpc.Tools/2.32.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-phODsWXk5K0fnCxPA5r2sINMUusNnWnceFExqVI1CR2HhkdzECZjKMYtzUZRktNl1zUkBON0kR/JHK7xcBw0gA==",
-      "path": "grpc.tools/2.32.0",
-      "hashPath": "grpc.tools.2.32.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
