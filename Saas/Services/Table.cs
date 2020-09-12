@@ -29,14 +29,14 @@ namespace Saas.Services
     {
       using var sp = DbContext.ReadContext<Tables.Types.Table>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(sp.Read(id.Value))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<Tables> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       using var sp = DbContext.ReadContext<Tables.Types.Table>(RefData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurants.Types.Restaurant).Name.Id(), restaurantId.Value)))
-                            : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
   }
 }
