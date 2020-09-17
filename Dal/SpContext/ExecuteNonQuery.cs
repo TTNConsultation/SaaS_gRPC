@@ -24,7 +24,7 @@ namespace Dal.Sp
   {
     private readonly IExecuteReader<T> SpRO;
 
-    public ExecuteNonQuery(DbContext.UserClaim claim, ISpProperty sp, ISpProperty spReadOnly, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
+    public ExecuteNonQuery(DbContext.UserClaim claim, IStoreProcedure sp, IStoreProcedure spReadOnly, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
     {
       SpRO = (spReadOnly == null) ? null : new ExecuteReader<T>(claim, spReadOnly, reflectionMaps);
     }

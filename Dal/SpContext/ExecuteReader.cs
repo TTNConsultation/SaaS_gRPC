@@ -43,7 +43,7 @@ namespace Dal.Sp
 
   internal sealed class ExecuteReader<T> : DbCommand<T>, IExecuteReader<T> where T : IMessage, new()
   {
-    public ExecuteReader(DbContext.UserClaim claim, ISpProperty sp, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
+    public ExecuteReader(DbContext.UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
     {
     }
 

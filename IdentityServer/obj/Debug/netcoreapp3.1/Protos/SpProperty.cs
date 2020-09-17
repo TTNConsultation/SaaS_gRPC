@@ -43,7 +43,11 @@ namespace Dal.SpProperty {
 
   }
   #region Messages
-  public sealed partial class SpProperty : pb::IMessage<SpProperty> {
+  public sealed partial class SpProperty : pb::IMessage<SpProperty>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SpProperty> _parser = new pb::MessageParser<SpProperty>(() => new SpProperty());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -178,6 +182,9 @@ namespace Dal.SpProperty {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Id != 0) {
         output.WriteRawTag(8);
         output.WriteInt32(Id);
@@ -201,7 +208,37 @@ namespace Dal.SpProperty {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (FullName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(FullName);
+      }
+      if (Schema.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Schema);
+      }
+      if (Type.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Type);
+      }
+      if (Op.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Op);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -252,6 +289,9 @@ namespace Dal.SpProperty {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -280,11 +320,50 @@ namespace Dal.SpProperty {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            FullName = input.ReadString();
+            break;
+          }
+          case 26: {
+            Schema = input.ReadString();
+            break;
+          }
+          case 34: {
+            Type = input.ReadString();
+            break;
+          }
+          case 42: {
+            Op = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class SpParameter : pb::IMessage<SpParameter> {
+  public sealed partial class SpParameter : pb::IMessage<SpParameter>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SpParameter> _parser = new pb::MessageParser<SpParameter>(() => new SpParameter());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -489,6 +568,9 @@ namespace Dal.SpProperty {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (SpName.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(SpName);
@@ -532,7 +614,57 @@ namespace Dal.SpProperty {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SpName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SpName);
+      }
+      if (SpId != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(SpId);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (Type.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Type);
+      }
+      if (MaxLength != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(MaxLength);
+      }
+      if (Precision != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Precision);
+      }
+      if (Scale != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Scale);
+      }
+      if (Order != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Order);
+      }
+      if (IsOutput != false) {
+        output.WriteRawTag(72);
+        output.WriteBool(IsOutput);
+      }
+      if (Collation.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Collation);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -613,6 +745,9 @@ namespace Dal.SpProperty {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -661,7 +796,62 @@ namespace Dal.SpProperty {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SpName = input.ReadString();
+            break;
+          }
+          case 16: {
+            SpId = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
+            Type = input.ReadString();
+            break;
+          }
+          case 40: {
+            MaxLength = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            Precision = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            Scale = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Order = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            IsOutput = input.ReadBool();
+            break;
+          }
+          case 82: {
+            Collation = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 

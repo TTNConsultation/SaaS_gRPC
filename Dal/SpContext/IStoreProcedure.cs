@@ -4,21 +4,21 @@ namespace Dal.Sp
 {
   public interface ICollectionSpProperty
   {
-    ISpProperty Get(string typename, OperationType op);
+    IStoreProcedure Get(string typename, OperationType op);
 
-    ISpProperty Get<T>(OperationType op) => Get(typeof(T).Name, op);
+    IStoreProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
   }
 
-  public interface ISpProperty
+  public interface IStoreProcedure
   {
     SqlCommand SqlCommand(string conStr);
 
-    IParameter Parameter(string name);
+    IStoreProcedureParameter Parameter(string name);
 
     bool IsEqual(string spName, OperationType op);
   }
 
-  public interface IParameter
+  public interface IStoreProcedureParameter
   {
     string ParameterName { get; }
 
