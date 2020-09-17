@@ -13,14 +13,14 @@ namespace Dal.Sp
   internal abstract class DbCommand<T> where T : IMessage, new()
   {
     private readonly SqlCommand SqlCmd;
-    private readonly ISpProperty SpProperty;
+    private readonly IStoreProcedure SpProperty;
     private readonly IMapper FieldMap;
 
     public string Error { get; }
     public int RootId { get; }
     public bool IsReady => string.IsNullOrEmpty(Error);
 
-    protected DbCommand(DbContext.UserClaim claim, ISpProperty sp, ICollectionMapper reflectionMaps)
+    protected DbCommand(DbContext.UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps)
     {
       Error = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
                                .Append((claim == null) ? "invalid claim" : null)
