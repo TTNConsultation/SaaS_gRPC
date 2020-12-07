@@ -1,27 +1,22 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj": {}
+    "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj": {}
   },
   "projects": {
-    "G:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj": {
+    "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj",
+        "projectUniqueName": "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj",
         "projectName": "SpContext",
-        "projectPath": "G:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj",
-        "packagesPath": "C:\\Users\\Yummi\\.nuget\\packages\\",
-        "outputPath": "G:\\Dev\\SaaS\\Dal\\SpContext\\obj\\",
+        "projectPath": "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj",
+        "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev\\SaaS\\Dal\\SpContext\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "G:\\Dev\\SaaS\\NuGet.Config",
-          "C:\\Users\\Yummi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "D:\\Dev\\SaaS\\NuGet.Config",
+          "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -33,6 +28,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -44,18 +40,19 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "Google.Protobuf": {
               "target": "Package",
-              "version": "[3.13.0, )"
+              "version": "[3.14.0, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[2.0.1, )"
+              "version": "[2.1.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.0, )"
             },
             "NETStandard.Library": {
               "target": "Package",
@@ -77,31 +74,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj": {
+    "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj",
+        "projectUniqueName": "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj",
         "projectName": "IdentityServer",
-        "projectPath": "G:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj",
-        "packagesPath": "C:\\Users\\Yummi\\.nuget\\packages\\",
-        "outputPath": "G:\\Dev\\SaaS\\IdentityServer\\obj\\",
+        "projectPath": "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj",
+        "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev\\SaaS\\IdentityServer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "G:\\Dev\\SaaS\\NuGet.Config",
-          "C:\\Users\\Yummi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "D:\\Dev\\SaaS\\NuGet.Config",
+          "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
@@ -109,10 +101,11 @@
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {
-              "G:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj": {
-                "projectPath": "G:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj"
+              "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj": {
+                "projectPath": "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj"
               }
             }
           }
@@ -124,11 +117,12 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.32.0, )"
+              "version": "[2.33.1, )"
             },
             "IdentityServer4": {
               "target": "Package",
@@ -144,15 +138,15 @@
             },
             "Microsoft.AspNetCore.Authentication.Certificate": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -173,7 +167,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using Dal;
+
 using static Saas.Message.Language.Dictionary.Types;
 using static Saas.Message.Language.SupportedLanguages.Types;
 

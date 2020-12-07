@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Dal.SpProperty";
+option csharp_namespace = "Saas.Dal.SpProperty";
 
 package SpProperty;
 

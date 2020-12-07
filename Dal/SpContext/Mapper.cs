@@ -10,7 +10,7 @@ namespace Dal.Sp
   {
     IMapper Get(string typeName);
 
-    IMapper Get<T>() => Get(typeof(T).Name);
+    IMapper Get<T>() where T: IMessage => Get(typeof(T).Name);
   }
 
   public interface IMapper

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dal.Sp;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
+using Google.Protobuf.WellKnownTypes;
 using Microsoft.Data.SqlClient;
 
 namespace Dal
@@ -53,7 +54,7 @@ namespace Dal
       return str.IsEqual(compare, CultureInfo.CurrentCulture, true);
     }
 
-    public static string SpName(this Type t, string schema, string op)
+    public static string SpName(this System.Type t, string schema, string op)
     {
       return schema.DotAnd(t.Name).UnderscoreAnd(op);
     }
@@ -77,9 +78,10 @@ namespace Dal
       };
     }
 
-    public static IEnumerable<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
+    public static IEnumerable<T> Parse<T>(this SqlDataReader reader, ICollectionMapper fieldmaps) where T : IMessage, new()
     {
       var ret = new HashSet<T>();
+      var map = fieldmaps.Get<T>();
 
       while (reader.Read())
       {
@@ -89,9 +91,10 @@ namespace Dal
       return ret;
     }
 
-    public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
+    public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, ICollectionMapper fieldmaps) where T : IMessage, new()
     {
       var ret = new HashSet<T>();
+      var map = fieldmaps.Get<T>();
 
       while (await reader.ReadAsync().ConfigureAwait(false))
       {
@@ -131,7 +134,7 @@ namespace Dal
           return Convert.ChangeType(obj, typeof(bool));
 
         case FieldType.String:
-          return Convert.ChangeType(obj, typeof(string));
+          return Convert.ChangeType(obj, typeof(string));       
 
         case FieldType.Bytes:
           return Convert.ChangeType(obj, typeof(ByteString));

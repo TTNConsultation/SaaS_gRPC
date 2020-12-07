@@ -14,7 +14,7 @@ namespace Dal.Sp
   {
     private readonly SqlCommand SqlCmd;
     private readonly IStoreProcedure SpProperty;
-    private readonly IMapper FieldMap;
+    private readonly ICollectionMapper FieldMaps;
 
     public string Error { get; }
     public int RootId { get; }
@@ -30,7 +30,7 @@ namespace Dal.Sp
       {
         RootId = claim.RootId;
         SpProperty = sp;
-        FieldMap = reflectionMaps.Get<T>();
+        FieldMaps = reflectionMaps;
         SqlCmd = SpProperty.SqlCommand(claim.ConnectionString);
         AddParameter(Constant.ROOT.Id(), RootId);
       }
@@ -90,7 +90,7 @@ namespace Dal.Sp
       SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
 
-      return reader.Parse<T>(FieldMap);
+      return reader.Parse<T>(FieldMaps);
     }
 
     public async Task<IEnumerable<T>> ReadAsync()
@@ -98,7 +98,7 @@ namespace Dal.Sp
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(FieldMap).ConfigureAwait(false);
+      return await reader.ParseAsync<T>(FieldMaps).ConfigureAwait(false);
     }
 
     public virtual void Dispose()

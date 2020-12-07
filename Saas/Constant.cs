@@ -1,4 +1,6 @@
-﻿namespace Saas
+﻿using Dal;
+
+namespace Saas
 {
   internal static class Constant
   {

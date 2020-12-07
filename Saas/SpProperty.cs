@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-using Dal.Sp;
 using Microsoft.Data.SqlClient;
 
-namespace Dal.SpProperty
+using Dal;
+using Dal.Sp;
+
+namespace Saas.Dal.SpProperty
 {
   public sealed class CollectionSpProperty : ICollectionSpProperty
   {
-    private readonly IEnumerable<IStoreProcedure> SpProperties;
+    private readonly IEnumerable<IStoreProcedure> _spProperties;
 
-    public CollectionSpProperty(ICollectionMapper mappers, IConnectionManager connectionManager)
+    public CollectionSpProperty(ICollectionMapper fieldmaps, IConnectionManager connectionManager)
     {
       var conStr = connectionManager.App();
-      var spParameters = ReadSpParameter(mappers.Get<SpParameter>(), conStr);
+      var spParameters = ReadSpParameter(fieldmaps, conStr);
 
-      SpProperties = Read(spParameters, mappers.Get<SpProperty>(), conStr);
+      _spProperties = Read(spParameters, fieldmaps, conStr);
     }
 
-    public IStoreProcedure Get(string typename, OperationType op) => SpProperties.FirstOrDefault(sp => sp.IsEqual(typename, op));
+    public IStoreProcedure Get(string typename, OperationType op) => _spProperties.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    private IEnumerable<IStoreProcedure> Read(IEnumerable<IStoreProcedureParameter> parameters, IMapper map, string conStr)
+    private IEnumerable<IStoreProcedure> Read(IEnumerable<IStoreProcedureParameter> parameters, ICollectionMapper fieldmaps, string conStr)
     {
       string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
 
@@ -36,6 +38,7 @@ namespace Dal.SpProperty
       using var reader = sqlcmd.ExecuteReader();
 
       var ret = new HashSet<IStoreProcedure>();
+      var map = fieldmaps.Get<SpProperty>();
 
       while (reader.Read())
       {
@@ -47,7 +50,7 @@ namespace Dal.SpProperty
       return ret;
     }
 
-    private IEnumerable<IStoreProcedureParameter> ReadSpParameter(IMapper map, string conStr)
+    private IEnumerable<IStoreProcedureParameter> ReadSpParameter(ICollectionMapper fieldmaps, string conStr)
     {
       string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
 
@@ -60,7 +63,7 @@ namespace Dal.SpProperty
 
       using var reader = sqlcmd.ExecuteReader();
 
-      return reader.Parse<SpParameter>(map);
+      return reader.Parse<SpParameter>(fieldmaps);
     }
   }
 
