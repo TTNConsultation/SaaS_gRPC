@@ -15,3 +15,12 @@ D:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.AssemblyInfo.cs
 D:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.csproj.CoreCompileInputs.cache
 D:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.dll
 D:\Dev\SaaS\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.pdb
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.deps.json
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.dll
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Debug\netstandard2.1\SpContext.pdb
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.csprojAssemblyReference.cache
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.AssemblyInfoInputs.cache
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.AssemblyInfo.cs
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.csproj.CoreCompileInputs.cache
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.dll
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\SpContext.pdb

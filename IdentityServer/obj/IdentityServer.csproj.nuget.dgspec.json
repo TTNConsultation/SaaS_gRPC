@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj": {}
+    "D:\\Dev\\SaaS_AllAboutFood\\IdentityServer\\IdentityServer.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj": {
+    "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj",
+        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj",
         "projectName": "SpContext",
-        "projectPath": "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj",
+        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj",
         "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\SaaS\\Dal\\SpContext\\obj\\",
+        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\Dev\\SaaS\\NuGet.Config",
+          "D:\\Dev\\SaaS_AllAboutFood\\NuGet.Config",
           "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -78,17 +78,17 @@
         }
       }
     },
-    "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj": {
+    "D:\\Dev\\SaaS_AllAboutFood\\IdentityServer\\IdentityServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj",
+        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\IdentityServer\\IdentityServer.csproj",
         "projectName": "IdentityServer",
-        "projectPath": "D:\\Dev\\SaaS\\IdentityServer\\IdentityServer.csproj",
+        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\IdentityServer\\IdentityServer.csproj",
         "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\SaaS\\IdentityServer\\obj\\",
+        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\IdentityServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\Dev\\SaaS\\NuGet.Config",
+          "D:\\Dev\\SaaS_AllAboutFood\\NuGet.Config",
           "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -104,8 +104,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj": {
-                "projectPath": "D:\\Dev\\SaaS\\Dal\\SpContext\\SpContext.csproj"
+              "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj": {
+                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj"
               }
             }
           }
