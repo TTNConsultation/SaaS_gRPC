@@ -4,24 +4,10 @@ using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
-namespace Dal.Sp
-{
-  public interface ICollectionMapper
-  {
-    IMapper Get(string typeName);
+using StoreProcedure.Interface;
 
-    IMapper Get<T>() where T: IMessage => Get(typeof(T).Name);
-  }
-
-  public interface IMapper
-  {
-    string TypeName { get; }
-
-    bool IsEqual(IMapper map) => TypeName.IsEqual(map.TypeName);
-
-    T Parse<T>(SqlDataReader reader) where T : IMessage, new();
-  }
-
+namespace StoreProcedure
+{  
   public sealed class CollectionMapper : ICollectionMapper
   {
     private readonly HashSet<IMapper> mappers = new HashSet<IMapper>();
@@ -31,7 +17,7 @@ namespace Dal.Sp
     public IMapper Get(string typeName) => mappers.FirstOrDefault(m => m.TypeName.IsEqual(typeName)) ?? Add(new Mapper(typeName));
   }
 
-  public sealed class Mapper : IMapper
+  internal sealed class Mapper : IMapper
   {
     private IDictionary<int, int> FieldMap;
 

@@ -6,19 +6,20 @@ package Reference;
 
 import "Protos/language.proto";
 
-message KeyTypes{
-  message KeyType{
-   int32 Id = 1;
-   string Name = 2;
-   int32 MaxLen = 3;
-	}
+message KeyType{
+  int32 Id = 1;
+  string Name = 2;
+  int32 MaxLen = 3;
+}
+message KeyTypes{ 
   repeated KeyType values = 1;
 }
-message States{
-  message State{
-    int32 Id = 1;
-    string Name = 2;
-  }
+
+message State{
+  int32 Id = 1;
+  string Name = 2;
+}
+message States{  
   repeated State values = 1;
 }
 message AppSetting{

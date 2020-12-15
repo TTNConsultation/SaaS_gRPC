@@ -1,21 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using Dal;
-
-using static Saas.Message.Language.Dictionary.Types;
-using static Saas.Message.Language.SupportedLanguages.Types;
+using StoreProcedure;
 
 namespace Saas.Message.Language
 {
   public partial class Keys
   {
-    public Keys(IEnumerable<Types.Key> values)
+    public Keys(IEnumerable<Key> values)
     {
       Values.AddRange(values);
     }
   }
 
+  public partial class CodeLanguage
+  {
+    public bool IsEqual(CodeLanguage lang) => Id == lang.Id;
+  }
   public partial class SupportedLanguages
   {
     public SupportedLanguages(IEnumerable<CodeLanguage> values)
@@ -25,15 +26,7 @@ namespace Saas.Message.Language
 
     public CodeLanguage Get(string code) => Values.FirstOrDefault(l => l.Code.IsEqual(code));
 
-    public CodeLanguage Get(int id) => Values.FirstOrDefault(l => l.Id == id);
-
-    public partial class Types
-    {
-      public partial class CodeLanguage
-      {
-        public bool IsEqual(CodeLanguage lang) => Id == lang.Id;
-      }
-    }
+    public CodeLanguage Get(int id) => Values.FirstOrDefault(l => l.Id == id);    
   }
 
   public partial class Dictionary

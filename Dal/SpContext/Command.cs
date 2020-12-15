@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Text;
 using Google.Protobuf;
 
-namespace Dal.Sp
-{
-  public enum OperationType { C, R, RR, U, D, ND }
+using StoreProcedure.Interface;
 
-  internal abstract class DbCommand<T> where T : IMessage, new()
+namespace StoreProcedure.Command
+{
+  internal abstract class Base<T> where T : IMessage, new()
   {
     private readonly SqlCommand SqlCmd;
     private readonly IStoreProcedure SpProperty;
@@ -20,7 +20,7 @@ namespace Dal.Sp
     public int RootId { get; }
     public bool IsReady => string.IsNullOrEmpty(Error);
 
-    protected DbCommand(DbContext.UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps)
+    protected Base(UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps)
     {
       Error = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
                                .Append((claim == null) ? "invalid claim" : null)
@@ -106,5 +106,48 @@ namespace Dal.Sp
       SqlCmd?.Connection?.Close();
       SqlCmd?.Dispose();
     }
+  }
+
+  internal sealed class ExecuteNonQuery<T> : Base<T>, IExecuteNonQuery<T> where T : IMessage, new()
+  {
+    private readonly IExecuteReader<T> SpRO;
+
+    public ExecuteNonQuery(UserClaim claim, IStoreProcedure sp, IStoreProcedure spReadOnly, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
+    {
+      SpRO = (spReadOnly == null) ? null : new ExecuteReader<T>(claim, spReadOnly, reflectionMaps);
+    }
+
+    public int Create(T obj) => AddParameters(obj) ? Create() : -1;
+
+    public bool Update(T obj) => AddParameters(obj) && Update();
+
+    public bool UpdateState(int id, int stateId) => AddParameters(SpRO.Read(id)) && AddParameter(Constant.STATE.Id(), stateId) && Update();
+
+    public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
+
+    public override void Dispose()
+    {
+      SpRO?.Dispose();
+      base.Dispose();
+    }
+  }
+
+  internal sealed class ExecuteReader<T> : Base<T>, IExecuteReader<T> where T : IMessage, new()
+  {
+    public ExecuteReader(UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
+    {
+    }
+
+    public IEnumerable<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
+
+    public IEnumerable<T> Read(IDictionary<string, object> parameters) => AddParameters(parameters) ? Read() : null;
+
+    public IEnumerable<T> ReadRange(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? Read() : null;
+
+    public async Task<IEnumerable<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
+
+    public async Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameters(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
+
+    public async Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
   }
 }

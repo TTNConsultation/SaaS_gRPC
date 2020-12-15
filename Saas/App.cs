@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Dal.Sp;
+using StoreProcedure;
+using StoreProcedure.Interface;
 
 using Saas.Message.Language;
 using Saas.Message.Reference;
-
-using static Saas.Message.Language.Keys.Types;
-using static Saas.Message.Language.SupportedLanguages.Types;
 
 namespace Saas
 {

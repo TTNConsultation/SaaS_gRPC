@@ -7,13 +7,15 @@ using Microsoft.Extensions.Hosting;
 using IdentityServer4;
 using IdentityServer.Entities;
 
-using Dal.Sp;
-using Dal.SpProperty;
+using StoreProcedure;
+using StoreProcedure.Interface;
 
 using Microsoft.AspNetCore.Authentication.Certificate;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
+
+using Dal;
 
 namespace IdentityServer
 {
@@ -50,7 +52,7 @@ namespace IdentityServer
 
       services.AddSingleton<IConnectionManager, ConnectionManager>()
               .AddSingleton<ICollectionMapper, CollectionMapper>()
-              .AddSingleton<ICollectionSpProperty, CollectionSpProperty>()
+              .AddSingleton<ICollectionStoreProcedure, CollectionSpProperty>()
               .AddSingleton<IDbContext, DbContext>();
     }
 

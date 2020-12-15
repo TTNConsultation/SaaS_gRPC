@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpContext", "Dal\SpContext\SpContext.csproj", "{AF3ADB8D-CF3A-4E1A-9A3E-F31F3D139034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreProcedure", "Dal\SpContext\StoreProcedure.csproj", "{AF3ADB8D-CF3A-4E1A-9A3E-F31F3D139034}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{0DF303BA-6137-4CDB-9596-017720686F21}"
 EndProject

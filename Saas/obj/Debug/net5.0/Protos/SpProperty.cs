@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Saas.Dal.SpProperty {
+namespace Saas.Dal {
 
   /// <summary>Holder for reflection information generated from Protos/SpProperty.proto</summary>
   public static partial class SpPropertyReflection {
@@ -30,13 +30,13 @@ namespace Saas.Dal.SpProperty {
             "ZXRlchIOCgZTcE5hbWUYASABKAkSDAoEU3BJZBgCIAEoBRIMCgROYW1lGAMg",
             "ASgJEgwKBFR5cGUYBCABKAkSEQoJTWF4TGVuZ3RoGAUgASgFEhEKCVByZWNp",
             "c2lvbhgGIAEoBRINCgVTY2FsZRgHIAEoBRINCgVPcmRlchgIIAEoBRIQCghJ",
-            "c091dHB1dBgJIAEoCBIRCglDb2xsYXRpb24YCiABKAlCFqoCE1NhYXMuRGFs",
-            "LlNwUHJvcGVydHliBnByb3RvMw=="));
+            "c091dHB1dBgJIAEoCBIRCglDb2xsYXRpb24YCiABKAlCC6oCCFNhYXMuRGFs",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.SpProperty.SpProperty), global::Saas.Dal.SpProperty.SpProperty.Parser, new[]{ "Id", "FullName", "Schema", "Type", "Op" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.SpProperty.SpParameter), global::Saas.Dal.SpProperty.SpParameter.Parser, new[]{ "SpName", "SpId", "Name", "Type", "MaxLength", "Precision", "Scale", "Order", "IsOutput", "Collation" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.SpProperty), global::Saas.Dal.SpProperty.Parser, new[]{ "Id", "FullName", "Schema", "Type", "Op" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.SpParameter), global::Saas.Dal.SpParameter.Parser, new[]{ "SpName", "SpId", "Name", "Type", "MaxLength", "Precision", "Scale", "Order", "IsOutput", "Collation" }, null, null, null, null)
           }));
     }
     #endregion
@@ -55,7 +55,7 @@ namespace Saas.Dal.SpProperty {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Dal.SpProperty.SpPropertyReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Saas.Dal.SpPropertyReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -371,7 +371,7 @@ namespace Saas.Dal.SpProperty {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Dal.SpProperty.SpPropertyReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Saas.Dal.SpPropertyReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -1,4 +1,4 @@
-﻿namespace Dal
+﻿namespace StoreProcedure
 {
   public static class Constant
   {

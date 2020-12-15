@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Http;
 using IdentityServer4.AccessTokenValidation;
 
 using Saas.Services;
-using Saas.Dal.SpProperty;
+using Saas.Dal;
 
-using Dal.Sp;
+using StoreProcedure;
+using StoreProcedure.Interface;
 
 namespace Saas
 {
@@ -88,7 +89,7 @@ namespace Saas
 
       services.AddSingleton<IConnectionManager, ConnectionManager>();
       services.AddSingleton<ICollectionMapper, CollectionMapper>();
-      services.AddSingleton<ICollectionSpProperty, CollectionSpProperty>();
+      services.AddSingleton<ICollectionStoreProcedure, CollectionStoreProcedure>();
       services.AddSingleton<IDbContext, DbContext>();
 
       services.AddSingleton<App>();

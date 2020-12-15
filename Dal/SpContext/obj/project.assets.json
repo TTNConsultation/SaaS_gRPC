@@ -5964,9 +5964,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj",
-      "projectName": "SpContext",
-      "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\SpContext.csproj",
+      "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj",
+      "projectName": "StoreProcedure",
+      "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj",
       "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
       "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\obj\\",
       "projectStyle": "PackageReference",
@@ -6031,7 +6031,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

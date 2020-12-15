@@ -2,26 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dal.Sp
-{
-  public interface IConnectionManager
-  {
-    string Get(string schema);
+using StoreProcedure.Interface;
 
-    string App() => Get(Constant.APP);
-  }
-
+namespace StoreProcedure
+{  
   public sealed class ConnectionManager : IConnectionManager
   {
-    private readonly IDictionary<string, string> ConnectionStrings;
+    private readonly IDictionary<string, string> _connectionStrings;
 
     public ConnectionManager(IConfiguration config)
     {
-      ConnectionStrings = config.GetSection(Constant.CONNECTIONSTRINGS)
+      _connectionStrings = config.GetSection(Constant.CONNECTIONSTRINGS)
                                 ?.GetChildren()
                                 ?.ToDictionary(s => s.Key, s => s.Value) ?? new Dictionary<string, string>();
     }
 
-    public string Get(string schema) => ConnectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+    public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
   }
 }

@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-using Dal.Sp;
 using Microsoft.Data.SqlClient;
 
-namespace Dal.SpProperty
+using StoreProcedure;
+using StoreProcedure.Interface;
+
+namespace Dal
 {
-  public sealed class CollectionSpProperty : ICollectionSpProperty
+  public sealed class CollectionSpProperty : ICollectionStoreProcedure
   {
-    private readonly IEnumerable<IStoreProcedure> SpProperties;
+    private readonly IEnumerable<IStoreProcedure> _storeProcedures;
 
     public CollectionSpProperty(ICollectionMapper fieldmaps, IConnectionManager connectionManager)
     {
-      SpProperties = Read(fieldmaps, connectionManager.App());
+      _storeProcedures = Read(fieldmaps, connectionManager.App());
     }
 
-    public IStoreProcedure Get(string typename, OperationType op) => SpProperties.FirstOrDefault(sp => sp.IsEqual(typename, op));
+    public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    private IEnumerable<IStoreProcedure> Read(ICollectionMapper fieldmaps, string conStr)
+    private IEnumerable<IStoreProcedure> Read(ICollectionMapper mappers, string conStr)
     {
-      var parameters = ReadSpParameter(fieldmaps, conStr);
+      var parameters = ReadSpParameter(mappers, conStr);
 
       string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
 
@@ -35,7 +37,7 @@ namespace Dal.SpProperty
       using var reader = sqlcmd.ExecuteReader();
 
       var ret = new HashSet<IStoreProcedure>();
-      var map = fieldmaps.Get<SpProperty>();
+      var map = mappers.Get<SpProperty>();
 
       while (reader.Read())
       {
@@ -47,7 +49,7 @@ namespace Dal.SpProperty
       return ret;
     }
 
-    private IEnumerable<IStoreProcedureParameter> ReadSpParameter(ICollectionMapper fieldmaps, string conStr)
+    private IEnumerable<SpParameter> ReadSpParameter(ICollectionMapper fieldmaps, string conStr)
     {
       string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
       using var sqlcon = new SqlConnection(conStr);
@@ -64,7 +66,7 @@ namespace Dal.SpProperty
 
   public partial class SpProperty : IStoreProcedure
   {
-    internal IEnumerable<IStoreProcedureParameter> Parameters { private get; set; }
+    internal IEnumerable<IParameter> Parameters { private get; set; }
 
     public SqlCommand SqlCommand(string conStr) =>
       new SqlCommand(FullName, new SqlConnection(conStr))
@@ -72,12 +74,12 @@ namespace Dal.SpProperty
         CommandType = CommandType.StoredProcedure
       };
 
-    public IStoreProcedureParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
+    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
 
     public bool IsEqual(string spName, OperationType op) => Type.IsEqual(spName) && Op.IsEqual(op.ToString());
   }
 
-  public partial class SpParameter : IStoreProcedureParameter
+  public partial class SpParameter : IParameter
   {
     private int Size(object value)
     {

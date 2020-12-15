@@ -5,27 +5,28 @@ using System.Linq;
 
 using Microsoft.Data.SqlClient;
 
-using Dal;
-using Dal.Sp;
+using StoreProcedure;
+using StoreProcedure.Interface;
 
-namespace Saas.Dal.SpProperty
+namespace Saas.Dal
 {
-  public sealed class CollectionSpProperty : ICollectionSpProperty
+  public sealed class CollectionStoreProcedure : ICollectionStoreProcedure
   {
-    private readonly IEnumerable<IStoreProcedure> _spProperties;
+    private readonly IEnumerable<IStoreProcedure> _storeProcedures;
 
-    public CollectionSpProperty(ICollectionMapper fieldmaps, IConnectionManager connectionManager)
+    public CollectionStoreProcedure(ICollectionMapper mappers, IConnectionManager connectionManager)
     {
       var conStr = connectionManager.App();
-      var spParameters = ReadSpParameter(fieldmaps, conStr);
 
-      _spProperties = Read(spParameters, fieldmaps, conStr);
+      _storeProcedures = SpProperty_R(mappers, conStr);
     }
 
-    public IStoreProcedure Get(string typename, OperationType op) => _spProperties.FirstOrDefault(sp => sp.IsEqual(typename, op));
+    public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    private IEnumerable<IStoreProcedure> Read(IEnumerable<IStoreProcedureParameter> parameters, ICollectionMapper fieldmaps, string conStr)
+    private static IEnumerable<IStoreProcedure> SpProperty_R(ICollectionMapper mappers, string conStr)
     {
+      var parameters = SpParameter_R(mappers, conStr);
+
       string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
@@ -38,7 +39,7 @@ namespace Saas.Dal.SpProperty
       using var reader = sqlcmd.ExecuteReader();
 
       var ret = new HashSet<IStoreProcedure>();
-      var map = fieldmaps.Get<SpProperty>();
+      var map = mappers.Get<SpProperty>();
 
       while (reader.Read())
       {
@@ -50,7 +51,7 @@ namespace Saas.Dal.SpProperty
       return ret;
     }
 
-    private IEnumerable<IStoreProcedureParameter> ReadSpParameter(ICollectionMapper fieldmaps, string conStr)
+    private static IEnumerable<IParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
     {
       string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
 
@@ -63,13 +64,13 @@ namespace Saas.Dal.SpProperty
 
       using var reader = sqlcmd.ExecuteReader();
 
-      return reader.Parse<SpParameter>(fieldmaps);
+      return reader.Parse<SpParameter>(mappers);
     }
   }
 
   public partial class SpProperty : IStoreProcedure
   {
-    internal IEnumerable<IStoreProcedureParameter> Parameters { private get; set; }
+    internal IEnumerable<IParameter> Parameters { private get; set; }
 
     public SqlCommand SqlCommand(string conStr) =>
       new SqlCommand(FullName, new SqlConnection(conStr))
@@ -77,12 +78,12 @@ namespace Saas.Dal.SpProperty
         CommandType = CommandType.StoredProcedure
       };
 
-    public IStoreProcedureParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
+    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
 
     public bool IsEqual(string spName, OperationType op) => Type.IsEqual(spName) && Op.IsEqual(op.ToString());
   }
 
-  public partial class SpParameter : IStoreProcedureParameter
+  public partial class SpParameter : IParameter
   {
     private int Size(object value)
     {

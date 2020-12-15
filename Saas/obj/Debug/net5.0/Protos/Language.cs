@@ -24,32 +24,421 @@ namespace Saas.Message.Language {
     static LanguageReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVQcm90b3MvbGFuZ3VhZ2UucHJvdG8SCExhbmd1YWdlIpoBCgRLZXlzEiIK",
-            "BnZhbHVlcxgBIAMoCzISLkxhbmd1YWdlLktleXMuS2V5Gm4KA0tleRILCgNL",
+            "ChVQcm90b3MvbGFuZ3VhZ2UucHJvdG8SCExhbmd1YWdlIm4KA0tleRILCgNL",
             "ZXkYASABKAUSDAoEVHlwZRgCIAEoBRIOCgZSb290SWQYAyABKAUSEQoJT2Jq",
             "ZWN0X2lkGAQgASgFEgoKAklkGAUgASgFEg8KB0tleU5hbWUYBiABKAkSDAoE",
-            "Q29kZRgHIAEoCSKIAQoSU3VwcG9ydGVkTGFuZ3VhZ2VzEjkKBnZhbHVlcxgB",
-            "IAMoCzIpLkxhbmd1YWdlLlN1cHBvcnRlZExhbmd1YWdlcy5Db2RlTGFuZ3Vh",
-            "Z2UaNwoMQ29kZUxhbmd1YWdlEgoKAklkGAEgASgFEgwKBENvZGUYAiABKAkS",
-            "DQoFVmFsdWUYAyABKAki3QEKCkRpY3Rpb25hcnkSDgoGUm9vdElkGAEgASgF",
-            "EjsKCExhbmd1YWdlGAIgASgLMikuTGFuZ3VhZ2UuU3VwcG9ydGVkTGFuZ3Vh",
-            "Z2VzLkNvZGVMYW5ndWFnZRIcCgRLZXlzGAMgASgLMg4uTGFuZ3VhZ2UuS2V5",
-            "cxI2Cgdjb250ZW50GAQgAygLMiUuTGFuZ3VhZ2UuRGljdGlvbmFyeS5EaWN0",
-            "S2V5VmFsdWVQYWlyGiwKEERpY3RLZXlWYWx1ZVBhaXISCwoDS2V5GAEgASgF",
-            "EgsKA1ZhbBgCIAEoCUIYqgIVU2Fhcy5NZXNzYWdlLkxhbmd1YWdlYgZwcm90",
-            "bzM="));
+            "Q29kZRgHIAEoCSIlCgRLZXlzEh0KBnZhbHVlcxgBIAMoCzINLkxhbmd1YWdl",
+            "LktleSI3CgxDb2RlTGFuZ3VhZ2USCgoCSWQYASABKAUSDAoEQ29kZRgCIAEo",
+            "CRINCgVWYWx1ZRgDIAEoCSI8ChJTdXBwb3J0ZWRMYW5ndWFnZXMSJgoGdmFs",
+            "dWVzGAEgAygLMhYuTGFuZ3VhZ2UuQ29kZUxhbmd1YWdlIiwKEERpY3RLZXlW",
+            "YWx1ZVBhaXISCwoDS2V5GAEgASgFEgsKA1ZhbBgCIAEoCSKRAQoKRGljdGlv",
+            "bmFyeRIOCgZSb290SWQYASABKAUSKAoITGFuZ3VhZ2UYAiABKAsyFi5MYW5n",
+            "dWFnZS5Db2RlTGFuZ3VhZ2USHAoES2V5cxgDIAEoCzIOLkxhbmd1YWdlLktl",
+            "eXMSKwoHY29udGVudBgEIAMoCzIaLkxhbmd1YWdlLkRpY3RLZXlWYWx1ZVBh",
+            "aXJCGKoCFVNhYXMuTWVzc2FnZS5MYW5ndWFnZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Keys), global::Saas.Message.Language.Keys.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Keys.Types.Key), global::Saas.Message.Language.Keys.Types.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.SupportedLanguages), global::Saas.Message.Language.SupportedLanguages.Parser, new[]{ "Values" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage), global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Dictionary), global::Saas.Message.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair), global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Key), global::Saas.Message.Language.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Keys), global::Saas.Message.Language.Keys.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.CodeLanguage), global::Saas.Message.Language.CodeLanguage.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.SupportedLanguages), global::Saas.Message.Language.SupportedLanguages.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.DictKeyValuePair), global::Saas.Message.Language.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Language.Dictionary), global::Saas.Message.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  public sealed partial class Key : pb::IMessage<Key>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Key> _parser = new pb::MessageParser<Key>(() => new Key());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Key> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Key() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Key(Key other) : this() {
+      key_ = other.key_;
+      type_ = other.type_;
+      rootId_ = other.rootId_;
+      objectId_ = other.objectId_;
+      id_ = other.id_;
+      keyName_ = other.keyName_;
+      code_ = other.code_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Key Clone() {
+      return new Key(this);
+    }
+
+    /// <summary>Field number for the "Key" field.</summary>
+    public const int Key_FieldNumber = 1;
+    private int key_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Key_ {
+      get { return key_; }
+      set {
+        key_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Type" field.</summary>
+    public const int TypeFieldNumber = 2;
+    private int type_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RootId" field.</summary>
+    public const int RootIdFieldNumber = 3;
+    private int rootId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int RootId {
+      get { return rootId_; }
+      set {
+        rootId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Object_id" field.</summary>
+    public const int ObjectIdFieldNumber = 4;
+    private int objectId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ObjectId {
+      get { return objectId_; }
+      set {
+        objectId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 5;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "KeyName" field.</summary>
+    public const int KeyNameFieldNumber = 6;
+    private string keyName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string KeyName {
+      get { return keyName_; }
+      set {
+        keyName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Code" field.</summary>
+    public const int CodeFieldNumber = 7;
+    private string code_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Code {
+      get { return code_; }
+      set {
+        code_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Key);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Key other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key_ != other.Key_) return false;
+      if (Type != other.Type) return false;
+      if (RootId != other.RootId) return false;
+      if (ObjectId != other.ObjectId) return false;
+      if (Id != other.Id) return false;
+      if (KeyName != other.KeyName) return false;
+      if (Code != other.Code) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key_ != 0) hash ^= Key_.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (RootId != 0) hash ^= RootId.GetHashCode();
+      if (ObjectId != 0) hash ^= ObjectId.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (KeyName.Length != 0) hash ^= KeyName.GetHashCode();
+      if (Code.Length != 0) hash ^= Code.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Key_ != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Key_);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Type);
+      }
+      if (RootId != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(RootId);
+      }
+      if (ObjectId != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(ObjectId);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Id);
+      }
+      if (KeyName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(KeyName);
+      }
+      if (Code.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Code);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Key_ != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Key_);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Type);
+      }
+      if (RootId != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(RootId);
+      }
+      if (ObjectId != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(ObjectId);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Id);
+      }
+      if (KeyName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(KeyName);
+      }
+      if (Code.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Code);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key_ != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key_);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
+      }
+      if (RootId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RootId);
+      }
+      if (ObjectId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjectId);
+      }
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (KeyName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(KeyName);
+      }
+      if (Code.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Code);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Key other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key_ != 0) {
+        Key_ = other.Key_;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.RootId != 0) {
+        RootId = other.RootId;
+      }
+      if (other.ObjectId != 0) {
+        ObjectId = other.ObjectId;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.KeyName.Length != 0) {
+        KeyName = other.KeyName;
+      }
+      if (other.Code.Length != 0) {
+        Code = other.Code;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Key_ = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Type = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            RootId = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ObjectId = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 50: {
+            KeyName = input.ReadString();
+            break;
+          }
+          case 58: {
+            Code = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Key_ = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Type = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            RootId = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ObjectId = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 50: {
+            KeyName = input.ReadString();
+            break;
+          }
+          case 58: {
+            Code = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class Keys : pb::IMessage<Keys>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -62,7 +451,7 @@ namespace Saas.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -90,11 +479,11 @@ namespace Saas.Message.Language {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Message.Language.Keys.Types.Key> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Language.Keys.Types.Key.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Message.Language.Keys.Types.Key> values_ = new pbc::RepeatedField<global::Saas.Message.Language.Keys.Types.Key>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Language.Key> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Language.Key.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Language.Key> values_ = new pbc::RepeatedField<global::Saas.Message.Language.Key>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Message.Language.Keys.Types.Key> Values {
+    public pbc::RepeatedField<global::Saas.Message.Language.Key> Values {
       get { return values_; }
     }
 
@@ -209,400 +598,249 @@ namespace Saas.Message.Language {
     }
     #endif
 
-    #region Nested types
-    /// <summary>Container for nested types declared in the Keys message type.</summary>
+  }
+
+  public sealed partial class CodeLanguage : pb::IMessage<CodeLanguage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CodeLanguage> _parser = new pb::MessageParser<CodeLanguage>(() => new CodeLanguage());
+    private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static partial class Types {
-      public sealed partial class Key : pb::IMessage<Key>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<Key> _parser = new pb::MessageParser<Key>(() => new Key());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public static pb::MessageParser<Key> Parser { get { return _parser; } }
+    public static pb::MessageParser<CodeLanguage> Parser { get { return _parser; } }
 
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Message.Language.Keys.Descriptor.NestedTypes[0]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public Key() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public Key(Key other) : this() {
-          key_ = other.key_;
-          type_ = other.type_;
-          rootId_ = other.rootId_;
-          objectId_ = other.objectId_;
-          id_ = other.id_;
-          keyName_ = other.keyName_;
-          code_ = other.code_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public Key Clone() {
-          return new Key(this);
-        }
-
-        /// <summary>Field number for the "Key" field.</summary>
-        public const int Key_FieldNumber = 1;
-        private int key_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Key_ {
-          get { return key_; }
-          set {
-            key_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "Type" field.</summary>
-        public const int TypeFieldNumber = 2;
-        private int type_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Type {
-          get { return type_; }
-          set {
-            type_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "RootId" field.</summary>
-        public const int RootIdFieldNumber = 3;
-        private int rootId_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int RootId {
-          get { return rootId_; }
-          set {
-            rootId_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "Object_id" field.</summary>
-        public const int ObjectIdFieldNumber = 4;
-        private int objectId_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int ObjectId {
-          get { return objectId_; }
-          set {
-            objectId_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "Id" field.</summary>
-        public const int IdFieldNumber = 5;
-        private int id_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Id {
-          get { return id_; }
-          set {
-            id_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "KeyName" field.</summary>
-        public const int KeyNameFieldNumber = 6;
-        private string keyName_ = "";
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string KeyName {
-          get { return keyName_; }
-          set {
-            keyName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        /// <summary>Field number for the "Code" field.</summary>
-        public const int CodeFieldNumber = 7;
-        private string code_ = "";
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Code {
-          get { return code_; }
-          set {
-            code_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override bool Equals(object other) {
-          return Equals(other as Key);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool Equals(Key other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (Key_ != other.Key_) return false;
-          if (Type != other.Type) return false;
-          if (RootId != other.RootId) return false;
-          if (ObjectId != other.ObjectId) return false;
-          if (Id != other.Id) return false;
-          if (KeyName != other.KeyName) return false;
-          if (Code != other.Code) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (Key_ != 0) hash ^= Key_.GetHashCode();
-          if (Type != 0) hash ^= Type.GetHashCode();
-          if (RootId != 0) hash ^= RootId.GetHashCode();
-          if (ObjectId != 0) hash ^= ObjectId.GetHashCode();
-          if (Id != 0) hash ^= Id.GetHashCode();
-          if (KeyName.Length != 0) hash ^= KeyName.GetHashCode();
-          if (Code.Length != 0) hash ^= Code.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (Key_ != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Key_);
-          }
-          if (Type != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Type);
-          }
-          if (RootId != 0) {
-            output.WriteRawTag(24);
-            output.WriteInt32(RootId);
-          }
-          if (ObjectId != 0) {
-            output.WriteRawTag(32);
-            output.WriteInt32(ObjectId);
-          }
-          if (Id != 0) {
-            output.WriteRawTag(40);
-            output.WriteInt32(Id);
-          }
-          if (KeyName.Length != 0) {
-            output.WriteRawTag(50);
-            output.WriteString(KeyName);
-          }
-          if (Code.Length != 0) {
-            output.WriteRawTag(58);
-            output.WriteString(Code);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Key_ != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Key_);
-          }
-          if (Type != 0) {
-            output.WriteRawTag(16);
-            output.WriteInt32(Type);
-          }
-          if (RootId != 0) {
-            output.WriteRawTag(24);
-            output.WriteInt32(RootId);
-          }
-          if (ObjectId != 0) {
-            output.WriteRawTag(32);
-            output.WriteInt32(ObjectId);
-          }
-          if (Id != 0) {
-            output.WriteRawTag(40);
-            output.WriteInt32(Id);
-          }
-          if (KeyName.Length != 0) {
-            output.WriteRawTag(50);
-            output.WriteString(KeyName);
-          }
-          if (Code.Length != 0) {
-            output.WriteRawTag(58);
-            output.WriteString(Code);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int CalculateSize() {
-          int size = 0;
-          if (Key_ != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key_);
-          }
-          if (Type != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
-          }
-          if (RootId != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(RootId);
-          }
-          if (ObjectId != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(ObjectId);
-          }
-          if (Id != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
-          }
-          if (KeyName.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(KeyName);
-          }
-          if (Code.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Code);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void MergeFrom(Key other) {
-          if (other == null) {
-            return;
-          }
-          if (other.Key_ != 0) {
-            Key_ = other.Key_;
-          }
-          if (other.Type != 0) {
-            Type = other.Type;
-          }
-          if (other.RootId != 0) {
-            RootId = other.RootId;
-          }
-          if (other.ObjectId != 0) {
-            ObjectId = other.ObjectId;
-          }
-          if (other.Id != 0) {
-            Id = other.Id;
-          }
-          if (other.KeyName.Length != 0) {
-            KeyName = other.KeyName;
-          }
-          if (other.Code.Length != 0) {
-            Code = other.Code;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 8: {
-                Key_ = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Type = input.ReadInt32();
-                break;
-              }
-              case 24: {
-                RootId = input.ReadInt32();
-                break;
-              }
-              case 32: {
-                ObjectId = input.ReadInt32();
-                break;
-              }
-              case 40: {
-                Id = input.ReadInt32();
-                break;
-              }
-              case 50: {
-                KeyName = input.ReadString();
-                break;
-              }
-              case 58: {
-                Code = input.ReadString();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 8: {
-                Key_ = input.ReadInt32();
-                break;
-              }
-              case 16: {
-                Type = input.ReadInt32();
-                break;
-              }
-              case 24: {
-                RootId = input.ReadInt32();
-                break;
-              }
-              case 32: {
-                ObjectId = input.ReadInt32();
-                break;
-              }
-              case 40: {
-                Id = input.ReadInt32();
-                break;
-              }
-              case 50: {
-                KeyName = input.ReadString();
-                break;
-              }
-              case 58: {
-                Code = input.ReadString();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[2]; }
     }
-    #endregion
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CodeLanguage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CodeLanguage(CodeLanguage other) : this() {
+      id_ = other.id_;
+      code_ = other.code_;
+      value_ = other.value_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CodeLanguage Clone() {
+      return new CodeLanguage(this);
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Code" field.</summary>
+    public const int CodeFieldNumber = 2;
+    private string code_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Code {
+      get { return code_; }
+      set {
+        code_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Value" field.</summary>
+    public const int ValueFieldNumber = 3;
+    private string value_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Value {
+      get { return value_; }
+      set {
+        value_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CodeLanguage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CodeLanguage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (Code != other.Code) return false;
+      if (Value != other.Value) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Code.Length != 0) hash ^= Code.GetHashCode();
+      if (Value.Length != 0) hash ^= Value.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Code.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Code);
+      }
+      if (Value.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Value);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Code.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Code);
+      }
+      if (Value.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Value);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (Code.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Code);
+      }
+      if (Value.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Value);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CodeLanguage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.Code.Length != 0) {
+        Code = other.Code;
+      }
+      if (other.Value.Length != 0) {
+        Value = other.Value;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Code = input.ReadString();
+            break;
+          }
+          case 26: {
+            Value = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Code = input.ReadString();
+            break;
+          }
+          case 26: {
+            Value = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
@@ -618,7 +856,7 @@ namespace Saas.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -646,11 +884,11 @@ namespace Saas.Message.Language {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage> values_ = new pbc::RepeatedField<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Language.CodeLanguage> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Saas.Message.Language.CodeLanguage.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Language.CodeLanguage> values_ = new pbc::RepeatedField<global::Saas.Message.Language.CodeLanguage>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage> Values {
+    public pbc::RepeatedField<global::Saas.Message.Language.CodeLanguage> Values {
       get { return values_; }
     }
 
@@ -765,256 +1003,213 @@ namespace Saas.Message.Language {
     }
     #endif
 
-    #region Nested types
-    /// <summary>Container for nested types declared in the SupportedLanguages message type.</summary>
+  }
+
+  public sealed partial class DictKeyValuePair : pb::IMessage<DictKeyValuePair>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DictKeyValuePair> _parser = new pb::MessageParser<DictKeyValuePair>(() => new DictKeyValuePair());
+    private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static partial class Types {
-      public sealed partial class CodeLanguage : pb::IMessage<CodeLanguage>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<CodeLanguage> _parser = new pb::MessageParser<CodeLanguage>(() => new CodeLanguage());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public static pb::MessageParser<CodeLanguage> Parser { get { return _parser; } }
+    public static pb::MessageParser<DictKeyValuePair> Parser { get { return _parser; } }
 
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Message.Language.SupportedLanguages.Descriptor.NestedTypes[0]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public CodeLanguage() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public CodeLanguage(CodeLanguage other) : this() {
-          id_ = other.id_;
-          code_ = other.code_;
-          value_ = other.value_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public CodeLanguage Clone() {
-          return new CodeLanguage(this);
-        }
-
-        /// <summary>Field number for the "Id" field.</summary>
-        public const int IdFieldNumber = 1;
-        private int id_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Id {
-          get { return id_; }
-          set {
-            id_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "Code" field.</summary>
-        public const int CodeFieldNumber = 2;
-        private string code_ = "";
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Code {
-          get { return code_; }
-          set {
-            code_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        /// <summary>Field number for the "Value" field.</summary>
-        public const int ValueFieldNumber = 3;
-        private string value_ = "";
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Value {
-          get { return value_; }
-          set {
-            value_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override bool Equals(object other) {
-          return Equals(other as CodeLanguage);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool Equals(CodeLanguage other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (Id != other.Id) return false;
-          if (Code != other.Code) return false;
-          if (Value != other.Value) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (Id != 0) hash ^= Id.GetHashCode();
-          if (Code.Length != 0) hash ^= Code.GetHashCode();
-          if (Value.Length != 0) hash ^= Value.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (Id != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Id);
-          }
-          if (Code.Length != 0) {
-            output.WriteRawTag(18);
-            output.WriteString(Code);
-          }
-          if (Value.Length != 0) {
-            output.WriteRawTag(26);
-            output.WriteString(Value);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Id != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Id);
-          }
-          if (Code.Length != 0) {
-            output.WriteRawTag(18);
-            output.WriteString(Code);
-          }
-          if (Value.Length != 0) {
-            output.WriteRawTag(26);
-            output.WriteString(Value);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int CalculateSize() {
-          int size = 0;
-          if (Id != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
-          }
-          if (Code.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Code);
-          }
-          if (Value.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Value);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void MergeFrom(CodeLanguage other) {
-          if (other == null) {
-            return;
-          }
-          if (other.Id != 0) {
-            Id = other.Id;
-          }
-          if (other.Code.Length != 0) {
-            Code = other.Code;
-          }
-          if (other.Value.Length != 0) {
-            Value = other.Value;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 8: {
-                Id = input.ReadInt32();
-                break;
-              }
-              case 18: {
-                Code = input.ReadString();
-                break;
-              }
-              case 26: {
-                Value = input.ReadString();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 8: {
-                Id = input.ReadInt32();
-                break;
-              }
-              case 18: {
-                Code = input.ReadString();
-                break;
-              }
-              case 26: {
-                Value = input.ReadString();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[4]; }
     }
-    #endregion
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DictKeyValuePair() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DictKeyValuePair(DictKeyValuePair other) : this() {
+      key_ = other.key_;
+      val_ = other.val_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DictKeyValuePair Clone() {
+      return new DictKeyValuePair(this);
+    }
+
+    /// <summary>Field number for the "Key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private int key_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Key {
+      get { return key_; }
+      set {
+        key_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Val" field.</summary>
+    public const int ValFieldNumber = 2;
+    private string val_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Val {
+      get { return val_; }
+      set {
+        val_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DictKeyValuePair);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DictKeyValuePair other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key != other.Key) return false;
+      if (Val != other.Val) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key != 0) hash ^= Key.GetHashCode();
+      if (Val.Length != 0) hash ^= Val.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Key != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Key);
+      }
+      if (Val.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Val);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Key != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Key);
+      }
+      if (Val.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Val);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key);
+      }
+      if (Val.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DictKeyValuePair other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key != 0) {
+        Key = other.Key;
+      }
+      if (other.Val.Length != 0) {
+        Val = other.Val;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Key = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Val = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Key = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Val = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
@@ -1030,7 +1225,7 @@ namespace Saas.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Saas.Message.Language.LanguageReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1072,9 +1267,9 @@ namespace Saas.Message.Language {
 
     /// <summary>Field number for the "Language" field.</summary>
     public const int LanguageFieldNumber = 2;
-    private global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage language_;
+    private global::Saas.Message.Language.CodeLanguage language_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage Language {
+    public global::Saas.Message.Language.CodeLanguage Language {
       get { return language_; }
       set {
         language_ = value;
@@ -1094,11 +1289,11 @@ namespace Saas.Message.Language {
 
     /// <summary>Field number for the "content" field.</summary>
     public const int ContentFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair> _repeated_content_codec
-        = pb::FieldCodec.ForMessage(34, global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair.Parser);
-    private readonly pbc::RepeatedField<global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair> content_ = new pbc::RepeatedField<global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair>();
+    private static readonly pb::FieldCodec<global::Saas.Message.Language.DictKeyValuePair> _repeated_content_codec
+        = pb::FieldCodec.ForMessage(34, global::Saas.Message.Language.DictKeyValuePair.Parser);
+    private readonly pbc::RepeatedField<global::Saas.Message.Language.DictKeyValuePair> content_ = new pbc::RepeatedField<global::Saas.Message.Language.DictKeyValuePair>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Saas.Message.Language.Dictionary.Types.DictKeyValuePair> Content {
+    public pbc::RepeatedField<global::Saas.Message.Language.DictKeyValuePair> Content {
       get { return content_; }
     }
 
@@ -1215,7 +1410,7 @@ namespace Saas.Message.Language {
       }
       if (other.language_ != null) {
         if (language_ == null) {
-          Language = new global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage();
+          Language = new global::Saas.Message.Language.CodeLanguage();
         }
         Language.MergeFrom(other.Language);
       }
@@ -1246,7 +1441,7 @@ namespace Saas.Message.Language {
           }
           case 18: {
             if (language_ == null) {
-              Language = new global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage();
+              Language = new global::Saas.Message.Language.CodeLanguage();
             }
             input.ReadMessage(Language);
             break;
@@ -1282,7 +1477,7 @@ namespace Saas.Message.Language {
           }
           case 18: {
             if (language_ == null) {
-              Language = new global::Saas.Message.Language.SupportedLanguages.Types.CodeLanguage();
+              Language = new global::Saas.Message.Language.CodeLanguage();
             }
             input.ReadMessage(Language);
             break;
@@ -1302,221 +1497,6 @@ namespace Saas.Message.Language {
       }
     }
     #endif
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the Dictionary message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static partial class Types {
-      public sealed partial class DictKeyValuePair : pb::IMessage<DictKeyValuePair>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<DictKeyValuePair> _parser = new pb::MessageParser<DictKeyValuePair>(() => new DictKeyValuePair());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public static pb::MessageParser<DictKeyValuePair> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::Saas.Message.Language.Dictionary.Descriptor.NestedTypes[0]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public DictKeyValuePair() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public DictKeyValuePair(DictKeyValuePair other) : this() {
-          key_ = other.key_;
-          val_ = other.val_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public DictKeyValuePair Clone() {
-          return new DictKeyValuePair(this);
-        }
-
-        /// <summary>Field number for the "Key" field.</summary>
-        public const int KeyFieldNumber = 1;
-        private int key_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int Key {
-          get { return key_; }
-          set {
-            key_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "Val" field.</summary>
-        public const int ValFieldNumber = 2;
-        private string val_ = "";
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string Val {
-          get { return val_; }
-          set {
-            val_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override bool Equals(object other) {
-          return Equals(other as DictKeyValuePair);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool Equals(DictKeyValuePair other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (Key != other.Key) return false;
-          if (Val != other.Val) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (Key != 0) hash ^= Key.GetHashCode();
-          if (Val.Length != 0) hash ^= Val.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (Key != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Key);
-          }
-          if (Val.Length != 0) {
-            output.WriteRawTag(18);
-            output.WriteString(Val);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (Key != 0) {
-            output.WriteRawTag(8);
-            output.WriteInt32(Key);
-          }
-          if (Val.Length != 0) {
-            output.WriteRawTag(18);
-            output.WriteString(Val);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public int CalculateSize() {
-          int size = 0;
-          if (Key != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeInt32Size(Key);
-          }
-          if (Val.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void MergeFrom(DictKeyValuePair other) {
-          if (other == null) {
-            return;
-          }
-          if (other.Key != 0) {
-            Key = other.Key;
-          }
-          if (other.Val.Length != 0) {
-            Val = other.Val;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 8: {
-                Key = input.ReadInt32();
-                break;
-              }
-              case 18: {
-                Val = input.ReadString();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 8: {
-                Key = input.ReadInt32();
-                break;
-              }
-              case 18: {
-                Val = input.ReadString();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
-    }
-    #endregion
 
   }
 

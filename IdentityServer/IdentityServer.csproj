@@ -12,21 +12,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Protos\SpProperty.proto" />
+    <None Remove="Protos\dal.proto" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.33.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
     <PackageReference Include="IdentityServer4" Version="4.1.1" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="IdentityServer4.Storage" Version="4.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dal\SpContext\SpContext.csproj" />
+    <ProjectReference Include="..\Dal\SpContext\StoreProcedure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\SpProperty.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\dal.proto" GrpcServices="Server" />
   </ItemGroup>
 </Project>

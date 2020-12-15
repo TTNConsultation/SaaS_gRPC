@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Dal;
-using Dal.Sp;
+using StoreProcedure;
+using StoreProcedure.Interface;
 
 using Saas.Message.Language;
-
-using static Saas.Message.Reference.KeyTypes.Types;
-using static Saas.Message.Reference.States.Types;
-using static Saas.Message.Language.SupportedLanguages.Types;
 
 namespace Saas.Message.Reference
 {
