@@ -14,18 +14,18 @@ namespace Dal
   {
     private readonly IEnumerable<IStoreProcedure> _storeProcedures;
 
-    public CollectionSpProperty(ICollectionMapper fieldmaps, IConnectionManager connectionManager)
+    public CollectionSpProperty(ICollectionMapper mappers, IConnectionManager conManager)
     {
-      _storeProcedures = Read(fieldmaps, connectionManager.App());
+      _storeProcedures = SpProperty_R(mappers, conManager.App());
     }
 
     public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    private IEnumerable<IStoreProcedure> Read(ICollectionMapper mappers, string conStr)
+    private static IEnumerable<IStoreProcedure> SpProperty_R(ICollectionMapper mappers, string conStr)
     {
-      var parameters = ReadSpParameter(mappers, conStr);
+      var parameters = SpParameter_R(mappers, conStr);
 
-      string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
+      string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
       var sqlcmd = new SqlCommand(spName, sqlCon)
@@ -49,9 +49,10 @@ namespace Dal
       return ret;
     }
 
-    private IEnumerable<SpParameter> ReadSpParameter(ICollectionMapper fieldmaps, string conStr)
+    private static IEnumerable<SpParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
     {
-      string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
+      string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
+
       using var sqlcon = new SqlConnection(conStr);
       var sqlcmd = new SqlCommand(spName, sqlcon)
       {
@@ -60,7 +61,7 @@ namespace Dal
       sqlcon.Open();      
 
       using var reader = sqlcmd.ExecuteReader();
-      return reader.Parse<SpParameter>(fieldmaps);
+      return reader.Parse<SpParameter>(mappers);
     }
   }
 

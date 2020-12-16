@@ -24,7 +24,7 @@ namespace StoreProcedure.Interface
   {
     IStoreProcedure Get(string typename, OperationType op);
 
-    IStoreProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
+    IStoreProcedure Get<T>(OperationType op) => Get(nameof(T), op);
   }
 
   public interface IStoreProcedure
@@ -74,7 +74,7 @@ namespace StoreProcedure.Interface
 
     IEnumerable<T> Read();
 
-    IEnumerable<T> ReadBy<S>(int id) => Read(typeof(S).Name.Id(), id);
+    IEnumerable<T> ReadBy<S>(int id) => Read(nameof(S).AsId(), id);
 
     IEnumerable<T> Read(string value) => Read(Constant.VALUE, value);
 
@@ -86,7 +86,7 @@ namespace StoreProcedure.Interface
 
     Task<IEnumerable<T>> ReadAsync();
 
-    Task<IEnumerable<T>> ReadAsyncBy<S>(int id) => ReadAsync(typeof(S).Name.Id(), id);
+    Task<IEnumerable<T>> ReadAsyncBy<S>(int id) => ReadAsync(nameof(S).AsId(), id);
 
     Task<IEnumerable<T>> ReadAsync(string value) => ReadAsync(Constant.VALUE, value);
 
@@ -108,14 +108,12 @@ namespace StoreProcedure.Interface
   {
     IMapper Get(string typeName);
 
-    IMapper Get<T>() where T : IMessage => Get(typeof(T).Name);
+    IMapper Get<T>() where T : IMessage => Get(nameof(T));
   }
 
   public interface IMapper
-  {
-    string TypeName { get; }
-
-    bool IsEqual(IMapper map) => TypeName.IsEqual(map.TypeName);
+  {   
+    bool IsType(string type);
 
     T Parse<T>(SqlDataReader reader) where T : IMessage, new();
   }

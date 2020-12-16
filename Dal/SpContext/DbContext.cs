@@ -12,36 +12,36 @@ namespace StoreProcedure
     private readonly ICollectionMapper _mappers;
     private readonly ICollectionStoreProcedure _storeProcedures;
 
-    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionStoreProcedure spProps)
+    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionStoreProcedure colSp)
     {
       _connectionManager = conmanager;
       _mappers = mappers;
-      _storeProcedures = spProps;
+      _storeProcedures = colSp;
     }
 
     public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>
-      new ExecuteReader<T>(UserClaim.AppUser(_connectionManager, rootId),
+      new ExecuteReader<T>(new Security(_connectionManager.App(), rootId),
                       _storeProcedures.Get<T>(OperationType.R),
                       _mappers);
 
     public IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
-      new ExecuteReader<T>(UserClaim.Get(_connectionManager, uc, appId),
+      new ExecuteReader<T>(new Security(_connectionManager, uc, appId),
                       _storeProcedures.Get<T>(op),
                       _mappers);
 
     public IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
-      new ExecuteNonQuery<T>(UserClaim.Get(_connectionManager, uc, appId),
+      new ExecuteNonQuery<T>(new Security(_connectionManager, uc, appId),
                    _storeProcedures.Get<T>(op),
                    _storeProcedures.Get<T>(OperationType.R),
-                   _mappers);    
+                   _mappers);
   }
 
-  internal sealed class UserClaim
+  internal sealed class Security
   {
-    internal readonly int RootId;
-    internal readonly string ConnectionString;
+    public readonly int RootId;
+    public readonly string ConnectionString;     
 
-    private UserClaim(IConnectionManager conManager, ClaimsPrincipal cp, int appId)
+    public Security(IConnectionManager conManager, ClaimsPrincipal cp, int appId)
     {
       foreach (var c in cp.Claims)
       {
@@ -60,15 +60,10 @@ namespace StoreProcedure
       if (RootId <= 0)
         RootId = appId;
     }
-
-    private UserClaim(string conStr, int rootId)
+    public Security(string conStr, int rootId)
     {
       ConnectionString = conStr;
       RootId = rootId;
-    }
-
-    internal static UserClaim Get(IConnectionManager conmanager, ClaimsPrincipal uc, int appid = 0) => new UserClaim(conmanager, uc, appid);
-
-    internal static UserClaim AppUser(IConnectionManager conManager, int rootId) => new UserClaim(conManager.App(), rootId);
+    }    
   }
 }

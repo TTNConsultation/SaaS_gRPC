@@ -35,7 +35,7 @@ namespace Saas.Services
     public async override Task<RestaurantMenus> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       using var sp = _dbContext.Read<RestaurantMenu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? await Task.FromResult(new RestaurantMenus(sp.ReadAsync(typeof(Restaurant).Name.Id(), restaurantId.Value).Result)).ConfigureAwait(false)
+      return (sp.IsReady) ? await Task.FromResult(new RestaurantMenus(sp.ReadAsync(typeof(Restaurant).Name.AsId(), restaurantId.Value).Result)).ConfigureAwait(false)
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 

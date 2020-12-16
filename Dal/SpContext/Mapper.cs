@@ -10,27 +10,27 @@ namespace StoreProcedure
 {  
   public sealed class CollectionMapper : ICollectionMapper
   {
-    private readonly HashSet<IMapper> mappers = new HashSet<IMapper>();
-
-    private IMapper Add(IMapper map) => mappers.Add(map) ? map : mappers.First(m => m.IsEqual(map));
-
-    public IMapper Get(string typeName) => mappers.FirstOrDefault(m => m.TypeName.IsEqual(typeName)) ?? Add(new Mapper(typeName));
+    private readonly HashSet<IMapper> _mappers = new HashSet<IMapper>();
+    
+    public IMapper Get(string type)
+    {
+      return _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();      
+    }
   }
 
   internal sealed class Mapper : IMapper
   {
-    private IDictionary<int, int> FieldMap;
-
-    public string TypeName { get; }
-
-    public Mapper(string typename)
+    private readonly string _type;
+    private IDictionary<int, int> _fieldMap;
+   
+    public Mapper(string type)
     {
-      TypeName = typename;
+      _type = type;
     }
 
     private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      FieldMap = new Dictionary<int, int>();
+      _fieldMap = new Dictionary<int, int>();
       var objT = new T();
 
       for (int i = 0; i < reader.FieldCount; i++)
@@ -39,7 +39,7 @@ namespace StoreProcedure
         if (fd != null)
         {
           fd.Accessor.SetValue(objT, fd.ChangeType(reader[i]));
-          FieldMap.Add(i, fd.FieldNumber);
+          _fieldMap.Add(i, fd.FieldNumber);
         }
       }
 
@@ -51,7 +51,7 @@ namespace StoreProcedure
       var objT = new T();
       FieldDescriptor fd;
 
-      foreach (var fm in FieldMap)
+      foreach (var fm in _fieldMap)
       {
         fd = objT.Descriptor.Fields[fm.Value];
         fd.Accessor.SetValue(objT, fd.ChangeType(reader[fm.Key]));
@@ -61,6 +61,8 @@ namespace StoreProcedure
     }
 
     public T Parse<T>(SqlDataReader reader) where T : IMessage, new() =>
-      (FieldMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+      (_fieldMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+
+    public bool IsType(string type) => _type.IsEqual(type);
   }
 }

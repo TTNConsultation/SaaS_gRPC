@@ -12,35 +12,36 @@ namespace StoreProcedure.Command
 {
   internal abstract class Base<T> where T : IMessage, new()
   {
-    private readonly SqlCommand SqlCmd;
-    private readonly IStoreProcedure SpProperty;
-    private readonly ICollectionMapper FieldMaps;
+    private readonly SqlCommand _sqlCmd;
+    private readonly IStoreProcedure _spProperty;
+    private readonly ICollectionMapper _mappers;
 
     public string Error { get; }
     public int RootId { get; }
     public bool IsReady => string.IsNullOrEmpty(Error);
 
-    protected Base(UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps)
+    protected Base(Security security, IStoreProcedure sp, ICollectionMapper mappers)
     {
       Error = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
-                               .Append((claim == null) ? "invalid claim" : null)
+                               .Append((security == null) ? "invalid claim" : null)
                                .ToString();
 
       if (IsReady)
       {
-        RootId = claim.RootId;
-        SpProperty = sp;
-        FieldMaps = reflectionMaps;
-        SqlCmd = SpProperty.SqlCommand(claim.ConnectionString);
-        AddParameter(Constant.ROOT.Id(), RootId);
+        _spProperty = sp;
+        _mappers = mappers;
+        _sqlCmd = _spProperty.SqlCommand(security.ConnectionString);
+        RootId = security.RootId;
+
+        AddParameter(Constant.ROOT.AsId(), RootId);
       }
     }
 
     protected bool AddParameter(string key, object value)
     {
-      var par = SpProperty.Parameter(key)?.SqlParameter(value);
+      var par = _spProperty.Parameter(key)?.SqlParameter(value);
 
-      return (par != null) && SqlCmd.Parameters.Add(par).Size >= 0;
+      return (par != null) && _sqlCmd.Parameters.Add(par).Size >= 0;
     }
 
     protected bool AddParameters(T obj)
@@ -66,45 +67,45 @@ namespace StoreProcedure.Command
 
     protected bool SetParameter(string key, object value)
     {
-      int index = SqlCmd.Parameters.IndexOf(key);
-      return (index >= 0) && (SqlCmd.Parameters[index].Value = (value ?? DBNull.Value)) != null;
+      int index = _sqlCmd.Parameters.IndexOf(key);
+      return (index >= 0) && (_sqlCmd.Parameters[index].Value = (value ?? DBNull.Value)) != null;
     }
 
     protected bool Update()
     {
-      SqlCmd.Connection.Open();
-      return SqlCmd.ExecuteNonQuery() == 1;
+      _sqlCmd.Connection.Open();
+      return _sqlCmd.ExecuteNonQuery() == 1;
     }
 
     protected int Create()
     {
-      SqlCmd.Connection.Open();
+      _sqlCmd.Connection.Open();
 
-      return (SqlCmd.ExecuteNonQuery() == 1)
-        ? int.Parse(SqlCmd.Parameters[Constant.ID].Value.ToString())
+      return (_sqlCmd.ExecuteNonQuery() == 1)
+        ? int.Parse(_sqlCmd.Parameters[Constant.ID].Value.ToString())
         : -1;
     }
 
     public IEnumerable<T> Read()
     {
-      SqlCmd.Connection.Open();
-      using var reader = SqlCmd.ExecuteReader();
+      _sqlCmd.Connection.Open();
+      using var reader = _sqlCmd.ExecuteReader();
 
-      return reader.Parse<T>(FieldMaps);
+      return reader.Parse<T>(_mappers);
     }
 
     public async Task<IEnumerable<T>> ReadAsync()
     {
-      await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
-      using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
+      await _sqlCmd.Connection.OpenAsync().ConfigureAwait(false);
+      using var reader = await _sqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(FieldMaps).ConfigureAwait(false);
+      return await reader.ParseAsync<T>(_mappers).ConfigureAwait(false);
     }
 
     public virtual void Dispose()
     {
-      SqlCmd?.Connection?.Close();
-      SqlCmd?.Dispose();
+      _sqlCmd?.Connection?.Close();
+      _sqlCmd?.Dispose();
     }
   }
 
@@ -112,7 +113,7 @@ namespace StoreProcedure.Command
   {
     private readonly IExecuteReader<T> SpRO;
 
-    public ExecuteNonQuery(UserClaim claim, IStoreProcedure sp, IStoreProcedure spReadOnly, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
+    public ExecuteNonQuery(Security claim, IStoreProcedure sp, IStoreProcedure spReadOnly, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
     {
       SpRO = (spReadOnly == null) ? null : new ExecuteReader<T>(claim, spReadOnly, reflectionMaps);
     }
@@ -121,7 +122,7 @@ namespace StoreProcedure.Command
 
     public bool Update(T obj) => AddParameters(obj) && Update();
 
-    public bool UpdateState(int id, int stateId) => AddParameters(SpRO.Read(id)) && AddParameter(Constant.STATE.Id(), stateId) && Update();
+    public bool UpdateState(int id, int stateId) => AddParameters(SpRO.Read(id)) && AddParameter(Constant.STATE.AsId(), stateId) && Update();
 
     public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
 
@@ -134,7 +135,7 @@ namespace StoreProcedure.Command
 
   internal sealed class ExecuteReader<T> : Base<T>, IExecuteReader<T> where T : IMessage, new()
   {
-    public ExecuteReader(UserClaim claim, IStoreProcedure sp, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
+    public ExecuteReader(Security claim, IStoreProcedure sp, ICollectionMapper reflectionMaps) : base(claim, sp, reflectionMaps)
     {
     }
 

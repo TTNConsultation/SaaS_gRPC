@@ -15,19 +15,17 @@ namespace Saas.Dal
     private readonly IEnumerable<IStoreProcedure> _storeProcedures;
 
     public CollectionStoreProcedure(ICollectionMapper mappers, IConnectionManager connectionManager)
-    {
-      var conStr = connectionManager.App();
-
-      _storeProcedures = SpProperty_R(mappers, conStr);
+    {      
+      _storeProcedures = SpProperty_R(mappers, connectionManager.App());
     }
 
-    public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
+    public IStoreProcedure Get(string baseName, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
 
     private static IEnumerable<IStoreProcedure> SpProperty_R(ICollectionMapper mappers, string conStr)
     {
       var parameters = SpParameter_R(mappers, conStr);
 
-      string spName = typeof(SpProperty).SpName(Constant.APP, nameof(OperationType.R));
+      string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
       var sqlcmd = new SqlCommand(spName, sqlCon)
@@ -53,7 +51,7 @@ namespace Saas.Dal
 
     private static IEnumerable<IParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
     {
-      string spName = typeof(SpParameter).SpName(Constant.APP, nameof(OperationType.R));
+      string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
       var sqlcmd = new SqlCommand(spName, sqlCon)
@@ -80,7 +78,7 @@ namespace Saas.Dal
 
     public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
 
-    public bool IsEqual(string spName, OperationType op) => Type.IsEqual(spName) && Op.IsEqual(op.ToString());
+    public bool IsEqual(string spName, OperationType op) => this.Type.IsEqual(spName) && Op.IsEqual(op.ToString());
   }
 
   public partial class SpParameter : IParameter

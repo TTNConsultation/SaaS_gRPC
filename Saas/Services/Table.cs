@@ -35,7 +35,7 @@ namespace Saas.Services
     public override Task<Tables> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
     {
       using var sp = _dbContext.Read<Table>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.Id(), restaurantId.Value)))
+      return (sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.AsId(), restaurantId.Value)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
   }

@@ -40,7 +40,7 @@ namespace StoreProcedure
       return string.Concat(Constant.PARAMETERSYMBOL, str);
     }
 
-    public static string Id(this string str)
+    public static string AsId(this string str)
     {
       return string.Concat(str, Constant.ID);
     }
@@ -53,12 +53,7 @@ namespace StoreProcedure
     public static bool IsEqual(this string str, string compare)
     {
       return str.IsEqual(compare, CultureInfo.CurrentCulture, true);
-    }
-
-    public static string SpName(this System.Type t, string schema, string op)
-    {
-      return schema.DotAnd(t.Name).UnderscoreAnd(op);
-    }
+    }    
 
     public static SqlDbType ToSqlDbType(this string str)
     {

@@ -8,7 +8,7 @@ namespace Saas
 
     public static string TypeName<T>() => typeof(T).Name;
 
-    public static string TypeNameId<T>() => TypeName<T>().Id();
+    public static string TypeNameId<T>() => TypeName<T>().AsId();
 
     public const string UNDERSCORE = "_";
     public const string DOT = ".";

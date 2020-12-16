@@ -21,10 +21,10 @@ namespace Saas.Services
     private readonly IDbContext _dbContext;
     private readonly References _refData;
 
-    public RestaurantService(ILogger<RestaurantService> log, IDbContext context, App appData)
+    public RestaurantService(ILogger<RestaurantService> log, IDbContext dbContext, App appData)
     {
       _logger = log;
-      _dbContext = context;
+      _dbContext = dbContext;
       _refData = appData.RefDatas;
     }
 
