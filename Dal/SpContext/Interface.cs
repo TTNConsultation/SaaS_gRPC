@@ -24,7 +24,9 @@ namespace StoreProcedure.Interface
   {
     IStoreProcedure Get(string typename, OperationType op);
 
-    IStoreProcedure Get<T>(OperationType op) => Get(nameof(T), op);
+    IStoreProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
+
+    IEnumerable<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr);
   }
 
   public interface IStoreProcedure
@@ -108,7 +110,7 @@ namespace StoreProcedure.Interface
   {
     IMapper Get(string typeName);
 
-    IMapper Get<T>() where T : IMessage => Get(nameof(T));
+    IMapper Get<T>() where T : IMessage => Get(typeof(T).Name);
   }
 
   public interface IMapper

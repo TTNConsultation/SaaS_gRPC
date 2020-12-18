@@ -12,11 +12,11 @@ namespace StoreProcedure
     private readonly ICollectionMapper _mappers;
     private readonly ICollectionStoreProcedure _storeProcedures;
 
-    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionStoreProcedure colSp)
+    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionStoreProcedure sp)
     {
       _connectionManager = conmanager;
       _mappers = mappers;
-      _storeProcedures = colSp;
+      _storeProcedures = sp;
     }
 
     public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>

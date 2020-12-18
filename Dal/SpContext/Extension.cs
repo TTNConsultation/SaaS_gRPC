@@ -53,7 +53,7 @@ namespace StoreProcedure
     public static bool IsEqual(this string str, string compare)
     {
       return str.IsEqual(compare, CultureInfo.CurrentCulture, true);
-    }    
+    }
 
     public static SqlDbType ToSqlDbType(this string str)
     {

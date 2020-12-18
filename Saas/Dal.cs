@@ -16,14 +16,14 @@ namespace Saas.Dal
 
     public CollectionStoreProcedure(ICollectionMapper mappers, IConnectionManager connectionManager)
     {      
-      _storeProcedures = SpProperty_R(mappers, connectionManager.App());
+      _storeProcedures = Initialize(mappers, connectionManager.App());
     }
 
     public IStoreProcedure Get(string baseName, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
 
-    private static IEnumerable<IStoreProcedure> SpProperty_R(ICollectionMapper mappers, string conStr)
+    public IEnumerable<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
     {
-      var parameters = SpParameter_R(mappers, conStr);
+      var parameters = GetParameters(mappers, conStr);
 
       string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
 
@@ -49,7 +49,7 @@ namespace Saas.Dal
       return ret;
     }
 
-    private static IEnumerable<IParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
+    private static IEnumerable<IParameter> GetParameters(ICollectionMapper mappers, string conStr)
     {
       string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
 

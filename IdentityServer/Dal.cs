@@ -16,12 +16,12 @@ namespace Dal
 
     public CollectionSpProperty(ICollectionMapper mappers, IConnectionManager conManager)
     {
-      _storeProcedures = SpProperty_R(mappers, conManager.App());
+      _storeProcedures = Initialize(mappers, conManager.App());
     }
 
     public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    private static IEnumerable<IStoreProcedure> SpProperty_R(ICollectionMapper mappers, string conStr)
+    public IEnumerable<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
     {
       var parameters = SpParameter_R(mappers, conStr);
 
@@ -49,7 +49,7 @@ namespace Dal
       return ret;
     }
 
-    private static IEnumerable<SpParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
+    private static IEnumerable<IParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
     {
       string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
 

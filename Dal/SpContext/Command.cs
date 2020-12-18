@@ -13,7 +13,7 @@ namespace StoreProcedure.Command
   internal abstract class Base<T> where T : IMessage, new()
   {
     private readonly SqlCommand _sqlCmd;
-    private readonly IStoreProcedure _spProperty;
+    private readonly IStoreProcedure _sp;
     private readonly ICollectionMapper _mappers;
 
     public string Error { get; }
@@ -23,14 +23,14 @@ namespace StoreProcedure.Command
     protected Base(Security security, IStoreProcedure sp, ICollectionMapper mappers)
     {
       Error = new StringBuilder().Append((sp == null) ? "store procedure not found | " : null)
-                               .Append((security == null) ? "invalid claim" : null)
-                               .ToString();
+                                 .Append((security == null) ? "invalid claim" : null)
+                                 .ToString();
 
       if (IsReady)
       {
-        _spProperty = sp;
+        _sp = sp;
         _mappers = mappers;
-        _sqlCmd = _spProperty.SqlCommand(security.ConnectionString);
+        _sqlCmd = _sp.SqlCommand(security.ConnectionString);
         RootId = security.RootId;
 
         AddParameter(Constant.ROOT.AsId(), RootId);
@@ -39,7 +39,7 @@ namespace StoreProcedure.Command
 
     protected bool AddParameter(string key, object value)
     {
-      var par = _spProperty.Parameter(key)?.SqlParameter(value);
+      var par = _sp.Parameter(key)?.SqlParameter(value);
 
       return (par != null) && _sqlCmd.Parameters.Add(par).Size >= 0;
     }
