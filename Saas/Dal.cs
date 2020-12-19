@@ -4,26 +4,43 @@ using System.Data;
 using System.Linq;
 
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 using StoreProcedure;
 using StoreProcedure.Interface;
 
 namespace Saas.Dal
 {
-  public sealed class CollectionStoreProcedure : ICollectionStoreProcedure
+  internal sealed class ConnectionManager : IConnectionManager
   {
-    private readonly IEnumerable<IStoreProcedure> _storeProcedures;
+    private readonly IDictionary<string, string> _connectionStrings;
+
+    public ConnectionManager(IConfiguration config)
+    {
+      _connectionStrings = config.GetSection("ConnectionStrings")
+                                ?.GetChildren()
+                                ?.ToDictionary(s => s.Key, s => s.Value) ?? new Dictionary<string, string>();
+    }
+
+    public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+  }
+
+  internal sealed class CollectionStoreProcedure : ICollectionStoreProcedure
+  {
+    private readonly ICollection<IStoreProcedure> _storeProcedures;
 
     public CollectionStoreProcedure(ICollectionMapper mappers, IConnectionManager connectionManager)
-    {      
+    {
       _storeProcedures = Initialize(mappers, connectionManager.App());
     }
 
     public IStoreProcedure Get(string baseName, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
 
-    public IEnumerable<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
+    public ICollection<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
     {
       var parameters = GetParameters(mappers, conStr);
+      var ret = new HashSet<IStoreProcedure>();
+      var map = mappers.Get<SpProperty>();
 
       string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
 
@@ -35,9 +52,6 @@ namespace Saas.Dal
       sqlCon.Open();
 
       using var reader = sqlcmd.ExecuteReader();
-
-      var ret = new HashSet<IStoreProcedure>();
-      var map = mappers.Get<SpProperty>();
 
       while (reader.Read())
       {

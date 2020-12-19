@@ -1,18 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Collections.Generic;
 
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 using StoreProcedure;
 using StoreProcedure.Interface;
 
 namespace Dal
 {
-  public sealed class CollectionSpProperty : ICollectionStoreProcedure
+  internal sealed class ConnectionManager : IConnectionManager
   {
-    private readonly IEnumerable<IStoreProcedure> _storeProcedures;
+    private readonly IDictionary<string, string> _connectionStrings;
+
+    public ConnectionManager(IConfiguration config)
+    {
+      _connectionStrings = config.GetSection("ConnectionStrings")
+                                ?.GetChildren()
+                                ?.ToDictionary(s => s.Key, s => s.Value) ?? new Dictionary<string, string>();
+    }
+
+    public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+  }
+
+  internal sealed class CollectionSpProperty : ICollectionStoreProcedure
+  {
+    private readonly ICollection<IStoreProcedure> _storeProcedures;
 
     public CollectionSpProperty(ICollectionMapper mappers, IConnectionManager conManager)
     {
@@ -21,7 +36,7 @@ namespace Dal
 
     public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    public IEnumerable<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
+    public ICollection<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
     {
       var parameters = SpParameter_R(mappers, conStr);
 
@@ -58,7 +73,7 @@ namespace Dal
       {
         CommandType = CommandType.StoredProcedure
       };
-      sqlcon.Open();      
+      sqlcon.Open();
 
       using var reader = sqlcmd.ExecuteReader();
       return reader.Parse<SpParameter>(mappers);

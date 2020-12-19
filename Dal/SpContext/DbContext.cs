@@ -5,7 +5,7 @@ using StoreProcedure.Interface;
 using StoreProcedure.Command;
 
 namespace StoreProcedure
-{  
+{
   public sealed class DbContext : IDbContext
   {
     private readonly IConnectionManager _connectionManager;
@@ -39,7 +39,7 @@ namespace StoreProcedure
   internal sealed class Security
   {
     public readonly int RootId;
-    public readonly string ConnectionString;     
+    public readonly string ConnectionString;
 
     public Security(IConnectionManager conManager, ClaimsPrincipal cp, int appId)
     {
@@ -60,10 +60,11 @@ namespace StoreProcedure
       if (RootId <= 0)
         RootId = appId;
     }
+
     public Security(string conStr, int rootId)
     {
       ConnectionString = conStr;
       RootId = rootId;
-    }    
+    }
   }
 }

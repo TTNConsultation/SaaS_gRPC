@@ -25,12 +25,12 @@ namespace Saas.Dal {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBQcm90b3MvZGFsLnByb3RvEgpTcFByb3BlcnR5IlQKClNwUHJvcGVydHkS",
-            "CgoCaWQYASABKAUSEAoIZnVsbE5hbWUYAiABKAkSDgoGc2NoZW1hGAMgASgJ",
-            "EgwKBHR5cGUYBCABKAkSCgoCb3AYBSABKAkisAEKC1NwUGFyYW1ldGVyEg4K",
-            "BnNwTmFtZRgBIAEoCRIMCgRzcElkGAIgASgFEgwKBG5hbWUYAyABKAkSDAoE",
-            "dHlwZRgEIAEoCRIRCgltYXhMZW5ndGgYBSABKAUSEQoJcHJlY2lzaW9uGAYg",
-            "ASgFEg0KBXNjYWxlGAcgASgFEg0KBW9yZGVyGAggASgFEhAKCGlzT3V0cHV0",
-            "GAkgASgIEhEKCWNvbGxhdGlvbhgKIAEoCUILqgIIU2Fhcy5EYWxiBnByb3Rv",
+            "CgoCSWQYASABKAUSEAoIRnVsbE5hbWUYAiABKAkSDgoGU2NoZW1hGAMgASgJ",
+            "EgwKBFR5cGUYBCABKAkSCgoCT3AYBSABKAkisAEKC1NwUGFyYW1ldGVyEg4K",
+            "BlNwTmFtZRgBIAEoCRIMCgRTcElkGAIgASgFEgwKBE5hbWUYAyABKAkSDAoE",
+            "VHlwZRgEIAEoCRIRCglNYXhMZW5ndGgYBSABKAUSEQoJUHJlY2lzaW9uGAYg",
+            "ASgFEg0KBVNjYWxlGAcgASgFEg0KBU9yZGVyGAggASgFEhAKCElzT3V0cHV0",
+            "GAkgASgIEhEKCUNvbGxhdGlvbhgKIAEoCUILqgIIU2Fhcy5EYWxiBnByb3Rv",
             "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -85,7 +85,7 @@ namespace Saas.Dal {
       return new SpProperty(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
+    /// <summary>Field number for the "Id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -96,7 +96,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "fullName" field.</summary>
+    /// <summary>Field number for the "FullName" field.</summary>
     public const int FullNameFieldNumber = 2;
     private string fullName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -107,7 +107,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "schema" field.</summary>
+    /// <summary>Field number for the "Schema" field.</summary>
     public const int SchemaFieldNumber = 3;
     private string schema_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -118,7 +118,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "type" field.</summary>
+    /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 4;
     private string type_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -129,7 +129,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "op" field.</summary>
+    /// <summary>Field number for the "Op" field.</summary>
     public const int OpFieldNumber = 5;
     private string op_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -406,7 +406,7 @@ namespace Saas.Dal {
       return new SpParameter(this);
     }
 
-    /// <summary>Field number for the "spName" field.</summary>
+    /// <summary>Field number for the "SpName" field.</summary>
     public const int SpNameFieldNumber = 1;
     private string spName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -417,7 +417,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "spId" field.</summary>
+    /// <summary>Field number for the "SpId" field.</summary>
     public const int SpIdFieldNumber = 2;
     private int spId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -428,7 +428,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "name" field.</summary>
+    /// <summary>Field number for the "Name" field.</summary>
     public const int NameFieldNumber = 3;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -439,7 +439,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "type" field.</summary>
+    /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 4;
     private string type_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -450,7 +450,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "maxLength" field.</summary>
+    /// <summary>Field number for the "MaxLength" field.</summary>
     public const int MaxLengthFieldNumber = 5;
     private int maxLength_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -461,7 +461,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "precision" field.</summary>
+    /// <summary>Field number for the "Precision" field.</summary>
     public const int PrecisionFieldNumber = 6;
     private int precision_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -472,7 +472,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "scale" field.</summary>
+    /// <summary>Field number for the "Scale" field.</summary>
     public const int ScaleFieldNumber = 7;
     private int scale_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -483,7 +483,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "order" field.</summary>
+    /// <summary>Field number for the "Order" field.</summary>
     public const int OrderFieldNumber = 8;
     private int order_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -494,7 +494,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "isOutput" field.</summary>
+    /// <summary>Field number for the "IsOutput" field.</summary>
     public const int IsOutputFieldNumber = 9;
     private bool isOutput_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -505,7 +505,7 @@ namespace Saas.Dal {
       }
     }
 
-    /// <summary>Field number for the "collation" field.</summary>
+    /// <summary>Field number for the "Collation" field.</summary>
     public const int CollationFieldNumber = 10;
     private string collation_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

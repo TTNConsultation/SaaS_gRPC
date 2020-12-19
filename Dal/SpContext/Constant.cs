@@ -8,7 +8,7 @@
     public const string PARAMETERSYMBOL = "@";
     public const string ID = "id";
     public const string VALUE = "value";
-    
+
     public const string STATE = "state";
 
     public const string APP = "app";
@@ -18,9 +18,6 @@
     public const string CLIENT_ID = "client_id";
 
     public const string ERR = "err";
-    public const string SEPARATOR = "separator";             
-
-    //Config section
-    public const string CONNECTIONSTRINGS = "ConnectionStrings";
+    public const string SEPARATOR = "separator";
   }
 }

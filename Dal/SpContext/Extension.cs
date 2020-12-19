@@ -74,7 +74,7 @@ namespace StoreProcedure
       };
     }
 
-    public static IEnumerable<T> Parse<T>(this SqlDataReader reader, ICollectionMapper mappers) where T : IMessage, new()
+    public static ICollection<T> Parse<T>(this SqlDataReader reader, ICollectionMapper mappers) where T : IMessage, new()
     {
       var ret = new HashSet<T>();
       var map = mappers.Get<T>();
@@ -87,7 +87,7 @@ namespace StoreProcedure
       return ret;
     }
 
-    public async static Task<IEnumerable<T>> ParseAsync<T>(this SqlDataReader reader, ICollectionMapper mappers) where T : IMessage, new()
+    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, ICollectionMapper mappers) where T : IMessage, new()
     {
       var ret = new HashSet<T>();
       var map = mappers.Get<T>();
@@ -130,7 +130,7 @@ namespace StoreProcedure
           return Convert.ChangeType(obj, typeof(bool));
 
         case FieldType.String:
-          return Convert.ChangeType(obj, typeof(string));       
+          return Convert.ChangeType(obj, typeof(string));
 
         case FieldType.Bytes:
           return Convert.ChangeType(obj, typeof(ByteString));

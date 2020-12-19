@@ -123,7 +123,6 @@ D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.GeneratedMSBuildEditorConfig
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.AssemblyInfoInputs.cache
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.AssemblyInfo.cs
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.csproj.CoreCompileInputs.cache
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.MvcApplicationPartsAssemblyInfo.cs
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.MvcApplicationPartsAssemblyInfo.cache
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\staticwebassets\Saas.StaticWebAssets.Manifest.cache
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\staticwebassets\Saas.StaticWebAssets.xml
@@ -134,3 +133,4 @@ D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\ref\Saas.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.pdb
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.genruntimeconfig.cache
+D:\Dev\SaaS_AllAboutFood\Saas\obj\Debug\net5.0\Saas.MvcApplicationPartsAssemblyInfo.cs

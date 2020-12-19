@@ -26,7 +26,7 @@ namespace StoreProcedure.Interface
 
     IStoreProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
 
-    IEnumerable<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr);
+    ICollection<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr);
   }
 
   public interface IStoreProcedure
@@ -74,29 +74,29 @@ namespace StoreProcedure.Interface
 
     T Read(int id) => Read(Constant.ID, id).First();
 
-    IEnumerable<T> Read();
+    ICollection<T> Read();
 
-    IEnumerable<T> ReadBy<S>(int id) => Read(nameof(S).AsId(), id);
+    ICollection<T> ReadBy<S>(int id) => Read(nameof(S).AsId(), id);
 
-    IEnumerable<T> Read(string value) => Read(Constant.VALUE, value);
+    ICollection<T> Read(string value) => Read(Constant.VALUE, value);
 
-    IEnumerable<T> Read(string key, object value);
+    ICollection<T> Read(string key, object value);
 
-    IEnumerable<T> Read(IDictionary<string, object> parameters);
+    ICollection<T> Read(IDictionary<string, object> parameters);
 
-    IEnumerable<T> ReadRange(string key, string values, char separator);
+    ICollection<T> ReadRange(string key, string values, char separator);
 
-    Task<IEnumerable<T>> ReadAsync();
+    Task<ICollection<T>> ReadAsync();
 
-    Task<IEnumerable<T>> ReadAsyncBy<S>(int id) => ReadAsync(nameof(S).AsId(), id);
+    Task<ICollection<T>> ReadAsyncBy<S>(int id) => ReadAsync(nameof(S).AsId(), id);
 
-    Task<IEnumerable<T>> ReadAsync(string value) => ReadAsync(Constant.VALUE, value);
+    Task<ICollection<T>> ReadAsync(string value) => ReadAsync(Constant.VALUE, value);
 
-    Task<IEnumerable<T>> ReadAsync(string key, object id);
+    Task<ICollection<T>> ReadAsync(string key, object id);
 
-    Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> ids);
+    Task<ICollection<T>> ReadAsync(IDictionary<string, object> ids);
 
-    Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator);
+    Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator);
   }
 
   public interface IConnectionManager
@@ -114,10 +114,9 @@ namespace StoreProcedure.Interface
   }
 
   public interface IMapper
-  {   
+  {
     bool IsType(string type);
 
     T Parse<T>(SqlDataReader reader) where T : IMessage, new();
   }
-
 }

@@ -86,7 +86,7 @@ namespace StoreProcedure.Command
         : -1;
     }
 
-    public IEnumerable<T> Read()
+    public ICollection<T> Read()
     {
       _sqlCmd.Connection.Open();
       using var reader = _sqlCmd.ExecuteReader();
@@ -94,7 +94,7 @@ namespace StoreProcedure.Command
       return reader.Parse<T>(_mappers);
     }
 
-    public async Task<IEnumerable<T>> ReadAsync()
+    public async Task<ICollection<T>> ReadAsync()
     {
       await _sqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await _sqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
@@ -139,16 +139,16 @@ namespace StoreProcedure.Command
     {
     }
 
-    public IEnumerable<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
+    public ICollection<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
 
-    public IEnumerable<T> Read(IDictionary<string, object> parameters) => AddParameters(parameters) ? Read() : null;
+    public ICollection<T> Read(IDictionary<string, object> parameters) => AddParameters(parameters) ? Read() : null;
 
-    public IEnumerable<T> ReadRange(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? Read() : null;
+    public ICollection<T> ReadRange(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? Read() : null;
 
-    public async Task<IEnumerable<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
+    public async Task<ICollection<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
 
-    public async Task<IEnumerable<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameters(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
+    public async Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameters(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
 
-    public async Task<IEnumerable<T>> ReadRangeAsync(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
+    public async Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
   }
 }

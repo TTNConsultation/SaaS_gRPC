@@ -7,22 +7,20 @@ using Microsoft.Data.SqlClient;
 using StoreProcedure.Interface;
 
 namespace StoreProcedure
-{  
+{
   public sealed class CollectionMapper : ICollectionMapper
   {
     private readonly HashSet<IMapper> _mappers = new HashSet<IMapper>();
-    
-    public IMapper Get(string type)
-    {
-      return _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();      
-    }
+
+    public IMapper Get(string type) =>
+      _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
   }
 
   internal sealed class Mapper : IMapper
   {
     private readonly string _type;
     private IDictionary<int, int> _fieldMap;
-   
+
     public Mapper(string type)
     {
       _type = type;
