@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
-using Google.Protobuf.WellKnownTypes;
 using Microsoft.Data.SqlClient;
 
 using StoreProcedure.Interface;
@@ -74,10 +73,9 @@ namespace StoreProcedure
       };
     }
 
-    public static ICollection<T> Parse<T>(this SqlDataReader reader, ICollectionMapper mappers) where T : IMessage, new()
+    public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
     {
       var ret = new HashSet<T>();
-      var map = mappers.Get<T>();
 
       while (reader.Read())
       {
@@ -87,10 +85,9 @@ namespace StoreProcedure
       return ret;
     }
 
-    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, ICollectionMapper mappers) where T : IMessage, new()
+    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
     {
       var ret = new HashSet<T>();
-      var map = mappers.Get<T>();
 
       while (await reader.ReadAsync().ConfigureAwait(false))
       {

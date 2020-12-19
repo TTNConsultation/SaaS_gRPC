@@ -9,7 +9,7 @@ using Google.Protobuf;
 
 namespace StoreProcedure.Interface
 {
-  public enum OperationType { C, R, RR, U, D, ND }
+  public enum OperationType { C, R, RR, U, D }
 
   public interface IDbContext
   {
@@ -103,7 +103,7 @@ namespace StoreProcedure.Interface
   {
     string Get(string schema);
 
-    string App() => Get(Constant.APP);
+    string App();
   }
 
   public interface ICollectionMapper

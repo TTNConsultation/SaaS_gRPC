@@ -23,24 +23,26 @@ namespace Saas.Dal
     }
 
     public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+
+    public string App() => Get(Constant.APP);
   }
 
   internal sealed class CollectionStoreProcedure : ICollectionStoreProcedure
   {
     private readonly ICollection<IStoreProcedure> _storeProcedures;
 
-    public CollectionStoreProcedure(ICollectionMapper mappers, IConnectionManager connectionManager)
+    public CollectionStoreProcedure(ICollectionMapper maps, IConnectionManager connectionManager)
     {
-      _storeProcedures = Initialize(mappers, connectionManager.App());
+      _storeProcedures = Initialize(maps, connectionManager.App());
     }
 
     public IStoreProcedure Get(string baseName, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
 
-    public ICollection<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
+    public ICollection<IStoreProcedure> Initialize(ICollectionMapper maps, string conStr)
     {
-      var parameters = GetParameters(mappers, conStr);
+      var parameters = GetParameters(maps.Get<SpParameter>(), conStr);
       var ret = new HashSet<IStoreProcedure>();
-      var map = mappers.Get<SpProperty>();
+      var map = maps.Get<SpProperty>();
 
       string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
 
@@ -63,7 +65,7 @@ namespace Saas.Dal
       return ret;
     }
 
-    private static IEnumerable<IParameter> GetParameters(ICollectionMapper mappers, string conStr)
+    private static IEnumerable<IParameter> GetParameters(IMapper map, string conStr)
     {
       string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
 
@@ -76,7 +78,7 @@ namespace Saas.Dal
 
       using var reader = sqlcmd.ExecuteReader();
 
-      return reader.Parse<SpParameter>(mappers);
+      return reader.Parse<SpParameter>(map);
     }
   }
 

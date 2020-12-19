@@ -23,22 +23,26 @@ namespace Dal
     }
 
     public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+
+    public string App() => Get(Constant.APP);
   }
 
   internal sealed class CollectionSpProperty : ICollectionStoreProcedure
   {
     private readonly ICollection<IStoreProcedure> _storeProcedures;
 
-    public CollectionSpProperty(ICollectionMapper mappers, IConnectionManager conManager)
+    public CollectionSpProperty(ICollectionMapper maps, IConnectionManager conManager)
     {
-      _storeProcedures = Initialize(mappers, conManager.App());
+      _storeProcedures = Initialize(maps, conManager.App());
     }
 
     public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    public ICollection<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr)
+    public ICollection<IStoreProcedure> Initialize(ICollectionMapper maps, string conStr)
     {
-      var parameters = SpParameter_R(mappers, conStr);
+      var parameters = GetParameters(maps.Get<SpParameter>(), conStr);
+      var ret = new HashSet<IStoreProcedure>();
+      var map = maps.Get<SpProperty>();
 
       string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
 
@@ -51,9 +55,6 @@ namespace Dal
       sqlCon.Open();
       using var reader = sqlcmd.ExecuteReader();
 
-      var ret = new HashSet<IStoreProcedure>();
-      var map = mappers.Get<SpProperty>();
-
       while (reader.Read())
       {
         var prop = map.Parse<SpProperty>(reader);
@@ -64,7 +65,7 @@ namespace Dal
       return ret;
     }
 
-    private static IEnumerable<IParameter> SpParameter_R(ICollectionMapper mappers, string conStr)
+    private static IEnumerable<IParameter> GetParameters(IMapper map, string conStr)
     {
       string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
 
@@ -76,7 +77,7 @@ namespace Dal
       sqlcon.Open();
 
       using var reader = sqlcmd.ExecuteReader();
-      return reader.Parse<SpParameter>(mappers);
+      return reader.Parse<SpParameter>(map);
     }
   }
 

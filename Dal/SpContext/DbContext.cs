@@ -9,31 +9,31 @@ namespace StoreProcedure
   public sealed class DbContext : IDbContext
   {
     private readonly IConnectionManager _connectionManager;
-    private readonly ICollectionMapper _mappers;
+    private readonly ICollectionMapper _maps;
     private readonly ICollectionStoreProcedure _storeProcedures;
 
-    public DbContext(IConnectionManager conmanager, ICollectionMapper mappers, ICollectionStoreProcedure sp)
+    public DbContext(IConnectionManager conmanager, ICollectionMapper maps, ICollectionStoreProcedure sp)
     {
       _connectionManager = conmanager;
-      _mappers = mappers;
+      _maps = maps;
       _storeProcedures = sp;
     }
 
     public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>
       new ExecuteReader<T>(new Security(_connectionManager.App(), rootId),
-                      _storeProcedures.Get<T>(OperationType.R),
-                      _mappers);
+                          _storeProcedures.Get<T>(OperationType.R),
+                          _maps.Get<T>());
 
     public IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
       new ExecuteReader<T>(new Security(_connectionManager, uc, appId),
-                      _storeProcedures.Get<T>(op),
-                      _mappers);
+                          _storeProcedures.Get<T>(op),
+                          _maps.Get<T>());
 
     public IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
       new ExecuteNonQuery<T>(new Security(_connectionManager, uc, appId),
-                   _storeProcedures.Get<T>(op),
-                   _storeProcedures.Get<T>(OperationType.R),
-                   _mappers);
+                            _storeProcedures.Get<T>(op),
+                            _storeProcedures.Get<T>(OperationType.R),
+                            _maps.Get<T>());
   }
 
   internal sealed class Security

@@ -4,6 +4,6 @@ D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\StoreProcedure.c
 D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Debug\netstandard2.1\StoreProcedure.deps.json
 D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Debug\netstandard2.1\StoreProcedure.dll
 D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Debug\netstandard2.1\StoreProcedure.pdb
-D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\StoreProcedure.csprojAssemblyReference.cache
 D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\StoreProcedure.dll
 D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\StoreProcedure.pdb
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Debug\netstandard2.1\StoreProcedure.csprojAssemblyReference.cache
