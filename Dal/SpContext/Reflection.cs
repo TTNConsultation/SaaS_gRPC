@@ -19,7 +19,7 @@ namespace StoreProcedure
   internal sealed class Mapper : IMapper
   {
     private readonly string _type;
-    private IDictionary<int, int> _fieldMap;
+    private IDictionary<int, int> _reflectionMap;
 
     public Mapper(string type)
     {
@@ -28,7 +28,7 @@ namespace StoreProcedure
 
     private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      _fieldMap = new Dictionary<int, int>();
+      _reflectionMap = new Dictionary<int, int>();
       var objT = new T();
 
       for (int i = 0; i < reader.FieldCount; i++)
@@ -37,7 +37,7 @@ namespace StoreProcedure
         if (fd != null)
         {
           fd.Accessor.SetValue(objT, fd.ChangeType(reader[i]));
-          _fieldMap.Add(i, fd.FieldNumber);
+          _reflectionMap.Add(i, fd.FieldNumber);
         }
       }
 
@@ -49,17 +49,17 @@ namespace StoreProcedure
       var objT = new T();
       FieldDescriptor fd;
 
-      foreach (var fm in _fieldMap)
+      foreach (var rm in _reflectionMap)
       {
-        fd = objT.Descriptor.Fields[fm.Value];
-        fd.Accessor.SetValue(objT, fd.ChangeType(reader[fm.Key]));
+        fd = objT.Descriptor.Fields[rm.Value];
+        fd.Accessor.SetValue(objT, fd.ChangeType(reader[rm.Key]));
       }
 
       return objT;
     }
 
     public T Parse<T>(SqlDataReader reader) where T : IMessage, new() =>
-      (_fieldMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+      (_reflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
 
     public bool IsType(string type) => _type.IsEqual(type);
   }

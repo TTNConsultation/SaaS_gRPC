@@ -92,9 +92,9 @@ namespace StoreProcedure.Interface
 
     Task<ICollection<T>> ReadAsync(string value) => ReadAsync(Constant.VALUE, value);
 
-    Task<ICollection<T>> ReadAsync(string key, object id);
+    Task<ICollection<T>> ReadAsync(string key, object value);
 
-    Task<ICollection<T>> ReadAsync(IDictionary<string, object> ids);
+    Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters);
 
     Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator);
   }

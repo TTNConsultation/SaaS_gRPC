@@ -73,30 +73,6 @@ namespace StoreProcedure
       };
     }
 
-    public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
-    {
-      var ret = new HashSet<T>();
-
-      while (reader.Read())
-      {
-        ret.Add(map.Parse<T>(reader));
-      }
-
-      return ret;
-    }
-
-    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
-    {
-      var ret = new HashSet<T>();
-
-      while (await reader.ReadAsync().ConfigureAwait(false))
-      {
-        ret.Add(map.Parse<T>(reader));
-      }
-
-      return ret;
-    }
-
     public static object ChangeType(this FieldDescriptor fd, object obj)
     {
       switch (fd.FieldType)
@@ -135,6 +111,30 @@ namespace StoreProcedure
         default:
           return obj;
       }
+    }
+
+    public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
+    {
+      var ret = new HashSet<T>();
+
+      while (reader.Read())
+      {
+        ret.Add(map.Parse<T>(reader));
+      }
+
+      return ret;
+    }
+
+    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
+    {
+      var ret = new HashSet<T>();
+
+      while (await reader.ReadAsync().ConfigureAwait(false))
+      {
+        ret.Add(map.Parse<T>(reader));
+      }
+
+      return ret;
     }
   }
 }

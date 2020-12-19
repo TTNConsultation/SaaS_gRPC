@@ -10,7 +10,7 @@ using StoreProcedure.Interface;
 
 namespace StoreProcedure.Command
 {
-  internal abstract class Base<T> where T : IMessage, new()
+  internal abstract class Base
   {
     private readonly IStoreProcedure _sp;
     protected readonly SqlCommand sqlCmd;
@@ -42,7 +42,7 @@ namespace StoreProcedure.Command
       return (par != null) && sqlCmd.Parameters.Add(par).Size >= 0;
     }
 
-    protected bool AddParameters(T obj)
+    protected bool AddParameter(IMessage obj)
     {
       foreach (var fd in obj.Descriptor.Fields.InDeclarationOrder())
       {
@@ -53,7 +53,7 @@ namespace StoreProcedure.Command
       return true;
     }
 
-    protected bool AddParameters(IDictionary<string, object> parameters)
+    protected bool AddParameter(IDictionary<string, object> parameters)
     {
       foreach (var p in parameters)
       {
@@ -76,13 +76,13 @@ namespace StoreProcedure.Command
     }
   }
 
-  internal sealed class ExecuteNonQuery<T> : Base<T>, IExecuteNonQuery<T> where T : IMessage, new()
+  internal sealed class ExecuteNonQuery<T> : Base, IExecuteNonQuery<T> where T : IMessage, new()
   {
-    private readonly IExecuteReader<T> SpRO;
+    private readonly IExecuteReader<T> _reader;
 
-    public ExecuteNonQuery(Security claim, IStoreProcedure sp, IStoreProcedure spReadOnly, IMapper map) : base(claim, sp)
+    public ExecuteNonQuery(Security claim, IStoreProcedure sp, IStoreProcedure spR, IMapper map) : base(claim, sp)
     {
-      SpRO = (spReadOnly == null) ? null : new ExecuteReader<T>(claim, spReadOnly, map);
+      _reader = (spR == null) ? null : new ExecuteReader<T>(claim, spR, map);
     }
 
     private bool Update()
@@ -100,22 +100,22 @@ namespace StoreProcedure.Command
         : -1;
     }
 
-    public int Create(T obj) => AddParameters(obj) ? Create() : -1;
+    public int Create(T obj) => AddParameter(obj) ? Create() : -1;
 
-    public bool Update(T obj) => AddParameters(obj) && Update();
+    public bool Update(T obj) => AddParameter(obj) && Update();
 
-    public bool UpdateState(int id, int stateId) => AddParameters(SpRO.Read(id)) && AddParameter(Constant.STATE.AsId(), stateId) && Update();
+    public bool UpdateState(int id, int stateId) => AddParameter(_reader.Read(id)) && AddParameter(Constant.STATE.AsId(), stateId) && Update();
 
     public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
 
     public override void Dispose()
     {
-      SpRO?.Dispose();
+      _reader?.Dispose();
       base.Dispose();
     }
   }
 
-  internal sealed class ExecuteReader<T> : Base<T>, IExecuteReader<T> where T : IMessage, new()
+  internal sealed class ExecuteReader<T> : Base, IExecuteReader<T> where T : IMessage, new()
   {
     private readonly IMapper _map;
 
@@ -142,13 +142,13 @@ namespace StoreProcedure.Command
 
     public ICollection<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
 
-    public ICollection<T> Read(IDictionary<string, object> parameters) => AddParameters(parameters) ? Read() : null;
+    public ICollection<T> Read(IDictionary<string, object> parameters) => AddParameter(parameters) ? Read() : null;
 
     public ICollection<T> ReadRange(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? Read() : null;
 
     public async Task<ICollection<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
 
-    public async Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameters(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
+    public async Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameter(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
 
     public async Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
   }
