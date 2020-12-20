@@ -72,11 +72,12 @@ namespace StoreProcedure.Command
     public virtual void Dispose()
     {
       sqlCmd?.Connection?.Close();
+      sqlCmd?.Connection?.Dispose();
       sqlCmd?.Dispose();
     }
   }
 
-  internal sealed class ExecuteNonQuery<T> : Base, IExecuteNonQuery<T> where T : IMessage, new()
+  internal sealed class ExecuteNonQuery<T> : Base, IExecuteNonQuery<T> where T : IMessage<T>, new()
   {
     private readonly IExecuteReader<T> _reader;
 
@@ -115,7 +116,7 @@ namespace StoreProcedure.Command
     }
   }
 
-  internal sealed class ExecuteReader<T> : Base, IExecuteReader<T> where T : IMessage, new()
+  internal sealed class ExecuteReader<T> : Base, IExecuteReader<T> where T : IMessage<T>, new()
   {
     private readonly IMapper _map;
 

@@ -19,17 +19,17 @@ namespace StoreProcedure
       _storeProcedures = sp;
     }
 
-    public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage, new() =>
+    public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage<T>, new() =>
       new ExecuteReader<T>(new Security(_connectionManager.App(), rootId),
                           _storeProcedures.Get<T>(OperationType.R),
                           _maps.Get<T>());
 
-    public IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
+    public IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
       new ExecuteReader<T>(new Security(_connectionManager, uc, appId),
                           _storeProcedures.Get<T>(op),
                           _maps.Get<T>());
 
-    public IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new() =>
+    public IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
       new ExecuteNonQuery<T>(new Security(_connectionManager, uc, appId),
                             _storeProcedures.Get<T>(op),
                             _storeProcedures.Get<T>(OperationType.R),

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
@@ -12,32 +13,32 @@ namespace StoreProcedure
   {
     private readonly HashSet<IMapper> _mappers = new HashSet<IMapper>();
 
-    public IMapper Get(string type) =>
-      _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
+    public IMapper Get(Type type) => _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
   }
 
   internal sealed class Mapper : IMapper
   {
-    private readonly string _type;
-    private IDictionary<int, int> _reflectionMap;
+    private readonly Type _type;
+    private IDictionary<int, int> _fieldMap;
 
-    public Mapper(string type)
+    public Mapper(Type type)
     {
       _type = type;
     }
 
     private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
     {
-      _reflectionMap = new Dictionary<int, int>();
+      _fieldMap = new Dictionary<int, int>();
       var objT = new T();
+      FieldDescriptor fd;
 
       for (int i = 0; i < reader.FieldCount; i++)
       {
-        var fd = objT.Descriptor.FindFieldByName(reader.GetName(i));
+        fd = objT.Descriptor.FindFieldByName(reader.GetName(i));
         if (fd != null)
         {
           fd.Accessor.SetValue(objT, fd.ChangeType(reader[i]));
-          _reflectionMap.Add(i, fd.FieldNumber);
+          _fieldMap.Add(i, fd.FieldNumber);
         }
       }
 
@@ -49,18 +50,18 @@ namespace StoreProcedure
       var objT = new T();
       FieldDescriptor fd;
 
-      foreach (var rm in _reflectionMap)
+      foreach (var fm in _fieldMap)
       {
-        fd = objT.Descriptor.Fields[rm.Value];
-        fd.Accessor.SetValue(objT, fd.ChangeType(reader[rm.Key]));
+        fd = objT.Descriptor.Fields[fm.Value];
+        fd.Accessor.SetValue(objT, fd.ChangeType(reader[fm.Key]));
       }
 
       return objT;
     }
 
-    public T Parse<T>(SqlDataReader reader) where T : IMessage, new() =>
-      (_reflectionMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+    public bool IsType(Type type) => _type == type;
 
-    public bool IsType(string type) => _type.IsEqual(type);
+    public T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new() =>
+      (_fieldMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
   }
 }

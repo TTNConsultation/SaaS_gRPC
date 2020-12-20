@@ -113,7 +113,7 @@ namespace StoreProcedure
       }
     }
 
-    public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
+    public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage<T>, new()
     {
       var ret = new HashSet<T>();
 
@@ -125,7 +125,7 @@ namespace StoreProcedure
       return ret;
     }
 
-    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage, new()
+    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage<T>, new()
     {
       var ret = new HashSet<T>();
 

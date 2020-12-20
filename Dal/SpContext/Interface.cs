@@ -13,11 +13,11 @@ namespace StoreProcedure.Interface
 
   public interface IDbContext
   {
-    IExecuteReader<T> ReferenceData<T>(int rootId = 0) where T : IMessage, new();
+    IExecuteReader<T> ReferenceData<T>(int rootId = 0) where T : IMessage<T>, new();
 
-    IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new();
+    IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new();
 
-    IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage, new();
+    IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new();
   }
 
   public interface ICollectionStoreProcedure
@@ -47,7 +47,7 @@ namespace StoreProcedure.Interface
     SqlParameter SqlParameter(object value);
   }
 
-  public interface IExecuteNonQuery<T> : IDisposable where T : IMessage, new()
+  public interface IExecuteNonQuery<T> : IDisposable where T : IMessage<T>, new()
   {
     string Error { get; }
 
@@ -64,7 +64,7 @@ namespace StoreProcedure.Interface
     bool Delete(int id);
   }
 
-  public interface IExecuteReader<T> : IDisposable where T : IMessage, new()
+  public interface IExecuteReader<T> : IDisposable where T : IMessage<T>, new()
   {
     string Error { get; }
 
@@ -108,15 +108,15 @@ namespace StoreProcedure.Interface
 
   public interface ICollectionMapper
   {
-    IMapper Get(string typeName);
+    IMapper Get(Type type);
 
-    IMapper Get<T>() where T : IMessage => Get(typeof(T).Name);
+    IMapper Get<T>() where T : IMessage<T> => Get(typeof(T));
   }
 
   public interface IMapper
   {
-    bool IsType(string type);
+    bool IsType(Type type);
 
-    T Parse<T>(SqlDataReader reader) where T : IMessage, new();
+    T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new();
   }
 }

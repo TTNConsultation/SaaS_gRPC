@@ -20,7 +20,7 @@ namespace Saas.Message.Reference
 
   public partial class KeyTypes
   {
-    public KeyTypes(IEnumerable<KeyType> values)
+    public KeyTypes(ICollection<KeyType> values)
     {
       Values.AddRange(values);
     }

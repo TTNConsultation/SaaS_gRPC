@@ -57,9 +57,9 @@ namespace Saas.Dal
 
       while (reader.Read())
       {
-        var prop = map.Parse<SpProperty>(reader);
-        prop.Parameters = parameters.Where(p => p.StoreProcedureId == prop.Id);
-        ret.Add(prop);
+        var sp = map.Parse<SpProperty>(reader);
+        sp.Parameters = parameters.Where(p => p.StoreProcedureId == sp.Id);
+        ret.Add(sp);
       }
 
       return ret;
