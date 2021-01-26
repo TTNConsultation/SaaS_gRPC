@@ -26,7 +26,7 @@ namespace StoreProcedure
       _type = type;
     }
 
-    private T BuildMap<T>(SqlDataReader reader) where T : IMessage, new()
+    private T Build<T>(SqlDataReader reader) where T : IMessage, new()
     {
       _fieldMap = new Dictionary<int, int>();
       var objT = new T();
@@ -45,7 +45,7 @@ namespace StoreProcedure
       return objT;
     }
 
-    private T UseMap<T>(SqlDataReader reader) where T : IMessage, new()
+    private T Map<T>(SqlDataReader reader) where T : IMessage, new()
     {
       var objT = new T();
       FieldDescriptor fd;
@@ -62,6 +62,6 @@ namespace StoreProcedure
     public bool IsType(Type type) => _type == type;
 
     public T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new() =>
-      (_fieldMap == null) ? BuildMap<T>(reader) : UseMap<T>(reader);
+      (_fieldMap == null) ? Build<T>(reader) : Map<T>(reader);
   }
 }

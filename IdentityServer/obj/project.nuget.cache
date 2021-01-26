@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zprmd7v//wq4K60EJJE7ysx8xNmVnreUNhI2AeR/VQxMAtIXWh7kQlLrUXlsOO8KzOwA442CRyz9xryLdQMMCQ==",
+  "dgSpecHash": "02SDQEMcHPMf2T5pKJTcaHO0WuiT0pwyBSaV2qzmp7ryj8unMXtgj+Dgb4tzWbFkQTYbOhL3ZQIXYYjSKuSr1g==",
   "success": true,
   "projectFilePath": "D:\\Dev\\SaaS_AllAboutFood\\IdentityServer\\IdentityServer.csproj",
   "expectedPackageFiles": [
@@ -18,9 +18,9 @@
     "C:\\Users\\thang\\.nuget\\packages\\identityserver4\\4.1.1\\identityserver4.4.1.1.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\identityserver4.accesstokenvalidation\\3.0.1\\identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\identityserver4.storage\\4.1.1\\identityserver4.storage.4.1.1.nupkg.sha512",
-    "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\5.0.1\\microsoft.aspnetcore.authentication.certificate.5.0.1.nupkg.sha512",
-    "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.1\\microsoft.aspnetcore.authentication.google.5.0.1.nupkg.sha512",
-    "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
+    "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\5.0.2\\microsoft.aspnetcore.authentication.certificate.5.0.2.nupkg.sha512",
+    "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.2\\microsoft.aspnetcore.authentication.google.5.0.2.nupkg.sha512",
+    "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.2\\microsoft.aspnetcore.authentication.jwtbearer.5.0.2.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.1\\microsoft.data.sqlclient.2.1.1.nupkg.sha512",

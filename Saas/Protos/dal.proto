@@ -2,16 +2,16 @@ syntax = "proto3";
 
 option csharp_namespace = "Saas.Dal";
 
-package SpProperty;
+package Procedures;
 
-message SpProperty{
+message Procedure{
     int32 Id = 1;
     string FullName = 2;
     string Schema = 3;
     string Type = 4;
     string Op = 5;
 }
-message SpParameter{
+message Parameter{
   string SpName = 1;
   int32 SpId = 2;
   string Name = 3;

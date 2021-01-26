@@ -193,7 +193,7 @@
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.Certificate/5.0.1": {
+      "Microsoft.AspNetCore.Authentication.Certificate/5.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "5.0.0"
@@ -208,7 +208,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Authentication.Google/5.0.1": {
+      "Microsoft.AspNetCore.Authentication.Google/5.0.2": {
         "type": "package",
         "compile": {
           "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
@@ -220,7 +220,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.1": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.7.1"
@@ -1111,10 +1111,10 @@
         "lib/netstandard2.0/IdentityServer4.Storage.xml"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.Certificate/5.0.1": {
-      "sha512": "jnoUrnMPgrjfSfx0aN5feUzCKE51H0/AwWR4xGRXGg8CmV+5EScwK2koY0Kt7bTTZm/vleDkT+kcvumwD3A9Iw==",
+    "Microsoft.AspNetCore.Authentication.Certificate/5.0.2": {
+      "sha512": "kJ6v3tQwRd+I25lxRViBtHmowzzVCPnuZpZP5VNbZ09miYcocbQy/U4RXM+bn+KQ24Cvb7hoy24ZW+gdKb9zng==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.certificate/5.0.1",
+      "path": "microsoft.aspnetcore.authentication.certificate/5.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1122,14 +1122,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.Certificate.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.Certificate.xml",
-        "microsoft.aspnetcore.authentication.certificate.5.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.5.0.2.nupkg.sha512",
         "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.Google/5.0.1": {
-      "sha512": "uXkeo9NtDlkXmNIqtLZ6tLtUFpMEfOI4rCTNAE9hsTj9cLexeMgiYv1Kp3bDNzAeDdpllx7KzsZjCnR5kIZqDw==",
+    "Microsoft.AspNetCore.Authentication.Google/5.0.2": {
+      "sha512": "XzfvUNcnybehwplulywBsiaKxbUGAbJ52S693pg4qAZcwVptCblQPU4baSYF4/e2tYUGEb95giQbiuj4abFfVw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.google/5.0.1",
+      "path": "microsoft.aspnetcore.authentication.google/5.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1137,14 +1137,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.xml",
-        "microsoft.aspnetcore.authentication.google.5.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.5.0.2.nupkg.sha512",
         "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.1": {
-      "sha512": "BGCA7V2+x6gjzZcOLfn1UYTicTBbK1kMVsoV56qiVc2+zpdEc62YPbLCC7jBUpjCeS9w/5FkGMkjvtwCarH7hg==",
+    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.2": {
+      "sha512": "Eb7daSO4H2SO4/StrJ6ka9Zx+v2Ht51D0ha229fA05ZyUjiuMkykQFPaQWg2Rkke246PGEkNgM/sCJ9eHxh0+A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.1",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1152,7 +1152,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.5.0.2.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
@@ -2447,9 +2447,9 @@
       "IdentityServer4 >= 4.1.1",
       "IdentityServer4.AccessTokenValidation >= 3.0.1",
       "IdentityServer4.Storage >= 4.1.1",
-      "Microsoft.AspNetCore.Authentication.Certificate >= 5.0.1",
-      "Microsoft.AspNetCore.Authentication.Google >= 5.0.1",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.1",
+      "Microsoft.AspNetCore.Authentication.Certificate >= 5.0.2",
+      "Microsoft.AspNetCore.Authentication.Google >= 5.0.2",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.2",
       "StoreProcedure >= 1.0.0"
     ]
   },
@@ -2521,15 +2521,15 @@
           },
           "Microsoft.AspNetCore.Authentication.Certificate": {
             "target": "Package",
-            "version": "[5.0.1, )"
+            "version": "[5.0.2, )"
           },
           "Microsoft.AspNetCore.Authentication.Google": {
             "target": "Package",
-            "version": "[5.0.1, )"
+            "version": "[5.0.2, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[5.0.1, )"
+            "version": "[5.0.2, )"
           }
         },
         "imports": [
@@ -2550,7 +2550,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

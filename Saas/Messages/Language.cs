@@ -17,6 +17,7 @@ namespace Saas.Message.Language
   {
     public bool IsEqual(CodeLanguage lang) => Id == lang.Id;
   }
+
   public partial class SupportedLanguages
   {
     public SupportedLanguages(IEnumerable<CodeLanguage> values)
@@ -26,7 +27,7 @@ namespace Saas.Message.Language
 
     public CodeLanguage Get(string code) => Values.FirstOrDefault(l => l.Code.IsEqual(code));
 
-    public CodeLanguage Get(int id) => Values.FirstOrDefault(l => l.Id == id);    
+    public CodeLanguage Get(int id) => Values.FirstOrDefault(l => l.Id == id);
   }
 
   public partial class Dictionary

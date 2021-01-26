@@ -20,16 +20,16 @@ namespace StoreProcedure.Interface
     IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new();
   }
 
-  public interface ICollectionStoreProcedure
+  public interface ICollectionProcedure
   {
-    IStoreProcedure Get(string typename, OperationType op);
+    IProcedure Get(string typename, OperationType op);
 
-    IStoreProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
+    IProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
 
-    ICollection<IStoreProcedure> Initialize(ICollectionMapper mappers, string conStr);
+    ICollection<IProcedure> Initialize(ICollectionMapper mappers, string conStr);
   }
 
-  public interface IStoreProcedure
+  public interface IProcedure
   {
     SqlCommand SqlCommand(string conStr);
 

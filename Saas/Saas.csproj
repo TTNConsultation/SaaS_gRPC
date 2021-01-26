@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>Saas</AssemblyName>
     <NeutralLanguage>en-CA</NeutralLanguage>
+    <UserSecretsId>9b71b173-19a2-4dda-a8c6-402c80416e58</UserSecretsId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
@@ -28,26 +29,25 @@
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.34.0" />
     <PackageReference Include="Google.Protobuf" Version="3.14.0" />
     <PackageReference Include="Grpc.AspNetCore.Server" Version="2.34.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.34.0">
+    <PackageReference Include="Grpc.Tools" Version="2.35.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="IdentityServer4" Version="4.1.1" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dal\SpContext\StoreProcedure.csproj" />
-    <ProjectReference Include="..\IdentityServer\IdentityServer.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="Protos\reference.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\language.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\administrator.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\services.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\common.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\service.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\dal.proto" GrpcServices="Server" />
   </ItemGroup>
 </Project>

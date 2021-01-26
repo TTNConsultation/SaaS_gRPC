@@ -24,34 +24,33 @@ namespace Saas.Dal {
     static DalReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBQcm90b3MvZGFsLnByb3RvEgpTcFByb3BlcnR5IlQKClNwUHJvcGVydHkS",
-            "CgoCSWQYASABKAUSEAoIRnVsbE5hbWUYAiABKAkSDgoGU2NoZW1hGAMgASgJ",
-            "EgwKBFR5cGUYBCABKAkSCgoCT3AYBSABKAkisAEKC1NwUGFyYW1ldGVyEg4K",
-            "BlNwTmFtZRgBIAEoCRIMCgRTcElkGAIgASgFEgwKBE5hbWUYAyABKAkSDAoE",
-            "VHlwZRgEIAEoCRIRCglNYXhMZW5ndGgYBSABKAUSEQoJUHJlY2lzaW9uGAYg",
-            "ASgFEg0KBVNjYWxlGAcgASgFEg0KBU9yZGVyGAggASgFEhAKCElzT3V0cHV0",
-            "GAkgASgIEhEKCUNvbGxhdGlvbhgKIAEoCUILqgIIU2Fhcy5EYWxiBnByb3Rv",
-            "Mw=="));
+            "ChBQcm90b3MvZGFsLnByb3RvEgpQcm9jZWR1cmVzIlMKCVByb2NlZHVyZRIK",
+            "CgJJZBgBIAEoBRIQCghGdWxsTmFtZRgCIAEoCRIOCgZTY2hlbWEYAyABKAkS",
+            "DAoEVHlwZRgEIAEoCRIKCgJPcBgFIAEoCSKuAQoJUGFyYW1ldGVyEg4KBlNw",
+            "TmFtZRgBIAEoCRIMCgRTcElkGAIgASgFEgwKBE5hbWUYAyABKAkSDAoEVHlw",
+            "ZRgEIAEoCRIRCglNYXhMZW5ndGgYBSABKAUSEQoJUHJlY2lzaW9uGAYgASgF",
+            "Eg0KBVNjYWxlGAcgASgFEg0KBU9yZGVyGAggASgFEhAKCElzT3V0cHV0GAkg",
+            "ASgIEhEKCUNvbGxhdGlvbhgKIAEoCUILqgIIU2Fhcy5EYWxiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.SpProperty), global::Saas.Dal.SpProperty.Parser, new[]{ "Id", "FullName", "Schema", "Type", "Op" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.SpParameter), global::Saas.Dal.SpParameter.Parser, new[]{ "SpName", "SpId", "Name", "Type", "MaxLength", "Precision", "Scale", "Order", "IsOutput", "Collation" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.Procedure), global::Saas.Dal.Procedure.Parser, new[]{ "Id", "FullName", "Schema", "Type", "Op" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Dal.Parameter), global::Saas.Dal.Parameter.Parser, new[]{ "SpName", "SpId", "Name", "Type", "MaxLength", "Precision", "Scale", "Order", "IsOutput", "Collation" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class SpProperty : pb::IMessage<SpProperty>
+  public sealed partial class Procedure : pb::IMessage<Procedure>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SpProperty> _parser = new pb::MessageParser<SpProperty>(() => new SpProperty());
+    private static readonly pb::MessageParser<Procedure> _parser = new pb::MessageParser<Procedure>(() => new Procedure());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SpProperty> Parser { get { return _parser; } }
+    public static pb::MessageParser<Procedure> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -64,14 +63,14 @@ namespace Saas.Dal {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SpProperty() {
+    public Procedure() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SpProperty(SpProperty other) : this() {
+    public Procedure(Procedure other) : this() {
       id_ = other.id_;
       fullName_ = other.fullName_;
       schema_ = other.schema_;
@@ -81,8 +80,8 @@ namespace Saas.Dal {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SpProperty Clone() {
-      return new SpProperty(this);
+    public Procedure Clone() {
+      return new Procedure(this);
     }
 
     /// <summary>Field number for the "Id" field.</summary>
@@ -142,11 +141,11 @@ namespace Saas.Dal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SpProperty);
+      return Equals(other as Procedure);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SpProperty other) {
+    public bool Equals(Procedure other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -265,7 +264,7 @@ namespace Saas.Dal {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SpProperty other) {
+    public void MergeFrom(Procedure other) {
       if (other == null) {
         return;
       }
@@ -359,15 +358,15 @@ namespace Saas.Dal {
 
   }
 
-  public sealed partial class SpParameter : pb::IMessage<SpParameter>
+  public sealed partial class Parameter : pb::IMessage<Parameter>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SpParameter> _parser = new pb::MessageParser<SpParameter>(() => new SpParameter());
+    private static readonly pb::MessageParser<Parameter> _parser = new pb::MessageParser<Parameter>(() => new Parameter());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SpParameter> Parser { get { return _parser; } }
+    public static pb::MessageParser<Parameter> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -380,14 +379,14 @@ namespace Saas.Dal {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SpParameter() {
+    public Parameter() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SpParameter(SpParameter other) : this() {
+    public Parameter(Parameter other) : this() {
       spName_ = other.spName_;
       spId_ = other.spId_;
       name_ = other.name_;
@@ -402,8 +401,8 @@ namespace Saas.Dal {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SpParameter Clone() {
-      return new SpParameter(this);
+    public Parameter Clone() {
+      return new Parameter(this);
     }
 
     /// <summary>Field number for the "SpName" field.</summary>
@@ -518,11 +517,11 @@ namespace Saas.Dal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SpParameter);
+      return Equals(other as Parameter);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SpParameter other) {
+    public bool Equals(Parameter other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -706,7 +705,7 @@ namespace Saas.Dal {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SpParameter other) {
+    public void MergeFrom(Parameter other) {
       if (other == null) {
         return;
       }

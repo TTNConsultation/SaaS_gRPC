@@ -1,7 +1,6 @@
 ﻿using Saas.gRPC;
 using Grpc.Core;
 using Saas.Message.Administrator;
-using Saas.Message.Common;
 using Saas.Message.Reference;
 
 using StoreProcedure;
@@ -9,6 +8,7 @@ using StoreProcedure.Interface;
 
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
 
 namespace Saas.Services
 {
@@ -25,17 +25,17 @@ namespace Saas.Services
       _refData = appData.RefDatas;
     }
 
-    public override Task<Table> Get(MsgInt id, ServerCallContext context)
+    public override Task<Table> Get(Value id, ServerCallContext context)
     {
       using var sp = _dbContext.Read<Table>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(sp.Read(id.Value))
+      return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
-    public override Task<Tables> GetByRestaurant(MsgInt restaurantId, ServerCallContext context)
+    public override Task<Tables> GetByRestaurant(Value restaurantId, ServerCallContext context)
     {
       using var sp = _dbContext.Read<Table>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.AsId(), restaurantId.Value)))
+      return (sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.AsId(), (int)restaurantId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
   }

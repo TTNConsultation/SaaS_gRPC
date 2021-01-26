@@ -1,11 +1,11 @@
 ﻿using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using Saas.gRPC;
-using Saas.Message.Common;
 using Saas.Message.Language;
 using Saas.Message.Reference;
 using System.Threading.Tasks;
 
+using Google.Protobuf.WellKnownTypes;
 
 using StoreProcedure.Interface;
 
@@ -26,22 +26,22 @@ namespace Saas.Services
       _dbContext = context;
     }
 
-    public override Task<SupportedLanguages> SupportedLanguages(MsgEmpty request, ServerCallContext context)
+    public override Task<SupportedLanguages> SupportedLanguages(Value request, ServerCallContext context)
     {
       return Task.FromResult(_refData.Languages);
     }
 
-    public override Task<States> States(MsgEmpty request, ServerCallContext context)
+    public override Task<States> States(Value request, ServerCallContext context)
     {
       return Task.FromResult(_refData.States);
     }
 
-    public override Task<KeyTypes> KeyTypes(MsgEmpty request, ServerCallContext context)
+    public override Task<KeyTypes> KeyTypes(Value request, ServerCallContext context)
     {
       return Task.FromResult(_refData.KeyTypes);
     }
 
-    public override Task<References> References(MsgEmpty request, ServerCallContext context)
+    public override Task<References> References(Value request, ServerCallContext context)
     {
       return Task.FromResult(_refData);
     }

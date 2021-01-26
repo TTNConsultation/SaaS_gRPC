@@ -27,37 +27,34 @@ namespace Saas.Dal
     public string App() => Get(Constant.APP);
   }
 
-  internal sealed class CollectionStoreProcedure : ICollectionStoreProcedure
+  internal sealed class CollectionProcedure : ICollectionProcedure
   {
-    private readonly ICollection<IStoreProcedure> _storeProcedures;
+    private readonly ICollection<IProcedure> _storeProcedures;
 
-    public CollectionStoreProcedure(ICollectionMapper maps, IConnectionManager connectionManager)
+    public CollectionProcedure(ICollectionMapper maps, IConnectionManager connectionManager)
     {
       _storeProcedures = Initialize(maps, connectionManager.App());
     }
 
-    public IStoreProcedure Get(string baseName, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
+    public IProcedure Get(string baseName, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
 
-    public ICollection<IStoreProcedure> Initialize(ICollectionMapper maps, string conStr)
+    public ICollection<IProcedure> Initialize(ICollectionMapper maps, string conStr)
     {
-      var parameters = GetParameters(maps.Get<SpParameter>(), conStr);
-      var ret = new HashSet<IStoreProcedure>();
-      var map = maps.Get<SpProperty>();
+      var parameters = GetParameters(maps.Get<Parameter>(), conStr);
+      var ret = new HashSet<IProcedure>();
+      var map = maps.Get<Procedure>();
 
-      string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
+      string spName = Constant.APP.DotAnd(nameof(Procedure)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
-      var sqlcmd = new SqlCommand(spName, sqlCon)
-      {
-        CommandType = CommandType.StoredProcedure
-      };
+      var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
       sqlCon.Open();
 
       using var reader = sqlcmd.ExecuteReader();
 
       while (reader.Read())
       {
-        var sp = map.Parse<SpProperty>(reader);
+        var sp = map.Parse<Procedure>(reader);
         sp.Parameters = parameters.Where(p => p.StoreProcedureId == sp.Id);
         ret.Add(sp);
       }
@@ -67,22 +64,19 @@ namespace Saas.Dal
 
     private static IEnumerable<IParameter> GetParameters(IMapper map, string conStr)
     {
-      string spName = Constant.APP.DotAnd(nameof(SpParameter)).UnderscoreAnd(nameof(OperationType.R));
+      string spName = Constant.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
-      var sqlcmd = new SqlCommand(spName, sqlCon)
-      {
-        CommandType = CommandType.StoredProcedure
-      };
+      var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
       sqlCon.Open();
 
       using var reader = sqlcmd.ExecuteReader();
 
-      return reader.Parse<SpParameter>(map);
+      return reader.Parse<Parameter>(map);
     }
   }
 
-  public partial class SpProperty : IStoreProcedure
+  public partial class Procedure : IProcedure
   {
     internal IEnumerable<IParameter> Parameters { private get; set; }
 
@@ -97,7 +91,7 @@ namespace Saas.Dal
     public bool IsEqual(string spName, OperationType op) => this.Type.IsEqual(spName) && Op.IsEqual(op.ToString());
   }
 
-  public partial class SpParameter : IParameter
+  public partial class Parameter : IParameter
   {
     private int Size(object value)
     {

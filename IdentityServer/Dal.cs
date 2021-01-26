@@ -27,21 +27,21 @@ namespace Dal
     public string App() => Get(Constant.APP);
   }
 
-  internal sealed class CollectionSpProperty : ICollectionStoreProcedure
+  internal sealed class CollectionSpProperty : ICollectionProcedure
   {
-    private readonly ICollection<IStoreProcedure> _storeProcedures;
+    private readonly ICollection<IProcedure> _storeProcedures;
 
     public CollectionSpProperty(ICollectionMapper maps, IConnectionManager conManager)
     {
       _storeProcedures = Initialize(maps, conManager.App());
     }
 
-    public IStoreProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
+    public IProcedure Get(string typename, OperationType op) => _storeProcedures.FirstOrDefault(sp => sp.IsEqual(typename, op));
 
-    public ICollection<IStoreProcedure> Initialize(ICollectionMapper maps, string conStr)
+    public ICollection<IProcedure> Initialize(ICollectionMapper maps, string conStr)
     {
       var parameters = GetParameters(maps.Get<SpParameter>(), conStr);
-      var ret = new HashSet<IStoreProcedure>();
+      var ret = new HashSet<IProcedure>();
       var map = maps.Get<SpProperty>();
 
       string spName = Constant.APP.DotAnd(nameof(SpProperty)).UnderscoreAnd(nameof(OperationType.R));
@@ -81,7 +81,7 @@ namespace Dal
     }
   }
 
-  public partial class SpProperty : IStoreProcedure
+  public partial class SpProperty : IProcedure
   {
     internal IEnumerable<IParameter> Parameters { private get; set; }
 

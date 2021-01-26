@@ -1,0 +1,9 @@
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Release\netstandard2.1\StoreProcedure.deps.json
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Release\netstandard2.1\StoreProcedure.dll
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\bin\Release\netstandard2.1\StoreProcedure.pdb
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Release\netstandard2.1\StoreProcedure.csprojAssemblyReference.cache
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Release\netstandard2.1\StoreProcedure.AssemblyInfoInputs.cache
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Release\netstandard2.1\StoreProcedure.AssemblyInfo.cs
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Release\netstandard2.1\StoreProcedure.csproj.CoreCompileInputs.cache
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Release\netstandard2.1\StoreProcedure.dll
+D:\Dev\SaaS_AllAboutFood\Dal\SpContext\obj\Release\netstandard2.1\StoreProcedure.pdb

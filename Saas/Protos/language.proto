@@ -22,7 +22,7 @@ message CodeLanguage{
   string Code = 2;
   string Value = 3;
 }
-message SupportedLanguages{  
+message SupportedLanguages{
   repeated CodeLanguage values = 1;
 }
 
@@ -30,9 +30,9 @@ message DictKeyValuePair{
   int32 Key = 1;
   string Val = 2;
 }
-message Dictionary{  
+message Dictionary{
   int32 RootId = 1;
   CodeLanguage Language = 2;
   Keys Keys = 3;
-  repeated DictKeyValuePair content = 4;
+  repeated DictKeyValuePair Content = 4;
 }

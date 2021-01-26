@@ -11,7 +11,7 @@ message KeyType{
   string Name = 2;
   int32 MaxLen = 3;
 }
-message KeyTypes{ 
+message KeyTypes{
   repeated KeyType values = 1;
 }
 
@@ -19,7 +19,7 @@ message State{
   int32 Id = 1;
   string Name = 2;
 }
-message States{  
+message States{
   repeated State values = 1;
 }
 message AppSetting{
@@ -28,7 +28,7 @@ message AppSetting{
   int32 DescriptionKey = 3;
 }
 message References{
-  States states = 1;
-  Language.SupportedLanguages languages = 2;
-  KeyTypes keyTypes = 3;
+  States States = 1;
+  Language.SupportedLanguages Languages = 2;
+  KeyTypes KeyTypes = 3;
 }

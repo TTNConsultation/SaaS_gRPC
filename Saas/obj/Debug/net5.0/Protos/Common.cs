@@ -24,9 +24,9 @@ namespace Saas.Message.Common {
     static CommonReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNQcm90b3MvY29tbW9uLnByb3RvEgZDb21tb24iFwoGTXNnSW50Eg0KBVZh",
-            "bHVlGAEgASgFIhgKB01zZ0Jvb2wSDQoFVmFsdWUYASABKAgiGgoJTXNnU3Ry",
-            "aW5nEg0KBVZhbHVlGAEgASgJIgoKCE1zZ0VtcHR5QhaqAhNTYWFzLk1lc3Nh",
+            "ChNQcm90b3MvY29tbW9uLnByb3RvEgZDb21tb24iFwoGTXNnSW50Eg0KBXZh",
+            "bHVlGAEgASgFIhgKB01zZ0Jvb2wSDQoFdmFsdWUYASABKAgiGgoJTXNnU3Ry",
+            "aW5nEg0KBXZhbHVlGAEgASgJIgoKCE1zZ0VtcHR5QhaqAhNTYWFzLk1lc3Nh",
             "Z2UuQ29tbW9uYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -79,7 +79,7 @@ namespace Saas.Message.Common {
       return new MsgInt(this);
     }
 
-    /// <summary>Field number for the "Value" field.</summary>
+    /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 1;
     private int value_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -251,7 +251,7 @@ namespace Saas.Message.Common {
       return new MsgBool(this);
     }
 
-    /// <summary>Field number for the "Value" field.</summary>
+    /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 1;
     private bool value_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -423,7 +423,7 @@ namespace Saas.Message.Common {
       return new MsgString(this);
     }
 
-    /// <summary>Field number for the "Value" field.</summary>
+    /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 1;
     private string value_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

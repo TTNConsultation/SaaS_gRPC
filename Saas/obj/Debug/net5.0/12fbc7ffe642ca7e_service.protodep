@@ -1,0 +1,6 @@
+obj\Debug\net5.0\Protos/Service.cs \
+obj\Debug\net5.0\Protos/ServiceGrpc.cs: C:/Users/thang/.nuget/packages/grpc.tools/2.35.0/build/native/include/google/protobuf/struct.proto\
+ Protos/language.proto\
+ Protos/reference.proto\
+ Protos/administrator.proto\
+ Protos/service.proto

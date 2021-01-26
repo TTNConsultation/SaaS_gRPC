@@ -52,7 +52,7 @@ namespace IdentityServer
 
       services.AddSingleton<IConnectionManager, ConnectionManager>()
               .AddSingleton<ICollectionMapper, CollectionMapper>()
-              .AddSingleton<ICollectionStoreProcedure, CollectionSpProperty>()
+              .AddSingleton<ICollectionProcedure, CollectionSpProperty>()
               .AddSingleton<IDbContext, DbContext>();
     }
 
