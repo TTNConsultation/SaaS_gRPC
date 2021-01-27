@@ -25,8 +25,6 @@ namespace StoreProcedure.Interface
     IProcedure Get(string typename, OperationType op);
 
     IProcedure Get<T>(OperationType op) => Get(typeof(T).Name, op);
-
-    ICollection<IProcedure> Initialize(ICollectionMapper mappers, string conStr);
   }
 
   public interface IProcedure
@@ -103,7 +101,7 @@ namespace StoreProcedure.Interface
   {
     string Get(string schema);
 
-    string App();
+    string App(string appSchema = Constant.APP) => Get(appSchema);
   }
 
   public interface ICollectionMapper

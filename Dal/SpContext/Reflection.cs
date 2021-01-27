@@ -26,7 +26,7 @@ namespace StoreProcedure
       _type = type;
     }
 
-    private T Build<T>(SqlDataReader reader) where T : IMessage, new()
+    private T Build<T>(SqlDataReader reader) where T : IMessage<T>, new()
     {
       _fieldMap = new Dictionary<int, int>();
       var objT = new T();
@@ -45,7 +45,7 @@ namespace StoreProcedure
       return objT;
     }
 
-    private T Map<T>(SqlDataReader reader) where T : IMessage, new()
+    private T Map<T>(SqlDataReader reader) where T : IMessage<T>, new()
     {
       var objT = new T();
       FieldDescriptor fd;

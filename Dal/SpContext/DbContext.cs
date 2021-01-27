@@ -1,39 +1,38 @@
-﻿using Google.Protobuf;
-using System.Security.Claims;
-
+﻿using System.Security.Claims;
 using StoreProcedure.Interface;
 using StoreProcedure.Command;
+using Google.Protobuf;
 
 namespace StoreProcedure
 {
   public sealed class DbContext : IDbContext
   {
-    private readonly IConnectionManager _connectionManager;
-    private readonly ICollectionMapper _maps;
+    private readonly IConnectionManager _connections;
+    private readonly ICollectionMapper _mappers;
     private readonly ICollectionProcedure _procedures;
 
-    public DbContext(IConnectionManager conmanager, ICollectionMapper maps, ICollectionProcedure sp)
+    public DbContext(IConnectionManager conmanager, ICollectionMapper maps, ICollectionProcedure procedures)
     {
-      _connectionManager = conmanager;
-      _maps = maps;
-      _procedures = sp;
+      _connections = conmanager;
+      _mappers = maps;
+      _procedures = procedures;
     }
 
     public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage<T>, new() =>
-      new ExecuteReader<T>(new Security(_connectionManager.App(), rootId),
+      new ExecuteReader<T>(new Security(_connections.App(), rootId),
                           _procedures.Get<T>(OperationType.R),
-                          _maps.Get<T>());
+                          _mappers.Get<T>());
 
     public IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
-      new ExecuteReader<T>(new Security(_connectionManager, uc, appId),
+      new ExecuteReader<T>(new Security(_connections, uc, appId),
                           _procedures.Get<T>(op),
-                          _maps.Get<T>());
+                          _mappers.Get<T>());
 
     public IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
-      new ExecuteNonQuery<T>(new Security(_connectionManager, uc, appId),
+      new ExecuteNonQuery<T>(new Security(_connections, uc, appId),
                             _procedures.Get<T>(op),
                             _procedures.Get<T>(OperationType.R),
-                            _maps.Get<T>());
+                            _mappers.Get<T>());
   }
 
   internal sealed class Security
@@ -41,8 +40,10 @@ namespace StoreProcedure
     public readonly int RootId;
     public readonly string ConnectionString;
 
-    public Security(IConnectionManager conManager, ClaimsPrincipal cp, int appId)
+    public Security(IConnectionManager conmng, ClaimsPrincipal cp, int appid)
     {
+      RootId = appid;
+
       foreach (var c in cp.Claims)
       {
         switch (c.Type)
@@ -52,13 +53,10 @@ namespace StoreProcedure
             break;
 
           case Constant.ROLE:
-            ConnectionString = conManager.Get(c.Value);
+            ConnectionString = conmng.Get(c.Value);
             break;
         }
       }
-
-      if (RootId <= 0)
-        RootId = appId;
     }
 
     public Security(string conStr, int rootId)
