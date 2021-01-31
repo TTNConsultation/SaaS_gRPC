@@ -38,7 +38,7 @@ namespace Saas.Message.Administrator {
             "GAUgASgFEg8KB05hbWVLZXkYBiABKAUSFgoORGVzY3JpcHRpb25LZXkYByAB",
             "KAUiLAoFSXRlbXMSIwoGdmFsdWVzGAEgAygLMhMuQWRtaW5pc3RyYXRvci5J",
             "dGVtIkMKDlJlc3RhdXJhbnRNZW51EgoKAklkGAEgASgFEhQKDFJlc3RhdXJh",
-            "bnRJZBgCIAEoBRIPCgdSdGF0ZUlkGAMgASgFIkAKD1Jlc3RhdXJhbnRNZW51",
+            "bnRJZBgCIAEoBRIPCgdTdGF0ZUlkGAMgASgFIkAKD1Jlc3RhdXJhbnRNZW51",
             "cxItCgZ2YWx1ZXMYASADKAsyHS5BZG1pbmlzdHJhdG9yLlJlc3RhdXJhbnRN",
             "ZW51IpEBCgRNZW51EgoKAklkGAEgASgFEhgKEFJlc3RhdXJhbnRNZW51SWQY",
             "AiABKAUSDQoFUHJpY2UYAyABKAISGgoSVXNlSXRlbURlc2NyaXB0aW9uGAQg",
@@ -47,8 +47,8 @@ namespace Saas.Message.Administrator {
             "ZG1pbmlzdHJhdG9yLk1lbnUiSAoITWVudUl0ZW0SCgoCSWQYASABKAUSDgoG",
             "TWVudUlkGAIgASgFEg4KBkl0ZW1JZBgDIAEoBRIQCghRdWFudGl0eRgEIAEo",
             "BSI0CglNZW51SXRlbXMSJwoGdmFsdWVzGAEgAygLMhcuQWRtaW5pc3RyYXRv",
-            "ci5NZW51SXRlbSItCgtNZW51SXRlbUlkcxIOCgZNZW51SWQYASABKAUSDgoG",
-            "SXRlbUlkGAIgASgFIlAKBVRhYmxlEgoKAklkGAEgASgFEhQKDFJlc3RhdXJh",
+            "ci5NZW51SXRlbSItCgtNZW51SXRlbUlkcxIOCgZtZW51SWQYASABKAUSDgoG",
+            "aXRlbUlkGAIgASgFIlAKBVRhYmxlEgoKAklkGAEgASgFEhQKDFJlc3RhdXJh",
             "bnRJZBgCIAEoBRIUCgxOdW1iZXJPZlNlYXQYAyABKAUSDwoHU3RhdGVJZBgE",
             "IAEoBSIuCgZUYWJsZXMSJAoGdmFsdWVzGAEgAygLMhQuQWRtaW5pc3RyYXRv",
             "ci5UYWJsZSJKChJSZXN0YXVyYW50TGFuZ3VhZ2USCgoCSWQYASABKAUSFAoM",
@@ -61,7 +61,7 @@ namespace Saas.Message.Administrator {
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Restaurants), global::Saas.Message.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Item), global::Saas.Message.Administrator.Item.Parser, new[]{ "Id", "RestaurantId", "Price", "IsExtra", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Items), global::Saas.Message.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.RestaurantMenu), global::Saas.Message.Administrator.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "RtateId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.RestaurantMenu), global::Saas.Message.Administrator.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "StateId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.RestaurantMenus), global::Saas.Message.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Menu), global::Saas.Message.Administrator.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Saas.Message.Administrator.Menus), global::Saas.Message.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, null),
@@ -1386,7 +1386,7 @@ namespace Saas.Message.Administrator {
     public RestaurantMenu(RestaurantMenu other) : this() {
       id_ = other.id_;
       restaurantId_ = other.restaurantId_;
-      rtateId_ = other.rtateId_;
+      stateId_ = other.stateId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1417,14 +1417,14 @@ namespace Saas.Message.Administrator {
       }
     }
 
-    /// <summary>Field number for the "RtateId" field.</summary>
-    public const int RtateIdFieldNumber = 3;
-    private int rtateId_;
+    /// <summary>Field number for the "StateId" field.</summary>
+    public const int StateIdFieldNumber = 3;
+    private int stateId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int RtateId {
-      get { return rtateId_; }
+    public int StateId {
+      get { return stateId_; }
       set {
-        rtateId_ = value;
+        stateId_ = value;
       }
     }
 
@@ -1443,7 +1443,7 @@ namespace Saas.Message.Administrator {
       }
       if (Id != other.Id) return false;
       if (RestaurantId != other.RestaurantId) return false;
-      if (RtateId != other.RtateId) return false;
+      if (StateId != other.StateId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1452,7 +1452,7 @@ namespace Saas.Message.Administrator {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       if (RestaurantId != 0) hash ^= RestaurantId.GetHashCode();
-      if (RtateId != 0) hash ^= RtateId.GetHashCode();
+      if (StateId != 0) hash ^= StateId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1477,9 +1477,9 @@ namespace Saas.Message.Administrator {
         output.WriteRawTag(16);
         output.WriteInt32(RestaurantId);
       }
-      if (RtateId != 0) {
+      if (StateId != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(RtateId);
+        output.WriteInt32(StateId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1498,9 +1498,9 @@ namespace Saas.Message.Administrator {
         output.WriteRawTag(16);
         output.WriteInt32(RestaurantId);
       }
-      if (RtateId != 0) {
+      if (StateId != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(RtateId);
+        output.WriteInt32(StateId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1517,8 +1517,8 @@ namespace Saas.Message.Administrator {
       if (RestaurantId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(RestaurantId);
       }
-      if (RtateId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RtateId);
+      if (StateId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StateId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1537,8 +1537,8 @@ namespace Saas.Message.Administrator {
       if (other.RestaurantId != 0) {
         RestaurantId = other.RestaurantId;
       }
-      if (other.RtateId != 0) {
-        RtateId = other.RtateId;
+      if (other.StateId != 0) {
+        StateId = other.StateId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1563,7 +1563,7 @@ namespace Saas.Message.Administrator {
             break;
           }
           case 24: {
-            RtateId = input.ReadInt32();
+            StateId = input.ReadInt32();
             break;
           }
         }
@@ -1589,7 +1589,7 @@ namespace Saas.Message.Administrator {
             break;
           }
           case 24: {
-            RtateId = input.ReadInt32();
+            StateId = input.ReadInt32();
             break;
           }
         }
@@ -2789,7 +2789,7 @@ namespace Saas.Message.Administrator {
       return new MenuItemIds(this);
     }
 
-    /// <summary>Field number for the "MenuId" field.</summary>
+    /// <summary>Field number for the "menuId" field.</summary>
     public const int MenuIdFieldNumber = 1;
     private int menuId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2800,7 +2800,7 @@ namespace Saas.Message.Administrator {
       }
     }
 
-    /// <summary>Field number for the "ItemId" field.</summary>
+    /// <summary>Field number for the "itemId" field.</summary>
     public const int ItemIdFieldNumber = 2;
     private int itemId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

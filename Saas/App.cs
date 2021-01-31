@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using StoreProcedure.Interface;
+using DbContext.Interface;
 
 using Saas.Message.Language;
 using Saas.Message.Reference;
 
 namespace Saas
 {
-  internal class App
+  public class App
   {
-    internal readonly References RefDatas;
-    internal readonly DictionaryCache DictCache;
+    public readonly References RefDatas;
+    public readonly DictionaryCache DictCache;
 
     public App(IDbContext context)
     {
@@ -21,7 +21,7 @@ namespace Saas
     }
   }
 
-  internal class DictionaryCache
+  public class DictionaryCache
   {
     public IDictionary<string, Dictionary> Cache { get; } = new Dictionary<string, Dictionary>();
 

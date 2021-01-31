@@ -31,9 +31,9 @@ namespace Saas.Message.Reference {
             "EgwKBE5hbWUYAiABKAkiKgoGU3RhdGVzEiAKBnZhbHVlcxgBIAMoCzIQLlJl",
             "ZmVyZW5jZS5TdGF0ZSJBCgpBcHBTZXR0aW5nEgoKAklkGAEgASgFEg8KB05h",
             "bWVLZXkYAiABKAUSFgoORGVzY3JpcHRpb25LZXkYAyABKAUihwEKClJlZmVy",
-            "ZW5jZXMSIQoGc3RhdGVzGAEgASgLMhEuUmVmZXJlbmNlLlN0YXRlcxIvCgls",
+            "ZW5jZXMSIQoGU3RhdGVzGAEgASgLMhEuUmVmZXJlbmNlLlN0YXRlcxIvCglM",
             "YW5ndWFnZXMYAiABKAsyHC5MYW5ndWFnZS5TdXBwb3J0ZWRMYW5ndWFnZXMS",
-            "JQoIa2V5VHlwZXMYAyABKAsyEy5SZWZlcmVuY2UuS2V5VHlwZXNCGaoCFlNh",
+            "JQoIS2V5VHlwZXMYAyABKAsyEy5SZWZlcmVuY2UuS2V5VHlwZXNCGaoCFlNh",
             "YXMuTWVzc2FnZS5SZWZlcmVuY2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Saas.Message.Language.LanguageReflection.Descriptor, },
@@ -1108,7 +1108,7 @@ namespace Saas.Message.Reference {
       return new References(this);
     }
 
-    /// <summary>Field number for the "states" field.</summary>
+    /// <summary>Field number for the "States" field.</summary>
     public const int StatesFieldNumber = 1;
     private global::Saas.Message.Reference.States states_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1119,7 +1119,7 @@ namespace Saas.Message.Reference {
       }
     }
 
-    /// <summary>Field number for the "languages" field.</summary>
+    /// <summary>Field number for the "Languages" field.</summary>
     public const int LanguagesFieldNumber = 2;
     private global::Saas.Message.Language.SupportedLanguages languages_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1130,7 +1130,7 @@ namespace Saas.Message.Reference {
       }
     }
 
-    /// <summary>Field number for the "keyTypes" field.</summary>
+    /// <summary>Field number for the "KeyTypes" field.</summary>
     public const int KeyTypesFieldNumber = 3;
     private global::Saas.Message.Reference.KeyTypes keyTypes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

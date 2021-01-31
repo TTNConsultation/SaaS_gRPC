@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using StoreProcedure;
-using StoreProcedure.Interface;
+using DbContext;
+using DbContext.Interface;
 
 using Saas.Message.Language;
 
@@ -28,7 +28,7 @@ namespace Saas.Message.Reference
 
   public partial class References
   {
-    internal readonly AppSetting AppSetting;
+    public readonly AppSetting AppSetting;
 
     public References(IDbContext context)
     {

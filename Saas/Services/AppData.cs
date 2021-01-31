@@ -7,55 +7,44 @@ using System.Threading.Tasks;
 
 using Google.Protobuf.WellKnownTypes;
 
-using StoreProcedure.Interface;
+using DbContext.Interface;
 
 namespace Saas.Services
 {
   internal class AppData : AppDataSvc.AppDataSvcBase
   {
     private readonly ILogger<RestaurantService> _logger;
-    private readonly References _refData;
-    private readonly DictionaryCache _dictionnaryCache;
-    private readonly IDbContext _dbContext;
+    private readonly App _app;
+    private readonly IDbContext _context;
 
-    public AppData(ILogger<RestaurantService> log, App appData, IDbContext context)
+    public AppData(ILogger<RestaurantService> log, App app, IDbContext context)
     {
       _logger = log;
-      _refData = appData.RefDatas;
-      _dictionnaryCache = appData.DictCache;
-      _dbContext = context;
+      _app = app;
+      _context = context;
     }
 
-    public override Task<SupportedLanguages> SupportedLanguages(Value request, ServerCallContext context)
-    {
-      return Task.FromResult(_refData.Languages);
-    }
+    public override Task<SupportedLanguages> SupportedLanguages(Value request, ServerCallContext context) =>
+      Task.FromResult(_app.RefDatas.Languages);
 
-    public override Task<States> States(Value request, ServerCallContext context)
-    {
-      return Task.FromResult(_refData.States);
-    }
+    public override Task<States> States(Value request, ServerCallContext context) =>
+      Task.FromResult(_app.RefDatas.States);
 
-    public override Task<KeyTypes> KeyTypes(Value request, ServerCallContext context)
-    {
-      return Task.FromResult(_refData.KeyTypes);
-    }
+    public override Task<KeyTypes> KeyTypes(Value request, ServerCallContext context) =>
+      Task.FromResult(_app.RefDatas.KeyTypes);
 
-    public override Task<References> References(Value request, ServerCallContext context)
-    {
-      return Task.FromResult(_refData);
-    }
+    public override Task<References> References(Value request, ServerCallContext context) =>
+      Task.FromResult(_app.RefDatas);
 
     public override async Task<Dictionary> Dictionary(CodeLanguage lang, ServerCallContext context)
     {
-      using var sp = _dbContext.Read<DictKeyValuePair>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-
-      return await Task.FromResult(_dictionnaryCache.Get(sp.RootId, lang) ??
-                                   _dictionnaryCache.Add(new Dictionary(sp.RootId,
-                                                                lang,
-                                                                await _dictionnaryCache.GetKeys(sp.RootId, _dbContext).ConfigureAwait(false),
-                                                                await sp.ReadAsync(lang.Code).ConfigureAwait(false)))
-                                                               ).ConfigureAwait(false);
+      using var sp = _context.Read<DictKeyValuePair>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      return await Task.FromResult(_app.DictCache.Get(sp.RootId, lang) ??
+                                   _app.DictCache.Add(new Dictionary(sp.RootId,
+                                                                     lang,
+                                                                     await _app.DictCache.GetKeys(sp.RootId, _context).ConfigureAwait(false),
+                                                                     await sp.ReadAsync(lang.Code).ConfigureAwait(false)))
+                                                                     ).ConfigureAwait(false);
     }
   }
 }

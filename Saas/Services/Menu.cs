@@ -8,7 +8,7 @@ using Saas.gRPC;
 using Saas.Message.Administrator;
 using Saas.Message.Reference;
 
-using StoreProcedure.Interface;
+using DbContext.Interface;
 
 namespace Saas.Services
 {
@@ -25,11 +25,11 @@ namespace Saas.Services
       _refData = appData.RefDatas;
     }
 
-    public override Task<Menu> Get(Value id, ServerCallContext context)
+    public override async Task<Menu> Get(Value id, ServerCallContext context)
     {
       using var sp = _dbContext.Read<Menu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await (sp.IsReady ? Task.FromResult(sp.Read((int)id.NumberValue))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
     public async override Task<Menus> GetByRestaurantMenu(Value restaurantMenuId, ServerCallContext context)
@@ -46,11 +46,11 @@ namespace Saas.Services
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
-    public override Task<Value> Create(Menu obj, ServerCallContext context)
+    public override async Task<Value> Create(Menu obj, ServerCallContext context)
     {
       using var sp = _dbContext.Write<Menu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
-      return (sp.IsReady) ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await ((sp.IsReady) ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
   }
 }

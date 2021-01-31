@@ -1,17 +1,20 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Threading.Tasks;
+using System.Security.Claims;
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Certificate;
 
-using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Http;
 
 using Saas.Services;
 using Saas.Dal;
 
-using StoreProcedure;
-using StoreProcedure.Interface;
+using DbContext;
+using DbContext.Interface;
 
 namespace Saas
 {
@@ -26,76 +29,72 @@ namespace Saas
       config = cfg;
     }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
-    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddGrpc(options => options.EnableDetailedErrors = true);
 
-      services.AddAuthorization(options =>
-      {
-        options.AddPolicy("admin", policy =>
-        {
-          policy.RequireAuthenticatedUser();
-          policy.RequireClaim("scope", "aaf.admin");
-          policy.RequireClaim("role", "administrator");
-        });
-      });
+      //services.AddAuthorization(options =>
+      //{
+      //  options.AddPolicy("admin", policy =>
+      //  {
+      //    policy.RequireAuthenticatedUser();
+      //    policy.RequireClaim("scope", "aaf.admin");
+      //    policy.RequireClaim("role", "administrator");
+      //  });
+      //});
 
-      var auth = config.GetSection("IdentityServer");
-      services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-              .AddIdentityServerAuthentication(options =>
-              {
-                options.Authority = auth["Url"];
-                options.ApiName = auth["ApiName"];
-                options.ApiSecret = auth["ApiSecret"];
-              });
-
-      //services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
-      //        .AddCertificate(options =>
+      //var auth = config.GetSection("IdentityServer");
+      //services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+      //        .AddIdentityServerAuthentication(options =>
       //        {
-      //          options.Events = new CertificateAuthenticationEvents
-      //          {
-      //            OnCertificateValidated = context =>
-      //            {
-      //              var claims = new[]
-      //              {
-      //                          new Claim(
-      //                              ClaimTypes.NameIdentifier,
-      //                              context.ClientCertificate.Subject,
-      //                              ClaimValueTypes.String,
-      //                              context.Options.ClaimsIssuer),
-      //                          new Claim(ClaimTypes.Thumbprint,
-      //                              context.ClientCertificate.Thumbprint,
-      //                              ClaimValueTypes.String,
-      //                              context.Options.ClaimsIssuer)
-      //                };
-
-      //              context.Principal.AddIdentity(new ClaimsIdentity(claims, context.Scheme.Name));
-      //              context.Success();
-
-      //              return Task.CompletedTask;
-      //            }
-      //          };
+      //          options.Authority = auth["Url"];
+      //          options.ApiName = auth["ApiName"];
+      //          options.ApiSecret = auth["ApiSecret"];
       //        });
 
-      services.AddCors(o => o.AddPolicy(Constant.CorsAllowedPolicy, builder =>
+      services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
+              .AddCertificate(options =>
+              {
+                options.Events = new CertificateAuthenticationEvents
+                {
+                  OnCertificateValidated = context =>
+                  {
+                    var claims = new[]
+                    {
+                                new Claim(
+                                    ClaimTypes.NameIdentifier,
+                                    context.ClientCertificate.Subject,
+                                    ClaimValueTypes.String,
+                                    context.Options.ClaimsIssuer),
+                                new Claim(ClaimTypes.Thumbprint,
+                                    context.ClientCertificate.Thumbprint,
+                                    ClaimValueTypes.String,
+                                    context.Options.ClaimsIssuer)
+                      };
+
+                    context.Principal.AddIdentity(new ClaimsIdentity(claims, context.Scheme.Name));
+                    context.Success();
+
+                    return Task.CompletedTask;
+                  }
+                };
+              });
+
+      services.AddCors(o => o.AddPolicy(Constant.CORSPOLICY, builder =>
       {
         builder.AllowAnyOrigin()
                .AllowAnyMethod()
                .AllowAnyHeader()
-               .WithExposedHeaders("Grpc-Status", "Grpc-Message");
+               .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
       }));
 
       services.AddSingleton<IConnectionManager, ConnectionManager>();
       services.AddSingleton<ICollectionMapper, CollectionMapper>();
       services.AddSingleton<ICollectionProcedure, CollectionProcedure>();
-      services.AddSingleton<IDbContext, DbContext>();
-
+      services.AddSingleton<IDbContext, StoreProcedure>();
       services.AddSingleton<App>();
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app)
     {
       if (isDevelopment)
@@ -114,19 +113,17 @@ namespace Saas
       app.UseAuthentication();
       app.UseAuthorization();
 
-      app.UseGrpcWeb();
+      app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
       app.UseCors();
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapGrpcService<AppData>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-        endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-        endpoints.MapGrpcService<TableService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-        endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-        endpoints.MapGrpcService<RestaurantMenuService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-        endpoints.MapGrpcService<MenuItemService>().RequireCors(Constant.CorsAllowedPolicy).EnableGrpcWeb();
-
-        //endpoints.MapControllers();
+        endpoints.MapGrpcService<AppData>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<TableService>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<RestaurantMenuService>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<MenuItemService>().RequireCors(Constant.CORSPOLICY);
 
         endpoints.MapGet("/", async context => await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909").ConfigureAwait(false));
       });

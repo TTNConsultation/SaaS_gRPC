@@ -7,8 +7,8 @@ using Grpc.Core;
 
 using Microsoft.Extensions.Logging;
 
-using StoreProcedure;
-using StoreProcedure.Interface;
+using DbContext;
+using DbContext.Interface;
 
 using Saas.gRPC;
 using Saas.Message.Administrator;
@@ -30,11 +30,11 @@ namespace Saas.Services
       _refData = appData.RefDatas;
     }
 
-    public override Task<MenuItem> Get(Value id, ServerCallContext context)
+    public override async Task<MenuItem> Get(Value id, ServerCallContext context)
     {
       using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await (sp.IsReady ? Task.FromResult(sp.Read((int)id.NumberValue))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
     public async override Task<MenuItem> GetByMenuAndItem(MenuItemIds menuItemIds, ServerCallContext context)
@@ -50,25 +50,25 @@ namespace Saas.Services
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
-    public override Task<MenuItems> GetByItem(Value itemId, ServerCallContext context)
+    public override async Task<MenuItems> GetByItem(Value itemId, ServerCallContext context)
     {
       using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.ReadBy<Item>((int)itemId.NumberValue)))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await ((sp.IsReady) ? Task.FromResult(new MenuItems(sp.ReadBy<Item>((int)itemId.NumberValue)))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
-    public override Task<MenuItems> GetByMenu(Value menuId, ServerCallContext context)
+    public override async Task<MenuItems> GetByMenu(Value menuId, ServerCallContext context)
     {
       using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.ReadBy<Menu>((int)menuId.NumberValue)))
-                          : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.Error));
+      return await (sp.IsReady ? Task.FromResult(new MenuItems(sp.ReadBy<Menu>((int)menuId.NumberValue)))
+                          : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.Error))).ConfigureAwait(false);
     }
 
-    public override Task<Value> Create(MenuItem obj, ServerCallContext context)
+    public override async Task<Value> Create(MenuItem obj, ServerCallContext context)
     {
       using var sp = _dbContext.Write<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
-      return (sp.IsReady) ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await (sp.IsReady ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
   }
 }

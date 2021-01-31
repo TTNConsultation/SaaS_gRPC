@@ -1,0 +1,9 @@
+D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\netstandard2.1\DbContext.deps.json
+D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\netstandard2.1\DbContext.dll
+D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\netstandard2.1\DbContext.pdb
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.AssemblyInfoInputs.cache
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.AssemblyInfo.cs
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.csproj.CoreCompileInputs.cache
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.dll
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.pdb
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.csprojAssemblyReference.cache

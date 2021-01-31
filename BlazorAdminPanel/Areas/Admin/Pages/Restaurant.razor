@@ -1,0 +1,60 @@
+﻿@page "/Admin/Restaurant"
+
+<h1>Restaurants</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (_rests == null)
+{
+  <p><em>Loading...</em></p>
+}
+else
+{
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Restaurant</th>
+        <th>Location</th>
+        <th>Unit</th>
+        <th>Street Name</th>
+        <th>Phone</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var _rest in _rests.Values)
+      {
+        <tr>
+          <td>@_rest.Name</td>
+          <td>@_rest.RestaurantLocationName</td>
+          <td>@_rest.LocationUnit</td>
+          <td>@_rest.LocationStreetName</td>
+          <td>@_rest.RestaurantLocationPhoneNumber</td>
+          <td><a href="@_rest.LocationLink" class="material-icons" style="font-size:24px;color:blue">add_location</a></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+
+@code {
+  [Inject] IDbContext dbContext { get; set; }
+  [Inject] Saas.App app { get; set; }
+  [Inject] AuthenticationStateProvider authenticationStateProvider { get; set; }
+
+  public static AuthenticationState AuState = null;
+
+  private Saas.Message.Administrator.Restaurants _rests;
+
+  protected override void OnInitialized()
+  {
+    AuState = authenticationStateProvider.GetAuthenticationStateAsync().Result;
+    if (!AuState.User.IsInRole("Admin"))
+    {
+      throw new Exception("You have no right to access this page");
+    }
+
+    using var sp = dbContext.Read<Saas.Message.Administrator.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
+    _rests = (sp.IsReady) ? new Saas.Message.Administrator.Restaurants(sp.Read("pho")) : null;
+  }
+};

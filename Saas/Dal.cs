@@ -6,12 +6,12 @@ using System.Linq;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-using StoreProcedure;
-using StoreProcedure.Interface;
+using DbContext;
+using DbContext.Interface;
 
 namespace Saas.Dal
 {
-  internal sealed class ConnectionManager : IConnectionManager
+  public sealed class ConnectionManager : IConnectionManager
   {
     private readonly IDictionary<string, string> _connectionStrings;
 
@@ -25,7 +25,7 @@ namespace Saas.Dal
     public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
   }
 
-  internal sealed class CollectionProcedure : ICollectionProcedure
+  public sealed class CollectionProcedure : ICollectionProcedure
   {
     private readonly ICollection<IProcedure> _storeProcedures;
 
@@ -65,7 +65,7 @@ namespace Saas.Dal
       while (reader.Read())
       {
         var sp = map.Parse<Procedure>(reader);
-        sp.Parameters = parameters.Where(p => p.StoreProcedureId == sp.Id);
+        sp.Parameters = parameters.Where(p => p.ProcedureId == sp.Id);
         ret.Add(sp);
       }
 
@@ -87,7 +87,7 @@ namespace Saas.Dal
 
     public string ParameterName => this.Name;
 
-    public int StoreProcedureId => this.SpId;
+    public int ProcedureId => this.SpId;
 
     public SqlParameter SqlParameter(object value) =>
       new SqlParameter(Name, Type.ToSqlDbType())

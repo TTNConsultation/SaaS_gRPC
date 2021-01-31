@@ -4,20 +4,19 @@
     "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj": {
+    "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj",
-        "projectName": "StoreProcedure",
-        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj",
+        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj",
+        "projectName": "DbContext",
+        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj",
         "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\obj\\",
+        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "D:\\Dev\\SaaS_AllAboutFood\\NuGet.Config",
           "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -26,9 +25,8 @@
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-blazor/index.json": {},
-          "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -91,7 +89,6 @@
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "D:\\Dev\\SaaS_AllAboutFood\\NuGet.Config",
           "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -100,16 +97,15 @@
           "net5.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-blazor/index.json": {},
-          "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj": {
-                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Dal\\SpContext\\StoreProcedure.csproj"
+              "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj": {
+                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj"
               }
             }
           }
@@ -146,14 +142,6 @@
               "target": "Package",
               "version": "[2.35.0, )"
             },
-            "IdentityServer4": {
-              "target": "Package",
-              "version": "[4.1.1, )"
-            },
-            "IdentityServer4.AccessTokenValidation": {
-              "target": "Package",
-              "version": "[3.0.1, )"
-            },
             "Microsoft.AspNetCore.Authentication.Certificate": {
               "target": "Package",
               "version": "[5.0.2, )"
@@ -161,6 +149,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             },
             "Microsoft.Extensions.Hosting.WindowsServices": {
               "target": "Package",

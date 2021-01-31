@@ -3,8 +3,8 @@ using Saas.Message.Reference;
 using Saas.gRPC;
 using Grpc.Core;
 
-using StoreProcedure;
-using StoreProcedure.Interface;
+using DbContext;
+using DbContext.Interface;
 
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -25,11 +25,11 @@ namespace Saas.Services
       _refData = appData.RefDatas;
     }
 
-    public override Task<RestaurantMenu> Get(Value id, ServerCallContext context)
+    public override async Task<RestaurantMenu> Get(Value id, ServerCallContext context)
     {
       using var sp = _dbContext.Read<RestaurantMenu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await (sp.IsReady ? Task.FromResult(sp.Read((int)id.NumberValue))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
     public async override Task<RestaurantMenus> GetByRestaurant(Value restaurantId, ServerCallContext context)
@@ -39,11 +39,11 @@ namespace Saas.Services
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
-    public override Task<Value> Create(RestaurantMenu obj, ServerCallContext context)
+    public override async Task<Value> Create(RestaurantMenu obj, ServerCallContext context)
     {
       using var sp = _dbContext.Write<RestaurantMenu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
-      return (sp.IsReady) ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+      return await (sp.IsReady ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
   }
 }
