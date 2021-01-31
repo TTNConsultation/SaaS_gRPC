@@ -1,19 +1,16 @@
-﻿using System.Linq;
-
-using System.Threading.Tasks;
-using System.Collections.Generic;
-
-using Grpc.Core;
-
-using Microsoft.Extensions.Logging;
-
-using DbContext;
+﻿using DbContext;
 using DbContext.Interface;
-
-using Saas.gRPC;
-using Saas.Message.Administrator;
-using Saas.Message.Reference;
 using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
+using Microsoft.Extensions.Logging;
+using Saas.gRPC;
+using Protos.Shared.Message.Administrator;
+using Protos.Shared.Message.Reference;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Protos.Shared;
 
 namespace Saas.Services
 {
@@ -23,7 +20,7 @@ namespace Saas.Services
     private readonly IDbContext _dbContext;
     private readonly References _refData;
 
-    public MenuItemService(ILogger<MenuItemService> log, IDbContext context, App appData)
+    public MenuItemService(ILogger<MenuItemService> log, IDbContext context, Protos.Shared.AppData appData)
     {
       _logger = log;
       _dbContext = context;

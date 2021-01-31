@@ -77,7 +77,21 @@ using BlazorAdminPanel.Shared;
 #nullable disable
 #nullable restore
 #line 10 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
+using Protos.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
 using DbContext.Interface;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Pages\Restaurant.razor"
+using Protobuf = Protos.Shared.Message.Administrator;
 
 #line default
 #line hidden
@@ -91,26 +105,26 @@ using DbContext.Interface;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Pages\Restaurant.razor"
+#line 41 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Pages\Restaurant.razor"
        
   [Inject] IDbContext dbContext { get; set; }
-  [Inject] Saas.App app { get; set; }
+  [Inject] AppData app { get; set; }
   [Inject] AuthenticationStateProvider authenticationStateProvider { get; set; }
 
   public static AuthenticationState AuState = null;
 
-  private Saas.Message.Administrator.Restaurants _rests;
+  private Protobuf.Restaurants _rests;
 
   protected override void OnInitialized()
   {
     AuState = authenticationStateProvider.GetAuthenticationStateAsync().Result;
-    if (!AuState.User.IsInRole("Admin"))
+    if (!AuState.User.IsInRole(Constant.ADMIN))
     {
       throw new Exception("You have no right to access this page");
     }
 
-    using var sp = dbContext.Read<Saas.Message.Administrator.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
-    _rests = (sp.IsReady) ? new Saas.Message.Administrator.Restaurants(sp.Read("pho")) : null;
+    using var sp = dbContext.Read<Protobuf.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
+    _rests = (sp.IsReady) ? new Protobuf.Restaurants(sp.Read("pho")) : null;
   }
 
 #line default

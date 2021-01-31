@@ -1,26 +1,22 @@
-using System.Threading.Tasks;
-
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authorization;
-
-using Grpc.Core;
-
-using Saas.gRPC;
-using Saas.Message.Administrator;
-
 using DbContext.Interface;
 using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
+using Microsoft.Extensions.Logging;
+using Saas.gRPC;
+using Protos.Shared.Message.Administrator;
+using System.Threading.Tasks;
+
+using Protos.Shared;
 
 namespace Saas.Services
 {
-  [Authorize]
   internal class RestaurantService : RestaurantSvc.RestaurantSvcBase
   {
     private readonly ILogger<RestaurantService> _logger;
     private readonly IDbContext _dbContext;
-    private readonly App _app;
+    private readonly Protos.Shared.AppData _app;
 
-    public RestaurantService(ILogger<RestaurantService> log, IDbContext dbContext, App app)
+    public RestaurantService(ILogger<RestaurantService> log, IDbContext dbContext, Protos.Shared.AppData app)
     {
       _logger = log;
       _dbContext = dbContext;
@@ -43,7 +39,6 @@ namespace Saas.Services
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
-    [Authorize(Policy = "admin")]
     public override async Task<Value> Create(Restaurant obj, ServerCallContext context)
     {
       using var sp = _dbContext.Write<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
@@ -51,7 +46,6 @@ namespace Saas.Services
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
-    [Authorize(Policy = "admin")]
     public override async Task<Value> Update(Restaurant obj, ServerCallContext context)
     {
       using var sp = _dbContext.Write<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.U);
@@ -59,7 +53,6 @@ namespace Saas.Services
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
     }
 
-    [Authorize(Policy = "admin")]
     public override async Task<Value> Delete(Value id, ServerCallContext context)
     {
       using var sp = _dbContext.Write<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.D);

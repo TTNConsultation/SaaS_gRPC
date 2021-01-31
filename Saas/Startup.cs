@@ -1,22 +1,17 @@
-﻿using System.Threading.Tasks;
-using System.Security.Claims;
-
+﻿using DbContext;
+using DbContext.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Authentication.Certificate;
-
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Protos.Shared.Dal;
 using Saas.Services;
-using Saas.Dal;
 
-using DbContext;
-using DbContext.Interface;
+using Protos.Shared;
 
-namespace Saas
+namespace Shared
 {
   public class Startup
   {
@@ -90,7 +85,7 @@ namespace Saas
       services.AddSingleton<ICollectionMapper, CollectionMapper>();
       services.AddSingleton<ICollectionProcedure, CollectionProcedure>();
       services.AddSingleton<IDbContext, StoreProcedure>();
-      services.AddSingleton<App>();
+      services.AddSingleton<Protos.Shared.AppData>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -108,15 +103,15 @@ namespace Saas
 
       app.UseRouting();
 
-      app.UseAuthentication();
-      app.UseAuthorization();
+      //app.UseAuthentication();
+      //app.UseAuthorization();
 
       app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
       app.UseCors();
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapGrpcService<AppData>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<Saas.Services.AppData>().RequireCors(Constant.CORSPOLICY);
         endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CORSPOLICY);
         endpoints.MapGrpcService<TableService>().RequireCors(Constant.CORSPOLICY);
         endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CORSPOLICY);

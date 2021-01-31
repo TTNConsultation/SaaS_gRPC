@@ -1,13 +1,11 @@
-﻿using System;
+﻿using DbContext;
+using DbContext.Interface;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-
-using DbContext;
-using DbContext.Interface;
 
 namespace Saas.Dal
 {
@@ -36,78 +34,78 @@ namespace Saas.Dal
       _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
   }
 
-  public partial class Procedure : IProcedure
-  {
-    public IEnumerable<IParameter> Parameters { get; set; }
+  //public partial class Procedure : IProcedure
+  //{
+  //  public IEnumerable<IParameter> Parameters { get; set; }
 
-    public SqlCommand SqlCommand(string conStr) =>
-      new SqlCommand(FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure };
+  //  public SqlCommand SqlCommand(string conStr) =>
+  //    new SqlCommand(FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure };
 
-    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
+  //  public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
 
-    public bool IsEqual(string spName, OperationType op) => this.Type.IsEqual(spName) && Op.IsEqual(op.ToString());
+  //  public bool IsEqual(string spName, OperationType op) => this.Type.IsEqual(spName) && Op.IsEqual(op.ToString());
 
-    internal static ICollection<IProcedure> Read(ICollectionMapper maps, string conStr)
-    {
-      var parameters = Saas.Dal.Parameter.Read(maps.Get<Parameter>(), conStr);
+  //  internal static ICollection<IProcedure> Read(ICollectionMapper maps, string conStr)
+  //  {
+  //    var parameters = Saas.Dal.Parameter.Read(maps.Get<Parameter>(), conStr);
 
-      var ret = new HashSet<IProcedure>();
-      var map = maps.Get<Procedure>();
+  //    var ret = new HashSet<IProcedure>();
+  //    var map = maps.Get<Procedure>();
 
-      string spName = Constant.APP.DotAnd(nameof(Procedure)).UnderscoreAnd(nameof(OperationType.R));
+  //    string spName = Constant.APP.DotAnd(nameof(Procedure)).UnderscoreAnd(nameof(OperationType.R));
 
-      using var sqlCon = new SqlConnection(conStr);
-      var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
-      sqlCon.Open();
+  //    using var sqlCon = new SqlConnection(conStr);
+  //    var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
+  //    sqlCon.Open();
 
-      using var reader = sqlcmd.ExecuteReader();
+  //    using var reader = sqlcmd.ExecuteReader();
 
-      while (reader.Read())
-      {
-        var sp = map.Parse<Procedure>(reader);
-        sp.Parameters = parameters.Where(p => p.ProcedureId == sp.Id);
-        ret.Add(sp);
-      }
+  //    while (reader.Read())
+  //    {
+  //      var sp = map.Parse<Procedure>(reader);
+  //      sp.Parameters = parameters.Where(p => p.ProcedureId == sp.Id);
+  //      ret.Add(sp);
+  //    }
 
-      return ret;
-    }
-  }
+  //    return ret;
+  //  }
+  //}
 
-  public partial class Parameter : IParameter
-  {
-    private int Size(object value)
-    {
-      if (value == null || value == DBNull.Value || string.IsNullOrEmpty(Collation))
-        return MaxLength;
+  //public partial class Parameter : IParameter
+  //{
+  //  private int Size(object value)
+  //  {
+  //    if (value == null || value == DBNull.Value || string.IsNullOrEmpty(Collation))
+  //      return MaxLength;
 
-      var size = value.ToString().Length;
+  //    var size = value.ToString().Length;
 
-      return size <= MaxLength ? size : -1;
-    }
+  //    return size <= MaxLength ? size : -1;
+  //  }
 
-    public string ParameterName => this.Name;
+  //  public string ParameterName => this.Name;
 
-    public int ProcedureId => this.SpId;
+  //  public int ProcedureId => this.SpId;
 
-    public SqlParameter SqlParameter(object value) =>
-      new SqlParameter(Name, Type.ToSqlDbType())
-      {
-        Direction = IsOutput ? ParameterDirection.Output : ParameterDirection.Input,
-        Value = value ?? DBNull.Value,
-        Size = Size(value)
-      };
+  //  public SqlParameter SqlParameter(object value) =>
+  //    new SqlParameter(Name, Type.ToSqlDbType())
+  //    {
+  //      Direction = IsOutput ? ParameterDirection.Output : ParameterDirection.Input,
+  //      Value = value ?? DBNull.Value,
+  //      Size = Size(value)
+  //    };
 
-    internal static IEnumerable<IParameter> Read(IMapper map, string conStr)
-    {
-      string spName = Constant.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
+  //  internal static IEnumerable<IParameter> Read(IMapper map, string conStr)
+  //  {
+  //    string spName = Constant.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
 
-      using var sqlCon = new SqlConnection(conStr);
-      var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
-      sqlCon.Open();
+  //    using var sqlCon = new SqlConnection(conStr);
+  //    var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
+  //    sqlCon.Open();
 
-      using var reader = sqlcmd.ExecuteReader();
+  //    using var reader = sqlcmd.ExecuteReader();
 
-      return reader.Parse<Parameter>(map);
-    }
-  }
+  //    return reader.Parse<Parameter>(map);
+  //  }
+  //}
 }

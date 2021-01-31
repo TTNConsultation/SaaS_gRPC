@@ -2,12 +2,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 using System.Security.Authentication;
 
-namespace Saas
+namespace Shared
 {
   public class Program
   {
+    public static readonly string SocketPath = Path.Combine(Path.GetTempPath(), "socket.tmp");
+
     public static void Main(string[] args)
     {
       CreateHostBuilder(args).Build().Run();
@@ -28,6 +31,10 @@ namespace Saas
                 httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
                 httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
               });
+
+              if (File.Exists(SocketPath))
+                File.Delete(SocketPath);
+              kestrelOptions.ListenUnixSocket(SocketPath);
             });
             webBuilder.UseStartup<Startup>();
           });

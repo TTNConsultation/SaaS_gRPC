@@ -1,14 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using DbContext.Interface;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-
 using Microsoft.Extensions.Logging;
-
 using Saas.gRPC;
-using Saas.Message.Administrator;
-using Saas.Message.Reference;
+using Protos.Shared.Message.Administrator;
+using Protos.Shared.Message.Reference;
+using System.Threading.Tasks;
 
-using DbContext.Interface;
+using Protos.Shared;
 
 namespace Saas.Services
 {
@@ -18,7 +17,7 @@ namespace Saas.Services
     private readonly IDbContext _dbContext;
     private readonly References _refData;
 
-    public MenuService(ILogger<RestaurantMenuService> log, IDbContext context, App appData)
+    public MenuService(ILogger<RestaurantMenuService> log, IDbContext context, Protos.Shared.AppData appData)
     {
       _logger = log;
       _dbContext = context;

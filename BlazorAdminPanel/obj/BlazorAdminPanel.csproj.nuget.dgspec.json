@@ -35,8 +35,8 @@
               "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj": {
                 "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj"
               },
-              "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj": {
-                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj"
+              "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj": {
+                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj"
               }
             }
           }
@@ -172,14 +172,14 @@
         }
       }
     },
-    "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj": {
+    "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj",
-        "projectName": "Saas",
-        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj",
+        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj",
+        "projectName": "Protos",
+        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj",
         "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\Saas\\obj\\",
+        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -224,39 +224,15 @@
               "target": "Package",
               "version": "[2.34.0, )"
             },
-            "Grpc.AspNetCore.Server": {
-              "target": "Package",
-              "version": "[2.34.0, )"
-            },
-            "Grpc.AspNetCore.Web": {
-              "target": "Package",
-              "version": "[2.34.0, )"
-            },
             "Grpc.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.35.0, )"
             },
-            "Microsoft.AspNetCore.Authentication.Certificate": {
-              "target": "Package",
-              "version": "[5.0.2, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[5.0.2, )"
-            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[2.1.1, )"
-            },
-            "Microsoft.Extensions.Hosting.WindowsServices": {
-              "target": "Package",
-              "version": "[5.0.1, )"
-            },
-            "Microsoft.Extensions.Logging": {
-              "target": "Package",
-              "version": "[5.0.0, )"
             }
           },
           "imports": [

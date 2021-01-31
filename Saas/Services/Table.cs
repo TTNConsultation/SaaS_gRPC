@@ -1,14 +1,14 @@
-﻿using Saas.gRPC;
-using Grpc.Core;
-using Saas.Message.Administrator;
-using Saas.Message.Reference;
-
-using DbContext;
+﻿using DbContext;
 using DbContext.Interface;
-
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
+using Microsoft.Extensions.Logging;
+using Saas.gRPC;
+using Protos.Shared.Message.Administrator;
+using Protos.Shared.Message.Reference;
+using System.Threading.Tasks;
+
+using Protos.Shared;
 
 namespace Saas.Services
 {
@@ -18,7 +18,7 @@ namespace Saas.Services
     private readonly IDbContext _dbContext;
     private readonly References _refData;
 
-    public TableService(ILogger<TableService> log, IDbContext context, App appData)
+    public TableService(ILogger<TableService> log, IDbContext context, Protos.Shared.AppData appData)
     {
       _logger = log;
       _dbContext = context;

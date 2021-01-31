@@ -1,11 +1,9 @@
-﻿using System;
+﻿using DbContext;
+using DbContext.Interface;
+using Saas.Message.Language;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using DbContext;
-using DbContext.Interface;
-
-using Saas.Message.Language;
 
 namespace Saas.Message.Reference
 {

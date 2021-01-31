@@ -40,7 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DbContext\DbContext.csproj" />
-    <ProjectReference Include="..\Saas\Saas.csproj" />
+    <ProjectReference Include="..\Shared\Protos.csproj" />
   </ItemGroup>
 
   <ItemGroup>

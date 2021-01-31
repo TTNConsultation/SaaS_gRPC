@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DbContext;
+using System.Collections.Generic;
 using System.Linq;
-
-using DbContext;
 
 namespace Saas.Message.Language
 {

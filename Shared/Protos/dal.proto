@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "Protos.Shared.Dal";
+
+package Procedures;
+
+message Procedure{
+    int32 Id = 1;
+    string FullName = 2;
+    string Schema = 3;
+    string Type = 4;
+    string Op = 5;
+}
+message Parameter{
+  string SpName = 1;
+  int32 SpId = 2;
+  string Name = 3;
+  string Type = 4;
+  int32 MaxLength = 5;
+  int32 Precision = 6;
+  int32 Scale = 7;
+  int32 Order = 8;
+  bool IsOutput = 9;
+  string Collation = 10;
+}

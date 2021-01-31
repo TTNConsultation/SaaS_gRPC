@@ -13,14 +13,21 @@
     <NoWarn>1701;1702;CS8603;CS8604;CS8618;CS8602</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
+    <Compile Remove="Messages\**" />
+    <Compile Remove="Protos\**" />
+    <Content Remove="Messages\**" />
+    <Content Remove="Protos\**" />
+    <EmbeddedResource Remove="Messages\**" />
+    <EmbeddedResource Remove="Protos\**" />
+    <None Remove="Messages\**" />
+    <None Remove="Protos\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="App.cs" />
+    <Compile Remove="Dal.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.34.0" />
-    <PackageReference Include="Google.Protobuf" Version="3.14.0" />
-    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.34.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.35.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.1" />
@@ -29,12 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DbContext\DbContext.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Protobuf Include="Protos\reference.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\language.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\administrator.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\service.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\dal.proto" GrpcServices="Server" />
+    <ProjectReference Include="..\Shared\Protos.csproj" />
   </ItemGroup>
 </Project>

@@ -26,16 +26,13 @@
       "Saas/1.0.0": {
         "dependencies": {
           "DbContext": "1.0.0",
-          "Google.Protobuf": "3.14.0",
-          "Grpc.AspNetCore": "2.34.0",
-          "Grpc.AspNetCore.Server": "2.34.0",
           "Grpc.AspNetCore.Web": "2.34.0",
-          "Grpc.Tools": "2.35.0",
           "Microsoft.AspNetCore.Authentication.Certificate": "5.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.2",
           "Microsoft.Data.SqlClient": "2.1.1",
           "Microsoft.Extensions.Hosting.WindowsServices": "5.0.1",
           "Microsoft.Extensions.Logging": "5.0.0",
+          "Protos": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -345,8 +342,7 @@
       "Grpc.AspNetCore/2.34.0": {
         "dependencies": {
           "Google.Protobuf": "3.14.0",
-          "Grpc.AspNetCore.Server.ClientFactory": "2.34.0",
-          "Grpc.Tools": "2.35.0"
+          "Grpc.AspNetCore.Server.ClientFactory": "2.34.0"
         }
       },
       "Grpc.AspNetCore.Server/2.34.0": {
@@ -448,7 +444,6 @@
           "lib/net5.0/Grpc.Net.Common.dll": {}
         }
       },
-      "Grpc.Tools/2.35.0": {},
       "Microsoft.AspNetCore.Authentication.Certificate/5.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "5.0.0"
@@ -984,6 +979,20 @@
         },
         "compile": {
           "DbContext.dll": {}
+        }
+      },
+      "Protos/1.0.0": {
+        "dependencies": {
+          "DbContext": "1.0.0",
+          "Google.Protobuf": "3.14.0",
+          "Grpc.AspNetCore": "2.34.0",
+          "Microsoft.Data.SqlClient": "2.1.1"
+        },
+        "runtime": {
+          "Protos.dll": {}
+        },
+        "compile": {
+          "Protos.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -2755,13 +2764,6 @@
       "path": "grpc.net.common/2.34.0",
       "hashPath": "grpc.net.common.2.34.0.nupkg.sha512"
     },
-    "Grpc.Tools/2.35.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mVXSeJaBHfvGz74HxXwPys4BlRQlmKy4JQFMj5IewrkSLJwyw/Pnp76C/y9SomlkG8nxJDf3oNXgamM8Ua1f4g==",
-      "path": "grpc.tools/2.35.0",
-      "hashPath": "grpc.tools.2.35.0.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Authentication.Certificate/5.0.2": {
       "type": "package",
       "serviceable": true,
@@ -3183,6 +3185,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "DbContext/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Protos/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,23 +1,23 @@
-﻿using Grpc.Core;
+﻿using DbContext.Interface;
+using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using Saas.gRPC;
-using Saas.Message.Language;
-using Saas.Message.Reference;
+using Protos.Shared.Message.Language;
+using Protos.Shared.Message.Reference;
 using System.Threading.Tasks;
 
-using Google.Protobuf.WellKnownTypes;
-
-using DbContext.Interface;
+using Protos.Shared;
 
 namespace Saas.Services
 {
   internal class AppData : AppDataSvc.AppDataSvcBase
   {
     private readonly ILogger<RestaurantService> _logger;
-    private readonly App _app;
+    private readonly Protos.Shared.AppData _app;
     private readonly IDbContext _context;
 
-    public AppData(ILogger<RestaurantService> log, App app, IDbContext context)
+    public AppData(ILogger<RestaurantService> log, Protos.Shared.AppData app, IDbContext context)
     {
       _logger = log;
       _app = app;

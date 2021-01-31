@@ -77,6 +77,13 @@ using BlazorAdminPanel.Shared;
 #nullable disable
 #nullable restore
 #line 10 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
+using Protos.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
 using DbContext.Interface;
 
 #line default

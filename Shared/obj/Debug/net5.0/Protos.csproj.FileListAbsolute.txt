@@ -1,0 +1,15 @@
+D:\Dev\SaaS_AllAboutFood\Shared\bin\Debug\net5.0\Protos.deps.json
+D:\Dev\SaaS_AllAboutFood\Shared\bin\Debug\net5.0\Protos.dll
+D:\Dev\SaaS_AllAboutFood\Shared\bin\Debug\net5.0\ref\Protos.dll
+D:\Dev\SaaS_AllAboutFood\Shared\bin\Debug\net5.0\Protos.pdb
+D:\Dev\SaaS_AllAboutFood\Shared\bin\Debug\net5.0\DbContext.dll
+D:\Dev\SaaS_AllAboutFood\Shared\bin\Debug\net5.0\DbContext.pdb
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.csprojAssemblyReference.cache
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.AssemblyInfoInputs.cache
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.AssemblyInfo.cs
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.csproj.CoreCompileInputs.cache
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.csproj.CopyComplete
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.dll
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\ref\Protos.dll
+D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.pdb
