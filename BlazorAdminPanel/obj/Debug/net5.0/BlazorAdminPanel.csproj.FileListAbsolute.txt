@@ -40,7 +40,6 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Area
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Pages\UserAdmin.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Shared\MainLayout.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Shared\NavMenu.razor.g.cs
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Pages\Error.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
@@ -59,7 +58,6 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Pag
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Pages\UserAdmin.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Shared\MainLayout.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Shared\NavMenu.razor.g.cs
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Pages\Error.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Shared\LoginDisplay.razor.g.cs

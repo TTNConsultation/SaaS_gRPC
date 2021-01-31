@@ -20,13 +20,11 @@ namespace Saas
 {
   public class Startup
   {
-    private readonly bool isDevelopment;
-    private readonly IConfiguration config;
+    public IConfiguration Configuration { get; }
 
-    public Startup(IWebHostEnvironment env, IConfiguration cfg)
+    public Startup(IConfiguration configuration)
     {
-      isDevelopment = env.IsDevelopment();
-      config = cfg;
+      Configuration = configuration;
     }
 
     public void ConfigureServices(IServiceCollection services)
@@ -52,33 +50,33 @@ namespace Saas
       //          options.ApiSecret = auth["ApiSecret"];
       //        });
 
-      services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
-              .AddCertificate(options =>
-              {
-                options.Events = new CertificateAuthenticationEvents
-                {
-                  OnCertificateValidated = context =>
-                  {
-                    var claims = new[]
-                    {
-                                new Claim(
-                                    ClaimTypes.NameIdentifier,
-                                    context.ClientCertificate.Subject,
-                                    ClaimValueTypes.String,
-                                    context.Options.ClaimsIssuer),
-                                new Claim(ClaimTypes.Thumbprint,
-                                    context.ClientCertificate.Thumbprint,
-                                    ClaimValueTypes.String,
-                                    context.Options.ClaimsIssuer)
-                      };
+      //services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme)
+      //        .AddCertificate(options =>
+      //        {
+      //          options.Events = new CertificateAuthenticationEvents
+      //          {
+      //            OnCertificateValidated = context =>
+      //            {
+      //              var claims = new[]
+      //              {
+      //                          new Claim(
+      //                              ClaimTypes.NameIdentifier,
+      //                              context.ClientCertificate.Subject,
+      //                              ClaimValueTypes.String,
+      //                              context.Options.ClaimsIssuer),
+      //                          new Claim(ClaimTypes.Thumbprint,
+      //                              context.ClientCertificate.Thumbprint,
+      //                              ClaimValueTypes.String,
+      //                              context.Options.ClaimsIssuer)
+      //                };
 
-                    context.Principal.AddIdentity(new ClaimsIdentity(claims, context.Scheme.Name));
-                    context.Success();
+      //              context.Principal.AddIdentity(new ClaimsIdentity(claims, context.Scheme.Name));
+      //              context.Success();
 
-                    return Task.CompletedTask;
-                  }
-                };
-              });
+      //              return Task.CompletedTask;
+      //            }
+      //          };
+      //        });
 
       services.AddCors(o => o.AddPolicy(Constant.CORSPOLICY, builder =>
       {
@@ -95,9 +93,9 @@ namespace Saas
       services.AddSingleton<App>();
     }
 
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (isDevelopment)
+      if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
       }

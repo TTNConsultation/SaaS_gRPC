@@ -38,7 +38,6 @@ namespace DbContext.Command
     protected bool AddParameter(string key, object value)
     {
       var par = _sp.Parameter(key)?.SqlParameter(value);
-
       return (par != null) && SqlCmd.Parameters.Add(par).Size >= 0;
     }
 

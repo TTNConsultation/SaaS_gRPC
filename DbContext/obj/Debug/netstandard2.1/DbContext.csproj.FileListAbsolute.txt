@@ -6,4 +6,3 @@ D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.AssemblyIn
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.csproj.CoreCompileInputs.cache
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.dll
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.pdb
-D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\netstandard2.1\DbContext.csprojAssemblyReference.cache

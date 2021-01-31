@@ -42,7 +42,7 @@ namespace DbContext
 
     public Security(IConnectionManager conmng, ClaimsPrincipal cp, int appid)
     {
-      RootId = appid;
+      RootId = int.Parse(conmng.Get(Constant.APPID));
 
       if (cp.IsInRole(Constant.ADMIN))
         ConnectionString = conmng.Get(Constant.ADMIN);

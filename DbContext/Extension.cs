@@ -14,45 +14,24 @@ namespace DbContext
 {
   public static class Extension
   {
-    public static string Dot(this string str)
-    {
-      return string.Concat(str, Constant.DOT);
-    }
+    public static string Dot(this string str) => string.Concat(str, Constant.DOT);
 
-    public static string DotAnd(this string str, string more)
-    {
-      return string.Concat(str.Dot(), more);
-    }
+    public static string DotAnd(this string str, string more) => string.Concat(str.Dot(), more);
 
-    public static string Underscore(this string str)
-    {
-      return string.Concat(str, Constant.UNDERSCORE);
-    }
+    public static string Underscore(this string str) => string.Concat(str, Constant.UNDERSCORE);
 
-    public static string UnderscoreAnd(this string str, string more)
-    {
-      return string.Concat(str.Underscore(), more);
-    }
+    public static string UnderscoreAnd(this string str, string more) =>
+      string.Concat(str.Underscore(), more);
 
-    public static string AsParameter(this string str)
-    {
-      return string.Concat(Constant.PARAMETERSYMBOL, str);
-    }
+    public static string AsParameter(this string str) => string.Concat(Constant.PARAMETERSYMBOL, str);
 
-    public static string AsId(this string str)
-    {
-      return string.Concat(str, Constant.ID);
-    }
+    public static string AsId(this string str) => string.Concat(str, Constant.ID);
 
-    public static bool IsEqual(this string str, string compare, CultureInfo culture, bool ignoreCase)
-    {
-      return string.Compare(str, compare, ignoreCase, culture) == 0;
-    }
+    public static bool IsEqual(this string str, string compare, CultureInfo culture, bool ignoreCase) =>
+      string.Compare(str, compare, ignoreCase, culture) == 0;
 
-    public static bool IsEqual(this string str, string compare)
-    {
-      return str.IsEqual(compare, CultureInfo.CurrentCulture, true);
-    }
+    public static bool IsEqual(this string str, string compare) =>
+      str.IsEqual(compare, CultureInfo.CurrentCulture, true);
 
     public static SqlDbType ToSqlDbType(this string str)
     {

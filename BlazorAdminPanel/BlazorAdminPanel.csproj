@@ -15,10 +15,10 @@
   <ItemGroup>
     <Compile Remove="Data\WeatherForecast.cs" />
     <Compile Remove="Data\WeatherForecastService.cs" />
-    <Compile Remove="TestUser.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Counter.razor" />
     <Content Remove="Pages\FetchData.razor" />
   </ItemGroup>
 
@@ -54,5 +54,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
 </Project>

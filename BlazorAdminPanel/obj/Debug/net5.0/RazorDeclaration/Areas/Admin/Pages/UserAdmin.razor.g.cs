@@ -100,7 +100,6 @@ using Microsoft.AspNetCore.Identity;
 #nullable restore
 #line 34 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Pages\UserAdmin.razor"
        
-
   [Inject] AuthenticationStateProvider authenticationStateProvider { get; set; }
   public static AuthenticationState AuState = null;
 
