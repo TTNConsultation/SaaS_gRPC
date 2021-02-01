@@ -81,7 +81,7 @@ namespace Shared
       }));
 
       services.AddSingleton<IDbContext, StoreProcedure>();
-      services.AddSingleton<Protos.Shared.AppData>();
+      services.AddSingleton<AppData>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -107,7 +107,7 @@ namespace Shared
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapGrpcService<Saas.Services.AppData>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<Saas.Services.AppService>().RequireCors(Constant.CORSPOLICY);
         endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CORSPOLICY);
         endpoints.MapGrpcService<TableService>().RequireCors(Constant.CORSPOLICY);
         endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CORSPOLICY);

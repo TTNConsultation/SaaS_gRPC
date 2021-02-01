@@ -58,13 +58,13 @@ namespace DbContext
 
   internal sealed class CollectionProcedure : ICollectionProcedure
   {
-    private readonly ICollection<IProcedure> _storeProcedures;
+    private readonly ICollection<IProcedure> _procedures;
 
     public CollectionProcedure(ICollectionMapper maps, IConnectionManager connectionManager) =>
-      _storeProcedures = ReadProcedure(maps, connectionManager.App());
+      _procedures = ReadProcedure(maps, connectionManager.App());
 
     public IProcedure Get(string baseName, OperationType op) =>
-      _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
+      _procedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
 
     private static ICollection<IProcedure> ReadProcedure(ICollectionMapper maps, string conStr)
     {
@@ -112,7 +112,8 @@ namespace DbContext
 
     public Security(IConnectionManager conmng, ClaimsPrincipal cp, int appid)
     {
-      RootId = int.Parse(conmng.Get(Constant.APPID));
+      if (!int.TryParse(conmng.Get(Constant.APPID), out RootId))
+        RootId = appid;
 
       if (cp.IsInRole(Constant.ADMIN))
         ConnectionString = conmng.Get(Constant.ADMIN);

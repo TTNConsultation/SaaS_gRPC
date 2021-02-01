@@ -71,7 +71,6 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.Razo
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\App.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Pages\Index.razor.g.cs
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Pages\Restaurant.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Pages\UserAdmin.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Shared\MainLayout.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Admin\Shared\NavMenu.razor.g.cs
@@ -90,7 +89,6 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.Razo
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\App.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\App.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Index.razor.g.cs
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Restaurant.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Pages\UserAdmin.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Shared\MainLayout.razor.g.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Admin\Shared\NavMenu.razor.g.cs
@@ -118,3 +116,5 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.dll
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\ref\BlazorAdminPanel.dll
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.pdb
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.genruntimeconfig.cache
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Pages\Restaurant.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Pages\Restaurant.razor.g.cs

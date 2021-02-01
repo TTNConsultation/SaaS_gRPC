@@ -126,7 +126,7 @@ using Microsoft.Extensions.Logging;
 
   protected void RestaurantRedirect()
   {
-    navigationManager.NavigateTo("/Admin/Restaurant", forceLoad: true);
+    navigationManager.NavigateTo("/Restaurant", forceLoad: true);
   }
 
   private bool collapseNavMenu = true;

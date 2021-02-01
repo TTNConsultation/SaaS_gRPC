@@ -10,13 +10,14 @@ namespace Saas.Services
 {
   internal class MenuService : MenuSvc.MenuSvcBase
   {
-    private readonly ILogger<RestaurantMenuService> _logger;
+    //private readonly ILogger<RestaurantMenuService> _logger;
     private readonly IDbContext _dbContext;
+
     private readonly References _refData;
 
-    public MenuService(ILogger<RestaurantMenuService> log, IDbContext context, Protos.Shared.AppData appData)
+    public MenuService(IDbContext context, Protos.Shared.AppData appData)
     {
-      _logger = log;
+      //_logger = log;
       _dbContext = context;
       _refData = appData.RefDatas;
     }

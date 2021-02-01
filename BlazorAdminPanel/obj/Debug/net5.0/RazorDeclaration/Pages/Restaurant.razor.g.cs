@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorAdminPanel.Areas.Admin.Pages
+namespace BlazorAdminPanel.Pages
 {
     #line hidden
     using System;
@@ -90,13 +90,13 @@ using Protos.Shared.Interfaces;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Pages\Restaurant.razor"
-using Protobuf = Protos.Shared.Message.Administrator;
+#line 2 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Pages\Restaurant.razor"
+using Protos = Protos.Shared.Message.Administrator;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Admin/Restaurant")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Restaurant")]
     public partial class Restaurant : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,7 +105,7 @@ using Protobuf = Protos.Shared.Message.Administrator;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Pages\Restaurant.razor"
+#line 41 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Pages\Restaurant.razor"
        
   [Inject] IDbContext dbContext { get; set; }
   [Inject] AppData app { get; set; }
@@ -113,7 +113,7 @@ using Protobuf = Protos.Shared.Message.Administrator;
 
   public static AuthenticationState AuState = null;
 
-  private Protobuf.Restaurants _rests;
+  private Protos.Restaurants _rests;
 
   protected override void OnInitialized()
   {
@@ -123,8 +123,8 @@ using Protobuf = Protos.Shared.Message.Administrator;
       throw new Exception("You have no right to access this page");
     }
 
-    using var sp = dbContext.Read<Protobuf.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
-    _rests = (sp.IsReady) ? new Protobuf.Restaurants(sp.Read("pho")) : null;
+    using var sp = dbContext.Read<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
+    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho")) : null;
   }
 
 #line default

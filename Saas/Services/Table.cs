@@ -12,13 +12,14 @@ namespace Saas.Services
 {
   internal class TableService : TableSvc.TableSvcBase
   {
-    private readonly ILogger<TableService> _logger;
+    //private readonly ILogger<TableService> _logger;
     private readonly IDbContext _dbContext;
+
     private readonly References _refData;
 
-    public TableService(ILogger<TableService> log, IDbContext context, Protos.Shared.AppData appData)
+    public TableService(IDbContext context, Protos.Shared.AppData appData)
     {
-      _logger = log;
+      //_logger = log;
       _dbContext = context;
       _refData = appData.RefDatas;
     }

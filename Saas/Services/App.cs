@@ -6,17 +6,20 @@ using Protos.Shared.Message.Language;
 using Protos.Shared.Message.Reference;
 using System.Threading.Tasks;
 
+using Protos.Shared;
+
 namespace Saas.Services
 {
-  internal class AppData : AppDataSvc.AppDataSvcBase
+  internal class AppService : AppDataSvc.AppDataSvcBase
   {
-    private readonly ILogger<RestaurantService> _logger;
+    //private readonly ILogger<RestaurantService> _logger;
     private readonly Protos.Shared.AppData _app;
+
     private readonly IDbContext _context;
 
-    public AppData(ILogger<RestaurantService> log, Protos.Shared.AppData app, IDbContext context)
+    public AppService(AppData app, IDbContext context)
     {
-      _logger = log;
+      //_logger = log;
       _app = app;
       _context = context;
     }

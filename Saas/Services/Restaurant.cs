@@ -9,13 +9,14 @@ namespace Saas.Services
 {
   internal class RestaurantService : RestaurantSvc.RestaurantSvcBase
   {
-    private readonly ILogger<RestaurantService> _logger;
+    //private readonly ILogger<RestaurantService> _logger;
     private readonly IDbContext _dbContext;
+
     private readonly Protos.Shared.AppData _app;
 
-    public RestaurantService(ILogger<RestaurantService> log, IDbContext dbContext, Protos.Shared.AppData app)
+    public RestaurantService(IDbContext dbContext, Protos.Shared.AppData app)
     {
-      _logger = log;
+      //_logger = log;
       _dbContext = dbContext;
       _app = app;
     }

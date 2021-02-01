@@ -1,5 +1,5 @@
-﻿@page "/Admin/Restaurant"
-@using Protobuf = Protos.Shared.Message.Administrator
+﻿@page "/Restaurant"
+@using Protos = Protos.Shared.Message.Administrator
 
 <h1>Restaurants</h1>
 
@@ -45,7 +45,7 @@ else
 
   public static AuthenticationState AuState = null;
 
-  private Protobuf.Restaurants _rests;
+  private Protos.Restaurants _rests;
 
   protected override void OnInitialized()
   {
@@ -55,7 +55,7 @@ else
       throw new Exception("You have no right to access this page");
     }
 
-    using var sp = dbContext.Read<Protobuf.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
-    _rests = (sp.IsReady) ? new Protobuf.Restaurants(sp.Read("pho")) : null;
+    using var sp = dbContext.Read<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
+    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho")) : null;
   }
 };

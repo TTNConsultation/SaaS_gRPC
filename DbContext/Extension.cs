@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
 using System.Threading.Tasks;
 
 using Google.Protobuf;
@@ -16,42 +14,18 @@ namespace DbContext
   {
     public static object ChangeType(this FieldDescriptor fd, object obj)
     {
-      switch (fd.FieldType)
+      return fd.FieldType switch
       {
-        case FieldType.Double:
-        case FieldType.Float:
-          return Convert.ChangeType(obj, typeof(float));
-
-        case FieldType.Int64:
-        case FieldType.SFixed64:
-        case FieldType.SInt64:
-          return Convert.ChangeType(obj, typeof(long));
-
-        case FieldType.UInt64:
-        case FieldType.Fixed64:
-          return Convert.ChangeType(obj, typeof(ulong));
-
-        case FieldType.Int32:
-        case FieldType.SFixed32:
-        case FieldType.SInt32:
-          return Convert.ChangeType(obj, typeof(int));
-
-        case FieldType.Fixed32:
-        case FieldType.UInt32:
-          return Convert.ChangeType(obj, typeof(uint));
-
-        case FieldType.Bool:
-          return Convert.ChangeType(obj, typeof(bool));
-
-        case FieldType.String:
-          return Convert.ChangeType(obj, typeof(string));
-
-        case FieldType.Bytes:
-          return Convert.ChangeType(obj, typeof(ByteString));
-
-        default:
-          return obj;
-      }
+        FieldType.Double or FieldType.Float => Convert.ChangeType(obj, typeof(float)),
+        FieldType.Int64 or FieldType.SFixed64 or FieldType.SInt64 => Convert.ChangeType(obj, typeof(long)),
+        FieldType.UInt64 or FieldType.Fixed64 => Convert.ChangeType(obj, typeof(ulong)),
+        FieldType.Int32 or FieldType.SFixed32 or FieldType.SInt32 => Convert.ChangeType(obj, typeof(int)),
+        FieldType.Fixed32 or FieldType.UInt32 => Convert.ChangeType(obj, typeof(uint)),
+        FieldType.Bool => Convert.ChangeType(obj, typeof(bool)),
+        FieldType.String => Convert.ChangeType(obj, typeof(string)),
+        FieldType.Bytes => Convert.ChangeType(obj, typeof(ByteString)),
+        _ => obj,
+      };
     }
 
     public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage<T>, new()

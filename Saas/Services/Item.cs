@@ -13,13 +13,14 @@ namespace Saas.Services
 {
   internal class ItemService : ItemSvc.ItemSvcBase
   {
-    private readonly ILogger<ItemService> _logger;
+    //private readonly ILogger<ItemService> _logger;
     private readonly IDbContext _dbContext;
+
     private readonly References _refData;
 
-    public ItemService(ILogger<ItemService> log, IDbContext context, Protos.Shared.AppData appData)
+    public ItemService(IDbContext context, AppData appData)
     {
-      _logger = log;
+      //_logger = log;
       _dbContext = context;
       _refData = appData.RefDatas;
     }

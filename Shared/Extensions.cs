@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Protos.Shared
 {
@@ -31,9 +27,6 @@ namespace Protos.Shared
 
     public static SqlDbType ToSqlDbType(this string str)
     {
-      if (string.IsNullOrEmpty(str))
-        throw new ArgumentNullException();
-
       return str switch
       {
         "int" => SqlDbType.Int,

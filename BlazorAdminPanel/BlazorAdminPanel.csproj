@@ -6,15 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\**" />
-    <Content Remove="Data\Migrations\**" />
-    <EmbeddedResource Remove="Data\Migrations\**" />
-    <None Remove="Data\Migrations\**" />
+    <Compile Remove="Data\**" />
+    <Content Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\WeatherForecast.cs" />
-    <Compile Remove="Data\WeatherForecastService.cs" />
+    <Compile Remove="TestUser.cs" />
   </ItemGroup>
 
   <ItemGroup>

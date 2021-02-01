@@ -14,13 +14,14 @@ namespace Saas.Services
 {
   internal class MenuItemService : MenuItemSvc.MenuItemSvcBase
   {
-    private readonly ILogger<MenuItemService> _logger;
+    //private readonly ILogger<MenuItemService> _logger;
     private readonly IDbContext _dbContext;
+
     private readonly References _refData;
 
-    public MenuItemService(ILogger<MenuItemService> log, IDbContext context, Protos.Shared.AppData appData)
+    public MenuItemService(IDbContext context, Protos.Shared.AppData appData)
     {
-      _logger = log;
+      //_logger = log;
       _dbContext = context;
       _refData = appData.RefDatas;
     }
