@@ -32,9 +32,9 @@ namespace Shared
                 httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
               });
 
-              if (File.Exists(SocketPath))
-                File.Delete(SocketPath);
-              kestrelOptions.ListenUnixSocket(SocketPath);
+              //if (File.Exists(SocketPath))
+              //  File.Delete(SocketPath);
+              //kestrelOptions.ListenUnixSocket(SocketPath);
             });
             webBuilder.UseStartup<Startup>();
           });

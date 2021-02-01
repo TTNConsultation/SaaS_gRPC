@@ -1,7 +1,6 @@
 using BlazorAdminPanel.Areas.Identity;
 using BlazorAdminPanel.Data;
 using DbContext;
-using DbContext.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Protos.Shared;
-using Protos.Shared.Dal;
+using Protos.Shared.Interfaces;
 
 namespace BlazorAdminPanel
 {
@@ -48,11 +47,7 @@ namespace BlazorAdminPanel
       services.AddServerSideBlazor();
       services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 
-      services.AddSingleton<IConnectionManager, ConnectionManager>();
-      services.AddSingleton<ICollectionMapper, CollectionMapper>();
-      services.AddSingleton<ICollectionProcedure, CollectionProcedure>();
       services.AddSingleton<IDbContext, StoreProcedure>();
-
       services.AddSingleton<AppData>();
     }
 

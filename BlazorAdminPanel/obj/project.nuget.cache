@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mc5H1cW9w1ns31XgaUxOD9ChLMEhS0u4L+Y44X4LaK6j7z5L9E98AkvsBQskvjVlTsWuHTja+BO49KjMS6D9LQ==",
+  "dgSpecHash": "4vHvrAuAQQ7YLmP0eZVYLxOA0WsptFrLNrXMOKmY/PJF3vgcX5aPPbTO+5QJmY5yfTHVzDNG7lZqgtGnHkYiiw==",
   "success": true,
   "projectFilePath": "D:\\Dev\\SaaS_AllAboutFood\\BlazorAdminPanel\\BlazorAdminPanel.csproj",
   "expectedPackageFiles": [
@@ -51,7 +51,6 @@
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\thang\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kP+HtYfd4lWpkzRoVTKHTq3MSnMxzY3skHJBxZJ5iMQfWXUa/ldDFCV4vyE0tCXdIBWi7topTV50skqunoQtBg==",
+  "dgSpecHash": "iTeGRm90QBzGUIBbB/pzI621BogJUgaBR0xmVCyz82G81o6eEppKD5zG45F5eGZb8t3uyKXf45ByZrnsQF3sZg==",
   "success": true,
   "projectFilePath": "D:\\Dev\\SaaS_AllAboutFood\\Saas\\Saas.csproj",
   "expectedPackageFiles": [
@@ -56,7 +56,6 @@
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\thang\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "C:\\Users\\thang\\.nuget\\packages\\system.diagnostics.eventlog\\5.0.0\\system.diagnostics.eventlog.5.0.0.nupkg.sha512",

@@ -1,12 +1,11 @@
 ﻿using DbContext;
-using DbContext.Interface;
+using Protos.Shared.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Protos.Shared.Dal;
 using Saas.Services;
 
 using Protos.Shared;
@@ -81,9 +80,6 @@ namespace Shared
                .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
       }));
 
-      services.AddSingleton<IConnectionManager, ConnectionManager>();
-      services.AddSingleton<ICollectionMapper, CollectionMapper>();
-      services.AddSingleton<ICollectionProcedure, CollectionProcedure>();
       services.AddSingleton<IDbContext, StoreProcedure>();
       services.AddSingleton<Protos.Shared.AppData>();
     }

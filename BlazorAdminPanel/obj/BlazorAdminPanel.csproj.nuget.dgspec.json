@@ -118,16 +118,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
-            "projectReferences": {}
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj": {
+                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -137,8 +141,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Google.Protobuf": {
               "target": "Package",
@@ -147,10 +151,6 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[2.1.1, )"
-            },
-            "NETStandard.Library": {
-              "target": "Package",
-              "version": "[2.0.3, )"
             }
           },
           "imports": [
@@ -164,7 +164,10 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "NETStandard.Library": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
@@ -199,11 +202,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj": {
-                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

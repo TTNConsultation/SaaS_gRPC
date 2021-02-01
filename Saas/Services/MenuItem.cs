@@ -1,9 +1,7 @@
-﻿using DbContext;
-using DbContext.Interface;
+﻿using Protos.Shared.Interfaces;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Saas.gRPC;
 using Protos.Shared.Message.Administrator;
 using Protos.Shared.Message.Reference;
 using System.Collections.Generic;

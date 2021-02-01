@@ -4,78 +4,6 @@
     "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj",
-        "projectName": "DbContext",
-        "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj",
-        "packagesPath": "C:\\Users\\thang\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netstandard2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
-          "dependencies": {
-            "Google.Protobuf": {
-              "target": "Package",
-              "version": "[3.14.0, )"
-            },
-            "Microsoft.Data.SqlClient": {
-              "target": "Package",
-              "version": "[2.1.1, )"
-            },
-            "NETStandard.Library": {
-              "target": "Package",
-              "version": "[2.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "NETStandard.Library": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "D:\\Dev\\SaaS_AllAboutFood\\Shared\\Protos.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -103,11 +31,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj": {
-                "projectPath": "D:\\Dev\\SaaS_AllAboutFood\\DbContext\\DbContext.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

@@ -1,5 +1,4 @@
-﻿using DbContext;
-using DbContext.Interface;
+﻿using Protos.Shared.Interfaces;
 using Protos.Shared.Message.Language;
 using System;
 using System.Collections.Generic;

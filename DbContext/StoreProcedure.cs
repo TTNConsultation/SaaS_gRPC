@@ -1,7 +1,14 @@
 ﻿using System.Security.Claims;
-using DbContext.Interface;
+using Protos.Shared.Interfaces;
 using DbContext.Command;
 using Google.Protobuf;
+using Protos.Shared;
+using System.Collections.Generic;
+using Protos.Shared.Dal;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace DbContext
 {
@@ -11,11 +18,11 @@ namespace DbContext
     private readonly ICollectionMapper _mappers;
     private readonly ICollectionProcedure _procedures;
 
-    public StoreProcedure(IConnectionManager conmanager, ICollectionMapper maps, ICollectionProcedure procedures)
+    public StoreProcedure(IConfiguration config)
     {
-      _connections = conmanager;
-      _mappers = maps;
-      _procedures = procedures;
+      _mappers = new CollectionMapper();
+      _connections = new ConnectionManager(config);
+      _procedures = new CollectionProcedure(_mappers, _connections);
     }
 
     public IExecuteReader<T> ReferenceData<T>(int rootId) where T : IMessage<T>, new() =>
@@ -33,6 +40,69 @@ namespace DbContext
                             _procedures.Get<T>(op),
                             _procedures.Get<T>(OperationType.R),
                             _mappers.Get<T>());
+  }
+
+  internal sealed class ConnectionManager : IConnectionManager
+  {
+    private readonly IDictionary<string, string> _connectionStrings;
+
+    public ConnectionManager(IConfiguration config)
+    {
+      _connectionStrings = config.GetSection(Constant.CONNECTIONSTRINGS)
+                                ?.GetChildren()
+                                ?.ToDictionary(s => s.Key, s => s.Value) ?? new Dictionary<string, string>();
+    }
+
+    public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+  }
+
+  internal sealed class CollectionProcedure : ICollectionProcedure
+  {
+    private readonly ICollection<IProcedure> _storeProcedures;
+
+    public CollectionProcedure(ICollectionMapper maps, IConnectionManager connectionManager) =>
+      _storeProcedures = ReadProcedure(maps, connectionManager.App());
+
+    public IProcedure Get(string baseName, OperationType op) =>
+      _storeProcedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
+
+    private static ICollection<IProcedure> ReadProcedure(ICollectionMapper maps, string conStr)
+    {
+      var parameters = ReadParameter(maps.Get<Parameter>(), conStr);
+
+      var ret = new HashSet<IProcedure>();
+      var map = maps.Get<Procedure>();
+
+      string spName = Constant.APP.DotAnd(nameof(Procedure)).UnderscoreAnd(nameof(OperationType.R));
+
+      using var sqlCon = new SqlConnection(conStr);
+      var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
+      sqlCon.Open();
+
+      using var reader = sqlcmd.ExecuteReader();
+
+      while (reader.Read())
+      {
+        var sp = map.Parse<Procedure>(reader);
+        sp.Parameters = parameters.Where(p => p.ProcedureId == sp.Id);
+        ret.Add(sp);
+      }
+
+      return ret;
+    }
+
+    private static IEnumerable<IParameter> ReadParameter(IMapper map, string conStr)
+    {
+      string spName = Constant.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
+
+      using var sqlCon = new SqlConnection(conStr);
+      var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
+      sqlCon.Open();
+
+      using var reader = sqlcmd.ExecuteReader();
+
+      return reader.Parse<Parameter>(map);
+    }
   }
 
   internal sealed class Security

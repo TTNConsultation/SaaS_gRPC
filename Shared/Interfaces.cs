@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Google.Protobuf;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
-using Microsoft.Data.SqlClient;
-using Google.Protobuf;
-
-namespace DbContext.Interface
+namespace Protos.Shared.Interfaces
 {
   public enum OperationType { C, R, RR, U, D }
 

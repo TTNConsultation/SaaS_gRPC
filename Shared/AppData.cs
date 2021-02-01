@@ -1,4 +1,4 @@
-﻿using DbContext.Interface;
+﻿using Protos.Shared.Interfaces;
 using Protos.Shared.Message.Language;
 using Protos.Shared.Message.Reference;
 using System;

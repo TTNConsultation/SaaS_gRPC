@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Saas.gRPC";
+option csharp_namespace = "Saas.Services";
 
 package Services;
 

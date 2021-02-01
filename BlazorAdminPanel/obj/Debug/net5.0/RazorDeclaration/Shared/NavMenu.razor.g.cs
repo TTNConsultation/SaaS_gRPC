@@ -84,7 +84,7 @@ using Protos.Shared;
 #nullable disable
 #nullable restore
 #line 11 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using DbContext.Interface;
+using Protos.Shared.Interfaces;
 
 #line default
 #line hidden

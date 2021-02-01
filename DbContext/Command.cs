@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Text;
 using Google.Protobuf;
 
-using DbContext.Interface;
+using Protos.Shared;
+using Protos.Shared.Interfaces;
 
 namespace DbContext.Command
 {

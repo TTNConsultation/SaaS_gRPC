@@ -5,11 +5,11 @@ using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
-using DbContext.Interface;
+using Protos.Shared.Interfaces;
 
 namespace DbContext
 {
-  public sealed class CollectionMapper : ICollectionMapper
+  internal sealed class CollectionMapper : ICollectionMapper
   {
     private readonly HashSet<IMapper> _mappers = new HashSet<IMapper>();
 

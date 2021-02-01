@@ -8,50 +8,12 @@ using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
-using DbContext.Interface;
+using Protos.Shared.Interfaces;
 
 namespace DbContext
 {
-  public static class Extension
+  internal static class Extension
   {
-    public static string Dot(this string str) => string.Concat(str, Constant.DOT);
-
-    public static string DotAnd(this string str, string more) => string.Concat(str.Dot(), more);
-
-    public static string Underscore(this string str) => string.Concat(str, Constant.UNDERSCORE);
-
-    public static string UnderscoreAnd(this string str, string more) =>
-      string.Concat(str.Underscore(), more);
-
-    public static string AsParameter(this string str) => string.Concat(Constant.PARAMETERSYMBOL, str);
-
-    public static string AsId(this string str) => string.Concat(str, Constant.ID);
-
-    public static bool IsEqual(this string str, string compare, CultureInfo culture, bool ignoreCase) =>
-      string.Compare(str, compare, ignoreCase, culture) == 0;
-
-    public static bool IsEqual(this string str, string compare) =>
-      str.IsEqual(compare, CultureInfo.CurrentCulture, true);
-
-    public static SqlDbType ToSqlDbType(this string str)
-    {
-      if (string.IsNullOrEmpty(str))
-        throw new ArgumentNullException();
-
-      return str switch
-      {
-        "int" => SqlDbType.Int,
-        "tinyint" => SqlDbType.TinyInt,
-        "bit" => SqlDbType.Bit,
-        "money" => SqlDbType.Money,
-        "varchar" => SqlDbType.VarChar,
-        "nvarchar" => SqlDbType.NVarChar,
-        "char" => SqlDbType.Char,
-        "float" => SqlDbType.Float,
-        _ => throw new InvalidCastException()
-      };
-    }
-
     public static object ChangeType(this FieldDescriptor fd, object obj)
     {
       switch (fd.FieldType)

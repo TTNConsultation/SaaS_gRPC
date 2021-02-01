@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Saas.gRPC {
+namespace Saas.Services {
   public static partial class RestaurantSvc
   {
     static readonly string __ServiceName = "Services.RestaurantSvc";
@@ -84,7 +84,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[0]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of RestaurantSvc</summary>
@@ -330,7 +330,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[1]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[1]; }
     }
 
     /// <summary>Base class for server-side implementations of TableSvc</summary>
@@ -576,7 +576,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[2]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[2]; }
     }
 
     /// <summary>Base class for server-side implementations of ItemSvc</summary>
@@ -822,7 +822,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[3]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[3]; }
     }
 
     /// <summary>Base class for server-side implementations of RestaurantMenuSvc</summary>
@@ -1075,7 +1075,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[4]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[4]; }
     }
 
     /// <summary>Base class for server-side implementations of MenuSvc</summary>
@@ -1352,7 +1352,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[5]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[5]; }
     }
 
     /// <summary>Base class for server-side implementations of MenuItemSvc</summary>
@@ -1625,7 +1625,7 @@ namespace Saas.gRPC {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Saas.gRPC.ServiceReflection.Descriptor.Services[6]; }
+      get { return global::Saas.Services.ServiceReflection.Descriptor.Services[6]; }
     }
 
     /// <summary>Base class for server-side implementations of AppDataSvc</summary>

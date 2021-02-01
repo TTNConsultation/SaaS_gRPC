@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Saas.gRPC {
+namespace Saas.Services {
 
   /// <summary>Holder for reflection information generated from Protos/service.proto</summary>
   public static partial class ServiceReflection {
@@ -79,7 +79,7 @@ namespace Saas.gRPC {
             "LlZhbHVlGhMuUmVmZXJlbmNlLktleVR5cGVzEjsKClJlZmVyZW5jZXMSFi5n",
             "b29nbGUucHJvdG9idWYuVmFsdWUaFS5SZWZlcmVuY2UuUmVmZXJlbmNlcxI6",
             "CgpEaWN0aW9uYXJ5EhYuTGFuZ3VhZ2UuQ29kZUxhbmd1YWdlGhQuTGFuZ3Vh",
-            "Z2UuRGljdGlvbmFyeUIMqgIJU2Fhcy5nUlBDYgZwcm90bzM="));
+            "Z2UuRGljdGlvbmFyeUIQqgINU2Fhcy5TZXJ2aWNlc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Protos.Shared.Message.Language.LanguageReflection.Descriptor, global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor, global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, null));

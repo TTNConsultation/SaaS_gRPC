@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DbContext\DbContext.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Protobuf Include="Protos\administrator.proto" GrpcServices="Both" />
     <Protobuf Include="Protos\dal.proto" GrpcServices="Both" />
     <Protobuf Include="Protos\language.proto" GrpcServices="Both" />
