@@ -15,9 +15,9 @@ namespace DbContext.MsSql
 {
   public sealed class StoreProcedure : IDbContext
   {
-    private readonly ICollectionMapper _mappers = new CollectionMapper();
-    private readonly IConnectionManager _connections;
-    private readonly ICollectionProcedure _procedures;
+    private readonly CollectionMapper _mappers = new CollectionMapper();
+    private readonly ConnectionManager _connections;
+    private readonly CollectionProcedure _procedures;
 
     public StoreProcedure(IConfiguration config)
     {
@@ -42,7 +42,7 @@ namespace DbContext.MsSql
                             _mappers.Get<T>());
   }
 
-  internal sealed class ConnectionManager : IConnectionManager
+  internal sealed class ConnectionManager
   {
     private readonly IDictionary<string, string> _connectionStrings;
 
@@ -53,20 +53,26 @@ namespace DbContext.MsSql
                                 ?.ToDictionary(s => s.Key, s => s.Value) ?? new Dictionary<string, string>();
     }
 
-    public string Get(string schema) => _connectionStrings.FirstOrDefault(s => s.Key.IsEqual(schema)).Value;
+    public string Get(string schema) => _connectionStrings.ContainsKey(schema) ? _connectionStrings[schema]
+                                                                               : string.Empty;
+
+    public string App(string appSchema = StrVal.APP) => Get(appSchema);
   }
 
-  internal sealed class CollectionProcedure : ICollectionProcedure
+  internal sealed class CollectionProcedure
   {
     private readonly ICollection<Procedure> _procedures;
 
-    public CollectionProcedure(ICollectionMapper maps, IConnectionManager connectionManager) =>
+    public CollectionProcedure(CollectionMapper maps, ConnectionManager connectionManager) =>
       _procedures = ReadProcedure(maps, connectionManager.App());
 
     public Procedure Get(string baseName, OperationType op) =>
       _procedures.FirstOrDefault(sp => sp.IsEqual(baseName, op.ToString()));
 
-    private static ICollection<Procedure> ReadProcedure(ICollectionMapper maps, string conStr)
+    public Procedure Get<T>(OperationType op) where T : IMessage<T> =>
+      Get(typeof(T).Name, op);
+
+    private static ICollection<Procedure> ReadProcedure(CollectionMapper maps, string conStr)
     {
       var parameters = ReadParameter(maps.Get<Parameter>(), conStr);
 
@@ -91,7 +97,7 @@ namespace DbContext.MsSql
       return ret;
     }
 
-    private static ICollection<Parameter> ReadParameter(IMapper map, string conStr)
+    private static ICollection<Parameter> ReadParameter(Mapper map, string conStr)
     {
       var ret = new HashSet<Parameter>();
       string spName = StrVal.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
@@ -116,7 +122,7 @@ namespace DbContext.MsSql
     public readonly int RootId;
     public readonly string ConnectionString;
 
-    public Security(IConnectionManager conmng, ClaimsPrincipal cp, int appid)
+    public Security(ConnectionManager conmng, ClaimsPrincipal cp, int appid)
     {
       if (!int.TryParse(conmng.Get(StrVal.APP.AndId()), out RootId))
         RootId = appid;

@@ -61,9 +61,9 @@ namespace DbContext.MsSql.Command
   {
     public IExecuteReader<T> Reader { get; }
 
-    public ExecuteNonQuery(Security claim, Procedure procedure, Procedure r_procedure, IMapper map) : base(claim, procedure)
+    public ExecuteNonQuery(Security claim, Procedure procedure, Procedure rprocedure, Mapper map) : base(claim, procedure)
     {
-      Reader = new ExecuteReader<T>(claim, r_procedure, map);
+      Reader = new ExecuteReader<T>(claim, rprocedure, map);
     }
 
     public bool Update()
@@ -90,9 +90,9 @@ namespace DbContext.MsSql.Command
 
   internal sealed class ExecuteReader<T> : Base, IExecuteReader<T> where T : IMessage<T>, new()
   {
-    private readonly IMapper _map;
+    private readonly Mapper _map;
 
-    public ExecuteReader(Security claim, Procedure procedure, IMapper map) : base(claim, procedure)
+    public ExecuteReader(Security claim, Procedure procedure, Mapper map) : base(claim, procedure)
     {
       _map = map;
     }

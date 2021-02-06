@@ -108,32 +108,4 @@ namespace DbContext.Interfaces
     Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) =>
       AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
   }
-
-  internal interface ICollectionProcedure
-  {
-    Procedure Get(string typename, OperationType op);
-
-    Procedure Get<T>(OperationType op) where T : IMessage<T> => Get(typeof(T).Name, op);
-  }
-
-  internal interface IConnectionManager
-  {
-    string Get(string schema);
-
-    string App(string appSchema = StrVal.APP) => Get(appSchema);
-  }
-
-  internal interface ICollectionMapper
-  {
-    IMapper Get(Type type);
-
-    IMapper Get<T>() where T : IMessage<T> => Get(typeof(T));
-  }
-
-  internal interface IMapper
-  {
-    bool IsType(Type type);
-
-    T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new();
-  }
 }

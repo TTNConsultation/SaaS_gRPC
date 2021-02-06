@@ -9,17 +9,19 @@ using DbContext.Interfaces;
 
 namespace DbContext
 {
-  internal sealed class CollectionMapper : ICollectionMapper
+  internal sealed class CollectionMapper
   {
-    private readonly ICollection<IMapper> _mappers = new HashSet<IMapper>();
+    private readonly ICollection<Mapper> _mappers = new HashSet<Mapper>();
 
-    public IMapper Get(Type type) => _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
+    public Mapper Get(Type type) => _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
+
+    public Mapper Get<T>() where T : IMessage<T> => Get(typeof(T));
   }
 
-  internal sealed class Mapper : IMapper
+  internal sealed class Mapper
   {
     private readonly Type _type;
-    private IDictionary<int, int> _fieldMap;
+    private IDictionary<int, int> _fieldMap = new Dictionary<int, int>();
 
     public Mapper(Type type)
     {
@@ -28,7 +30,6 @@ namespace DbContext
 
     private T Build<T>(SqlDataReader reader) where T : IMessage<T>, new()
     {
-      _fieldMap = new Dictionary<int, int>();
       var objT = new T();
       FieldDescriptor fd;
 
@@ -62,6 +63,6 @@ namespace DbContext
     public bool IsType(Type type) => _type == type;
 
     public T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new() =>
-      (_fieldMap == null) ? Build<T>(reader) : Map<T>(reader);
+      (_fieldMap.Count == 0) ? Build<T>(reader) : Map<T>(reader);
   }
 }
