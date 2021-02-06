@@ -15,7 +15,7 @@ namespace DbContext.MsSql.Command
   internal abstract class Base
   {
     private readonly Procedure _procedure;
-    protected readonly SqlCommand SqlCmd;
+    protected readonly SqlCommand sqlCmd;
 
     public string Error { get; }
     public int RootId { get; }
@@ -23,37 +23,37 @@ namespace DbContext.MsSql.Command
 
     protected Base(Security security, Procedure procedure)
     {
-      Error = new StringBuilder().Append((procedure == null) ? "procedure not found | " : null)
-                                 .Append((security == null || string.IsNullOrEmpty(security.ConnectionString)) ? "invalid claim" : null)
-                                 .ToString();
+      Error = (procedure == null) ? StrVal.PROCEDURENOTFOUND
+                                  : (security == null || string.IsNullOrEmpty(security.ConnectionString))
+                                  ? StrVal.INVALIDCLAIM
+                                  : string.Empty;
 
       if (IsReady)
       {
         _procedure = procedure;
-        SqlCmd = _procedure.SqlCommand(security.ConnectionString);
+        sqlCmd = _procedure.SqlCommand(security.ConnectionString);
         RootId = security.RootId;
-
-        AddParameter(StrVal.ROOT.AsId(), RootId);
+        AddParameter(StrVal.ROOT.AndId(), RootId);
       }
     }
 
     public bool AddParameter(string key, object value)
     {
       var par = _procedure.Parameter(key)?.SqlParameter(value);
-      return (par != null) && SqlCmd.Parameters.Add(par).Size >= 0;
+      return (par != null) && sqlCmd.Parameters.Add(par).Size >= 0;
     }
 
     protected bool SetParameter(string key, object value)
     {
-      int index = SqlCmd.Parameters.IndexOf(key);
-      return (index >= 0) && (SqlCmd.Parameters[index].Value = (value ?? DBNull.Value)) != null;
+      int index = sqlCmd.Parameters.IndexOf(key);
+      return (index >= 0) && (sqlCmd.Parameters[index].Value = (value ?? DBNull.Value)) != null;
     }
 
     public virtual void Dispose()
     {
-      SqlCmd?.Connection?.Close();
-      SqlCmd?.Connection?.Dispose();
-      SqlCmd?.Dispose();
+      sqlCmd?.Connection?.Close();
+      sqlCmd?.Connection?.Dispose();
+      sqlCmd?.Dispose();
     }
   }
 
@@ -68,17 +68,17 @@ namespace DbContext.MsSql.Command
 
     public bool Update()
     {
-      SqlCmd.Connection.Open();
-      return SqlCmd.ExecuteNonQuery() == 1;
+      sqlCmd.Connection.Open();
+      return sqlCmd.ExecuteNonQuery() == 1;
     }
 
     public int Create()
     {
-      SqlCmd.Connection.Open();
+      sqlCmd.Connection.Open();
 
-      return (SqlCmd.ExecuteNonQuery() == 1)
-        ? int.Parse(SqlCmd.Parameters[StrVal.ID].Value.ToString())
-        : -1;
+      return (sqlCmd.ExecuteNonQuery() == 1)
+        ? int.Parse(sqlCmd.Parameters[StrVal.ID].Value.ToString())
+        : throw new Exception(StrVal.OPERATIONFAILED);
     }
 
     public override void Dispose()
@@ -101,8 +101,8 @@ namespace DbContext.MsSql.Command
     {
       var ret = new HashSet<T>();
 
-      SqlCmd.Connection.Open();
-      using var reader = SqlCmd.ExecuteReader();
+      sqlCmd.Connection.Open();
+      using var reader = sqlCmd.ExecuteReader();
 
       while (reader.Read())
       {
@@ -116,8 +116,8 @@ namespace DbContext.MsSql.Command
     {
       var ret = new HashSet<T>();
 
-      await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
-      using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
+      await sqlCmd.Connection.OpenAsync().ConfigureAwait(false);
+      using var reader = await sqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
       while (await reader.ReadAsync().ConfigureAwait(false))
       {

@@ -9,4 +9,3 @@ D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.csproj.CoreCompileInputs
 D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.dll
 D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\ref\Protos.dll
 D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.pdb
-D:\Dev\SaaS_AllAboutFood\Shared\obj\Debug\net5.0\Protos.csprojAssemblyReference.cache

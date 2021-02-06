@@ -84,14 +84,14 @@ namespace DbContext.MsSql
       while (reader.Read())
       {
         var sp = map.Parse<Procedure>(reader);
-        sp.Parameters = parameters.Where(p => p.ProcedureId == sp.Id);
+        sp.Parameters.AddRange(parameters.Where(p => p.ProcedureId == sp.Id));
         ret.Add(sp);
       }
 
       return ret;
     }
 
-    private static IEnumerable<Parameter> ReadParameter(IMapper map, string conStr)
+    private static ICollection<Parameter> ReadParameter(IMapper map, string conStr)
     {
       var ret = new HashSet<Parameter>();
       string spName = StrVal.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
@@ -118,7 +118,7 @@ namespace DbContext.MsSql
 
     public Security(IConnectionManager conmng, ClaimsPrincipal cp, int appid)
     {
-      if (!int.TryParse(conmng.Get(StrVal.APPID), out RootId))
+      if (!int.TryParse(conmng.Get(StrVal.APP.AndId()), out RootId))
         RootId = appid;
 
       if (cp.IsInRole(StrVal.ADMIN))

@@ -9,6 +9,7 @@ using Microsoft.Data.SqlClient;
 
 using Constant;
 using Protos.Dal;
+using Google.Protobuf.Reflection;
 
 namespace DbContext.Interfaces
 {
@@ -37,18 +38,19 @@ namespace DbContext.Interfaces
 
     bool AddParameter(T obj) =>
       (obj != null) && obj.Descriptor.Fields.InDeclarationOrder()
-                                            .FirstOrDefault(fd => !AddParameter(fd.Name, fd.Accessor.GetValue(obj))) == null;
+                                            .FirstOrDefault(fd => !AddParameter(fd.Name, fd.Accessor.GetValue(obj)))
+                                            .Equals(null);
 
     int Create();
 
     bool Update();
 
-    int Create(T obj) => AddParameter(obj) ? Create() : -1;
+    int Create(T obj) => AddParameter(obj) ? Create() : throw new Exception(StrVal.PARAMETERNONVALID);
 
     bool Update(T obj) => AddParameter(obj) && Update();
 
     bool UpdateState(int id, int stateId) =>
-     AddParameter(Reader.Read(id)) && AddParameter(StrVal.STATE.AsId(), stateId) && Update();
+     AddParameter(Reader.Read(id)) && AddParameter(StrVal.STATE.AndId(), stateId) && Update();
 
     bool Delete(int id) => AddParameter(StrVal.ID, id) && Update();
   }
@@ -68,38 +70,43 @@ namespace DbContext.Interfaces
     Task<ICollection<T>> ReadAsync();
 
     bool AddParameter(IDictionary<string, object> parameters) =>
-      parameters.FirstOrDefault(p => !AddParameter(p.Key, p.Value)).Equals(default(KeyValuePair<string, object>));
+      parameters.FirstOrDefault(p => !AddParameter(p.Key, p.Value))
+                .Equals(default(KeyValuePair<string, object>));
 
-    T Read(int id) => Read(StrVal.ID, id).First();
+    T Read(int id)
+    {
+      var res = Read(StrVal.ID, id);
+      return res.Count == 0 ? default : res.First();
+    }
 
     ICollection<T> Read<S>(int id) where S : IMessage<S> =>
-      Read(typeof(S).Name.AsId(), id);
+      Read(typeof(S).Name.AndId(), id);
 
     ICollection<T> Read(string value) => Read(StrVal.VALUE, value);
 
     ICollection<T> Read(string key, object value) =>
-      AddParameter(key, value) ? Read() : null;
+      AddParameter(key, value) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
 
     ICollection<T> Read(IDictionary<string, object> parameters) =>
-      AddParameter(parameters) ? Read() : null;
+      AddParameter(parameters) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
 
     ICollection<T> ReadRange(string key, string values, char separator) =>
-      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? Read() : null;
+      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
 
     Task<ICollection<T>> ReadAsync<S>(int id) where S : IMessage<S> =>
-      ReadAsync(typeof(S).Name.AsId(), id);
+      ReadAsync(typeof(S).Name.AndId(), id);
 
     Task<ICollection<T>> ReadAsync(string value) =>
       ReadAsync(StrVal.VALUE, value);
 
     Task<ICollection<T>> ReadAsync(string key, object value) =>
-      AddParameter(key, value) ? ReadAsync() : null;
+      AddParameter(key, value) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
 
     Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) =>
-      AddParameter(parameters) ? ReadAsync() : null;
+      AddParameter(parameters) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
 
     Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) =>
-      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : null;
+      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
   }
 
   internal interface ICollectionProcedure

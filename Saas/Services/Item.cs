@@ -49,7 +49,7 @@ namespace Saas.Services
         return Task.FromResult(new Items());
 
       using var spMenuItem = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      var itemIds = (spMenuItem.IsReady) ? spMenuItem.ReadRange(typeof(Menu).Name.AsId(), string.Join(StrVal.COMA, menuIds), ',')?.Select(mi => mi.ItemId).Distinct()
+      var itemIds = (spMenuItem.IsReady) ? spMenuItem.ReadRange(typeof(Menu).Name.AndId(), string.Join(StrVal.COMA, menuIds), ',')?.Select(mi => mi.ItemId).Distinct()
                                          : throw new RpcException(new Status(StatusCode.PermissionDenied, spMenuItem.Error));
 
       if (itemIds == null)

@@ -10,7 +10,7 @@ namespace Constant
 
     public static string DotAnd(this string str, string more) => string.Concat(str.Dot(), more);
 
-    public static string AsId(this string str) => string.Concat(str, StrVal.ID);
+    public static string AndId(this string str) => string.Concat(str, StrVal.ID);
 
     public static string AsParameter(this string str) => string.Concat(StrVal.PARAMETERSYMBOL, str);
 

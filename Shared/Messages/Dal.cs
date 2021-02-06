@@ -10,7 +10,7 @@ namespace Protos.Dal
 {
   public partial class Procedure
   {
-    public IEnumerable<Parameter> Parameters { get; set; }
+    public readonly List<Parameter> Parameters = new List<Parameter>();
 
     public SqlCommand SqlCommand(string conStr) =>
       new SqlCommand(FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure };

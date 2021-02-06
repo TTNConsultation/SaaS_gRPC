@@ -6,8 +6,7 @@ namespace Protos.Message.Administrator
   {
     public Restaurants(ICollection<Restaurant> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 
@@ -15,8 +14,7 @@ namespace Protos.Message.Administrator
   {
     public Items(ICollection<Item> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 
@@ -24,8 +22,7 @@ namespace Protos.Message.Administrator
   {
     public RestaurantMenus(ICollection<RestaurantMenu> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 
@@ -33,8 +30,7 @@ namespace Protos.Message.Administrator
   {
     public Menus(ICollection<Menu> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 
@@ -42,8 +38,7 @@ namespace Protos.Message.Administrator
   {
     public MenuItems(ICollection<MenuItem> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 
@@ -51,8 +46,7 @@ namespace Protos.Message.Administrator
   {
     public Tables(ICollection<Table> values)
     {
-      if (values != null)
-        Values.AddRange(values);
+      Values.AddRange(values);
     }
   }
 }

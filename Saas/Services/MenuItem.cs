@@ -37,8 +37,8 @@ namespace Saas.Services
     {
       var parameters = new Dictionary<string, object>
       {
-        { typeof(Menu).Name.AsId(), menuItemIds.MenuId },
-        { typeof(Item).Name.AsId(), menuItemIds.ItemId }
+        { typeof(Menu).Name.AndId(), menuItemIds.MenuId },
+        { typeof(Item).Name.AndId(), menuItemIds.ItemId }
       };
 
       using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
