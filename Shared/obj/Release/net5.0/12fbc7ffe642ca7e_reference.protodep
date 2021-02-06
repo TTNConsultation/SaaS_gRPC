@@ -1,0 +1,2 @@
+obj\Release\net5.0\Protos/Reference.cs: Protos/language.proto\
+ Protos/reference.proto

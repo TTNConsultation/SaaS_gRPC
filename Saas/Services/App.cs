@@ -13,7 +13,7 @@ namespace Saas.Services
   internal class AppService : AppDataSvc.AppDataSvcBase
   {
     //private readonly ILogger<RestaurantService> _logger;
-    private readonly Protos.Shared.AppData _app;
+    private readonly AppData _app;
 
     private readonly IDbContext _context;
 

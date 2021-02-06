@@ -1,5 +1,4 @@
 using BlazorAdminPanel.Areas.Identity;
-using DbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Protos.Shared;
 using Protos.Shared.Interfaces;
+using DbContext.MsSql;
 
 namespace BlazorAdminPanel
 {

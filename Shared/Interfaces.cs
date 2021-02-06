@@ -74,7 +74,8 @@ namespace Protos.Shared.Interfaces
 
     ICollection<T> Read();
 
-    ICollection<T> ReadBy<S>(int id) => Read(nameof(S).AsId(), id);
+    ICollection<T> Read<S>(int id) where S : IMessage<S> =>
+      Read(typeof(S).Name.AsId(), id);
 
     ICollection<T> Read(string value) => Read(Constant.VALUE, value);
 
@@ -86,7 +87,8 @@ namespace Protos.Shared.Interfaces
 
     Task<ICollection<T>> ReadAsync();
 
-    Task<ICollection<T>> ReadAsyncBy<S>(int id) => ReadAsync(nameof(S).AsId(), id);
+    Task<ICollection<T>> ReadAsync<S>(int id) where S : IMessage<S> =>
+      ReadAsync(typeof(S).Name.AsId(), id);
 
     Task<ICollection<T>> ReadAsync(string value) => ReadAsync(Constant.VALUE, value);
 

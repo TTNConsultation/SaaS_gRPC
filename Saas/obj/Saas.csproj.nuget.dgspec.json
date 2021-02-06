@@ -128,7 +128,7 @@
           "dependencies": {
             "Grpc.AspNetCore.Web": {
               "target": "Package",
-              "version": "[2.34.0, )"
+              "version": "[2.35.0, )"
             },
             "Microsoft.AspNetCore.Authentication.Certificate": {
               "target": "Package",
@@ -219,7 +219,7 @@
             },
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.34.0, )"
+              "version": "[2.35.0, )"
             },
             "Grpc.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAdminPanel", "BlazorA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protos", "Shared\Protos.csproj", "{A5EC9A85-3A1F-403D-B9F9-845C5198E065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContext", "DbContext\DbContext.csproj", "{ED48E6A4-5BF5-4DB3-9E97-D77120C4D720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContext", "DbContext\DbContext.csproj", "{ED48E6A4-5BF5-4DB3-9E97-D77120C4D720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

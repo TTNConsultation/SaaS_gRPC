@@ -30,7 +30,7 @@
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.34.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.35.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="5.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.1" />

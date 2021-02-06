@@ -4,6 +4,7 @@ D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\appsettings.Developm
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\appsettings.json
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\libman.json
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Saas.dll
+D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Saas.deps.json
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Saas.runtimeconfig.json
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Saas.pdb
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Google.Protobuf.dll
@@ -14,14 +15,8 @@ D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Grpc.Core.Api.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Grpc.Net.Client.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Grpc.Net.ClientFactory.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Grpc.Net.Common.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\IdentityModel.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\IdentityModel.AspNetCore.OAuth2Introspection.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\IdentityServer4.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\IdentityServer4.AccessTokenValidation.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\IdentityServer4.Storage.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.Certificate.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Hosting.WindowsServices.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.Identity.Client.dll
@@ -30,7 +25,6 @@ D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityMo
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\System.Runtime.Caching.dll
@@ -45,6 +39,7 @@ D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\runtimes\win-x86\nat
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\StoreProcedure.dll
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\StoreProcedure.pdb
-D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Saas.deps.json
+D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\DbContext.dll
+D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Protos.dll
+D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\DbContext.pdb
+D:\Dev\SaaS_AllAboutFood\Saas\obj\Release\net5.0\PubTmp\Out\Protos.pdb

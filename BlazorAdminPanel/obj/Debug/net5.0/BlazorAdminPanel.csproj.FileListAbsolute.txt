@@ -116,5 +116,14 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.dll
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\ref\BlazorAdminPanel.dll
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.pdb
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.genruntimeconfig.cache
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Pages\Restaurant.razor.g.cs
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Pages\Restaurant.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Pages\Items.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Pages\Items.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Restaurants\App.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Restaurants\Pages\Index.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Restaurants\Shared\MainLayout.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\Areas\Restaurants\Shared\NavMenu.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Restaurants\App.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Restaurants\Pages\Index.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Restaurants\Shared\MainLayout.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Restaurants\Shared\NavMenu.razor.g.cs
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\Razor\Areas\Restaurants\Pages\_Host.cshtml.g.cs

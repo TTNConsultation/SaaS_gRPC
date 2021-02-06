@@ -17,25 +17,25 @@ namespace Saas.Services
 
     private readonly References _refData;
 
-    public TableService(IDbContext context, Protos.Shared.AppData appData)
+    public TableService(IDbContext context, AppData appData)
     {
       //_logger = log;
       _dbContext = context;
       _refData = appData.RefDatas;
     }
 
-    public override async Task<Table> Get(Value id, ServerCallContext context)
+    public override Task<Table> Get(Value id, ServerCallContext context)
     {
       using var sp = _dbContext.Read<Table>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return await ((sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
+      return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
-    public override async Task<Tables> GetByRestaurant(Value restaurantId, ServerCallContext context)
+    public override Task<Tables> GetByRestaurant(Value restaurantId, ServerCallContext context)
     {
       using var sp = _dbContext.Read<Table>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return await ((sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.AsId(), (int)restaurantId.NumberValue)))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error))).ConfigureAwait(false);
+      return (sp.IsReady) ? Task.FromResult(new Tables(sp.Read(typeof(Restaurant).Name.AsId(), (int)restaurantId.NumberValue)))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
   }
 }

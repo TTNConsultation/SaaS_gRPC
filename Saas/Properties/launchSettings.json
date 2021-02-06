@@ -8,16 +8,7 @@
     }
   },
   "profiles": {
-    "REST": {
-      "commandName": "Project",
-      "launchBrowser": false,
-      "launchUrl": "Restaurant",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:6001"
-    },
-    "gRPC": {
+    "console": {
       "commandName": "Project",
       "launchBrowser": false,
       "applicationUrl": "https://localhost:6001",

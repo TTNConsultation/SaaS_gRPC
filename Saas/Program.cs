@@ -9,10 +9,13 @@ namespace Shared
 {
   public class Program
   {
-    public static readonly string SocketPath = Path.Combine(Path.GetTempPath(), "socket.tmp");
+    public static readonly string SocketPath = Path.Combine(Directory.GetCurrentDirectory(), "socket.tmp");
 
     public static void Main(string[] args)
     {
+      if (File.Exists(SocketPath))
+        File.Delete(SocketPath);
+
       CreateHostBuilder(args).Build().Run();
     }
 
@@ -25,16 +28,14 @@ namespace Shared
           {
             webBuilder.ConfigureKestrel(kestrelOptions =>
             {
+              kestrelOptions.ListenUnixSocket(SocketPath);
+              kestrelOptions.ListenAnyIP(6001);
               kestrelOptions.ConfigureEndpointDefaults(listenOptions => listenOptions.Protocols = HttpProtocols.Http2);
               kestrelOptions.ConfigureHttpsDefaults(httpsOptions =>
               {
                 httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
                 httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
               });
-
-              //if (File.Exists(SocketPath))
-              //  File.Delete(SocketPath);
-              //kestrelOptions.ListenUnixSocket(SocketPath);
             });
             webBuilder.UseStartup<Startup>();
           });

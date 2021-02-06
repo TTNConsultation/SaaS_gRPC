@@ -25,13 +25,11 @@ message Restaurants{
 message Item{
     int32 Id = 1;
     int32 RestaurantId = 2;
-    float Price = 3;
-    bool IsExtra = 4;
+    int32 NameKey = 3;
+    int32 DescriptionKey = 4;
     int32 StateId = 5;
-    int32 NameKey = 6;
-    int32 DescriptionKey = 7;
-  }
-message Items{  
+}
+message Items{
   repeated Item values = 1;
 }
 

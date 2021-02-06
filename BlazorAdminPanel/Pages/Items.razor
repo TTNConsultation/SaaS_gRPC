@@ -1,0 +1,29 @@
+﻿@page "/Restaurant/{RestaurantId:int}/Items"
+@using Protos = Protos.Shared.Message.Administrator
+
+<h3>Item</h3>
+
+@code {
+  [Inject] IDbContext dbContext { get; set; }
+  [Inject] AppData app { get; set; }
+  [Inject] AuthenticationStateProvider authenticationStateProvider { get; set; }
+
+  [Parameter]
+  public int RestaurantId { get; set; }
+
+  public static AuthenticationState AuState = null;
+
+  private Protos.Items _items;
+
+  protected override void OnInitialized()
+  {
+    AuState = authenticationStateProvider.GetAuthenticationStateAsync().Result;
+    if (!AuState.User.IsInRole(Constant.ADMIN))
+    {
+      throw new Exception("You have no right to access this page");
+    }
+
+    using var sp = dbContext.Read<Protos.Item>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
+    _items = (sp.IsReady) ? new Protos.Items(sp.Read<Protos.Restaurant>(RestaurantId)) : null;
+  }
+};

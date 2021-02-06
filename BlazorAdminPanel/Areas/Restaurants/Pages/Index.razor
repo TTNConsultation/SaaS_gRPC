@@ -1,0 +1,62 @@
+﻿@page "/Restaurant/"
+@namespace BlazorAdminPanel.Restaurant
+@using Protos = Protos.Shared.Message.Administrator
+
+<h1>Restaurants</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (_rests == null)
+{
+  <p><em>Loading...</em></p>
+}
+else
+{
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Restaurant</th>
+        <th>Location</th>
+        <th>Unit</th>
+        <th>Street Name</th>
+        <th>Phone</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var _rest in _rests.Values)
+      {
+        <tr>
+          <td><a href="/Restaurant/@_rest.Id/Items">@_rest.Name</a></td>
+          <td>@_rest.RestaurantLocationName</td>
+          <td>@_rest.LocationUnit</td>
+          <td>@_rest.LocationStreetName</td>
+          <td>@_rest.RestaurantLocationPhoneNumber</td>
+          <td><a href="@_rest.LocationLink" class="material-icons" style="font-size:24px;color:blue">add_location</a></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+
+@code {
+  [Inject] IDbContext dbContext { get; set; }
+  [Inject] AppData app { get; set; }
+  [Inject] AuthenticationStateProvider authenticationStateProvider { get; set; }
+
+  public static AuthenticationState AuState = null;
+
+  private Protos.Restaurants _rests;
+
+  protected override void OnInitialized()
+  {
+    AuState = authenticationStateProvider.GetAuthenticationStateAsync().Result;
+    if (!AuState.User.IsInRole(Constant.ADMIN))
+    {
+      throw new Exception("You have no right to access this page");
+    }
+
+    using var sp = dbContext.Read<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
+    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho")) : null;
+  }
+};

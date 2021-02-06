@@ -5,7 +5,7 @@ namespace Protos.Shared.Message.Language
 {
   public partial class Keys
   {
-    public Keys(IEnumerable<Key> values)
+    public Keys(ICollection<Key> values)
     {
       Values.AddRange(values);
     }
@@ -18,7 +18,7 @@ namespace Protos.Shared.Message.Language
 
   public partial class SupportedLanguages
   {
-    public SupportedLanguages(IEnumerable<CodeLanguage> values)
+    public SupportedLanguages(ICollection<CodeLanguage> values)
     {
       Values.AddRange(values);
     }
@@ -36,7 +36,7 @@ namespace Protos.Shared.Message.Language
 
     public string UniqueCode => string.Concat(RootId.ToString(), ".", Language.Code);
 
-    public Dictionary(int rootId, CodeLanguage lang, Keys allkeys, IEnumerable<DictKeyValuePair> content)
+    public Dictionary(int rootId, CodeLanguage lang, Keys allkeys, ICollection<DictKeyValuePair> content)
     {
       RootId = rootId;
       Language = lang;

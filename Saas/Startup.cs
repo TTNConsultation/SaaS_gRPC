@@ -1,5 +1,4 @@
-﻿using DbContext;
-using Protos.Shared.Interfaces;
+﻿using Protos.Shared.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Saas.Services;
 
 using Protos.Shared;
+using DbContext.MsSql;
 
 namespace Shared
 {
