@@ -1,0 +1,132 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+using Google.Protobuf;
+using Microsoft.Data.SqlClient;
+
+using Constant;
+using Protos.Dal;
+
+namespace DbContext.Interfaces
+{
+  public enum OperationType { C, R, RR, U, D }
+
+  public interface IDbContext
+  {
+    IExecuteReader<T> ReferenceData<T>(int rootId = 0) where T : IMessage<T>, new();
+
+    IExecuteReader<T> GetReader<T>(int appId, ClaimsPrincipal uc, OperationType op = OperationType.R) where T : IMessage<T>, new();
+
+    IExecuteNonQuery<T> GetWriter<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new();
+  }
+
+  public interface IExecuteNonQuery<T> : IDisposable where T : IMessage<T>, new()
+  {
+    string Error { get; }
+
+    int RootId { get; }
+
+    bool IsReady { get; }
+
+    IExecuteReader<T> Reader { get; }
+
+    bool AddParameter(string key, object value);
+
+    bool AddParameter(T obj) =>
+      (obj != null) && obj.Descriptor.Fields.InDeclarationOrder()
+                                            .FirstOrDefault(fd => !AddParameter(fd.Name, fd.Accessor.GetValue(obj))) == null;
+
+    int Create();
+
+    bool Update();
+
+    int Create(T obj) => AddParameter(obj) ? Create() : -1;
+
+    bool Update(T obj) => AddParameter(obj) && Update();
+
+    bool UpdateState(int id, int stateId) =>
+     AddParameter(Reader.Read(id)) && AddParameter(StrVal.STATE.AsId(), stateId) && Update();
+
+    bool Delete(int id) => AddParameter(StrVal.ID, id) && Update();
+  }
+
+  public interface IExecuteReader<T> : IDisposable where T : IMessage<T>, new()
+  {
+    string Error { get; }
+
+    int RootId { get; }
+
+    bool IsReady { get; }
+
+    bool AddParameter(string key, object value);
+
+    ICollection<T> Read();
+
+    Task<ICollection<T>> ReadAsync();
+
+    bool AddParameter(IDictionary<string, object> parameters) =>
+      parameters.FirstOrDefault(p => !AddParameter(p.Key, p.Value)).Equals(default(KeyValuePair<string, object>));
+
+    T Read(int id) => Read(StrVal.ID, id).First();
+
+    ICollection<T> Read<S>(int id) where S : IMessage<S> =>
+      Read(typeof(S).Name.AsId(), id);
+
+    ICollection<T> Read(string value) => Read(StrVal.VALUE, value);
+
+    ICollection<T> Read(string key, object value) =>
+      AddParameter(key, value) ? Read() : null;
+
+    ICollection<T> Read(IDictionary<string, object> parameters) =>
+      AddParameter(parameters) ? Read() : null;
+
+    ICollection<T> ReadRange(string key, string values, char separator) =>
+      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? Read() : null;
+
+    Task<ICollection<T>> ReadAsync<S>(int id) where S : IMessage<S> =>
+      ReadAsync(typeof(S).Name.AsId(), id);
+
+    Task<ICollection<T>> ReadAsync(string value) =>
+      ReadAsync(StrVal.VALUE, value);
+
+    Task<ICollection<T>> ReadAsync(string key, object value) =>
+      AddParameter(key, value) ? ReadAsync() : null;
+
+    Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) =>
+      AddParameter(parameters) ? ReadAsync() : null;
+
+    Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) =>
+      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : null;
+  }
+
+  internal interface ICollectionProcedure
+  {
+    Procedure Get(string typename, OperationType op);
+
+    Procedure Get<T>(OperationType op) where T : IMessage<T> => Get(typeof(T).Name, op);
+  }
+
+  internal interface IConnectionManager
+  {
+    string Get(string schema);
+
+    string App(string appSchema = StrVal.APP) => Get(appSchema);
+  }
+
+  internal interface ICollectionMapper
+  {
+    IMapper Get(Type type);
+
+    IMapper Get<T>() where T : IMessage<T> => Get(typeof(T));
+  }
+
+  internal interface IMapper
+  {
+    bool IsType(Type type);
+
+    T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new();
+  }
+}

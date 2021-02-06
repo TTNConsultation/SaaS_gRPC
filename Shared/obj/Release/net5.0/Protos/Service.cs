@@ -81,7 +81,7 @@ namespace Saas.Services {
             "CgpEaWN0aW9uYXJ5EhYuTGFuZ3VhZ2UuQ29kZUxhbmd1YWdlGhQuTGFuZ3Vh",
             "Z2UuRGljdGlvbmFyeUIQqgINU2Fhcy5TZXJ2aWNlc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Protos.Shared.Message.Language.LanguageReflection.Descriptor, global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor, global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Protos.Message.Language.LanguageReflection.Descriptor, global::Protos.Message.Reference.ReferenceReflection.Descriptor, global::Protos.Message.Administrator.AdministratorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, null));
     }
     #endregion

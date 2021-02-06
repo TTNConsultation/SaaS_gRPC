@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Protos.Shared.Message.Language";
+option csharp_namespace = "Protos.Message.Language";
 
 package Language;
 

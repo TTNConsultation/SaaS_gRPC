@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Protos.Shared.Interfaces;
 using Microsoft.Data.SqlClient;
 
-namespace Protos.Shared.Dal
+using Constant;
+
+namespace Protos.Dal
 {
-  public partial class Procedure : IProcedure
+  public partial class Procedure
   {
-    public IEnumerable<IParameter> Parameters { get; set; }
+    public IEnumerable<Parameter> Parameters { get; set; }
 
     public SqlCommand SqlCommand(string conStr) =>
       new SqlCommand(FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure };
 
-    public IParameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
+    public Parameter Parameter(string name) => Parameters.FirstOrDefault(p => p.ParameterName.IsEqual(name.AsParameter()));
 
-    public bool IsEqual(string spName, OperationType op) => this.Type.IsEqual(spName) && Op.IsEqual(op.ToString());
+    public bool IsEqual(string spName, string operation) => this.Type.IsEqual(spName) && this.Op.IsEqual(operation);
   }
 
-  public partial class Parameter : IParameter
+  public partial class Parameter
   {
     private int Size(object value)
     {

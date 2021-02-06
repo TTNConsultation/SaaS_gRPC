@@ -77,14 +77,21 @@ using BlazorAdminPanel.Shared;
 #nullable disable
 #nullable restore
 #line 10 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Protos.Shared;
+using Protos;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Protos.Shared.Interfaces;
+using Protos.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
+using Grpc.Core;
 
 #line default
 #line hidden

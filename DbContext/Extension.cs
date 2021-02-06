@@ -6,8 +6,6 @@ using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
-using Protos.Shared.Interfaces;
-
 namespace DbContext
 {
   internal static class Extension
@@ -26,30 +24,6 @@ namespace DbContext
         FieldType.Bytes => Convert.ChangeType(obj, typeof(ByteString)),
         _ => obj,
       };
-    }
-
-    public static ICollection<T> Parse<T>(this SqlDataReader reader, IMapper map) where T : IMessage<T>, new()
-    {
-      var ret = new HashSet<T>();
-
-      while (reader.Read())
-      {
-        ret.Add(map.Parse<T>(reader));
-      }
-
-      return ret;
-    }
-
-    public async static Task<ICollection<T>> ParseAsync<T>(this SqlDataReader reader, IMapper map) where T : IMessage<T>, new()
-    {
-      var ret = new HashSet<T>();
-
-      while (await reader.ReadAsync().ConfigureAwait(false))
-      {
-        ret.Add(map.Parse<T>(reader));
-      }
-
-      return ret;
     }
   }
 }

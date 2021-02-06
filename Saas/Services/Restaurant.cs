@@ -1,11 +1,10 @@
-using Protos.Shared.Interfaces;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Protos.Shared.Message.Administrator;
 using System.Threading.Tasks;
 
-using Protos.Shared;
+using Protos.Message.Administrator;
+using DbContext.Interfaces;
 
 namespace Saas.Services
 {
@@ -25,7 +24,7 @@ namespace Saas.Services
 
     public override Task<Restaurant> Get(Value id, ServerCallContext context)
     {
-      using var sp = _dbContext.Read<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _dbContext.GetReader<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
@@ -34,28 +33,28 @@ namespace Saas.Services
     {
       //var ctx = context.GetHttpContext().Connection.ClientCertificate;
 
-      using var sp = _dbContext.Read<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _dbContext.GetReader<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(new Restaurants(sp.Read(lookupStr.StringValue)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<Value> Create(Restaurant obj, ServerCallContext context)
     {
-      using var sp = _dbContext.Write<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
+      using var sp = _dbContext.GetWriter<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
       return (sp.IsReady) ? Task.FromResult(new Value() { NumberValue = sp.Create(obj) })
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<Value> Update(Restaurant obj, ServerCallContext context)
     {
-      using var sp = _dbContext.Write<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.U);
+      using var sp = _dbContext.GetWriter<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.U);
       return (sp.IsReady) ? Task.FromResult(new Value { BoolValue = sp.Update(obj) })
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<Value> Delete(Value id, ServerCallContext context)
     {
-      using var sp = _dbContext.Write<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.D);
+      using var sp = _dbContext.GetWriter<Restaurant>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.D);
       return (sp.IsReady) ? Task.FromResult(new Value { BoolValue = sp.UpdateState((int)id.NumberValue, _app.RefDatas.States.DeleteId) })
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }

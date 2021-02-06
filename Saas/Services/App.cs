@@ -1,12 +1,11 @@
-﻿using Protos.Shared.Interfaces;
-using Google.Protobuf.WellKnownTypes;
+﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Protos.Shared.Message.Language;
-using Protos.Shared.Message.Reference;
 using System.Threading.Tasks;
 
-using Protos.Shared;
+using Protos.Message.Language;
+using Protos.Message.Reference;
+using DbContext.Interfaces;
 
 namespace Saas.Services
 {
@@ -38,7 +37,7 @@ namespace Saas.Services
 
     public override async Task<Dictionary> Dictionary(CodeLanguage lang, ServerCallContext context)
     {
-      using var sp = _context.Read<DictKeyValuePair>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _context.GetReader<DictKeyValuePair>(_app.RefDatas.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return await Task.FromResult(_app.DictCache.Get(sp.RootId, lang) ??
                                    _app.DictCache.Add(new Dictionary(sp.RootId,
                                                                      lang,

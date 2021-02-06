@@ -77,21 +77,28 @@ using BlazorAdminPanel.Shared;
 #nullable disable
 #nullable restore
 #line 10 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Protos.Shared;
+using Constant;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Protos.Shared.Interfaces;
+using DbContext.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
+using Grpc.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Pages\Items.razor"
-using Protos = Protos.Shared.Message.Administrator;
+using Protos = Protos.Message.Administrator;
 
 #line default
 #line hidden
@@ -121,13 +128,14 @@ using Protos = Protos.Shared.Message.Administrator;
   protected override void OnInitialized()
   {
     AuState = authenticationStateProvider.GetAuthenticationStateAsync().Result;
-    if (!AuState.User.IsInRole(Constant.ADMIN))
+    if (!AuState.User.IsInRole(StrVal.ADMIN))
     {
       throw new Exception("You have no right to access this page");
     }
 
-    using var sp = dbContext.Read<Protos.Item>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
-    _items = (sp.IsReady) ? new Protos.Items(sp.Read<Protos.Restaurant>(RestaurantId)) : null;
+    using var sp = dbContext.GetReader<Protos.Item>(app.RefDatas.AppSetting.Id, AuState.User);
+    _items = (sp.IsReady) ? new Protos.Items(sp.Read<Protos.Restaurant>(RestaurantId))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
   }
 
 #line default

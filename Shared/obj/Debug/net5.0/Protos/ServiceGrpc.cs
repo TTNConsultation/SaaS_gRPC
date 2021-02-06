@@ -43,31 +43,31 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Restaurant> __Marshaller_Administrator_Restaurant = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Restaurant.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Restaurants> __Marshaller_Administrator_Restaurants = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Restaurants.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Restaurant> __Marshaller_Administrator_Restaurant = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Restaurant.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Restaurants> __Marshaller_Administrator_Restaurants = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Restaurants.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Restaurant> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Restaurant>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Restaurant> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Restaurant>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Restaurant);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Restaurants> __Method_Lookup = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Restaurants>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Restaurants> __Method_Lookup = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Restaurants>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Lookup",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Restaurants);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Shared.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Restaurant,
         __Marshaller_google_protobuf_Value);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Shared.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
@@ -91,22 +91,22 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(RestaurantSvc), "BindService")]
     public abstract partial class RestaurantSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Restaurant> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Restaurant> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Restaurants> Lookup(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Restaurants> Lookup(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Message.Administrator.Restaurant request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Message.Administrator.Restaurant request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -141,67 +141,67 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Administrator.Restaurant Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Restaurant Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Restaurant Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Restaurant Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Restaurant> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Restaurant> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Restaurant> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Restaurant> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.Restaurants Lookup(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Restaurants Lookup(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Lookup(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Restaurants Lookup(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Restaurants Lookup(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Lookup, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Restaurants> LookupAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Restaurants> LookupAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return LookupAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Restaurants> LookupAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Restaurants> LookupAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Lookup, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Create(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Restaurant request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Restaurant request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Update(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Restaurant request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Update, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Restaurant request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Restaurant request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Restaurant request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
@@ -246,10 +246,10 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, RestaurantSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Restaurant>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_Lookup, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Restaurants>(serviceImpl.Lookup));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Restaurant>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_Lookup, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Restaurants>(serviceImpl.Lookup));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Restaurant, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Delete));
     }
 
@@ -289,31 +289,31 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Table> __Marshaller_Administrator_Table = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Table.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Tables> __Marshaller_Administrator_Tables = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Tables.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Table> __Marshaller_Administrator_Table = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Table.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Tables> __Marshaller_Administrator_Tables = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Tables.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Table> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Table>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Table> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Table>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Table);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Tables> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Tables>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Tables> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Tables>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Tables);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Shared.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Table,
         __Marshaller_google_protobuf_Value);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Shared.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
@@ -337,22 +337,22 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(TableSvc), "BindService")]
     public abstract partial class TableSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Table> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Table> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Tables> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Tables> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Shared.Message.Administrator.Table request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Message.Administrator.Table request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Shared.Message.Administrator.Table request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Message.Administrator.Table request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -387,67 +387,67 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Administrator.Table Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Table Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Table Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Table Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Table> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Table> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Table> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Table> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.Tables GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Tables GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurant(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Tables GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Tables GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Tables> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Tables> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Tables> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Tables> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Create(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Table request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Table request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Table request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Table request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Update(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Table request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Table request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Update, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Table request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Table request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Table request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
@@ -492,10 +492,10 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, TableSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Table>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Tables>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Table>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Tables>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Table, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Delete));
     }
 
@@ -535,38 +535,38 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Item> __Marshaller_Administrator_Item = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Item.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Items.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Item> __Marshaller_Administrator_Item = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Item.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Items> __Marshaller_Administrator_Items = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Items.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Item> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Item>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Item> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Item>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Item);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Items> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Items>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Items> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Items>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Items);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Items> __Method_GetByRestaurantMenu = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Items>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Items> __Method_GetByRestaurantMenu = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Items>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurantMenu",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Items);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Shared.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Item,
         __Marshaller_google_protobuf_Value);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Shared.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
@@ -583,27 +583,27 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(ItemSvc), "BindService")]
     public abstract partial class ItemSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Item> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Item> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Items> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Items> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Items> GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Items> GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Shared.Message.Administrator.Item request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Message.Administrator.Item request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Shared.Message.Administrator.Item request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Message.Administrator.Item request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -633,83 +633,83 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Administrator.Item Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Item Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Item Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Item Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Item> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Item> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Item> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Item> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.Items GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Items GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurant(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Items GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Items GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Items> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Items> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Items> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Items> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.Items GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Items GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantMenu(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Items GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Items GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByRestaurantMenu, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Items> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Items> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantMenuAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Items> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Items> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByRestaurantMenu, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Create(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Item request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Item request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Item request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Item request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Update(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Item request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Item request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Update, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Item request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Item request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Item request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
@@ -738,11 +738,11 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ItemSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Item>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Items>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Items>(serviceImpl.GetByRestaurantMenu));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Item>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Items>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Items>(serviceImpl.GetByRestaurantMenu));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Item, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
     }
 
   }
@@ -781,31 +781,31 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.RestaurantMenu> __Marshaller_Administrator_RestaurantMenu = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.RestaurantMenu.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.RestaurantMenus> __Marshaller_Administrator_RestaurantMenus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.RestaurantMenus.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.RestaurantMenu> __Marshaller_Administrator_RestaurantMenu = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.RestaurantMenu.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.RestaurantMenus> __Marshaller_Administrator_RestaurantMenus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.RestaurantMenus.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.RestaurantMenu> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.RestaurantMenu>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.RestaurantMenu> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.RestaurantMenu>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_RestaurantMenu);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.RestaurantMenus> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.RestaurantMenus>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.RestaurantMenus> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.RestaurantMenus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_RestaurantMenus);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Shared.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_RestaurantMenu,
         __Marshaller_google_protobuf_Value);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Shared.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
@@ -829,22 +829,22 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(RestaurantMenuSvc), "BindService")]
     public abstract partial class RestaurantMenuSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.RestaurantMenu> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.RestaurantMenu> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.RestaurantMenus> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.RestaurantMenus> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Message.Administrator.RestaurantMenu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Message.Administrator.RestaurantMenu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -879,67 +879,67 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Administrator.RestaurantMenu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.RestaurantMenu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.RestaurantMenu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.RestaurantMenu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.RestaurantMenu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.RestaurantMenu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.RestaurantMenu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.RestaurantMenu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.RestaurantMenus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.RestaurantMenus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurant(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.RestaurantMenus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.RestaurantMenus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.RestaurantMenus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.RestaurantMenus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.RestaurantMenus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.RestaurantMenus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Create(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Update(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Update, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.RestaurantMenu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.RestaurantMenu request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
@@ -984,10 +984,10 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, RestaurantMenuSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.RestaurantMenu>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.RestaurantMenus>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.RestaurantMenu>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.RestaurantMenus>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.RestaurantMenu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Delete));
     }
 
@@ -1027,38 +1027,38 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Menu> __Marshaller_Administrator_Menu = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Menu.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.Menus> __Marshaller_Administrator_Menus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.Menus.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Menu> __Marshaller_Administrator_Menu = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Menu.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.Menus> __Marshaller_Administrator_Menus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.Menus.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menu> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menu>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menu> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menu>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Menu);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menus> __Method_GetByRestaurantMenu = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menus>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menus> __Method_GetByRestaurantMenu = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurantMenu",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Menus);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menus> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menus>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menus> __Method_GetByRestaurant = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByRestaurant",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_Menus);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Shared.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
         __Marshaller_Administrator_Menu,
         __Marshaller_google_protobuf_Value);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Shared.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value> __Method_Update = new grpc::Method<global::Protos.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Update",
@@ -1082,27 +1082,27 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(MenuSvc), "BindService")]
     public abstract partial class MenuSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Menu> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Menu> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Menus> GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Menus> GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.Menus> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.Menus> GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Shared.Message.Administrator.Menu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Message.Administrator.Menu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Shared.Message.Administrator.Menu request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Update(global::Protos.Message.Administrator.Menu request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1137,83 +1137,83 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Administrator.Menu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Menu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Menu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Menu Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Menu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Menu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Menu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Menu> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.Menus GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Menus GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantMenu(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Menus GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Menus GetByRestaurantMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByRestaurantMenu, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Menus> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Menus> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantMenuAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Menus> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Menus> GetByRestaurantMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByRestaurantMenu, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.Menus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.Menus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurant(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.Menus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.Menus GetByRestaurant(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Menus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Menus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByRestaurantAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.Menus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.Menus> GetByRestaurantAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByRestaurant, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Create(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.Menu request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.Menu request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.Menu request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.Menu request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Update(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Shared.Message.Administrator.Menu request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Update(global::Protos.Message.Administrator.Menu request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Update, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Menu request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Shared.Message.Administrator.Menu request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> UpdateAsync(global::Protos.Message.Administrator.Menu request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
@@ -1259,11 +1259,11 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, MenuSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menu>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menus>(serviceImpl.GetByRestaurantMenu));
-      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.Menus>(serviceImpl.GetByRestaurant));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
-      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menu>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByRestaurantMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menus>(serviceImpl.GetByRestaurantMenu));
+      serviceBinder.AddMethod(__Method_GetByRestaurant, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.Menus>(serviceImpl.GetByRestaurant));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.Menu, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Update));
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Delete));
     }
 
@@ -1303,39 +1303,39 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.MenuItem> __Marshaller_Administrator_MenuItem = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.MenuItem.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.MenuItems> __Marshaller_Administrator_MenuItems = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.MenuItems.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Administrator.MenuItemIds> __Marshaller_Administrator_MenuItemIds = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Administrator.MenuItemIds.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.MenuItem> __Marshaller_Administrator_MenuItem = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.MenuItem.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.MenuItems> __Marshaller_Administrator_MenuItems = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.MenuItems.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Administrator.MenuItemIds> __Marshaller_Administrator_MenuItemIds = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Administrator.MenuItemIds.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItem> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItem>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItem> __Method_Get = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItem>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_MenuItem);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItems> __Method_GetByMenu = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItems>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItems> __Method_GetByMenu = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItems>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByMenu",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_MenuItems);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItems> __Method_GetByItem = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItems>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItems> __Method_GetByItem = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItems>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByItem",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Administrator_MenuItems);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.MenuItemIds, global::Protos.Shared.Message.Administrator.MenuItem> __Method_GetByMenuAndItem = new grpc::Method<global::Protos.Shared.Message.Administrator.MenuItemIds, global::Protos.Shared.Message.Administrator.MenuItem>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.MenuItemIds, global::Protos.Message.Administrator.MenuItem> __Method_GetByMenuAndItem = new grpc::Method<global::Protos.Message.Administrator.MenuItemIds, global::Protos.Message.Administrator.MenuItem>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetByMenuAndItem",
         __Marshaller_Administrator_MenuItemIds,
         __Marshaller_Administrator_MenuItem);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Administrator.MenuItem, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Shared.Message.Administrator.MenuItem, global::Google.Protobuf.WellKnownTypes.Value>(
+    static readonly grpc::Method<global::Protos.Message.Administrator.MenuItem, global::Google.Protobuf.WellKnownTypes.Value> __Method_Create = new grpc::Method<global::Protos.Message.Administrator.MenuItem, global::Google.Protobuf.WellKnownTypes.Value>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Create",
@@ -1359,27 +1359,27 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(MenuItemSvc), "BindService")]
     public abstract partial class MenuItemSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.MenuItem> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.MenuItem> Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.MenuItems> GetByMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.MenuItems> GetByMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.MenuItems> GetByItem(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.MenuItems> GetByItem(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Administrator.MenuItem> GetByMenuAndItem(global::Protos.Shared.Message.Administrator.MenuItemIds request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Administrator.MenuItem> GetByMenuAndItem(global::Protos.Message.Administrator.MenuItemIds request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Shared.Message.Administrator.MenuItem request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Value> Create(global::Protos.Message.Administrator.MenuItem request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1414,83 +1414,83 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Administrator.MenuItem Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.MenuItem Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItem Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.MenuItem Get(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItem> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItem> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItem> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItem> GetAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItems GetByMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.MenuItems GetByMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByMenu(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItems GetByMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.MenuItems GetByMenu(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByMenu, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItems> GetByMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItems> GetByMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByMenuAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItems> GetByMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItems> GetByMenuAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByMenu, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItems GetByItem(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.MenuItems GetByItem(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByItem(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItems GetByItem(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.MenuItems GetByItem(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByItem, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItems> GetByItemAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItems> GetByItemAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByItemAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItems> GetByItemAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItems> GetByItemAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByItem, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItem GetByMenuAndItem(global::Protos.Shared.Message.Administrator.MenuItemIds request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Administrator.MenuItem GetByMenuAndItem(global::Protos.Message.Administrator.MenuItemIds request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByMenuAndItem(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Administrator.MenuItem GetByMenuAndItem(global::Protos.Shared.Message.Administrator.MenuItemIds request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Administrator.MenuItem GetByMenuAndItem(global::Protos.Message.Administrator.MenuItemIds request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetByMenuAndItem, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItem> GetByMenuAndItemAsync(global::Protos.Shared.Message.Administrator.MenuItemIds request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItem> GetByMenuAndItemAsync(global::Protos.Message.Administrator.MenuItemIds request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetByMenuAndItemAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Administrator.MenuItem> GetByMenuAndItemAsync(global::Protos.Shared.Message.Administrator.MenuItemIds request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Administrator.MenuItem> GetByMenuAndItemAsync(global::Protos.Message.Administrator.MenuItemIds request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByMenuAndItem, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.MenuItem request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.MenuItem request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Create(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Shared.Message.Administrator.MenuItem request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Value Create(global::Protos.Message.Administrator.MenuItem request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.MenuItem request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.MenuItem request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Shared.Message.Administrator.MenuItem request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Value> CreateAsync(global::Protos.Message.Administrator.MenuItem request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
@@ -1536,11 +1536,11 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, MenuItemSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItem>(serviceImpl.Get));
-      serviceBinder.AddMethod(__Method_GetByMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItems>(serviceImpl.GetByMenu));
-      serviceBinder.AddMethod(__Method_GetByItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Administrator.MenuItems>(serviceImpl.GetByItem));
-      serviceBinder.AddMethod(__Method_GetByMenuAndItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.MenuItemIds, global::Protos.Shared.Message.Administrator.MenuItem>(serviceImpl.GetByMenuAndItem));
-      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Administrator.MenuItem, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
+      serviceBinder.AddMethod(__Method_Get, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItem>(serviceImpl.Get));
+      serviceBinder.AddMethod(__Method_GetByMenu, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItems>(serviceImpl.GetByMenu));
+      serviceBinder.AddMethod(__Method_GetByItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Administrator.MenuItems>(serviceImpl.GetByItem));
+      serviceBinder.AddMethod(__Method_GetByMenuAndItem, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.MenuItemIds, global::Protos.Message.Administrator.MenuItem>(serviceImpl.GetByMenuAndItem));
+      serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Administrator.MenuItem, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Create));
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Google.Protobuf.WellKnownTypes.Value>(serviceImpl.Delete));
     }
 
@@ -1580,42 +1580,42 @@ namespace Saas.Services {
     }
 
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Value> __Marshaller_google_protobuf_Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Value.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Language.SupportedLanguages> __Marshaller_Language_SupportedLanguages = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Language.SupportedLanguages.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Reference.States> __Marshaller_Reference_States = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Reference.States.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Reference.KeyTypes> __Marshaller_Reference_KeyTypes = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Reference.KeyTypes.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Reference.References> __Marshaller_Reference_References = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Reference.References.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Language.CodeLanguage> __Marshaller_Language_CodeLanguage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Language.CodeLanguage.Parser));
-    static readonly grpc::Marshaller<global::Protos.Shared.Message.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Shared.Message.Language.Dictionary.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Language.SupportedLanguages> __Marshaller_Language_SupportedLanguages = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Language.SupportedLanguages.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Reference.States> __Marshaller_Reference_States = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Reference.States.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Reference.KeyTypes> __Marshaller_Reference_KeyTypes = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Reference.KeyTypes.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Reference.References> __Marshaller_Reference_References = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Reference.References.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Language.CodeLanguage> __Marshaller_Language_CodeLanguage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Language.CodeLanguage.Parser));
+    static readonly grpc::Marshaller<global::Protos.Message.Language.Dictionary> __Marshaller_Language_Dictionary = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Protos.Message.Language.Dictionary.Parser));
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Language.SupportedLanguages> __Method_SupportedLanguages = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Language.SupportedLanguages>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Language.SupportedLanguages> __Method_SupportedLanguages = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Language.SupportedLanguages>(
         grpc::MethodType.Unary,
         __ServiceName,
         "SupportedLanguages",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Language_SupportedLanguages);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.States> __Method_States = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.States>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.States> __Method_States = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.States>(
         grpc::MethodType.Unary,
         __ServiceName,
         "States",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Reference_States);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.KeyTypes> __Method_KeyTypes = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.KeyTypes>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.KeyTypes> __Method_KeyTypes = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.KeyTypes>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KeyTypes",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Reference_KeyTypes);
 
-    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.References> __Method_References = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.References>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.References> __Method_References = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.References>(
         grpc::MethodType.Unary,
         __ServiceName,
         "References",
         __Marshaller_google_protobuf_Value,
         __Marshaller_Reference_References);
 
-    static readonly grpc::Method<global::Protos.Shared.Message.Language.CodeLanguage, global::Protos.Shared.Message.Language.Dictionary> __Method_Dictionary = new grpc::Method<global::Protos.Shared.Message.Language.CodeLanguage, global::Protos.Shared.Message.Language.Dictionary>(
+    static readonly grpc::Method<global::Protos.Message.Language.CodeLanguage, global::Protos.Message.Language.Dictionary> __Method_Dictionary = new grpc::Method<global::Protos.Message.Language.CodeLanguage, global::Protos.Message.Language.Dictionary>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Dictionary",
@@ -1632,27 +1632,27 @@ namespace Saas.Services {
     [grpc::BindServiceMethod(typeof(AppDataSvc), "BindService")]
     public abstract partial class AppDataSvcBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Language.SupportedLanguages> SupportedLanguages(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Language.SupportedLanguages> SupportedLanguages(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Reference.States> States(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Reference.States> States(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Reference.KeyTypes> KeyTypes(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Reference.KeyTypes> KeyTypes(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Reference.References> References(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Reference.References> References(global::Google.Protobuf.WellKnownTypes.Value request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Protos.Shared.Message.Language.Dictionary> Dictionary(global::Protos.Shared.Message.Language.CodeLanguage request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Protos.Message.Language.Dictionary> Dictionary(global::Protos.Message.Language.CodeLanguage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1682,83 +1682,83 @@ namespace Saas.Services {
       {
       }
 
-      public virtual global::Protos.Shared.Message.Language.SupportedLanguages SupportedLanguages(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Language.SupportedLanguages SupportedLanguages(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SupportedLanguages(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Language.SupportedLanguages SupportedLanguages(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Language.SupportedLanguages SupportedLanguages(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_SupportedLanguages, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Language.SupportedLanguages> SupportedLanguagesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Language.SupportedLanguages> SupportedLanguagesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SupportedLanguagesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Language.SupportedLanguages> SupportedLanguagesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Language.SupportedLanguages> SupportedLanguagesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_SupportedLanguages, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Reference.States States(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Reference.States States(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return States(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Reference.States States(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Reference.States States(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_States, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Reference.States> StatesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Reference.States> StatesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return StatesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Reference.States> StatesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Reference.States> StatesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_States, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Reference.KeyTypes KeyTypes(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Reference.KeyTypes KeyTypes(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return KeyTypes(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Reference.KeyTypes KeyTypes(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Reference.KeyTypes KeyTypes(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_KeyTypes, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Reference.KeyTypes> KeyTypesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Reference.KeyTypes> KeyTypesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return KeyTypesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Reference.KeyTypes> KeyTypesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Reference.KeyTypes> KeyTypesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_KeyTypes, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Reference.References References(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Reference.References References(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return References(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Reference.References References(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Reference.References References(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_References, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Reference.References> ReferencesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Reference.References> ReferencesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ReferencesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Reference.References> ReferencesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Reference.References> ReferencesAsync(global::Google.Protobuf.WellKnownTypes.Value request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_References, null, options, request);
       }
-      public virtual global::Protos.Shared.Message.Language.Dictionary Dictionary(global::Protos.Shared.Message.Language.CodeLanguage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Protos.Message.Language.Dictionary Dictionary(global::Protos.Message.Language.CodeLanguage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Dictionary(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Protos.Shared.Message.Language.Dictionary Dictionary(global::Protos.Shared.Message.Language.CodeLanguage request, grpc::CallOptions options)
+      public virtual global::Protos.Message.Language.Dictionary Dictionary(global::Protos.Message.Language.CodeLanguage request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Dictionary, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Language.Dictionary> DictionaryAsync(global::Protos.Shared.Message.Language.CodeLanguage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Language.Dictionary> DictionaryAsync(global::Protos.Message.Language.CodeLanguage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return DictionaryAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Protos.Shared.Message.Language.Dictionary> DictionaryAsync(global::Protos.Shared.Message.Language.CodeLanguage request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Protos.Message.Language.Dictionary> DictionaryAsync(global::Protos.Message.Language.CodeLanguage request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Dictionary, null, options, request);
       }
@@ -1787,11 +1787,11 @@ namespace Saas.Services {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AppDataSvcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SupportedLanguages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Language.SupportedLanguages>(serviceImpl.SupportedLanguages));
-      serviceBinder.AddMethod(__Method_States, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.States>(serviceImpl.States));
-      serviceBinder.AddMethod(__Method_KeyTypes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.KeyTypes>(serviceImpl.KeyTypes));
-      serviceBinder.AddMethod(__Method_References, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Shared.Message.Reference.References>(serviceImpl.References));
-      serviceBinder.AddMethod(__Method_Dictionary, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Shared.Message.Language.CodeLanguage, global::Protos.Shared.Message.Language.Dictionary>(serviceImpl.Dictionary));
+      serviceBinder.AddMethod(__Method_SupportedLanguages, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Language.SupportedLanguages>(serviceImpl.SupportedLanguages));
+      serviceBinder.AddMethod(__Method_States, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.States>(serviceImpl.States));
+      serviceBinder.AddMethod(__Method_KeyTypes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.KeyTypes>(serviceImpl.KeyTypes));
+      serviceBinder.AddMethod(__Method_References, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Value, global::Protos.Message.Reference.References>(serviceImpl.References));
+      serviceBinder.AddMethod(__Method_Dictionary, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Protos.Message.Language.CodeLanguage, global::Protos.Message.Language.Dictionary>(serviceImpl.Dictionary));
     }
 
   }

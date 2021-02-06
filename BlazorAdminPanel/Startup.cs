@@ -8,9 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Protos.Shared;
-using Protos.Shared.Interfaces;
+
+using Constant;
 using DbContext.MsSql;
+using DbContext.Interfaces;
 
 namespace BlazorAdminPanel
 {
@@ -28,7 +29,7 @@ namespace BlazorAdminPanel
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddDbContext<IdentityDbContext>(options =>
-          options.UseSqlServer(Configuration.GetConnectionString(Constant.LOGIN)));
+          options.UseSqlServer(Configuration.GetConnectionString(StrVal.LOGIN)));
 
       services.AddDefaultIdentity<IdentityUser>(options =>
        {

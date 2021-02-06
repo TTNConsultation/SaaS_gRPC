@@ -1,14 +1,14 @@
-﻿using Protos.Shared.Interfaces;
-using Google.Protobuf.WellKnownTypes;
+﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Protos.Shared.Message.Administrator;
-using Protos.Shared.Message.Reference;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Protos.Shared;
+using Constant;
+using Protos.Message.Administrator;
+using Protos.Message.Reference;
+using DbContext.Interfaces;
 
 namespace Saas.Services
 {
@@ -28,7 +28,7 @@ namespace Saas.Services
 
     public override Task<MenuItem> Get(Value id, ServerCallContext context)
     {
-      using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(sp.Read((int)id.NumberValue))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
@@ -41,28 +41,28 @@ namespace Saas.Services
         { typeof(Item).Name.AsId(), menuItemIds.ItemId }
       };
 
-      using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(sp.Read(parameters).First())
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<MenuItems> GetByItem(Value itemId, ServerCallContext context)
     {
-      using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.Read<Item>((int)itemId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<MenuItems> GetByMenu(Value menuId, ServerCallContext context)
     {
-      using var sp = _dbContext.Read<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
+      using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
       return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.Read<Menu>((int)menuId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.Error));
     }
 
     public override Task<Value> Create(MenuItem obj, ServerCallContext context)
     {
-      using var sp = _dbContext.Write<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
+      using var sp = _dbContext.GetWriter<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.C);
       return (sp.IsReady) ? Task.FromResult(new Value { NumberValue = sp.Create(obj) })
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }

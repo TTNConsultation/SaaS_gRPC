@@ -6,21 +6,22 @@ using Microsoft.Data.SqlClient;
 
 using Google.Protobuf;
 
-using Protos.Shared;
-using Protos.Shared.Interfaces;
+using Constant;
+using Protos.Dal;
+using DbContext.Interfaces;
 
 namespace DbContext.MsSql.Command
 {
   internal abstract class Base
   {
-    private readonly IProcedure _procedure;
+    private readonly Procedure _procedure;
     protected readonly SqlCommand SqlCmd;
 
     public string Error { get; }
     public int RootId { get; }
     public bool IsReady => string.IsNullOrEmpty(Error);
 
-    protected Base(Security security, IProcedure procedure)
+    protected Base(Security security, Procedure procedure)
     {
       Error = new StringBuilder().Append((procedure == null) ? "procedure not found | " : null)
                                  .Append((security == null || string.IsNullOrEmpty(security.ConnectionString)) ? "invalid claim" : null)
@@ -32,35 +33,14 @@ namespace DbContext.MsSql.Command
         SqlCmd = _procedure.SqlCommand(security.ConnectionString);
         RootId = security.RootId;
 
-        AddParameter(Constant.ROOT.AsId(), RootId);
+        AddParameter(StrVal.ROOT.AsId(), RootId);
       }
     }
 
-    protected bool AddParameter(string key, object value)
+    public bool AddParameter(string key, object value)
     {
       var par = _procedure.Parameter(key)?.SqlParameter(value);
       return (par != null) && SqlCmd.Parameters.Add(par).Size >= 0;
-    }
-
-    protected bool AddParameter(IMessage obj)
-    {
-      foreach (var fd in obj.Descriptor.Fields.InDeclarationOrder())
-      {
-        if (!AddParameter(fd.Name, fd.Accessor.GetValue(obj)))
-          return false;
-      }
-
-      return true;
-    }
-
-    protected bool AddParameter(IDictionary<string, object> parameters)
-    {
-      foreach (var p in parameters)
-      {
-        if (!AddParameter(p.Key, p.Value))
-          return false;
-      }
-      return true;
     }
 
     protected bool SetParameter(string key, object value)
@@ -79,39 +59,31 @@ namespace DbContext.MsSql.Command
 
   internal sealed class ExecuteNonQuery<T> : Base, IExecuteNonQuery<T> where T : IMessage<T>, new()
   {
-    private readonly IExecuteReader<T> _reader;
+    public IExecuteReader<T> Reader { get; }
 
-    public ExecuteNonQuery(Security claim, IProcedure procedure, IProcedure r_procedure, IMapper map) : base(claim, procedure)
+    public ExecuteNonQuery(Security claim, Procedure procedure, Procedure r_procedure, IMapper map) : base(claim, procedure)
     {
-      _reader = new ExecuteReader<T>(claim, r_procedure, map);
+      Reader = new ExecuteReader<T>(claim, r_procedure, map);
     }
 
-    private bool Update()
+    public bool Update()
     {
       SqlCmd.Connection.Open();
       return SqlCmd.ExecuteNonQuery() == 1;
     }
 
-    private int Create()
+    public int Create()
     {
       SqlCmd.Connection.Open();
 
       return (SqlCmd.ExecuteNonQuery() == 1)
-        ? int.Parse(SqlCmd.Parameters[Constant.ID].Value.ToString())
+        ? int.Parse(SqlCmd.Parameters[StrVal.ID].Value.ToString())
         : -1;
     }
 
-    public int Create(T obj) => AddParameter(obj) ? Create() : -1;
-
-    public bool Update(T obj) => AddParameter(obj) && Update();
-
-    public bool UpdateState(int id, int stateId) => AddParameter(_reader.Read(id)) && AddParameter(Constant.STATE.AsId(), stateId) && Update();
-
-    public bool Delete(int id) => AddParameter(Constant.ID, id) && Update();
-
     public override void Dispose()
     {
-      _reader?.Dispose();
+      Reader?.Dispose();
       base.Dispose();
     }
   }
@@ -120,37 +92,39 @@ namespace DbContext.MsSql.Command
   {
     private readonly IMapper _map;
 
-    public ExecuteReader(Security claim, IProcedure procedure, IMapper map) : base(claim, procedure)
+    public ExecuteReader(Security claim, Procedure procedure, IMapper map) : base(claim, procedure)
     {
       _map = map;
     }
 
     public ICollection<T> Read()
     {
+      var ret = new HashSet<T>();
+
       SqlCmd.Connection.Open();
       using var reader = SqlCmd.ExecuteReader();
 
-      return reader.Parse<T>(_map);
+      while (reader.Read())
+      {
+        ret.Add(_map.Parse<T>(reader));
+      }
+
+      return ret;
     }
 
     public async Task<ICollection<T>> ReadAsync()
     {
+      var ret = new HashSet<T>();
+
       await SqlCmd.Connection.OpenAsync().ConfigureAwait(false);
       using var reader = await SqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
-      return await reader.ParseAsync<T>(_map).ConfigureAwait(false);
+      while (await reader.ReadAsync().ConfigureAwait(false))
+      {
+        ret.Add(_map.Parse<T>(reader));
+      }
+
+      return ret;
     }
-
-    public ICollection<T> Read(string key, object value) => AddParameter(key, value) ? Read() : null;
-
-    public ICollection<T> Read(IDictionary<string, object> parameters) => AddParameter(parameters) ? Read() : null;
-
-    public ICollection<T> ReadRange(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? Read() : null;
-
-    public async Task<ICollection<T>> ReadAsync(string key, object value) => AddParameter(key, value) ? await ReadAsync().ConfigureAwait(false) : null;
-
-    public async Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) => AddParameter(parameters) ? await ReadAsync().ConfigureAwait(false) : null;
-
-    public async Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) => AddParameter(key, values) && AddParameter(Constant.SEPARATOR, separator) ? await ReadAsync().ConfigureAwait(false) : null;
   }
 }

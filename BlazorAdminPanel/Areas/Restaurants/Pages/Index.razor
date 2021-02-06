@@ -1,6 +1,6 @@
 ﻿@page "/Restaurant/"
 @namespace BlazorAdminPanel.Restaurant
-@using Protos = Protos.Shared.Message.Administrator
+@using Protos = Protos.Message.Administrator
 
 <h1>Restaurants</h1>
 
@@ -51,12 +51,13 @@ else
   protected override void OnInitialized()
   {
     AuState = authenticationStateProvider.GetAuthenticationStateAsync().Result;
-    if (!AuState.User.IsInRole(Constant.ADMIN))
+    if (!AuState.User.IsInRole(StrVal.ADMIN))
     {
       throw new Exception("You have no right to access this page");
     }
 
-    using var sp = dbContext.Read<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User, OperationType.R);
-    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho")) : null;
+    using var sp = dbContext.GetReader<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User);
+    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho"))
+                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
   }
 };

@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interfaces.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Protos\administrator.proto" />
     <None Remove="Protos\dal.proto" />
     <None Remove="Protos\language.proto" />

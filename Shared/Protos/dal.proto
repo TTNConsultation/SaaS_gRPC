@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Protos.Shared.Dal";
+option csharp_namespace = "Protos.Dal";
 
 package Procedures;
 

@@ -1,6 +1,6 @@
-﻿namespace Protos.Shared
+﻿namespace Constant
 {
-  public static class Constant
+  public static class StrVal
   {
     public const string CORSPOLICY = "CorsAllowedPolicy";
     public const string DOT = ".";

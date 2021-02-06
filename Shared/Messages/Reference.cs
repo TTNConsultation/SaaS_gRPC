@@ -1,10 +1,11 @@
-﻿using Protos.Shared.Interfaces;
-using Protos.Shared.Message.Language;
+﻿using Protos.Message.Language;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Protos.Shared.Message.Reference
+using Constant;
+
+namespace Protos.Message.Reference
 {
   public partial class States
   {
@@ -25,21 +26,6 @@ namespace Protos.Shared.Message.Reference
 
   public partial class References
   {
-    public readonly AppSetting AppSetting;
-
-    public References(IDbContext context)
-    {
-      using var appSettingCtx = context.ReferenceData<AppSetting>();
-      AppSetting = (appSettingCtx.IsReady) ? appSettingCtx.Read().First() : throw new NotSupportedException();
-
-      using var stateCtx = context.ReferenceData<State>();
-      States = (stateCtx.IsReady) ? new States(stateCtx.Read()) : throw new NotSupportedException();
-
-      using var codeLanguageCtx = context.ReferenceData<CodeLanguage>();
-      Languages = (codeLanguageCtx.IsReady) ? new SupportedLanguages(codeLanguageCtx.Read()) : throw new NotSupportedException();
-
-      using var keyTypeCtx = context.ReferenceData<KeyType>();
-      KeyTypes = (keyTypeCtx.IsReady) ? new KeyTypes(keyTypeCtx.Read()) : throw new NotSupportedException();
-    }
+    public AppSetting AppSetting { get; set; }
   }
 }

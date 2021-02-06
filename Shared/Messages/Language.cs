@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Protos.Shared.Message.Language
+using Constant;
+
+namespace Protos.Message.Language
 {
   public partial class Keys
   {

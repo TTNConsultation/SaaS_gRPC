@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Protos.Shared.Message.Language {
+namespace Protos.Message.Language {
 
   /// <summary>Holder for reflection information generated from Protos/language.proto</summary>
   public static partial class LanguageReflection {
@@ -35,16 +35,16 @@ namespace Protos.Shared.Message.Language {
             "bmFyeRIOCgZSb290SWQYASABKAUSKAoITGFuZ3VhZ2UYAiABKAsyFi5MYW5n",
             "dWFnZS5Db2RlTGFuZ3VhZ2USHAoES2V5cxgDIAEoCzIOLkxhbmd1YWdlLktl",
             "eXMSKwoHQ29udGVudBgEIAMoCzIaLkxhbmd1YWdlLkRpY3RLZXlWYWx1ZVBh",
-            "aXJCIaoCHlByb3Rvcy5TaGFyZWQuTWVzc2FnZS5MYW5ndWFnZWIGcHJvdG8z"));
+            "aXJCGqoCF1Byb3Rvcy5NZXNzYWdlLkxhbmd1YWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Language.Key), global::Protos.Shared.Message.Language.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Language.Keys), global::Protos.Shared.Message.Language.Keys.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Language.CodeLanguage), global::Protos.Shared.Message.Language.CodeLanguage.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Language.SupportedLanguages), global::Protos.Shared.Message.Language.SupportedLanguages.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Language.DictKeyValuePair), global::Protos.Shared.Message.Language.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Language.Dictionary), global::Protos.Shared.Message.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Language.Key), global::Protos.Message.Language.Key.Parser, new[]{ "Key_", "Type", "RootId", "ObjectId", "Id", "KeyName", "Code" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Language.Keys), global::Protos.Message.Language.Keys.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Language.CodeLanguage), global::Protos.Message.Language.CodeLanguage.Parser, new[]{ "Id", "Code", "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Language.SupportedLanguages), global::Protos.Message.Language.SupportedLanguages.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Language.DictKeyValuePair), global::Protos.Message.Language.DictKeyValuePair.Parser, new[]{ "Key", "Val" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Language.Dictionary), global::Protos.Message.Language.Dictionary.Parser, new[]{ "RootId", "Language", "Keys", "Content" }, null, null, null, null)
           }));
     }
     #endregion
@@ -63,7 +63,7 @@ namespace Protos.Shared.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Language.LanguageReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Protos.Message.Language.LanguageReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -451,7 +451,7 @@ namespace Protos.Shared.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Language.LanguageReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Protos.Message.Language.LanguageReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -479,11 +479,11 @@ namespace Protos.Shared.Message.Language {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Language.Key> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Language.Key.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Language.Key> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Language.Key>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Language.Key> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Language.Key.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Language.Key> values_ = new pbc::RepeatedField<global::Protos.Message.Language.Key>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Language.Key> Values {
+    public pbc::RepeatedField<global::Protos.Message.Language.Key> Values {
       get { return values_; }
     }
 
@@ -612,7 +612,7 @@ namespace Protos.Shared.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Language.LanguageReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Protos.Message.Language.LanguageReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -856,7 +856,7 @@ namespace Protos.Shared.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Language.LanguageReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Protos.Message.Language.LanguageReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -884,11 +884,11 @@ namespace Protos.Shared.Message.Language {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Language.CodeLanguage> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Language.CodeLanguage.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Language.CodeLanguage> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Language.CodeLanguage>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Language.CodeLanguage> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Language.CodeLanguage.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Language.CodeLanguage> values_ = new pbc::RepeatedField<global::Protos.Message.Language.CodeLanguage>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Language.CodeLanguage> Values {
+    public pbc::RepeatedField<global::Protos.Message.Language.CodeLanguage> Values {
       get { return values_; }
     }
 
@@ -1017,7 +1017,7 @@ namespace Protos.Shared.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Language.LanguageReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Protos.Message.Language.LanguageReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1225,7 +1225,7 @@ namespace Protos.Shared.Message.Language {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Language.LanguageReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Protos.Message.Language.LanguageReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1267,9 +1267,9 @@ namespace Protos.Shared.Message.Language {
 
     /// <summary>Field number for the "Language" field.</summary>
     public const int LanguageFieldNumber = 2;
-    private global::Protos.Shared.Message.Language.CodeLanguage language_;
+    private global::Protos.Message.Language.CodeLanguage language_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Protos.Shared.Message.Language.CodeLanguage Language {
+    public global::Protos.Message.Language.CodeLanguage Language {
       get { return language_; }
       set {
         language_ = value;
@@ -1278,9 +1278,9 @@ namespace Protos.Shared.Message.Language {
 
     /// <summary>Field number for the "Keys" field.</summary>
     public const int KeysFieldNumber = 3;
-    private global::Protos.Shared.Message.Language.Keys keys_;
+    private global::Protos.Message.Language.Keys keys_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Protos.Shared.Message.Language.Keys Keys {
+    public global::Protos.Message.Language.Keys Keys {
       get { return keys_; }
       set {
         keys_ = value;
@@ -1289,11 +1289,11 @@ namespace Protos.Shared.Message.Language {
 
     /// <summary>Field number for the "Content" field.</summary>
     public const int ContentFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Language.DictKeyValuePair> _repeated_content_codec
-        = pb::FieldCodec.ForMessage(34, global::Protos.Shared.Message.Language.DictKeyValuePair.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Language.DictKeyValuePair> content_ = new pbc::RepeatedField<global::Protos.Shared.Message.Language.DictKeyValuePair>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Language.DictKeyValuePair> _repeated_content_codec
+        = pb::FieldCodec.ForMessage(34, global::Protos.Message.Language.DictKeyValuePair.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Language.DictKeyValuePair> content_ = new pbc::RepeatedField<global::Protos.Message.Language.DictKeyValuePair>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Language.DictKeyValuePair> Content {
+    public pbc::RepeatedField<global::Protos.Message.Language.DictKeyValuePair> Content {
       get { return content_; }
     }
 
@@ -1410,13 +1410,13 @@ namespace Protos.Shared.Message.Language {
       }
       if (other.language_ != null) {
         if (language_ == null) {
-          Language = new global::Protos.Shared.Message.Language.CodeLanguage();
+          Language = new global::Protos.Message.Language.CodeLanguage();
         }
         Language.MergeFrom(other.Language);
       }
       if (other.keys_ != null) {
         if (keys_ == null) {
-          Keys = new global::Protos.Shared.Message.Language.Keys();
+          Keys = new global::Protos.Message.Language.Keys();
         }
         Keys.MergeFrom(other.Keys);
       }
@@ -1441,14 +1441,14 @@ namespace Protos.Shared.Message.Language {
           }
           case 18: {
             if (language_ == null) {
-              Language = new global::Protos.Shared.Message.Language.CodeLanguage();
+              Language = new global::Protos.Message.Language.CodeLanguage();
             }
             input.ReadMessage(Language);
             break;
           }
           case 26: {
             if (keys_ == null) {
-              Keys = new global::Protos.Shared.Message.Language.Keys();
+              Keys = new global::Protos.Message.Language.Keys();
             }
             input.ReadMessage(Keys);
             break;
@@ -1477,14 +1477,14 @@ namespace Protos.Shared.Message.Language {
           }
           case 18: {
             if (language_ == null) {
-              Language = new global::Protos.Shared.Message.Language.CodeLanguage();
+              Language = new global::Protos.Message.Language.CodeLanguage();
             }
             input.ReadMessage(Language);
             break;
           }
           case 26: {
             if (keys_ == null) {
-              Keys = new global::Protos.Shared.Message.Language.Keys();
+              Keys = new global::Protos.Message.Language.Keys();
             }
             input.ReadMessage(Keys);
             break;

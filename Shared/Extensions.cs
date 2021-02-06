@@ -2,19 +2,19 @@
 using System.Data;
 using System.Globalization;
 
-namespace Protos.Shared
+namespace Constant
 {
   public static class Extensions
   {
-    public static string Dot(this string str) => string.Concat(str, Constant.DOT);
+    public static string Dot(this string str) => string.Concat(str, StrVal.DOT);
 
     public static string DotAnd(this string str, string more) => string.Concat(str.Dot(), more);
 
-    public static string AsId(this string str) => string.Concat(str, Constant.ID);
+    public static string AsId(this string str) => string.Concat(str, StrVal.ID);
 
-    public static string AsParameter(this string str) => string.Concat(Constant.PARAMETERSYMBOL, str);
+    public static string AsParameter(this string str) => string.Concat(StrVal.PARAMETERSYMBOL, str);
 
-    public static string Underscore(this string str) => string.Concat(str, Constant.UNDERSCORE);
+    public static string Underscore(this string str) => string.Concat(str, StrVal.UNDERSCORE);
 
     public static string UnderscoreAnd(this string str, string more) =>
       string.Concat(str.Underscore(), more);

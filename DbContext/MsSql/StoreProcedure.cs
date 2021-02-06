@@ -5,22 +5,22 @@ using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Google.Protobuf;
-using Protos.Shared;
-using Protos.Shared.Dal;
-using Protos.Shared.Interfaces;
+
+using Constant;
+using Protos.Dal;
+using DbContext.Interfaces;
 using DbContext.MsSql.Command;
 
 namespace DbContext.MsSql
 {
   public sealed class StoreProcedure : IDbContext
   {
+    private readonly ICollectionMapper _mappers = new CollectionMapper();
     private readonly IConnectionManager _connections;
-    private readonly ICollectionMapper _mappers;
     private readonly ICollectionProcedure _procedures;
 
     public StoreProcedure(IConfiguration config)
     {
-      _mappers = new CollectionMapper();
       _connections = new ConnectionManager(config);
       _procedures = new CollectionProcedure(_mappers, _connections);
     }
@@ -30,12 +30,12 @@ namespace DbContext.MsSql
                           _procedures.Get<T>(OperationType.R),
                           _mappers.Get<T>());
 
-    public IExecuteReader<T> Read<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
+    public IExecuteReader<T> GetReader<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
       new ExecuteReader<T>(new Security(_connections, uc, appId),
                           _procedures.Get<T>(op),
                           _mappers.Get<T>());
 
-    public IExecuteNonQuery<T> Write<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
+    public IExecuteNonQuery<T> GetWriter<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new() =>
       new ExecuteNonQuery<T>(new Security(_connections, uc, appId),
                             _procedures.Get<T>(op),
                             _procedures.Get<T>(OperationType.R),
@@ -48,7 +48,7 @@ namespace DbContext.MsSql
 
     public ConnectionManager(IConfiguration config)
     {
-      _connectionStrings = config.GetSection(Constant.CONNECTIONSTRINGS)
+      _connectionStrings = config.GetSection(StrVal.CONNECTIONSTRINGS)
                                 ?.GetChildren()
                                 ?.ToDictionary(s => s.Key, s => s.Value) ?? new Dictionary<string, string>();
     }
@@ -58,22 +58,22 @@ namespace DbContext.MsSql
 
   internal sealed class CollectionProcedure : ICollectionProcedure
   {
-    private readonly ICollection<IProcedure> _procedures;
+    private readonly ICollection<Procedure> _procedures;
 
     public CollectionProcedure(ICollectionMapper maps, IConnectionManager connectionManager) =>
       _procedures = ReadProcedure(maps, connectionManager.App());
 
-    public IProcedure Get(string baseName, OperationType op) =>
-      _procedures.FirstOrDefault(sp => sp.IsEqual(baseName, op));
+    public Procedure Get(string baseName, OperationType op) =>
+      _procedures.FirstOrDefault(sp => sp.IsEqual(baseName, op.ToString()));
 
-    private static ICollection<IProcedure> ReadProcedure(ICollectionMapper maps, string conStr)
+    private static ICollection<Procedure> ReadProcedure(ICollectionMapper maps, string conStr)
     {
       var parameters = ReadParameter(maps.Get<Parameter>(), conStr);
 
-      var ret = new HashSet<IProcedure>();
+      var ret = new HashSet<Procedure>();
       var map = maps.Get<Procedure>();
 
-      string spName = Constant.APP.DotAnd(nameof(Procedure)).UnderscoreAnd(nameof(OperationType.R));
+      string spName = StrVal.APP.DotAnd(nameof(Procedure)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
       var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
@@ -91,9 +91,10 @@ namespace DbContext.MsSql
       return ret;
     }
 
-    private static IEnumerable<IParameter> ReadParameter(IMapper map, string conStr)
+    private static IEnumerable<Parameter> ReadParameter(IMapper map, string conStr)
     {
-      string spName = Constant.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
+      var ret = new HashSet<Parameter>();
+      string spName = StrVal.APP.DotAnd(nameof(Parameter)).UnderscoreAnd(nameof(OperationType.R));
 
       using var sqlCon = new SqlConnection(conStr);
       var sqlcmd = new SqlCommand(spName, sqlCon) { CommandType = CommandType.StoredProcedure };
@@ -101,7 +102,12 @@ namespace DbContext.MsSql
 
       using var reader = sqlcmd.ExecuteReader();
 
-      return reader.Parse<Parameter>(map);
+      while (reader.Read())
+      {
+        ret.Add(map.Parse<Parameter>(reader));
+      }
+
+      return ret;
     }
   }
 
@@ -112,15 +118,15 @@ namespace DbContext.MsSql
 
     public Security(IConnectionManager conmng, ClaimsPrincipal cp, int appid)
     {
-      if (!int.TryParse(conmng.Get(Constant.APPID), out RootId))
+      if (!int.TryParse(conmng.Get(StrVal.APPID), out RootId))
         RootId = appid;
 
-      if (cp.IsInRole(Constant.ADMIN))
-        ConnectionString = conmng.Get(Constant.ADMIN);
-      else if (cp.IsInRole(Constant.USER))
-        ConnectionString = conmng.Get(Constant.USER);
-      else if (cp.IsInRole(Constant.APP))
-        ConnectionString = conmng.Get(Constant.APP);
+      if (cp.IsInRole(StrVal.ADMIN))
+        ConnectionString = conmng.Get(StrVal.ADMIN);
+      else if (cp.IsInRole(StrVal.USER))
+        ConnectionString = conmng.Get(StrVal.USER);
+      else if (cp.IsInRole(StrVal.APP))
+        ConnectionString = conmng.Get(StrVal.APP);
     }
 
     internal Security(string conStr, int rootId)

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Protos.Shared.Message.Administrator {
+namespace Protos.Message.Administrator {
 
   /// <summary>Holder for reflection information generated from Protos/administrator.proto</summary>
   public static partial class AdministratorReflection {
@@ -52,25 +52,25 @@ namespace Protos.Shared.Message.Administrator {
             "DwoHU3RhdGVJZBgEIAEoBSIuCgZUYWJsZXMSJAoGdmFsdWVzGAEgAygLMhQu",
             "QWRtaW5pc3RyYXRvci5UYWJsZSJKChJSZXN0YXVyYW50TGFuZ3VhZ2USCgoC",
             "SWQYASABKAUSFAoMUmVzdGF1cmFudElkGAIgASgFEhIKCkxhbmd1YWdlSWQY",
-            "AyABKAVCJqoCI1Byb3Rvcy5TaGFyZWQuTWVzc2FnZS5BZG1pbmlzdHJhdG9y",
-            "YgZwcm90bzM="));
+            "AyABKAVCH6oCHFByb3Rvcy5NZXNzYWdlLkFkbWluaXN0cmF0b3JiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Restaurant), global::Protos.Shared.Message.Administrator.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Restaurants), global::Protos.Shared.Message.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Item), global::Protos.Shared.Message.Administrator.Item.Parser, new[]{ "Id", "RestaurantId", "NameKey", "DescriptionKey", "StateId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Items), global::Protos.Shared.Message.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.RestaurantMenu), global::Protos.Shared.Message.Administrator.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "StateId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.RestaurantMenus), global::Protos.Shared.Message.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Menu), global::Protos.Shared.Message.Administrator.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Menus), global::Protos.Shared.Message.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.MenuItem), global::Protos.Shared.Message.Administrator.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.MenuItems), global::Protos.Shared.Message.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.MenuItemIds), global::Protos.Shared.Message.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Table), global::Protos.Shared.Message.Administrator.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.Tables), global::Protos.Shared.Message.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Administrator.RestaurantLanguage), global::Protos.Shared.Message.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Restaurant), global::Protos.Message.Administrator.Restaurant.Parser, new[]{ "Id", "Name", "RestaurantLocationId", "RestaurantLocationName", "RestaurantLocationPhoneNumber", "LocationId", "LocationUnit", "LocationPostalCode", "LocationStreetName", "LocationLink", "LocationMap", "LocationLatLong" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Restaurants), global::Protos.Message.Administrator.Restaurants.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Item), global::Protos.Message.Administrator.Item.Parser, new[]{ "Id", "RestaurantId", "NameKey", "DescriptionKey", "StateId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Items), global::Protos.Message.Administrator.Items.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.RestaurantMenu), global::Protos.Message.Administrator.RestaurantMenu.Parser, new[]{ "Id", "RestaurantId", "StateId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.RestaurantMenus), global::Protos.Message.Administrator.RestaurantMenus.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Menu), global::Protos.Message.Administrator.Menu.Parser, new[]{ "Id", "RestaurantMenuId", "Price", "UseItemDescription", "StateId", "NameKey", "DescriptionKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Menus), global::Protos.Message.Administrator.Menus.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.MenuItem), global::Protos.Message.Administrator.MenuItem.Parser, new[]{ "Id", "MenuId", "ItemId", "Quantity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.MenuItems), global::Protos.Message.Administrator.MenuItems.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.MenuItemIds), global::Protos.Message.Administrator.MenuItemIds.Parser, new[]{ "MenuId", "ItemId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Table), global::Protos.Message.Administrator.Table.Parser, new[]{ "Id", "RestaurantId", "NumberOfSeat", "StateId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.Tables), global::Protos.Message.Administrator.Tables.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Administrator.RestaurantLanguage), global::Protos.Message.Administrator.RestaurantLanguage.Parser, new[]{ "Id", "RestaurantId", "LanguageId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -89,7 +89,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -657,7 +657,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -685,11 +685,11 @@ namespace Protos.Shared.Message.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Administrator.Restaurant> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Administrator.Restaurant.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Restaurant> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Restaurant>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Administrator.Restaurant> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Administrator.Restaurant.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Administrator.Restaurant> values_ = new pbc::RepeatedField<global::Protos.Message.Administrator.Restaurant>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Restaurant> Values {
+    public pbc::RepeatedField<global::Protos.Message.Administrator.Restaurant> Values {
       get { return values_; }
     }
 
@@ -818,7 +818,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1134,7 +1134,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1162,11 +1162,11 @@ namespace Protos.Shared.Message.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Administrator.Item> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Administrator.Item.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Item> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Item>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Administrator.Item> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Administrator.Item.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Administrator.Item> values_ = new pbc::RepeatedField<global::Protos.Message.Administrator.Item>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Item> Values {
+    public pbc::RepeatedField<global::Protos.Message.Administrator.Item> Values {
       get { return values_; }
     }
 
@@ -1295,7 +1295,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1539,7 +1539,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1567,11 +1567,11 @@ namespace Protos.Shared.Message.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Administrator.RestaurantMenu> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Administrator.RestaurantMenu.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Administrator.RestaurantMenu> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Administrator.RestaurantMenu>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Administrator.RestaurantMenu> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Administrator.RestaurantMenu.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Administrator.RestaurantMenu> values_ = new pbc::RepeatedField<global::Protos.Message.Administrator.RestaurantMenu>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Administrator.RestaurantMenu> Values {
+    public pbc::RepeatedField<global::Protos.Message.Administrator.RestaurantMenu> Values {
       get { return values_; }
     }
 
@@ -1700,7 +1700,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2088,7 +2088,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2116,11 +2116,11 @@ namespace Protos.Shared.Message.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Administrator.Menu> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Administrator.Menu.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Menu> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Menu>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Administrator.Menu> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Administrator.Menu.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Administrator.Menu> values_ = new pbc::RepeatedField<global::Protos.Message.Administrator.Menu>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Menu> Values {
+    public pbc::RepeatedField<global::Protos.Message.Administrator.Menu> Values {
       get { return values_; }
     }
 
@@ -2249,7 +2249,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2529,7 +2529,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2557,11 +2557,11 @@ namespace Protos.Shared.Message.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Administrator.MenuItem> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Administrator.MenuItem.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Administrator.MenuItem> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Administrator.MenuItem>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Administrator.MenuItem> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Administrator.MenuItem.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Administrator.MenuItem> values_ = new pbc::RepeatedField<global::Protos.Message.Administrator.MenuItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Administrator.MenuItem> Values {
+    public pbc::RepeatedField<global::Protos.Message.Administrator.MenuItem> Values {
       get { return values_; }
     }
 
@@ -2690,7 +2690,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2898,7 +2898,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3178,7 +3178,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3206,11 +3206,11 @@ namespace Protos.Shared.Message.Administrator {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Administrator.Table> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Administrator.Table.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Table> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Table>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Administrator.Table> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Administrator.Table.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Administrator.Table> values_ = new pbc::RepeatedField<global::Protos.Message.Administrator.Table>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Administrator.Table> Values {
+    public pbc::RepeatedField<global::Protos.Message.Administrator.Table> Values {
       get { return values_; }
     }
 
@@ -3339,7 +3339,7 @@ namespace Protos.Shared.Message.Administrator {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Protos.Message.Administrator.AdministratorReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

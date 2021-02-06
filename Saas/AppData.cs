@@ -1,22 +1,32 @@
-﻿using Protos.Shared.Interfaces;
-using Protos.Shared.Message.Language;
-using Protos.Shared.Message.Reference;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Protos.Shared
+using Protos.Message.Reference;
+using DbContext.Interfaces;
+using Protos.Message.Language;
+
+namespace Saas
 {
   public class AppData
   {
-    public readonly References RefDatas;
-    public readonly DictionaryCache DictCache;
+    public readonly References RefDatas = new References();
+    public readonly DictionaryCache DictCache = new DictionaryCache();
 
     public AppData(IDbContext context)
     {
-      RefDatas = new References(context);
-      DictCache = new DictionaryCache();
+      using var appSettingCtx = context.ReferenceData<AppSetting>();
+      RefDatas.AppSetting = (appSettingCtx.IsReady) ? appSettingCtx.Read().First() : throw new NotSupportedException();
+
+      using var stateCtx = context.ReferenceData<State>();
+      RefDatas.States = (stateCtx.IsReady) ? new States(stateCtx.Read()) : throw new NotSupportedException();
+
+      using var codeLanguageCtx = context.ReferenceData<CodeLanguage>();
+      RefDatas.Languages = (codeLanguageCtx.IsReady) ? new SupportedLanguages(codeLanguageCtx.Read()) : throw new NotSupportedException();
+
+      using var keyTypeCtx = context.ReferenceData<KeyType>();
+      RefDatas.KeyTypes = (keyTypeCtx.IsReady) ? new KeyTypes(keyTypeCtx.Read()) : throw new NotSupportedException();
     }
   }
 

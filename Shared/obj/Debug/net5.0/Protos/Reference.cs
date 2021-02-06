@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Protos.Shared.Message.Reference {
+namespace Protos.Message.Reference {
 
   /// <summary>Holder for reflection information generated from Protos/reference.proto</summary>
   public static partial class ReferenceReflection {
@@ -33,17 +33,17 @@ namespace Protos.Shared.Message.Reference {
             "bWVLZXkYAiABKAUSFgoORGVzY3JpcHRpb25LZXkYAyABKAUihwEKClJlZmVy",
             "ZW5jZXMSIQoGU3RhdGVzGAEgASgLMhEuUmVmZXJlbmNlLlN0YXRlcxIvCglM",
             "YW5ndWFnZXMYAiABKAsyHC5MYW5ndWFnZS5TdXBwb3J0ZWRMYW5ndWFnZXMS",
-            "JQoIS2V5VHlwZXMYAyABKAsyEy5SZWZlcmVuY2UuS2V5VHlwZXNCIqoCH1By",
-            "b3Rvcy5TaGFyZWQuTWVzc2FnZS5SZWZlcmVuY2ViBnByb3RvMw=="));
+            "JQoIS2V5VHlwZXMYAyABKAsyEy5SZWZlcmVuY2UuS2V5VHlwZXNCG6oCGFBy",
+            "b3Rvcy5NZXNzYWdlLlJlZmVyZW5jZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Protos.Shared.Message.Language.LanguageReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Protos.Message.Language.LanguageReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Reference.KeyType), global::Protos.Shared.Message.Reference.KeyType.Parser, new[]{ "Id", "Name", "MaxLen" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Reference.KeyTypes), global::Protos.Shared.Message.Reference.KeyTypes.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Reference.State), global::Protos.Shared.Message.Reference.State.Parser, new[]{ "Id", "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Reference.States), global::Protos.Shared.Message.Reference.States.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Reference.AppSetting), global::Protos.Shared.Message.Reference.AppSetting.Parser, new[]{ "Id", "NameKey", "DescriptionKey" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Shared.Message.Reference.References), global::Protos.Shared.Message.Reference.References.Parser, new[]{ "States", "Languages", "KeyTypes" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Reference.KeyType), global::Protos.Message.Reference.KeyType.Parser, new[]{ "Id", "Name", "MaxLen" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Reference.KeyTypes), global::Protos.Message.Reference.KeyTypes.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Reference.State), global::Protos.Message.Reference.State.Parser, new[]{ "Id", "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Reference.States), global::Protos.Message.Reference.States.Parser, new[]{ "Values" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Reference.AppSetting), global::Protos.Message.Reference.AppSetting.Parser, new[]{ "Id", "NameKey", "DescriptionKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Message.Reference.References), global::Protos.Message.Reference.References.Parser, new[]{ "States", "Languages", "KeyTypes" }, null, null, null, null)
           }));
     }
     #endregion
@@ -62,7 +62,7 @@ namespace Protos.Shared.Message.Reference {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Protos.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -306,7 +306,7 @@ namespace Protos.Shared.Message.Reference {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Protos.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -334,11 +334,11 @@ namespace Protos.Shared.Message.Reference {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Reference.KeyType> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Reference.KeyType.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Reference.KeyType> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Reference.KeyType>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Reference.KeyType> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Reference.KeyType.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Reference.KeyType> values_ = new pbc::RepeatedField<global::Protos.Message.Reference.KeyType>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Reference.KeyType> Values {
+    public pbc::RepeatedField<global::Protos.Message.Reference.KeyType> Values {
       get { return values_; }
     }
 
@@ -467,7 +467,7 @@ namespace Protos.Shared.Message.Reference {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Protos.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -675,7 +675,7 @@ namespace Protos.Shared.Message.Reference {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Protos.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -703,11 +703,11 @@ namespace Protos.Shared.Message.Reference {
 
     /// <summary>Field number for the "values" field.</summary>
     public const int ValuesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Protos.Shared.Message.Reference.State> _repeated_values_codec
-        = pb::FieldCodec.ForMessage(10, global::Protos.Shared.Message.Reference.State.Parser);
-    private readonly pbc::RepeatedField<global::Protos.Shared.Message.Reference.State> values_ = new pbc::RepeatedField<global::Protos.Shared.Message.Reference.State>();
+    private static readonly pb::FieldCodec<global::Protos.Message.Reference.State> _repeated_values_codec
+        = pb::FieldCodec.ForMessage(10, global::Protos.Message.Reference.State.Parser);
+    private readonly pbc::RepeatedField<global::Protos.Message.Reference.State> values_ = new pbc::RepeatedField<global::Protos.Message.Reference.State>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Protos.Shared.Message.Reference.State> Values {
+    public pbc::RepeatedField<global::Protos.Message.Reference.State> Values {
       get { return values_; }
     }
 
@@ -836,7 +836,7 @@ namespace Protos.Shared.Message.Reference {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Protos.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1080,7 +1080,7 @@ namespace Protos.Shared.Message.Reference {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Shared.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Protos.Message.Reference.ReferenceReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1110,9 +1110,9 @@ namespace Protos.Shared.Message.Reference {
 
     /// <summary>Field number for the "States" field.</summary>
     public const int StatesFieldNumber = 1;
-    private global::Protos.Shared.Message.Reference.States states_;
+    private global::Protos.Message.Reference.States states_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Protos.Shared.Message.Reference.States States {
+    public global::Protos.Message.Reference.States States {
       get { return states_; }
       set {
         states_ = value;
@@ -1121,9 +1121,9 @@ namespace Protos.Shared.Message.Reference {
 
     /// <summary>Field number for the "Languages" field.</summary>
     public const int LanguagesFieldNumber = 2;
-    private global::Protos.Shared.Message.Language.SupportedLanguages languages_;
+    private global::Protos.Message.Language.SupportedLanguages languages_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Protos.Shared.Message.Language.SupportedLanguages Languages {
+    public global::Protos.Message.Language.SupportedLanguages Languages {
       get { return languages_; }
       set {
         languages_ = value;
@@ -1132,9 +1132,9 @@ namespace Protos.Shared.Message.Reference {
 
     /// <summary>Field number for the "KeyTypes" field.</summary>
     public const int KeyTypesFieldNumber = 3;
-    private global::Protos.Shared.Message.Reference.KeyTypes keyTypes_;
+    private global::Protos.Message.Reference.KeyTypes keyTypes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Protos.Shared.Message.Reference.KeyTypes KeyTypes {
+    public global::Protos.Message.Reference.KeyTypes KeyTypes {
       get { return keyTypes_; }
       set {
         keyTypes_ = value;
@@ -1246,19 +1246,19 @@ namespace Protos.Shared.Message.Reference {
       }
       if (other.states_ != null) {
         if (states_ == null) {
-          States = new global::Protos.Shared.Message.Reference.States();
+          States = new global::Protos.Message.Reference.States();
         }
         States.MergeFrom(other.States);
       }
       if (other.languages_ != null) {
         if (languages_ == null) {
-          Languages = new global::Protos.Shared.Message.Language.SupportedLanguages();
+          Languages = new global::Protos.Message.Language.SupportedLanguages();
         }
         Languages.MergeFrom(other.Languages);
       }
       if (other.keyTypes_ != null) {
         if (keyTypes_ == null) {
-          KeyTypes = new global::Protos.Shared.Message.Reference.KeyTypes();
+          KeyTypes = new global::Protos.Message.Reference.KeyTypes();
         }
         KeyTypes.MergeFrom(other.KeyTypes);
       }
@@ -1278,21 +1278,21 @@ namespace Protos.Shared.Message.Reference {
             break;
           case 10: {
             if (states_ == null) {
-              States = new global::Protos.Shared.Message.Reference.States();
+              States = new global::Protos.Message.Reference.States();
             }
             input.ReadMessage(States);
             break;
           }
           case 18: {
             if (languages_ == null) {
-              Languages = new global::Protos.Shared.Message.Language.SupportedLanguages();
+              Languages = new global::Protos.Message.Language.SupportedLanguages();
             }
             input.ReadMessage(Languages);
             break;
           }
           case 26: {
             if (keyTypes_ == null) {
-              KeyTypes = new global::Protos.Shared.Message.Reference.KeyTypes();
+              KeyTypes = new global::Protos.Message.Reference.KeyTypes();
             }
             input.ReadMessage(KeyTypes);
             break;
@@ -1313,21 +1313,21 @@ namespace Protos.Shared.Message.Reference {
             break;
           case 10: {
             if (states_ == null) {
-              States = new global::Protos.Shared.Message.Reference.States();
+              States = new global::Protos.Message.Reference.States();
             }
             input.ReadMessage(States);
             break;
           }
           case 18: {
             if (languages_ == null) {
-              Languages = new global::Protos.Shared.Message.Language.SupportedLanguages();
+              Languages = new global::Protos.Message.Language.SupportedLanguages();
             }
             input.ReadMessage(Languages);
             break;
           }
           case 26: {
             if (keyTypes_ == null) {
-              KeyTypes = new global::Protos.Shared.Message.Reference.KeyTypes();
+              KeyTypes = new global::Protos.Message.Reference.KeyTypes();
             }
             input.ReadMessage(KeyTypes);
             break;

@@ -5,13 +5,13 @@ using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
 
-using Protos.Shared.Interfaces;
+using DbContext.Interfaces;
 
 namespace DbContext
 {
   internal sealed class CollectionMapper : ICollectionMapper
   {
-    private readonly HashSet<IMapper> _mappers = new HashSet<IMapper>();
+    private readonly ICollection<IMapper> _mappers = new HashSet<IMapper>();
 
     public IMapper Get(Type type) => _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
   }

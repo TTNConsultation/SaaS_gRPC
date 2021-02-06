@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Security.Authentication;
 
-namespace Shared
+namespace Saas
 {
   public class Program
   {

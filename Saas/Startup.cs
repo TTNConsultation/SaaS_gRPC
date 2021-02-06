@@ -1,5 +1,4 @@
-﻿using Protos.Shared.Interfaces;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -7,10 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Saas.Services;
 
-using Protos.Shared;
+using Constant;
+using DbContext.Interfaces;
 using DbContext.MsSql;
 
-namespace Shared
+namespace Saas
 {
   public class Startup
   {
@@ -72,7 +72,7 @@ namespace Shared
       //          };
       //        });
 
-      services.AddCors(o => o.AddPolicy(Constant.CORSPOLICY, builder =>
+      services.AddCors(o => o.AddPolicy(StrVal.CORSPOLICY, builder =>
       {
         builder.AllowAnyOrigin()
                .AllowAnyMethod()
@@ -107,12 +107,12 @@ namespace Shared
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapGrpcService<Saas.Services.AppService>().RequireCors(Constant.CORSPOLICY);
-        endpoints.MapGrpcService<RestaurantService>().RequireCors(Constant.CORSPOLICY);
-        endpoints.MapGrpcService<TableService>().RequireCors(Constant.CORSPOLICY);
-        endpoints.MapGrpcService<ItemService>().RequireCors(Constant.CORSPOLICY);
-        endpoints.MapGrpcService<RestaurantMenuService>().RequireCors(Constant.CORSPOLICY);
-        endpoints.MapGrpcService<MenuItemService>().RequireCors(Constant.CORSPOLICY);
+        endpoints.MapGrpcService<Saas.Services.AppService>().RequireCors(StrVal.CORSPOLICY);
+        endpoints.MapGrpcService<RestaurantService>().RequireCors(StrVal.CORSPOLICY);
+        endpoints.MapGrpcService<TableService>().RequireCors(StrVal.CORSPOLICY);
+        endpoints.MapGrpcService<ItemService>().RequireCors(StrVal.CORSPOLICY);
+        endpoints.MapGrpcService<RestaurantMenuService>().RequireCors(StrVal.CORSPOLICY);
+        endpoints.MapGrpcService<MenuItemService>().RequireCors(StrVal.CORSPOLICY);
 
         endpoints.MapGet("/", async context => await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909").ConfigureAwait(false));
       });

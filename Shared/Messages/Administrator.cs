@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Protos.Shared.Message.Administrator
+namespace Protos.Message.Administrator
 {
   public partial class Restaurants
   {
