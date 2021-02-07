@@ -90,13 +90,6 @@ using DbContext.Interfaces;
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Grpc.Core;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 3 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Restaurants\Pages\Index.razor"
 using Protos = Protos.Message.Administrator;
 
@@ -112,7 +105,7 @@ using Protos = Protos.Message.Administrator;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Restaurants\Pages\Index.razor"
+#line 39 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Restaurants\Pages\Index.razor"
        
   [Inject] IDbContext dbContext { get; set; }
   [Inject] AppData app { get; set; }
@@ -120,7 +113,7 @@ using Protos = Protos.Message.Administrator;
 
   public static AuthenticationState AuState = null;
 
-  private Protos.Restaurants _rests;
+  private ICollection<Protos.Restaurant> _searchResults;
 
   protected override void OnInitialized()
   {
@@ -129,10 +122,13 @@ using Protos = Protos.Message.Administrator;
     {
       throw new Exception("You have no right to access this page");
     }
+  }
 
+  private void OnSearchInput(ChangeEventArgs e)
+  {
+    var input = e.Value.ToString();
     using var sp = dbContext.GetReader<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User);
-    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho"))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+    _searchResults = (input.Length > 2 && sp.IsReady) ? sp.Read(input) : null;
   }
 
 #line default

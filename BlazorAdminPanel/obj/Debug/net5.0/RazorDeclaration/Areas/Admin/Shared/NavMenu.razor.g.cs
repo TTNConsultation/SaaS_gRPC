@@ -89,13 +89,6 @@ using DbContext.Interfaces;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Grpc.Core;
-
-#line default
-#line hidden
-#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -106,14 +99,14 @@ using Grpc.Core;
 #nullable restore
 #line 21 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Areas\Admin\Shared\NavMenu.razor"
        
-    private bool collapseNavMenu = true;
+  private bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+  private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+  private void ToggleNavMenu()
+  {
+    collapseNavMenu = !collapseNavMenu;
+  }
 
 #line default
 #line hidden

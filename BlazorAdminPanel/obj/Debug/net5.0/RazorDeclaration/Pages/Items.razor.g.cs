@@ -90,13 +90,6 @@ using DbContext.Interfaces;
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Grpc.Core;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Pages\Items.razor"
 using Protos = Protos.Message.Administrator;
 
@@ -123,7 +116,7 @@ using Protos = Protos.Message.Administrator;
 
   public static AuthenticationState AuState = null;
 
-  private Protos.Items _items;
+  private ICollection<Protos.Item> _items;
 
   protected override void OnInitialized()
   {
@@ -134,8 +127,7 @@ using Protos = Protos.Message.Administrator;
     }
 
     using var sp = dbContext.GetReader<Protos.Item>(app.RefDatas.AppSetting.Id, AuState.User);
-    _items = (sp.IsReady) ? new Protos.Items(sp.Read<Protos.Restaurant>(RestaurantId))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+    _items = (sp.IsReady) ? sp.ReadBy<Protos.Restaurant>(RestaurantId) : null;
   }
 
 #line default

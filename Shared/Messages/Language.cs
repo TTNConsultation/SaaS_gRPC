@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Constant;
+using System.Collections.Generic;
 using System.Linq;
-
-using Constant;
 
 namespace Protos.Message.Language
 {

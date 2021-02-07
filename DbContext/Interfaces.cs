@@ -1,15 +1,10 @@
-﻿using System;
+﻿using Constant;
+using Google.Protobuf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using Google.Protobuf;
-using Microsoft.Data.SqlClient;
-
-using Constant;
-using Protos.Dal;
-using Google.Protobuf.Reflection;
 
 namespace DbContext.Interfaces
 {
@@ -79,9 +74,6 @@ namespace DbContext.Interfaces
       return res.Count == 0 ? default : res.First();
     }
 
-    ICollection<T> Read<S>(int id) where S : IMessage<S> =>
-      Read(typeof(S).Name.AndId(), id);
-
     ICollection<T> Read(string value) => Read(StrVal.VALUE, value);
 
     ICollection<T> Read(string key, object value) =>
@@ -93,8 +85,8 @@ namespace DbContext.Interfaces
     ICollection<T> ReadRange(string key, string values, char separator) =>
       AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
 
-    Task<ICollection<T>> ReadAsync<S>(int id) where S : IMessage<S> =>
-      ReadAsync(typeof(S).Name.AndId(), id);
+    ICollection<T> ReadBy<S>(int id) where S : IMessage<S> =>
+      Read(typeof(S).Name.AndId(), id);
 
     Task<ICollection<T>> ReadAsync(string value) =>
       ReadAsync(StrVal.VALUE, value);
@@ -107,5 +99,8 @@ namespace DbContext.Interfaces
 
     Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) =>
       AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
+
+    Task<ICollection<T>> ReadByAsync<S>(int id) where S : IMessage<S> =>
+      ReadAsync(typeof(S).Name.AndId(), id);
   }
 }

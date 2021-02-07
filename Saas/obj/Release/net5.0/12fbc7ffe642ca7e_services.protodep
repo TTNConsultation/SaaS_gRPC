@@ -1,6 +1,0 @@
-obj\Release\net5.0\Protos/Services.cs \
-obj\Release\net5.0\Protos/ServicesGrpc.cs: Protos/common.proto\
- Protos/language.proto\
- Protos/reference.proto\
- Protos/administrator.proto\
- Protos/services.proto

@@ -89,13 +89,6 @@ using DbContext.Interfaces;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Grpc.Core;
-
-#line default
-#line hidden
-#nullable disable
     public partial class SurveyPrompt : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -106,9 +99,9 @@ using Grpc.Core;
 #nullable restore
 #line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\Shared\SurveyPrompt.razor"
        
-    // Demonstrates how a parent component can supply parameters
-    [Parameter]
-    public string Title { get; set; }
+  // Demonstrates how a parent component can supply parameters
+  [Parameter]
+  public string Title { get; set; }
 
 #line default
 #line hidden

@@ -18,6 +18,10 @@
     public const string SEPARATOR = "separator";
     public const string CONNECTIONSTRINGS = "ConnectionStrings";
 
+    public const string DELETE = "Delete";
+    public const string ENABLE = "Enable";
+    public const string DISABLE = "Disable";
+
     public const string PARAMETERNONVALID = "Parameter non valid";
     public const string OPERATIONFAILED = "Operation failed";
     public const string PROCEDURENOTFOUND = "Procedure not found | ";

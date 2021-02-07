@@ -1,14 +1,11 @@
-﻿using Google.Protobuf.WellKnownTypes;
+﻿using DbContext.Interfaces;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using Microsoft.Extensions.Logging;
+using Protos.Message.Administrator;
+using Protos.Message.Reference;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-using Constant;
-using Protos.Message.Administrator;
-using Protos.Message.Reference;
-using DbContext.Interfaces;
 
 namespace Saas.Services
 {
@@ -37,8 +34,8 @@ namespace Saas.Services
     {
       var parameters = new Dictionary<string, object>
       {
-        { typeof(Menu).Name.AndId(), menuItemIds.MenuId },
-        { typeof(Item).Name.AndId(), menuItemIds.ItemId }
+        { "menuid", menuItemIds.MenuId },
+        { "itemid", menuItemIds.ItemId }
       };
 
       using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
@@ -49,14 +46,14 @@ namespace Saas.Services
     public override Task<MenuItems> GetByItem(Value itemId, ServerCallContext context)
     {
       using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.Read<Item>((int)itemId.NumberValue)))
+      return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.Read("itemid", (int)itemId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<MenuItems> GetByMenu(Value menuId, ServerCallContext context)
     {
       using var sp = _dbContext.GetReader<MenuItem>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.Read<Menu>((int)menuId.NumberValue)))
+      return (sp.IsReady) ? Task.FromResult(new MenuItems(sp.Read("menuid", (int)menuId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.InvalidArgument, sp.Error));
     }
 

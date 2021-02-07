@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Data.SqlClient;
-
-using DbContext.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DbContext
 {
@@ -13,7 +11,7 @@ namespace DbContext
   {
     private readonly ICollection<Mapper> _mappers = new HashSet<Mapper>();
 
-    public Mapper Get(Type type) => _mappers.FirstOrDefault(m => m.IsType(type)) ?? _mappers.Append(new Mapper(type)).Last();
+    private Mapper Get(Type type) => _mappers.FirstOrDefault(m => m.Equals(type)) ?? _mappers.Append(new Mapper(type)).Last();
 
     public Mapper Get<T>() where T : IMessage<T> => Get(typeof(T));
   }
@@ -60,7 +58,7 @@ namespace DbContext
       return objT;
     }
 
-    public bool IsType(Type type) => _type == type;
+    public bool Equals(Type type) => _type == type;
 
     public T Parse<T>(SqlDataReader reader) where T : IMessage<T>, new() =>
       (_fieldMap.Count == 0) ? Build<T>(reader) : Map<T>(reader);

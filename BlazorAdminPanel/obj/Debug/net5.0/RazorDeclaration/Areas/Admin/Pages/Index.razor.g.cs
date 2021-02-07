@@ -89,13 +89,6 @@ using DbContext.Interfaces;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 12 "D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\_Imports.razor"
-using Grpc.Core;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Admin/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {

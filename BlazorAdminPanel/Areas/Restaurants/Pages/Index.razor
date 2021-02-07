@@ -4,13 +4,10 @@
 
 <h1>Restaurants</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
-
-@if (_rests == null)
-{
-  <p><em>Loading...</em></p>
-}
-else
+<input type="text" class="text-left" @oninput="@OnSearchInput" />
+<br />
+<br />
+@if (_searchResults != null)
 {
   <table class="table">
     <thead>
@@ -24,15 +21,15 @@ else
       </tr>
     </thead>
     <tbody>
-      @foreach (var _rest in _rests.Values)
+      @foreach (var r in _searchResults)
       {
         <tr>
-          <td><a href="/Restaurant/@_rest.Id/Items">@_rest.Name</a></td>
-          <td>@_rest.RestaurantLocationName</td>
-          <td>@_rest.LocationUnit</td>
-          <td>@_rest.LocationStreetName</td>
-          <td>@_rest.RestaurantLocationPhoneNumber</td>
-          <td><a href="@_rest.LocationLink" class="material-icons" style="font-size:24px;color:blue">add_location</a></td>
+          <td><a href="/Restaurant/@r.Id/Items">@r.Name</a></td>
+          <td>@r.RestaurantLocationName</td>
+          <td>@r.LocationUnit</td>
+          <td>@r.LocationStreetName</td>
+          <td>@r.RestaurantLocationPhoneNumber</td>
+          <td><a href="@r.LocationLink" class="material-icons" style="font-size:24px;color:blue">add_location</a></td>
         </tr>
       }
     </tbody>
@@ -46,7 +43,7 @@ else
 
   public static AuthenticationState AuState = null;
 
-  private Protos.Restaurants _rests;
+  private ICollection<Protos.Restaurant> _searchResults;
 
   protected override void OnInitialized()
   {
@@ -55,9 +52,12 @@ else
     {
       throw new Exception("You have no right to access this page");
     }
+  }
 
+  private void OnSearchInput(ChangeEventArgs e)
+  {
+    var input = e.Value.ToString();
     using var sp = dbContext.GetReader<Protos.Restaurant>(app.RefDatas.AppSetting.Id, AuState.User);
-    _rests = (sp.IsReady) ? new Protos.Restaurants(sp.Read("pho"))
-                          : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
+    _searchResults = (input.Length > 2 && sp.IsReady) ? sp.Read(input) : null;
   }
 };

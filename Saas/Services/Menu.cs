@@ -1,11 +1,9 @@
-﻿using Google.Protobuf.WellKnownTypes;
+﻿using DbContext.Interfaces;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-
 using Protos.Message.Administrator;
 using Protos.Message.Reference;
-using DbContext.Interfaces;
+using System.Threading.Tasks;
 
 namespace Saas.Services
 {
@@ -33,14 +31,14 @@ namespace Saas.Services
     public override Task<Menus> GetByRestaurantMenu(Value restaurantMenuId, ServerCallContext context)
     {
       using var sp = _dbContext.GetReader<Menu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new Menus(sp.Read<RestaurantMenu>((int)restaurantMenuId.NumberValue)))
+      return (sp.IsReady) ? Task.FromResult(new Menus(sp.Read("restaurantmenuid", (int)restaurantMenuId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 
     public override Task<Menus> GetByRestaurant(Value restaurantId, ServerCallContext context)
     {
       using var sp = _dbContext.GetReader<Menu>(_refData.AppSetting.Id, context.GetHttpContext().User, OperationType.R);
-      return (sp.IsReady) ? Task.FromResult(new Menus(sp.Read<Restaurant>((int)restaurantId.NumberValue)))
+      return (sp.IsReady) ? Task.FromResult(new Menus(sp.Read("restaurantid", (int)restaurantId.NumberValue)))
                           : throw new RpcException(new Status(StatusCode.PermissionDenied, sp.Error));
     }
 

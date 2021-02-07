@@ -1,4 +1,7 @@
 using BlazorAdminPanel.Areas.Identity;
+using Constant;
+using DbContext.Interfaces;
+using DbContext.MsSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -8,10 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using Constant;
-using DbContext.MsSql;
-using DbContext.Interfaces;
 
 namespace BlazorAdminPanel
 {

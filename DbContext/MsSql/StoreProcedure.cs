@@ -1,15 +1,14 @@
-﻿using System.Data;
-using System.Linq;
-using System.Security.Claims;
-using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using Google.Protobuf;
-
-using Constant;
-using Protos.Dal;
+﻿using Constant;
 using DbContext.Interfaces;
 using DbContext.MsSql.Command;
+using Google.Protobuf;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using Protos.Dal;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Security.Claims;
 
 namespace DbContext.MsSql
 {
@@ -66,11 +65,8 @@ namespace DbContext.MsSql
     public CollectionProcedure(CollectionMapper maps, ConnectionManager connectionManager) =>
       _procedures = ReadProcedure(maps, connectionManager.App());
 
-    public Procedure Get(string baseName, OperationType op) =>
-      _procedures.FirstOrDefault(sp => sp.IsEqual(baseName, op.ToString()));
-
     public Procedure Get<T>(OperationType op) where T : IMessage<T> =>
-      Get(typeof(T).Name, op);
+      _procedures.FirstOrDefault(sp => sp.Equals(typeof(T).Name, op.ToString()));
 
     private static ICollection<Procedure> ReadProcedure(CollectionMapper maps, string conStr)
     {
@@ -90,7 +86,7 @@ namespace DbContext.MsSql
       while (reader.Read())
       {
         var sp = map.Parse<Procedure>(reader);
-        sp.Parameters.AddRange(parameters.Where(p => p.ProcedureId == sp.Id));
+        sp.Parameters.AddRange(parameters.Where(p => p.SpId == sp.Id));
         ret.Add(sp);
       }
 

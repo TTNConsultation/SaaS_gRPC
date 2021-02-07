@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Google.Protobuf.Reflection;
-using Microsoft.Data.SqlClient;
+using System;
 
 namespace DbContext
 {

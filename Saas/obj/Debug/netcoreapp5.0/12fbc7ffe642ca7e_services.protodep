@@ -1,6 +1,0 @@
-obj\Debug\netcoreapp5.0/Services.cs \
-obj\Debug\netcoreapp5.0/ServicesGrpc.cs: Protos/common.proto\
- Protos/app.proto\
- Protos/err.proto\
- Protos/administrator.proto\
- Protos/services.proto

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Constant;
+using DbContext.Interfaces;
+using Google.Protobuf;
+using Microsoft.Data.SqlClient;
+using Protos.Dal;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Text;
-using Microsoft.Data.SqlClient;
-
-using Google.Protobuf;
-
-using Constant;
-using Protos.Dal;
-using DbContext.Interfaces;
 
 namespace DbContext.MsSql.Command
 {
