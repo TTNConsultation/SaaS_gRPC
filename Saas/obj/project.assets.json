@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "Google.Protobuf/3.14.0": {
+      "Google.Protobuf/3.15.6": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3",
@@ -123,7 +123,7 @@
           "lib/net5.0/Grpc.Net.Common.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.Certificate/5.0.2": {
+      "Microsoft.AspNetCore.Authentication.Certificate/5.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "5.0.0"
@@ -138,7 +138,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.2": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.7.1"
@@ -162,7 +162,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/2.1.1": {
+      "Microsoft.Data.SqlClient/2.1.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient.SNI.runtime": "2.1.1",
@@ -212,6 +212,18 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
@@ -745,6 +757,18 @@
           }
         }
       },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
       "System.Configuration.ConfigurationManager/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -998,8 +1022,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Google.Protobuf": "3.14.0",
-          "Microsoft.Data.SqlClient": "2.1.1",
+          "Google.Protobuf": "3.15.6",
           "Protos": "1.0.0"
         },
         "compile": {
@@ -1007,40 +1030,35 @@
         },
         "runtime": {
           "bin/placeholder/DbContext.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "Protos/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Google.Protobuf": "3.14.0",
+          "Google.Protobuf": "3.15.6",
           "Grpc.AspNetCore": "2.35.0",
-          "Microsoft.Data.SqlClient": "2.1.1"
+          "Microsoft.Data.SqlClient": "2.1.2",
+          "Microsoft.Data.Sqlite.Core": "5.0.4"
         },
         "compile": {
           "bin/placeholder/Protos.dll": {}
         },
         "runtime": {
           "bin/placeholder/Protos.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
   "libraries": {
-    "Google.Protobuf/3.14.0": {
-      "sha512": "9AkodyGNmLI+wJJPbwpWLmh4BMHoXDQ9+8qvDPhQQi/BNsleqKMBn3OlyLwC6CALwan2kc5+Cenb8fJSITX3nQ==",
+    "Google.Protobuf/3.15.6": {
+      "sha512": "GDqEK8/gwUJWJGIwJqXwrwEAjBv1opPmDMBz3zjNvzzDFDO8C7hc3DgUTgE5v5FeVWtZYF7ykSBbKRo0hdu02A==",
       "type": "package",
-      "path": "google.protobuf/3.14.0",
+      "path": "google.protobuf/3.15.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.14.0.nupkg.sha512",
+        "google.protobuf.3.15.6.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -1195,10 +1213,10 @@
         "packageIcon.png"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.Certificate/5.0.2": {
-      "sha512": "kJ6v3tQwRd+I25lxRViBtHmowzzVCPnuZpZP5VNbZ09miYcocbQy/U4RXM+bn+KQ24Cvb7hoy24ZW+gdKb9zng==",
+    "Microsoft.AspNetCore.Authentication.Certificate/5.0.4": {
+      "sha512": "Ij1VoOjIeUdquqb+kStlZVFSNmtZvMbdfGEwKejBPYLlIAbBT9oekV9Log8z9CjddPAJZBSiAaXjwYqBzY2P9w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.certificate/5.0.2",
+      "path": "microsoft.aspnetcore.authentication.certificate/5.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1206,14 +1224,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.Certificate.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.Certificate.xml",
-        "microsoft.aspnetcore.authentication.certificate.5.0.2.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.5.0.4.nupkg.sha512",
         "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.2": {
-      "sha512": "Eb7daSO4H2SO4/StrJ6ka9Zx+v2Ht51D0ha229fA05ZyUjiuMkykQFPaQWg2Rkke246PGEkNgM/sCJ9eHxh0+A==",
+    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.4": {
+      "sha512": "gJ4v5Sh6AIzaz3okQ8pGuigTYfWAefaWfTobqU0YCKdsDMTUA1aAvcnVYqYUsb16vGcaVyWIBd4L8G9Ya5oU6w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.2",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1221,7 +1239,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.5.0.2.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
@@ -1293,10 +1311,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/2.1.1": {
-      "sha512": "qxPmA2q0/oqqzZiwgN2QcoFRMPPQOCOxJP9h8X/bLXkPRsIo8xy182td9Txt0WhobW1dBBSYj96/Wf9cmhpm7Q==",
+    "Microsoft.Data.SqlClient/2.1.2": {
+      "sha512": "FCR+H1Fs4908IZMBhCBiWbyqc7vTABkF2EF9S/TViCtE6Di0XN+WcKInWOVCfh5qLOQXswHD1b5A4i1d92ubgw==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/2.1.1",
+      "path": "microsoft.data.sqlclient/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1326,7 +1344,7 @@
         "lib/netstandard2.1/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.pdb",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.2.1.1.nupkg.sha512",
+        "microsoft.data.sqlclient.2.1.2.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net46/Microsoft.Data.SqlClient.dll",
         "ref/net46/Microsoft.Data.SqlClient.pdb",
@@ -1378,6 +1396,20 @@
         "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll",
         "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll",
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
+      ]
+    },
+    "Microsoft.Data.Sqlite.Core/5.0.4": {
+      "sha512": "BhAeNgg0Wz/TIXhl/I1mXppCmKiLDE53nthK388CT5+GJB64QgvulvpoWFLx14hZgFSdzGxieVVQZPlZqHA2HA==",
+      "type": "package",
+      "path": "microsoft.data.sqlite.core/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
+        "microsoft.data.sqlite.core.5.0.4.nupkg.sha512",
+        "microsoft.data.sqlite.core.nuspec"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
@@ -2198,6 +2230,18 @@
         "version.txt"
       ]
     },
+    "SQLitePCLRaw.core/2.0.4": {
+      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.4.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
     "System.Configuration.ConfigurationManager/4.7.0": {
       "sha512": "/anOTeSZCNNI2zDilogWrZ8pNqCmYbzGNexUnNhjW8k0sHqEZ2nHJBp147jBV3hGYswu5lINpNg1vxR7bnqvVA==",
       "type": "package",
@@ -2764,9 +2808,8 @@
     "net5.0": [
       "DbContext >= 1.0.0",
       "Grpc.AspNetCore.Web >= 2.35.0",
-      "Microsoft.AspNetCore.Authentication.Certificate >= 5.0.2",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.2",
-      "Microsoft.Data.SqlClient >= 2.1.1",
+      "Microsoft.AspNetCore.Authentication.Certificate >= 5.0.4",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.4",
       "Microsoft.Extensions.Hosting.WindowsServices >= 5.0.1",
       "Microsoft.Extensions.Logging >= 5.0.0",
       "Protos >= 1.0.0"
@@ -2774,7 +2817,7 @@
   },
   "packageFolders": {
     "C:\\Users\\thang\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -2786,7 +2829,7 @@
       "outputPath": "D:\\Dev\\SaaS_AllAboutFood\\Saas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\thang\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2829,15 +2872,11 @@
           },
           "Microsoft.AspNetCore.Authentication.Certificate": {
             "target": "Package",
-            "version": "[5.0.2, )"
+            "version": "[5.0.4, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[5.0.2, )"
-          },
-          "Microsoft.Data.SqlClient": {
-            "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "[5.0.4, )"
           },
           "Microsoft.Extensions.Hosting.WindowsServices": {
             "target": "Package",
@@ -2866,7 +2905,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

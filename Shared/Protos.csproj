@@ -18,17 +18,17 @@
     <None Remove="Protos\dal.proto" />
     <None Remove="Protos\language.proto" />
     <None Remove="Protos\reference.proto" />
-    <None Remove="Protos\service.proto" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.14.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.15.6" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.35.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.35.0">
+    <PackageReference Include="Grpc.Tools" Version="2.36.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.4" />
   </ItemGroup>
 
   <ItemGroup>

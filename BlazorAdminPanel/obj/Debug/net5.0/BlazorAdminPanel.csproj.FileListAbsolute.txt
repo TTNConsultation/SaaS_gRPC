@@ -65,7 +65,6 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.Gene
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.AssemblyInfoInputs.cache
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.AssemblyInfo.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.csproj.CoreCompileInputs.cache
-D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.MvcApplicationPartsAssemblyInfo.cs
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.MvcApplicationPartsAssemblyInfo.cache
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.RazorComponent.input.cache
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
@@ -127,3 +126,6 @@ D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.dll
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\ref\BlazorAdminPanel.dll
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.pdb
 D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.genruntimeconfig.cache
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\bin\Debug\net5.0\SQLitePCLRaw.core.dll
+D:\Dev\SaaS_AllAboutFood\BlazorAdminPanel\obj\Debug\net5.0\BlazorAdminPanel.MvcApplicationPartsAssemblyInfo.cs

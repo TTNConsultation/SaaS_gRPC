@@ -33,8 +33,7 @@ namespace DbContext.Interfaces
 
     bool AddParameter(T obj) =>
       (obj != null) && obj.Descriptor.Fields.InDeclarationOrder()
-                                            .FirstOrDefault(fd => !AddParameter(fd.Name, fd.Accessor.GetValue(obj)))
-                                            .Equals(null);
+                                            .FirstOrDefault(fd => !AddParameter(fd.Name, fd.Accessor.GetValue(obj))) == null;
 
     int Create();
 
@@ -60,13 +59,11 @@ namespace DbContext.Interfaces
 
     bool AddParameter(string key, object value);
 
-    ICollection<T> Read();
-
-    Task<ICollection<T>> ReadAsync();
-
     bool AddParameter(IDictionary<string, object> parameters) =>
       parameters.FirstOrDefault(p => !AddParameter(p.Key, p.Value))
                 .Equals(default(KeyValuePair<string, object>));
+
+    ICollection<T> Read();
 
     T Read(int id)
     {
@@ -85,8 +82,10 @@ namespace DbContext.Interfaces
     ICollection<T> ReadRange(string key, string values, char separator) =>
       AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
 
-    ICollection<T> ReadBy<S>(int id) where S : IMessage<S> =>
-      Read(typeof(S).Name.AndId(), id);
+    ICollection<T> ReadBy<S>(int sid) where S : IMessage<S> =>
+      Read(typeof(S).Name.AndId(), sid);
+
+    Task<ICollection<T>> ReadAsync();
 
     Task<ICollection<T>> ReadAsync(string value) =>
       ReadAsync(StrVal.VALUE, value);
@@ -100,7 +99,7 @@ namespace DbContext.Interfaces
     Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) =>
       AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
 
-    Task<ICollection<T>> ReadByAsync<S>(int id) where S : IMessage<S> =>
-      ReadAsync(typeof(S).Name.AndId(), id);
+    Task<ICollection<T>> ReadByAsync<S>(int sid) where S : IMessage<S> =>
+      ReadAsync(typeof(S).Name.AndId(), sid);
   }
 }

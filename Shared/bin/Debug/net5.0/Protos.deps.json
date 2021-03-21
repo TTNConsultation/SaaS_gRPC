@@ -8,32 +8,33 @@
     ".NETCoreApp,Version=v5.0": {
       "Protos/1.0.0": {
         "dependencies": {
-          "Google.Protobuf": "3.14.0",
+          "Google.Protobuf": "3.15.6",
           "Grpc.AspNetCore": "2.35.0",
-          "Grpc.Tools": "2.35.0",
-          "Microsoft.Data.SqlClient": "2.1.1"
+          "Grpc.Tools": "2.36.1",
+          "Microsoft.Data.SqlClient": "2.1.2",
+          "Microsoft.Data.Sqlite.Core": "5.0.4"
         },
         "runtime": {
           "Protos.dll": {}
         }
       },
-      "Google.Protobuf/3.14.0": {
+      "Google.Protobuf/3.15.6": {
         "dependencies": {
           "System.Memory": "4.5.3",
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Protobuf.dll": {
-            "assemblyVersion": "3.14.0.0",
-            "fileVersion": "3.14.0.0"
+            "assemblyVersion": "3.15.6.0",
+            "fileVersion": "3.15.6.0"
           }
         }
       },
       "Grpc.AspNetCore/2.35.0": {
         "dependencies": {
-          "Google.Protobuf": "3.14.0",
+          "Google.Protobuf": "3.15.6",
           "Grpc.AspNetCore.Server.ClientFactory": "2.35.0",
-          "Grpc.Tools": "2.35.0"
+          "Grpc.Tools": "2.36.1"
         }
       },
       "Grpc.AspNetCore.Server/2.35.0": {
@@ -106,9 +107,9 @@
           }
         }
       },
-      "Grpc.Tools/2.35.0": {},
+      "Grpc.Tools/2.36.1": {},
       "Microsoft.CSharp/4.5.0": {},
-      "Microsoft.Data.SqlClient/2.1.1": {
+      "Microsoft.Data.SqlClient/2.1.2": {
         "dependencies": {
           "Microsoft.Data.SqlClient.SNI.runtime": "2.1.1",
           "Microsoft.Identity.Client": "4.21.1",
@@ -163,6 +164,17 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "2.1.1.0"
+          }
+        }
+      },
+      "Microsoft.Data.Sqlite.Core/5.0.4": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {
+            "assemblyVersion": "5.0.4.0",
+            "fileVersion": "5.0.421.11803"
           }
         }
       },
@@ -286,6 +298,17 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         }
       },
+      "SQLitePCLRaw.core/2.0.4": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
+          }
+        }
+      },
       "System.Configuration.ConfigurationManager/4.7.0": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "4.7.0",
@@ -386,12 +409,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Google.Protobuf/3.14.0": {
+    "Google.Protobuf/3.15.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9AkodyGNmLI+wJJPbwpWLmh4BMHoXDQ9+8qvDPhQQi/BNsleqKMBn3OlyLwC6CALwan2kc5+Cenb8fJSITX3nQ==",
-      "path": "google.protobuf/3.14.0",
-      "hashPath": "google.protobuf.3.14.0.nupkg.sha512"
+      "sha512": "sha512-GDqEK8/gwUJWJGIwJqXwrwEAjBv1opPmDMBz3zjNvzzDFDO8C7hc3DgUTgE5v5FeVWtZYF7ykSBbKRo0hdu02A==",
+      "path": "google.protobuf/3.15.6",
+      "hashPath": "google.protobuf.3.15.6.nupkg.sha512"
     },
     "Grpc.AspNetCore/2.35.0": {
       "type": "package",
@@ -442,12 +465,12 @@
       "path": "grpc.net.common/2.35.0",
       "hashPath": "grpc.net.common.2.35.0.nupkg.sha512"
     },
-    "Grpc.Tools/2.35.0": {
+    "Grpc.Tools/2.36.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mVXSeJaBHfvGz74HxXwPys4BlRQlmKy4JQFMj5IewrkSLJwyw/Pnp76C/y9SomlkG8nxJDf3oNXgamM8Ua1f4g==",
-      "path": "grpc.tools/2.35.0",
-      "hashPath": "grpc.tools.2.35.0.nupkg.sha512"
+      "sha512": "sha512-kYlIQl+XZKcgIDOXLpgiF521YDrricFnFCce2gyzuzPC/C85wyGWtUw6X/AQxqHaX+1pEXBd7iMrsZup3+Cl8w==",
+      "path": "grpc.tools/2.36.1",
+      "hashPath": "grpc.tools.2.36.1.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -456,12 +479,12 @@
       "path": "microsoft.csharp/4.5.0",
       "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
     },
-    "Microsoft.Data.SqlClient/2.1.1": {
+    "Microsoft.Data.SqlClient/2.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qxPmA2q0/oqqzZiwgN2QcoFRMPPQOCOxJP9h8X/bLXkPRsIo8xy182td9Txt0WhobW1dBBSYj96/Wf9cmhpm7Q==",
-      "path": "microsoft.data.sqlclient/2.1.1",
-      "hashPath": "microsoft.data.sqlclient.2.1.1.nupkg.sha512"
+      "sha512": "sha512-FCR+H1Fs4908IZMBhCBiWbyqc7vTABkF2EF9S/TViCtE6Di0XN+WcKInWOVCfh5qLOQXswHD1b5A4i1d92ubgw==",
+      "path": "microsoft.data.sqlclient/2.1.2",
+      "hashPath": "microsoft.data.sqlclient.2.1.2.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient.SNI.runtime/2.1.1": {
       "type": "package",
@@ -469,6 +492,13 @@
       "sha512": "sha512-JwGDWkyZgm7SATJmFLfT2G4teimvNbNtq3lsS9a5DzvhEZnQrZjZhevCU0vdx8MjheLHoG5vocuO03QtioFQxQ==",
       "path": "microsoft.data.sqlclient.sni.runtime/2.1.1",
       "hashPath": "microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512"
+    },
+    "Microsoft.Data.Sqlite.Core/5.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BhAeNgg0Wz/TIXhl/I1mXppCmKiLDE53nthK388CT5+GJB64QgvulvpoWFLx14hZgFSdzGxieVVQZPlZqHA2HA==",
+      "path": "microsoft.data.sqlite.core/5.0.4",
+      "hashPath": "microsoft.data.sqlite.core.5.0.4.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/3.0.3": {
       "type": "package",
@@ -602,6 +632,13 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "path": "sqlitepclraw.core/2.0.4",
+      "hashPath": "sqlitepclraw.core.2.0.4.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/4.7.0": {
       "type": "package",
