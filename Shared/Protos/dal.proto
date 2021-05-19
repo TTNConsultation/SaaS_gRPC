@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-option csharp_namespace = "Protos.Dal";
+option csharp_namespace = "DbContext.MsSql";
 
 package Procedures;
 
 message Procedure{
-    int32 Id = 1;
-    string FullName = 2;
-    string Schema = 3;
-    string Type = 4;
-    string Op = 5;
+  int32 Id = 1;
+  string FullName = 2;
+  string Schema = 3;
+  string Type = 4;
+  string Op = 5;
 }
 message Parameter{
   string SpName = 1;

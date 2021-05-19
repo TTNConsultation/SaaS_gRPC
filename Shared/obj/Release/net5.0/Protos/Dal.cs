@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Protos.Dal {
+namespace MsSql.StoreProcedure {
 
   /// <summary>Holder for reflection information generated from Protos/dal.proto</summary>
   public static partial class DalReflection {
@@ -30,12 +30,13 @@ namespace Protos.Dal {
             "TmFtZRgBIAEoCRIMCgRTcElkGAIgASgFEgwKBE5hbWUYAyABKAkSDAoEVHlw",
             "ZRgEIAEoCRIRCglNYXhMZW5ndGgYBSABKAUSEQoJUHJlY2lzaW9uGAYgASgF",
             "Eg0KBVNjYWxlGAcgASgFEg0KBU9yZGVyGAggASgFEhAKCElzT3V0cHV0GAkg",
-            "ASgIEhEKCUNvbGxhdGlvbhgKIAEoCUINqgIKUHJvdG9zLkRhbGIGcHJvdG8z"));
+            "ASgIEhEKCUNvbGxhdGlvbhgKIAEoCUIXqgIUTXNTcWwuU3RvcmVQcm9jZWR1",
+            "cmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Dal.Procedure), global::Protos.Dal.Procedure.Parser, new[]{ "Id", "FullName", "Schema", "Type", "Op" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protos.Dal.Parameter), global::Protos.Dal.Parameter.Parser, new[]{ "SpName", "SpId", "Name", "Type", "MaxLength", "Precision", "Scale", "Order", "IsOutput", "Collation" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::MsSql.StoreProcedure.Procedure), global::MsSql.StoreProcedure.Procedure.Parser, new[]{ "Id", "FullName", "Schema", "Type", "Op" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MsSql.StoreProcedure.Parameter), global::MsSql.StoreProcedure.Parameter.Parser, new[]{ "SpName", "SpId", "Name", "Type", "MaxLength", "Precision", "Scale", "Order", "IsOutput", "Collation" }, null, null, null, null)
           }));
     }
     #endregion
@@ -54,7 +55,7 @@ namespace Protos.Dal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Dal.DalReflection.Descriptor.MessageTypes[0]; }
+      get { return global::MsSql.StoreProcedure.DalReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -370,7 +371,7 @@ namespace Protos.Dal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protos.Dal.DalReflection.Descriptor.MessageTypes[1]; }
+      get { return global::MsSql.StoreProcedure.DalReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

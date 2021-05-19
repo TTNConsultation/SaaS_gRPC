@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "Pkh.Message.App";
+
+package app_message;
+
+message IdentityProvider{
+	int32 Id = 1;
+	string Code = 2;
+}
+message Status{
+	int32 Id = 1;
+	string Code = 2;
+}
+message Languages{
+	int32 Id = 1;
+	string Code = 2;
+	string Value = 3;
+}
+message Certificate{
+	string IpAdress = 1;
+	string Subject = 2;	
+	string Thumbprint = 3;	
+	string Schema = 4;
+}

@@ -1,11 +1,13 @@
-﻿using Constant;
+﻿using Utility;
 using DbContext.Interfaces;
 using Google.Protobuf;
 using Microsoft.Data.SqlClient;
-using Protos.Dal;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Data;
+using Google.Protobuf.WellKnownTypes;
 
 namespace DbContext.MsSql.Command
 {
@@ -14,91 +16,75 @@ namespace DbContext.MsSql.Command
     private readonly Procedure _procedure;
     protected readonly SqlCommand sqlCmd;
 
-    public string Error { get; }
-    public int RootId { get; }
-    public bool IsReady => string.IsNullOrEmpty(Error);
+    public bool IsValid => _procedure != null;
 
-    protected Base(Security security, Procedure procedure)
+    protected Base(Procedure procedure, string conStr)
     {
-      Error = (procedure == null) ? StrVal.PROCEDURENOTFOUND
-                                  : (security == null || string.IsNullOrEmpty(security.ConnectionString))
-                                  ? StrVal.INVALIDCLAIM
-                                  : string.Empty;
-
-      if (IsReady)
-      {
-        _procedure = procedure;
-        sqlCmd = _procedure.SqlCommand(security.ConnectionString);
-        RootId = security.RootId;
-        AddParameter(StrVal.ROOT.AndId(), RootId);
-      }
+      _procedure = procedure;
+      sqlCmd = (IsValid) ? new SqlCommand(_procedure.FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure } : null;
     }
 
     public bool AddParameter(string key, object value)
     {
-      var par = _procedure.Parameter(key)?.SqlParameter(value);
-      return (par != null) && sqlCmd.Parameters.Add(par).Size >= 0;
+      var par = _procedure.Parameter(key);
+      return (par != null) &&
+              sqlCmd.Parameters.Add(new SqlParameter(par.Name, par.Type.ToSqlDbType())
+              {
+                Direction = par.IsOutput ? ParameterDirection.Output : ParameterDirection.Input,
+                Value = value?.GetType() == typeof(Timestamp) ? ((Timestamp)value).ToDateTime() : value ?? DBNull.Value,
+                Size = par.Size(value)
+              }).Size >= 0;
     }
 
-    protected bool SetParameter(string key, object value)
+    public bool AddParameter(IMessage obj) =>
+      obj.Descriptor.Fields.InDeclarationOrder().Where(fd => AddParameter(fd.Name, fd.Accessor.GetValue(obj))).Count() == _procedure.Parameters.Count;
+
+    public bool AddParameter(IDictionary<string, object> par) =>
+      par.Where(p => AddParameter(p.Key, p.Value)).Count() == par.Count;
+  }
+
+  internal sealed class Writer<T> : Base, IWriter<T> where T : IMessage<T>, new()
+  {
+    public IReader<T> Reader { get; }
+
+    public Writer(Mapper map, Procedure procedure, Procedure rprocedure, string conStr) : base(procedure, conStr)
     {
-      int index = sqlCmd.Parameters.IndexOf(key);
-      return (index >= 0) && (sqlCmd.Parameters[index].Value = (value ?? DBNull.Value)) != null;
+      Reader = new Reader<T>(map, rprocedure, conStr);
     }
 
-    public virtual void Dispose()
+    public int ExecuteNonQuery()
     {
-      sqlCmd?.Connection?.Close();
-      sqlCmd?.Connection?.Dispose();
-      sqlCmd?.Dispose();
+      using var sqlCon = sqlCmd.Connection;
+      sqlCon.Open();
+
+      return sqlCmd.ExecuteNonQuery();
+    }
+
+    public object ExecuteScalar()
+    {
+      using var sqlCon = sqlCmd.Connection;
+      sqlCon.Open();
+
+      return sqlCmd.ExecuteScalar();
     }
   }
 
-  internal sealed class ExecuteNonQuery<T> : Base, IExecuteNonQuery<T> where T : IMessage<T>, new()
+  internal sealed class Reader<T> : Base, IReader<T> where T : IMessage<T>, new()
   {
-    public IExecuteReader<T> Reader { get; }
+    public readonly Mapper _map;
 
-    public ExecuteNonQuery(Security claim, Procedure procedure, Procedure rprocedure, Mapper map) : base(claim, procedure)
-    {
-      Reader = new ExecuteReader<T>(claim, rprocedure, map);
-    }
-
-    public bool Update()
-    {
-      sqlCmd.Connection.Open();
-      return sqlCmd.ExecuteNonQuery() == 1;
-    }
-
-    public int Create()
-    {
-      sqlCmd.Connection.Open();
-
-      return (sqlCmd.ExecuteNonQuery() == 1)
-        ? int.Parse(sqlCmd.Parameters[StrVal.ID].Value.ToString())
-        : throw new Exception(StrVal.OPERATIONFAILED);
-    }
-
-    public override void Dispose()
-    {
-      Reader?.Dispose();
-      base.Dispose();
-    }
-  }
-
-  internal sealed class ExecuteReader<T> : Base, IExecuteReader<T> where T : IMessage<T>, new()
-  {
-    private readonly Mapper _map;
-
-    public ExecuteReader(Security claim, Procedure procedure, Mapper map) : base(claim, procedure)
+    public Reader(Mapper map, Procedure procedure, string conStr) : base(procedure, conStr)
     {
       _map = map;
     }
 
-    public ICollection<T> Read()
+    public ICollection<T> ExecuteReader()
     {
       var ret = new HashSet<T>();
 
-      sqlCmd.Connection.Open();
+      using var sqlcon = sqlCmd.Connection;
+      sqlcon.Open();
+
       using var reader = sqlCmd.ExecuteReader();
 
       while (reader.Read())
@@ -109,11 +95,13 @@ namespace DbContext.MsSql.Command
       return ret;
     }
 
-    public async Task<ICollection<T>> ReadAsync()
+    public async Task<ICollection<T>> ExecuteAsync()
     {
       var ret = new HashSet<T>();
 
-      await sqlCmd.Connection.OpenAsync().ConfigureAwait(false);
+      using var sqlcon = sqlCmd.Connection;
+      sqlcon.Open();
+
       using var reader = await sqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
 
       while (await reader.ReadAsync().ConfigureAwait(false))

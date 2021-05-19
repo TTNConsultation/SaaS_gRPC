@@ -1,6 +1,9 @@
-﻿using Google.Protobuf;
+﻿using DbContext.Interfaces;
+using Google.Protobuf;
 using Google.Protobuf.Reflection;
+using Google.Protobuf.WellKnownTypes;
 using System;
+using System.Data;
 
 namespace DbContext
 {
@@ -18,7 +21,25 @@ namespace DbContext
         FieldType.Bool => Convert.ChangeType(obj, typeof(bool)),
         FieldType.String => Convert.ChangeType(obj, typeof(string)),
         FieldType.Bytes => Convert.ChangeType(obj, typeof(ByteString)),
+        FieldType.Message => DateTime.TryParse(obj.ToString(), out DateTime dt) ? Timestamp.FromDateTime(dt.ToUniversalTime()) : obj,
         _ => obj,
+      };
+    }
+
+    public static SqlDbType ToSqlDbType(this string str)
+    {
+      return str switch
+      {
+        "int" => SqlDbType.Int,
+        "tinyint" => SqlDbType.TinyInt,
+        "bit" => SqlDbType.Bit,
+        "money" => SqlDbType.Money,
+        "varchar" => SqlDbType.VarChar,
+        "nvarchar" => SqlDbType.NVarChar,
+        "char" => SqlDbType.Char,
+        "float" => SqlDbType.Float,
+        "date" => SqlDbType.Date,
+        _ => throw new InvalidCastException()
       };
     }
   }

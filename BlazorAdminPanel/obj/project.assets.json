@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "Google.Protobuf/3.15.6": {
+      "Google.Protobuf/3.15.7": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3",
@@ -15,12 +15,12 @@
           "lib/netstandard2.0/Google.Protobuf.dll": {}
         }
       },
-      "Grpc.AspNetCore/2.35.0": {
+      "Grpc.AspNetCore/2.36.0": {
         "type": "package",
         "dependencies": {
-          "Google.Protobuf": "3.14.0",
-          "Grpc.AspNetCore.Server.ClientFactory": "2.35.0",
-          "Grpc.Tools": "2.35.0"
+          "Google.Protobuf": "3.15.5",
+          "Grpc.AspNetCore.Server.ClientFactory": "2.36.0",
+          "Grpc.Tools": "2.36.1"
         },
         "compile": {
           "lib/net5.0/_._": {}
@@ -29,10 +29,10 @@
           "lib/net5.0/_._": {}
         }
       },
-      "Grpc.AspNetCore.Server/2.35.0": {
+      "Grpc.AspNetCore.Server/2.36.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Net.Common": "2.35.0"
+          "Grpc.Net.Common": "2.36.0"
         },
         "compile": {
           "lib/net5.0/Grpc.AspNetCore.Server.dll": {}
@@ -44,11 +44,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Grpc.AspNetCore.Server.ClientFactory/2.35.0": {
+      "Grpc.AspNetCore.Server.ClientFactory/2.36.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.AspNetCore.Server": "2.35.0",
-          "Grpc.Net.ClientFactory": "2.35.0"
+          "Grpc.AspNetCore.Server": "2.36.0",
+          "Grpc.Net.ClientFactory": "2.36.0"
         },
         "compile": {
           "lib/net5.0/Grpc.AspNetCore.Server.ClientFactory.dll": {}
@@ -60,7 +60,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Grpc.Core.Api/2.35.0": {
+      "Grpc.Core.Api/2.36.1": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -72,12 +72,11 @@
           "lib/netstandard2.0/Grpc.Core.Api.dll": {}
         }
       },
-      "Grpc.Net.Client/2.35.0": {
+      "Grpc.Net.Client/2.36.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Net.Common": "2.35.0",
-          "Microsoft.Extensions.Logging.Abstractions": "3.0.3",
-          "System.Diagnostics.DiagnosticSource": "4.5.1"
+          "Grpc.Net.Common": "2.36.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
         },
         "compile": {
           "lib/net5.0/Grpc.Net.Client.dll": {}
@@ -86,10 +85,10 @@
           "lib/net5.0/Grpc.Net.Client.dll": {}
         }
       },
-      "Grpc.Net.ClientFactory/2.35.0": {
+      "Grpc.Net.ClientFactory/2.36.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Net.Client": "2.35.0",
+          "Grpc.Net.Client": "2.36.0",
           "Microsoft.Extensions.Http": "3.0.3"
         },
         "compile": {
@@ -99,10 +98,10 @@
           "lib/net5.0/Grpc.Net.ClientFactory.dll": {}
         }
       },
-      "Grpc.Net.Common/2.35.0": {
+      "Grpc.Net.Common/2.36.0": {
         "type": "package",
         "dependencies": {
-          "Grpc.Core.Api": "2.35.0"
+          "Grpc.Core.Api": "2.36.1"
         },
         "compile": {
           "lib/net5.0/Grpc.Net.Common.dll": {}
@@ -254,18 +253,6 @@
             "assetType": "native",
             "rid": "win-x86"
           }
-        }
-      },
-      "Microsoft.Data.Sqlite.Core/5.0.4": {
-        "type": "package",
-        "dependencies": {
-          "SQLitePCLRaw.core": "2.0.4"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/5.0.4": {
@@ -659,18 +646,6 @@
           }
         }
       },
-      "SQLitePCLRaw.core/2.0.4": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
-        }
-      },
       "System.Collections.Immutable/5.0.0": {
         "type": "package",
         "compile": {
@@ -904,7 +879,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Google.Protobuf": "3.15.6",
+          "Google.Protobuf": "3.15.7",
           "Protos": "1.0.0"
         },
         "compile": {
@@ -918,10 +893,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Google.Protobuf": "3.15.6",
-          "Grpc.AspNetCore": "2.35.0",
-          "Microsoft.Data.SqlClient": "2.1.2",
-          "Microsoft.Data.Sqlite.Core": "5.0.4"
+          "Google.Protobuf": "3.15.7",
+          "Grpc.AspNetCore": "2.36.0",
+          "Microsoft.Data.SqlClient": "2.1.2"
         },
         "compile": {
           "bin/placeholder/Protos.dll": {}
@@ -933,14 +907,14 @@
     }
   },
   "libraries": {
-    "Google.Protobuf/3.15.6": {
-      "sha512": "GDqEK8/gwUJWJGIwJqXwrwEAjBv1opPmDMBz3zjNvzzDFDO8C7hc3DgUTgE5v5FeVWtZYF7ykSBbKRo0hdu02A==",
+    "Google.Protobuf/3.15.7": {
+      "sha512": "cvdX2xL/zO+xKYu9EGIIRPFzXg36YDMZYEXAJurH9jMVRWTnrdo7kyHCskndYmgKdoYU4MOoyR63nVOodmSJ2A==",
       "type": "package",
-      "path": "google.protobuf/3.15.6",
+      "path": "google.protobuf/3.15.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.15.6.nupkg.sha512",
+        "google.protobuf.3.15.7.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -953,28 +927,28 @@
         "lib/netstandard2.0/Google.Protobuf.xml"
       ]
     },
-    "Grpc.AspNetCore/2.35.0": {
-      "sha512": "D2cwAX9KXukf99DmUaggmMg7ctGEWHuI/zNwnnAmMWD9STcNI2UVs243mAHJkxo3ZGjfaIwMu3FxYYpACZq3rA==",
+    "Grpc.AspNetCore/2.36.0": {
+      "sha512": "zkN5UQSJqqsgpt6Gp51mpgTZv+5bVhxXMVcXD2xX58MgMLyGKQn8GmYpUPASillRrY7TGg+KX9gq8qIbkaFVqA==",
       "type": "package",
-      "path": "grpc.aspnetcore/2.35.0",
+      "path": "grpc.aspnetcore/2.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.2.35.0.nupkg.sha512",
+        "grpc.aspnetcore.2.36.0.nupkg.sha512",
         "grpc.aspnetcore.nuspec",
         "lib/net5.0/_._",
         "lib/netcoreapp3.0/_._",
         "packageIcon.png"
       ]
     },
-    "Grpc.AspNetCore.Server/2.35.0": {
-      "sha512": "YAVqnIw8nc2qK01LFVz578FW0Fy6crOabb8knmCMqnxX8udliMRKjZdruZlDI3aRMgZq4nzV4BDF/z3/wtctNQ==",
+    "Grpc.AspNetCore.Server/2.36.0": {
+      "sha512": "qP3/CV5ShzHbFpTDb45bAGleeZq5B3Ej1uRKJiid4SyG87G4GI+FZ8d0hEY5A9NPh+3A7q6yGNpDd9AYUMqVHQ==",
       "type": "package",
-      "path": "grpc.aspnetcore.server/2.35.0",
+      "path": "grpc.aspnetcore.server/2.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.server.2.35.0.nupkg.sha512",
+        "grpc.aspnetcore.server.2.36.0.nupkg.sha512",
         "grpc.aspnetcore.server.nuspec",
         "lib/net5.0/Grpc.AspNetCore.Server.dll",
         "lib/net5.0/Grpc.AspNetCore.Server.pdb",
@@ -985,14 +959,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.AspNetCore.Server.ClientFactory/2.35.0": {
-      "sha512": "h5FYkqwvB5YPjeEYa1YLil5OtO9APeyolrTUkrwrafBAN5pEZJb/jXe1SHagymbKt6R9XdDjqpYPjLiUtJ4N3g==",
+    "Grpc.AspNetCore.Server.ClientFactory/2.36.0": {
+      "sha512": "ubMFtQurcmsxwNqidqRfjK/nkaMvObzt+EZd1S2SeRh+m4nUst87g1rPQAnmiEcslM0Qeo+6+VX1PgMXndoNHw==",
       "type": "package",
-      "path": "grpc.aspnetcore.server.clientfactory/2.35.0",
+      "path": "grpc.aspnetcore.server.clientfactory/2.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.aspnetcore.server.clientfactory.2.35.0.nupkg.sha512",
+        "grpc.aspnetcore.server.clientfactory.2.36.0.nupkg.sha512",
         "grpc.aspnetcore.server.clientfactory.nuspec",
         "lib/net5.0/Grpc.AspNetCore.Server.ClientFactory.dll",
         "lib/net5.0/Grpc.AspNetCore.Server.ClientFactory.pdb",
@@ -1003,14 +977,14 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.Core.Api/2.35.0": {
-      "sha512": "3ZpDzd5iMRBUv22hcvBqhL1yFFNfa9AccG8koco0ezbO/NMt3E0GsTf1BeIZ2G6ceFZR3fEMawpiJAlXhDEpQA==",
+    "Grpc.Core.Api/2.36.1": {
+      "sha512": "33l9mJnAbSYvO0A+PhGuXldglPghFjNghywgva1FgQYBCh5cDVKggZB6acGcSJqAUdGmoSzbc9J7ysWVOkyy1A==",
       "type": "package",
-      "path": "grpc.core.api/2.35.0",
+      "path": "grpc.core.api/2.36.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.core.api.2.35.0.nupkg.sha512",
+        "grpc.core.api.2.36.1.nupkg.sha512",
         "grpc.core.api.nuspec",
         "lib/net45/Grpc.Core.Api.dll",
         "lib/net45/Grpc.Core.Api.pdb",
@@ -1023,32 +997,35 @@
         "lib/netstandard2.0/Grpc.Core.Api.xml"
       ]
     },
-    "Grpc.Net.Client/2.35.0": {
-      "sha512": "/MOsv7Q963F/jgjSId03DLBExMA+0n2/k5N9TIW8xmaHdnRRE6UJWw4nbZhpoNrroqVoxVY1k2xUYNsLw8zaGQ==",
+    "Grpc.Net.Client/2.36.0": {
+      "sha512": "AuPCGWI3VauoAiTtfA6Qcjar8lt4VJPkXV19Xhp+RCLfMwgOa/NCUhipAfHRgxiP7IVXcIsZXsqhnkI5oPCfog==",
       "type": "package",
-      "path": "grpc.net.client/2.35.0",
+      "path": "grpc.net.client/2.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.net.client.2.35.0.nupkg.sha512",
+        "grpc.net.client.2.36.0.nupkg.sha512",
         "grpc.net.client.nuspec",
         "lib/net5.0/Grpc.Net.Client.dll",
         "lib/net5.0/Grpc.Net.Client.pdb",
         "lib/net5.0/Grpc.Net.Client.xml",
+        "lib/netstandard2.0/Grpc.Net.Client.dll",
+        "lib/netstandard2.0/Grpc.Net.Client.pdb",
+        "lib/netstandard2.0/Grpc.Net.Client.xml",
         "lib/netstandard2.1/Grpc.Net.Client.dll",
         "lib/netstandard2.1/Grpc.Net.Client.pdb",
         "lib/netstandard2.1/Grpc.Net.Client.xml",
         "packageIcon.png"
       ]
     },
-    "Grpc.Net.ClientFactory/2.35.0": {
-      "sha512": "gukEptk/JDNTe8BRDYYeb4u6iQupECx1Sr4VQVxy7lvH2Y4xX9fLvbr0Z2KaSY0IiKcaqjqHnB7ssLjTseUvfw==",
+    "Grpc.Net.ClientFactory/2.36.0": {
+      "sha512": "5XyY0wa/ZOzucP9EWLZYxGOXI5mDMB4fdtICfgA3BrGRJqYxLOD9Bhfe2yJ+RH0A/LY5Zj7FgQRt8ufGhU843w==",
       "type": "package",
-      "path": "grpc.net.clientfactory/2.35.0",
+      "path": "grpc.net.clientfactory/2.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.net.clientfactory.2.35.0.nupkg.sha512",
+        "grpc.net.clientfactory.2.36.0.nupkg.sha512",
         "grpc.net.clientfactory.nuspec",
         "lib/net5.0/Grpc.Net.ClientFactory.dll",
         "lib/net5.0/Grpc.Net.ClientFactory.pdb",
@@ -1059,18 +1036,21 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.Net.Common/2.35.0": {
-      "sha512": "Xs5Uuvx+oV8qLbiy3dRWmLwbsRsedsHe/b3E2SPgggksfk2fTXpq65a78YiLuDWf4ZgahjaAnwHhYekV/Dptyw==",
+    "Grpc.Net.Common/2.36.0": {
+      "sha512": "2zeNG0IQ9veVAU0mHqy4nMRiunXVO9CbUkL+mA2s0nUClCmBvQThVqzVMG6Wdmb2rnwA3pQIblbcGoGWIsWPHw==",
       "type": "package",
-      "path": "grpc.net.common/2.35.0",
+      "path": "grpc.net.common/2.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "grpc.net.common.2.35.0.nupkg.sha512",
+        "grpc.net.common.2.36.0.nupkg.sha512",
         "grpc.net.common.nuspec",
         "lib/net5.0/Grpc.Net.Common.dll",
         "lib/net5.0/Grpc.Net.Common.pdb",
         "lib/net5.0/Grpc.Net.Common.xml",
+        "lib/netstandard2.0/Grpc.Net.Common.dll",
+        "lib/netstandard2.0/Grpc.Net.Common.pdb",
+        "lib/netstandard2.0/Grpc.Net.Common.xml",
         "lib/netstandard2.1/Grpc.Net.Common.dll",
         "lib/netstandard2.1/Grpc.Net.Common.pdb",
         "lib/netstandard2.1/Grpc.Net.Common.xml",
@@ -1375,20 +1355,6 @@
         "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll",
         "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll",
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
-      ]
-    },
-    "Microsoft.Data.Sqlite.Core/5.0.4": {
-      "sha512": "BhAeNgg0Wz/TIXhl/I1mXppCmKiLDE53nthK388CT5+GJB64QgvulvpoWFLx14hZgFSdzGxieVVQZPlZqHA2HA==",
-      "type": "package",
-      "path": "microsoft.data.sqlite.core/5.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
-        "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.5.0.4.nupkg.sha512",
-        "microsoft.data.sqlite.core.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/5.0.4": {
@@ -2011,18 +1977,6 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "SQLitePCLRaw.core/2.0.4": {
-      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
-      "type": "package",
-      "path": "sqlitepclraw.core/2.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
-        "sqlitepclraw.core.2.0.4.nupkg.sha512",
-        "sqlitepclraw.core.nuspec"
       ]
     },
     "System.Collections.Immutable/5.0.0": {

@@ -1,0 +1,6 @@
+obj\Release\net5.0\Protos/Pkh.serviceGrpc.cs \
+obj\Release\net5.0\Protos/PkhService.cs: C:/Users/thang/.nuget/packages/grpc.tools/2.37.0/build/native/include/google/protobuf/struct.proto\
+ C:/Users/thang/.nuget/packages/grpc.tools/2.37.0/build/native/include/google/protobuf/empty.proto\
+ C:/Users/thang/.nuget/packages/grpc.tools/2.37.0/build/native/include/google/protobuf/timestamp.proto\
+ Protos/pkh.client.proto\
+ Protos/pkh.service.proto

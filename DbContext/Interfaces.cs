@@ -1,10 +1,11 @@
-﻿using Constant;
-using Google.Protobuf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+
+using Utility;
+using Google.Protobuf;
 
 namespace DbContext.Interfaces
 {
@@ -12,92 +13,89 @@ namespace DbContext.Interfaces
 
   public interface IDbContext
   {
-    IExecuteReader<T> ReferenceData<T>(int rootId = 0) where T : IMessage<T>, new();
+    IReader<T> GetAppReader<T>(OperationType op = OperationType.R) where T : IMessage<T>, new();
 
-    IExecuteReader<T> GetReader<T>(int appId, ClaimsPrincipal uc, OperationType op = OperationType.R) where T : IMessage<T>, new();
+    IReader<T> GetReader<T>(ClaimsPrincipal uc, OperationType op = OperationType.R) where T : IMessage<T>, new();
 
-    IExecuteNonQuery<T> GetWriter<T>(int appId, ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new();
+    IWriter<T> GetWriter<T>(ClaimsPrincipal uc, OperationType op) where T : IMessage<T>, new();
   }
 
-  public interface IExecuteNonQuery<T> : IDisposable where T : IMessage<T>, new()
+  public interface IWriter<T> where T : IMessage<T>, new()
   {
-    string Error { get; }
+    bool IsValid { get; }
 
-    int RootId { get; }
+    IReader<T> Reader { get; }
 
-    bool IsReady { get; }
-
-    IExecuteReader<T> Reader { get; }
+    //IWriter<T> Clone();
 
     bool AddParameter(string key, object value);
 
-    bool AddParameter(T obj) =>
-      (obj != null) && obj.Descriptor.Fields.InDeclarationOrder()
-                                            .FirstOrDefault(fd => !AddParameter(fd.Name, fd.Accessor.GetValue(obj))) == null;
+    bool AddParameter(IMessage obj);
 
-    int Create();
+    int ExecuteNonQuery();
 
-    bool Update();
+    object ExecuteScalar();
 
-    int Create(T obj) => AddParameter(obj) ? Create() : throw new Exception(StrVal.PARAMETERNONVALID);
+    object Create(IMessage obj) => AddParameter(obj) ? ExecuteScalar() : throw new Exception(STR.PARAMETERNONVALID);
 
-    bool Update(T obj) => AddParameter(obj) && Update();
+    bool Update(IMessage obj) => AddParameter(obj) && ExecuteNonQuery() == 1;
 
     bool UpdateState(int id, int stateId) =>
-     AddParameter(Reader.Read(id)) && AddParameter(StrVal.STATE.AndId(), stateId) && Update();
+     AddParameter(Reader.First(id)) && AddParameter(STR.STATE.AndId(), stateId) && ExecuteNonQuery() == 1;
 
-    bool Delete(int id) => AddParameter(StrVal.ID, id) && Update();
+    bool Delete(int id) => AddParameter(STR.ID, id) && ExecuteNonQuery() == 1;
   }
 
-  public interface IExecuteReader<T> : IDisposable where T : IMessage<T>, new()
+  public interface IReader<T> where T : IMessage<T>, new()
   {
-    string Error { get; }
-
-    int RootId { get; }
-
-    bool IsReady { get; }
+    bool IsValid { get; }
 
     bool AddParameter(string key, object value);
 
-    bool AddParameter(IDictionary<string, object> parameters) =>
-      parameters.FirstOrDefault(p => !AddParameter(p.Key, p.Value))
-                .Equals(default(KeyValuePair<string, object>));
+    bool AddParameter(IMessage obj);
 
-    ICollection<T> Read();
+    bool AddParameter(IDictionary<string, object> par);
 
-    T Read(int id)
-    {
-      var res = Read(StrVal.ID, id);
-      return res.Count == 0 ? default : res.First();
-    }
+    //IReader<T> Clone();
 
-    ICollection<T> Read(string value) => Read(StrVal.VALUE, value);
+    ICollection<T> ExecuteReader();
+
+    T First(int id) => Read(STR.ID, id).FirstOrDefault();
+
+    T First(string value) => Read(value).FirstOrDefault();
+
+    T First(IMessage obj) => Read(obj).FirstOrDefault();
+
+    ICollection<T> Read(string value) => Read(STR.VALUE, value);
 
     ICollection<T> Read(string key, object value) =>
-      AddParameter(key, value) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
+      AddParameter(key, value) ? ExecuteReader() : throw new Exception(STR.PARAMETERNONVALID);
 
-    ICollection<T> Read(IDictionary<string, object> parameters) =>
-      AddParameter(parameters) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
+    ICollection<T> Read(IMessage obj) =>
+      AddParameter(obj) ? ExecuteReader() : throw new Exception(STR.PARAMETERNONVALID);
+
+    ICollection<T> Read(IDictionary<string, object> par) =>
+      AddParameter(par) ? ExecuteReader() : throw new Exception(STR.PARAMETERNONVALID);
 
     ICollection<T> ReadRange(string key, string values, char separator) =>
-      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? Read() : throw new Exception(StrVal.PARAMETERNONVALID);
+      AddParameter(key, values) && AddParameter(STR.SEPARATOR, separator) ? ExecuteReader() : throw new Exception(STR.PARAMETERNONVALID);
 
     ICollection<T> ReadBy<S>(int sid) where S : IMessage<S> =>
       Read(typeof(S).Name.AndId(), sid);
 
-    Task<ICollection<T>> ReadAsync();
+    Task<ICollection<T>> ExecuteAsync();
 
     Task<ICollection<T>> ReadAsync(string value) =>
-      ReadAsync(StrVal.VALUE, value);
+      ReadAsync(STR.VALUE, value);
 
     Task<ICollection<T>> ReadAsync(string key, object value) =>
-      AddParameter(key, value) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
+      AddParameter(key, value) ? ExecuteAsync() : throw new Exception(STR.PARAMETERNONVALID);
 
-    Task<ICollection<T>> ReadAsync(IDictionary<string, object> parameters) =>
-      AddParameter(parameters) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
+    Task<ICollection<T>> ReadAsync(IMessage obj) =>
+      AddParameter(obj) ? ExecuteAsync() : throw new Exception(STR.PARAMETERNONVALID);
 
     Task<ICollection<T>> ReadRangeAsync(string key, string values, char separator) =>
-      AddParameter(key, values) && AddParameter(StrVal.SEPARATOR, separator) ? ReadAsync() : throw new Exception(StrVal.PARAMETERNONVALID);
+      AddParameter(key, values) && AddParameter(STR.SEPARATOR, separator) ? ExecuteAsync() : throw new Exception(STR.PARAMETERNONVALID);
 
     Task<ICollection<T>> ReadByAsync<S>(int sid) where S : IMessage<S> =>
       ReadAsync(typeof(S).Name.AndId(), sid);

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Pkh.Service";
+
+package client_service;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+import "Protos/pkh_client.proto";
+
+service Client {
+  // Sends a greeting
+  rpc Register (client_message.Registration) returns (google.protobuf.Value);
+  rpc Confirm (client_message.Registration) returns (google.protobuf.Value);
+  rpc Login (client_message.Customer) returns (google.protobuf.Value);
+  rpc Signin (client_message.Customer) returns (google.protobuf.Value);
+}
+
+service App {
+  rpc TestCertificate (google.protobuf.Empty) returns (google.protobuf.Value);
+}

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "Pkh.Message.Client";
+
+import "google/protobuf/timestamp.proto";
+
+package client_message;
+
+message Customer{
+  int32 Id = 1;
+  string Name = 2;
+  string Email = 3;
+  int32 IdentityProvider = 4;
+  string NameIdentifier = 5;
+  int32 Status = 6;
+  google.protobuf.Timestamp Since = 7;
+}
+message Registration{
+  int32 Id = 1;
+  string Name = 2;
+  string Email = 3;
+  string Credential = 4;
+  google.protobuf.Timestamp Created = 5;
+}
+message CustomerLocation{
+  int32 Id = 1;
+  int32 CustomerId = 2;
+  float Lat = 3;
+  float Long = 4;
+  int32 StatusId = 5;
+  google.protobuf.Timestamp Since = 6;
+}
