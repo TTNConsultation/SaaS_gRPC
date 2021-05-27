@@ -9,22 +9,22 @@ namespace DbContext
 {
   internal sealed class CollectionMapper
   {
-    private readonly ICollection<Mapper> _mappers = new HashSet<Mapper>();
+    private readonly HashSet<Mapper> _mappers = new();
 
-    private Mapper Get(Type type) => _mappers.FirstOrDefault(m => m.Equals(type)) ??
-                                     _mappers.Append(new Mapper(type)).Last();
+    private Mapper Get(IMessage type) => _mappers.FirstOrDefault(m => m.Equals(type)) ??
+                                         _mappers.Append(new Mapper(type)).Last();
 
-    public Mapper Get<T>() where T : IMessage<T> => Get(typeof(T));
+    public Mapper Get<T>() where T : IMessage<T> => Get(typeof(T) as IMessage);
   }
 
   internal sealed class Mapper
   {
-    public readonly Type TypeMap;
+    private readonly IMessage _type;
     private IDictionary<int, int> _fieldMap = new Dictionary<int, int>();
 
-    public Mapper(Type type)
+    public Mapper(IMessage type)
     {
-      TypeMap = type;
+      _type = type;
     }
 
     private T Build<T>(IDataReader reader) where T : IMessage<T>, new()
@@ -60,9 +60,8 @@ namespace DbContext
     public T Parse<T>(IDataReader reader) where T : IMessage<T>, new() =>
       (_fieldMap.Count == 0) ? Build<T>(reader) : Map<T>(reader);
 
-    public override bool Equals(object obj) =>
-      (obj is Type) ? ((Type)obj).Equals(TypeMap) : (obj is Mapper) ? ((Mapper)obj).TypeMap.Equals(TypeMap) : false;
+    public override bool Equals(object obj) => obj.GetHashCode() == this.GetHashCode();
 
-    public override int GetHashCode() => TypeMap.GetHashCode();
+    public override int GetHashCode() => _type.GetHashCode();
   }
 }

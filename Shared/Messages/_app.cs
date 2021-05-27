@@ -16,9 +16,9 @@ namespace Pkh.Message.App
 
     public string RefCode();
 
-    public bool Id(int id) => RefId() == id;
+    public bool Equals(int id) => RefId() == id;
 
-    public bool Code(string code) => RefCode().IsEqual(code);
+    public bool Equals(string code) => RefCode().IsEqual(code);
   }
 
   public partial class IdentityProvider : IReferenceData

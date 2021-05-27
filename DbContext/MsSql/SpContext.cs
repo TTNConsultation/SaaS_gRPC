@@ -12,13 +12,13 @@ using System.Security.Claims;
 
 namespace DbContext.MsSql
 {
-  public sealed class StoreProcedure : IDbContext
+  public sealed class SpContext : IDbContext
   {
     private readonly CollectionMapper _mappers = new CollectionMapper();
     private readonly ConnectionManager _connections;
     private readonly CollectionProcedure _procedures;
 
-    public StoreProcedure(IConfiguration config)
+    public SpContext(IConfiguration config)
     {
       _connections = new ConnectionManager(config);
       _procedures = new CollectionProcedure(_mappers, _connections.App());
@@ -60,7 +60,7 @@ namespace DbContext.MsSql
     public CollectionProcedure(CollectionMapper maps, string connectionString) =>
       _procedures = ReadProcedure(maps, connectionString);
 
-    public Procedure Get<T>(OperationType op) => _procedures.FirstOrDefault(p => p.IsEqual(typeof(T).Name, op.ToString()));
+    public Procedure Get<T>(OperationType op) where T : IMessage<T> => _procedures.FirstOrDefault(p => p.IsEqual(typeof(T).Name, op.ToString()));
 
     private static ICollection<Procedure> ReadProcedure(CollectionMapper maps, string conStr)
     {

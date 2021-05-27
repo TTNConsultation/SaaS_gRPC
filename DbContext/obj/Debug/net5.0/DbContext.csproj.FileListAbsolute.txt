@@ -4,7 +4,6 @@ D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\net5.0\ref\DbContext.dll
 D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\net5.0\DbContext.pdb
 D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\net5.0\Protos.dll
 D:\Dev\SaaS_AllAboutFood\DbContext\bin\Debug\net5.0\Protos.pdb
-D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.csprojAssemblyReference.cache
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.GeneratedMSBuildEditorConfig.editorconfig
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.AssemblyInfoInputs.cache
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.AssemblyInfo.cs
@@ -13,3 +12,4 @@ D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.csproj.CopyComplet
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.dll
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\ref\DbContext.dll
 D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.pdb
+D:\Dev\SaaS_AllAboutFood\DbContext\obj\Debug\net5.0\DbContext.csproj.AssemblyReference.cache

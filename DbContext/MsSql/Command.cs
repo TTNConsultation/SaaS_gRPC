@@ -14,26 +14,27 @@ namespace DbContext.MsSql.Command
   internal abstract class Base
   {
     private readonly Procedure _procedure;
-    protected readonly SqlCommand sqlCmd;
+    protected readonly IDbCommand dbCmd;
 
-    public bool IsValid => _procedure != null;
+    public bool IsValid => dbCmd != null;
 
     protected Base(Procedure procedure, string conStr)
     {
       _procedure = procedure;
-      sqlCmd = (IsValid) ? new SqlCommand(_procedure.FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure } : null;
+      dbCmd = (_procedure == null) ? null
+                                   : new SqlCommand(_procedure.FullName, new SqlConnection(conStr)) { CommandType = CommandType.StoredProcedure };
     }
 
     public bool AddParameter(string key, object value)
     {
       var par = _procedure.Parameter(key);
       return (par != null) &&
-              sqlCmd.Parameters.Add(new SqlParameter(par.Name, par.Type.ToSqlDbType())
+              dbCmd.Parameters.Add(new SqlParameter(par.Name, par.Type.ToSqlDbType())
               {
                 Direction = par.IsOutput ? ParameterDirection.Output : ParameterDirection.Input,
                 Value = value?.GetType() == typeof(Timestamp) ? ((Timestamp)value).ToDateTime() : value ?? DBNull.Value,
                 Size = par.Size(value)
-              }).Size >= 0;
+              }) >= 0;
     }
 
     public bool AddParameter(IMessage obj) =>
@@ -54,18 +55,18 @@ namespace DbContext.MsSql.Command
 
     public int ExecuteNonQuery()
     {
-      using var sqlCon = sqlCmd.Connection;
+      using var sqlCon = dbCmd.Connection;
       sqlCon.Open();
 
-      return sqlCmd.ExecuteNonQuery();
+      return dbCmd.ExecuteNonQuery();
     }
 
     public object ExecuteScalar()
     {
-      using var sqlCon = sqlCmd.Connection;
+      using var sqlCon = dbCmd.Connection;
       sqlCon.Open();
 
-      return sqlCmd.ExecuteScalar();
+      return dbCmd.ExecuteScalar();
     }
   }
 
@@ -82,10 +83,10 @@ namespace DbContext.MsSql.Command
     {
       var ret = new HashSet<T>();
 
-      using var sqlcon = sqlCmd.Connection;
+      using var sqlcon = dbCmd.Connection;
       sqlcon.Open();
 
-      using var reader = sqlCmd.ExecuteReader();
+      using var reader = dbCmd.ExecuteReader();
 
       while (reader.Read())
       {
@@ -99,12 +100,12 @@ namespace DbContext.MsSql.Command
     {
       var ret = new HashSet<T>();
 
-      using var sqlcon = sqlCmd.Connection;
+      using var sqlcon = dbCmd.Connection;
       sqlcon.Open();
 
-      using var reader = await sqlCmd.ExecuteReaderAsync().ConfigureAwait(false);
+      using var reader = await ((SqlCommand)dbCmd).ExecuteReaderAsync();
 
-      while (await reader.ReadAsync().ConfigureAwait(false))
+      while (await reader.ReadAsync())
       {
         ret.Add(_map.Parse<T>(reader));
       }

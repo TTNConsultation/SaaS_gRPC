@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "Google.Protobuf/3.17.0": {
+      "Google.Protobuf/3.17.2": {
         "type": "package",
         "compile": {
           "lib/net5.0/Google.Protobuf.dll": {}
@@ -106,7 +106,7 @@
           "lib/net5.0/Grpc.Net.Common.dll": {}
         }
       },
-      "Grpc.Tools/2.37.1": {
+      "Grpc.Tools/2.38.0": {
         "type": "package",
         "build": {
           "build/Grpc.Tools.props": {},
@@ -242,14 +242,14 @@
     }
   },
   "libraries": {
-    "Google.Protobuf/3.17.0": {
-      "sha512": "iyZfmz69cqbRRjtxfrMRFUPdXZHPKD6Nn33ABcfsE36YfEsG91s3UXBAYTuF7Mw8Y1VAd78gOyGRUQIjcQyaIw==",
+    "Google.Protobuf/3.17.2": {
+      "sha512": "cBZFASJ3kdJ8gqN1i99gtDTF4JLaU2RtWv+SRYuaLqRnCoeoHh7S/OYnSJCNowi3wXxPf5B0YsgvT06ELk9zvg==",
       "type": "package",
-      "path": "google.protobuf/3.17.0",
+      "path": "google.protobuf/3.17.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.17.0.nupkg.sha512",
+        "google.protobuf.3.17.2.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -398,10 +398,10 @@
         "packageIcon.png"
       ]
     },
-    "Grpc.Tools/2.37.1": {
-      "sha512": "3ePtAWBOXx+UR4JGp3PVxOFo2UP4IvjHOzrjgXCv5Qwgk6Lu4QH9DsKrr17xQyPJcaKMSu/P64mPWlEM8VkIeQ==",
+    "Grpc.Tools/2.38.0": {
+      "sha512": "jeaD9UGnuthwSclhoazNXsBBLkJVS7O1VNOTRZUUyWTTiwf26qdCX45eVMrGt7tqBFZTFOEqWFGQ8sf1HTxB0Q==",
       "type": "package",
-      "path": "grpc.tools/2.37.1",
+      "path": "grpc.tools/2.38.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -430,7 +430,7 @@
         "build/native/include/google/protobuf/timestamp.proto",
         "build/native/include/google/protobuf/type.proto",
         "build/native/include/google/protobuf/wrappers.proto",
-        "grpc.tools.2.37.1.nupkg.sha512",
+        "grpc.tools.2.38.0.nupkg.sha512",
         "grpc.tools.nuspec",
         "tools/linux_arm64/grpc_csharp_plugin",
         "tools/linux_arm64/protoc",
@@ -628,9 +628,9 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Google.Protobuf >= 3.17.0",
+      "Google.Protobuf >= 3.17.2",
       "Grpc.AspNetCore >= 2.37.0",
-      "Grpc.Tools >= 2.37.1"
+      "Grpc.Tools >= 2.38.0"
     ]
   },
   "packageFolders": {
@@ -679,7 +679,7 @@
         "dependencies": {
           "Google.Protobuf": {
             "target": "Package",
-            "version": "[3.17.0, )"
+            "version": "[3.17.2, )"
           },
           "Grpc.AspNetCore": {
             "target": "Package",
@@ -689,7 +689,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.37.1, )"
+            "version": "[2.38.0, )"
           }
         },
         "imports": [
@@ -707,7 +707,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

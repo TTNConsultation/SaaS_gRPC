@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "Google.Protobuf/3.17.0": {
+      "Google.Protobuf/3.17.2": {
         "type": "package",
         "compile": {
           "lib/net5.0/Google.Protobuf.dll": {}
@@ -115,7 +115,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/2.1.2": {
+      "Microsoft.Data.SqlClient/2.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient.SNI.runtime": "2.1.1",
@@ -610,7 +610,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Google.Protobuf": "3.17.0",
+          "Google.Protobuf": "3.17.2",
           "Grpc.AspNetCore": "2.37.0"
         },
         "compile": {
@@ -623,14 +623,14 @@
     }
   },
   "libraries": {
-    "Google.Protobuf/3.17.0": {
-      "sha512": "iyZfmz69cqbRRjtxfrMRFUPdXZHPKD6Nn33ABcfsE36YfEsG91s3UXBAYTuF7Mw8Y1VAd78gOyGRUQIjcQyaIw==",
+    "Google.Protobuf/3.17.2": {
+      "sha512": "cBZFASJ3kdJ8gqN1i99gtDTF4JLaU2RtWv+SRYuaLqRnCoeoHh7S/OYnSJCNowi3wXxPf5B0YsgvT06ELk9zvg==",
       "type": "package",
-      "path": "google.protobuf/3.17.0",
+      "path": "google.protobuf/3.17.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.17.0.nupkg.sha512",
+        "google.protobuf.3.17.2.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -847,10 +847,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/2.1.2": {
-      "sha512": "FCR+H1Fs4908IZMBhCBiWbyqc7vTABkF2EF9S/TViCtE6Di0XN+WcKInWOVCfh5qLOQXswHD1b5A4i1d92ubgw==",
+    "Microsoft.Data.SqlClient/2.1.3": {
+      "sha512": "5x9TVpxSvMk5zyo5nSmBmSprBcSlmcxYUFainvFU0opak9t3AHYWYszOWWiEz9MynAwFNH8IhsBYHKSTgMUthg==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/2.1.2",
+      "path": "microsoft.data.sqlclient/2.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -880,7 +880,7 @@
         "lib/netstandard2.1/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.pdb",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.2.1.2.nupkg.sha512",
+        "microsoft.data.sqlclient.2.1.3.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net46/Microsoft.Data.SqlClient.dll",
         "ref/net46/Microsoft.Data.SqlClient.pdb",
@@ -1783,7 +1783,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Microsoft.Data.SqlClient >= 2.1.2",
+      "Microsoft.Data.SqlClient >= 2.1.3",
       "Protos >= 1.0.0"
     ]
   },
@@ -1837,7 +1837,7 @@
         "dependencies": {
           "Microsoft.Data.SqlClient": {
             "target": "Package",
-            "version": "[2.1.2, )"
+            "version": "[2.1.3, )"
           }
         },
         "imports": [
@@ -1855,7 +1855,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
